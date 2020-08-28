@@ -1,0 +1,80 @@
+% Margins ------------------------------------------
+\usepackage[margin=1.5in]{geometry}
+
+% Line Spacing -------------------------------------
+\renewcommand{\baselinestretch}{1.5}
+
+% Font ---------------------------------------------
+\usepackage[libertine]{newtxmath}
+
+% Remove annoying over-full box warnings -----------
+\vfuzz2pt 
+\hfuzz2pt
+
+% xcolor and define colors -------------------------
+\usepackage{xcolor}
+\definecolor{blue}{RGB}{0,114,178}
+\definecolor{red}{HTML}{EB0E09}
+\definecolor{yellow}{RGB}{240,228,66}
+\definecolor{green}{RGB}{0,158,115}
+\definecolor{maroon}{HTML}{AF3335}
+\definecolor{dark-maroon}{HTML}{5D0F0D}
+\definecolor{purple}{HTML}{7E90B8}
+
+% CU Boulder colors
+\definecolor{buff-gold}{HTML}{CFB87C}
+\definecolor{buff-grey}{HTML}{565A5C}
+\definecolor{buff-lightgrey}{HTML}{A2A4A3}
+\definecolor{buff-black}{HTML}{000000}
+
+% Hyperlinks ---------------------------------------
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks= true,
+    citecolor= dark-maroon,
+    linkcolor= dark-maroon,
+    filecolor= dark-maroon,      
+    urlcolor= dark-maroon,
+}
+
+% Enumerate/Itemize --------------------------------
+\usepackage{enumitem}
+\setlist[itemize]{label= \textbullet}
+
+% Section and Subsection Styling -------------------
+\usepackage{titlesec}
+
+\titleformat{\section}
+  {\normalfont \bf \centering}
+  {\thesection}
+  {1em}
+  {\MakeUppercase}
+  
+\titleformat{\subsection}
+  {\fontsize{11}{10}\it}
+  {\thesubsection}
+  {1em}
+  {}
+
+% Better Abstract ----------------------------------
+\renewenvironment{abstract}
+{
+  \centerline
+  {\large \bfseries \scshape Abstract}
+  \begin{quote}
+}
+{
+  \end{quote}
+}
+
+% AMS ----------------------------------------------
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+
+% Define Theorems ----------------------------------
+% note, theorem is the name that goes in \begin{} and Theorem is the name displayed as Theorem 1
+\newtheorem{theorem}{Theorem}
+
+
+% --------------------------------------------------

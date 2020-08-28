@@ -1,0 +1,120 @@
+\documentclass[11pt]{article}
+
+\title{Title}
+% \subtitle{Subtitle}
+\date{\today}
+\author{Kyle Butts}
+% \institue{}
+
+\input{preamble.tex}
+
+
+% Set-up Bibliography ------------------------------
+\usepackage[
+    citestyle= authoryear,
+    style= authoryear, 
+    natbib= true, 
+    backend= biber
+]{biblatex}
+\addbibresource{references.bib}
+
+\begin{document}
+
+% --------------------------------------------------
+% Title Page ---------------------------------------
+\maketitle
+\begin{abstract}
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+\end{abstract}
+
+\newpage
+
+% --------------------------------------------------
+% Paper --------------------------------------------
+\section{Introduction}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\footnote{This is a test.}
+
+See below for Theorem \ref{residue_thm}, for the regression specification Equation \ref{fe_reg}, and for Table \ref{summ_stat} \citep{Eigen1971}. 
+
+\section{Econometric Model}
+
+\subsection{Principal Specification}
+
+\begin{theorem}[Example Theorem]\label{residue_thm}
+    This is an example theorem \[ 
+        y = f(X) + \varepsilon 
+    \]
+\end{theorem}
+
+\begin{equation}\label{fe_reg}
+    y = f(X) + \varepsilon = X \beta + \psi_i + \nu_t + \varepsilon_{i,t} 
+\end{equation}
+
+
+\begin{table}[tp] \centering 
+\caption{Summary Statistics}
+\label{summ_stat}
+    \begin{tabular}{@{\extracolsep{5pt}}lccccccc} 
+    \hline 
+    \hline \\[-1.8ex] 
+    Statistic & \multicolumn{1}{c}{N} & \multicolumn{1}{c}{Mean} & \multicolumn{1}{c}{St. Dev.} & \multicolumn{1}{c}{Min} & \multicolumn{1}{c}{Pctl(25)} & \multicolumn{1}{c}{Pctl(75)} & \multicolumn{1}{c}{Max} \\ 
+    \hline \\[-1.8ex] 
+    rating & 30 & 64.633 & 12.173 & 40 & 58.8 & 71.8 & 85 \\ 
+    complaints & 30 & 66.600 & 13.315 & 37 & 58.5 & 77 & 90 \\ 
+    privileges & 30 & 53.133 & 12.235 & 30 & 45 & 62.5 & 83 \\ 
+    learning & 30 & 56.367 & 11.737 & 34 & 47 & 66.8 & 75 \\ 
+    raises & 30 & 64.633 & 10.397 & 43 & 58.2 & 71 & 88 \\ 
+    critical & 30 & 74.767 & 9.895 & 49 & 69.2 & 80 & 92 \\ 
+    advance & 30 & 42.933 & 10.289 & 25 & 35 & 47.8 & 72 \\ 
+    \hline \\[-1.8ex] 
+    \end{tabular} 
+    
+    \textit{Notes:} Using R base dataframe attitude \\ 
+\end{table} 
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
+
+
+
+\begin{table}[tb] \centering 
+    \caption{Regression Results} 
+    \label{reg1}
+    
+    \begin{tabular}{@{\extracolsep{5pt}}lcc} 
+    \hline 
+    \hline \\[-1.8ex] 
+    & \multicolumn{2}{c}{\textit{Dependent variable: Overall Rating}} \\ 
+    \cline{2-3} 
+    \\[-1.8ex] & (1) & (2)\\ 
+    \hline \\[-1.8ex] 
+    Handling of Complaints & 0.692$^{***}$ (0.149) & 0.682$^{***}$ (0.129) \\ 
+    No Special Privileges & $-$0.104 (0.135) & $-$0.103 (0.129) \\ 
+    Opportunity to Learn & 0.249 (0.160) & 0.238$^{*}$ (0.139) \\ 
+    Performance-Based Raises & $-$0.033 (0.202) &  \\ 
+    Too Critical & 0.015 (0.147) &  \\ 
+    Advancement & 11.011 (11.704) & 11.258 (7.318) \\ 
+    \hline \\[-1.8ex] 
+    Observations & 30 & 30 \\ 
+    R$^{2}$ & 0.715 & 0.715 \\ 
+    Adjusted R$^{2}$ & 0.656 & 0.682 \\ 
+    \hline 
+    \hline \\[-1.8ex] 
+    \textit{Note:}  & \multicolumn{2}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+    \end{tabular} 
+\end{table}
+
+
+% --------------------------------------------------
+% Bibliography -------------------------------------
+\newpage~\newpage
+\printbibliography
+
+
+
+
+\end{document}

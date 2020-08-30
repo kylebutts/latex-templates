@@ -1,4 +1,4 @@
-\documentclass{beamer}
+\documentclass[aspectratio=43]{beamer}
 % Metropolis Theme ---------------------------------
 \usetheme{metropolis} % Use metropolis theme
 
@@ -16,7 +16,9 @@
 \begin{document}
 \maketitle
 
-\begin{frame}{Bullet Points}\label{main1}
+\section{Common Items}
+
+\begin{frame}{Bullet Points \& Button}\label{main1}
     \begin{itemize}
         \item Can emphasize with \alert{the alert command}
         
@@ -26,8 +28,15 @@
     \end{itemize}
 \end{frame}
 
+\begin{frame}{Blocks}
+    \begin{block}{Regression Specification}
+        \[
+            y_{it} = X_{it} \beta + \mu_i + \varepsilon_{it}
+        \]
+    \end{block}
+\end{frame}
 
-
+\section{Table}
 
 \begin{frame}{Table}
     
@@ -64,6 +73,8 @@
     
 \end{frame}
 
+\section{Figures}
+
 % Use 16:9 ratio for figures
 \begin{frame}{Figure}
     \begin{center}
@@ -93,7 +104,6 @@
 \end{frame}
 
 
-
 \begin{frame}{Two Columns general}
     \begin{columns}[T] % T = vertical align columns at the top
     \begin{column}{.50\textwidth}
@@ -112,8 +122,6 @@
 
 
 %%% Appendix
-\section{Appendix}
-
 \begin{frame}{Appendix Slide}\label{appendix1}
 
     % Adjust Font Size to make table fit

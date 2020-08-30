@@ -29,6 +29,8 @@
 % Button 
 \setbeamercolor{button}{bg= buff-gold}
 
+% Block
+\metroset{block=fill}
 
 % Enumitem ------------------------------------------
 % Allow to remove indent w/ \begin{itemize}[leftmargin= *]
@@ -51,3 +53,8 @@
         \includegraphics[keepaspectratio, width=\paperwidth,
         height=\paperheight]{#1}};\end{tikzpicture}\end{frame}%
 }
+
+% Table of Contents with Sections
+\setbeamerfont{myTOC}{series=\bfseries, size=\Large}
+\AtBeginSection[]{\frame{\frametitle{Outline}%
+                  \usebeamerfont{myTOC}\tableofcontents[current]}}

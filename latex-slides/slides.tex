@@ -10,49 +10,7 @@
 \author{Kyle Butts}
 % \institue{}
 
-% xcolor and define colors -------------------------
-\usepackage{xcolor}
-\definecolor{blue}{RGB}{0,114,178}
-\definecolor{red}{HTML}{EB0E09}
-\definecolor{yellow}{RGB}{240,228,66}
-\definecolor{green}{RGB}{0,158,115}
-\definecolor{maroon}{HTML}{AF3335}
-\definecolor{purple}{HTML}{7E90B8}
-
-% CU Boulder colors ---------------------------------
-\definecolor{buff-gold}{HTML}{CFB87C}
-\definecolor{buff-grey}{HTML}{565A5C}
-\definecolor{buff-lightgrey}{HTML}{A2A4A3}
-\definecolor{buff-black}{HTML}{000000}
-
-% Beamer Options -------------------------------------
-
-% Background
-\definecolor{mybackground}{HTML}{ECECEC}
-\setbeamercolor{background canvas}{bg= mybackground}
-
-% \alert
-\setbeamercolor{alerted text}{fg= buff-gold!80!black}
-
-% Frame title
-\setbeamercolor{frametitle}{bg= buff-black}
-\setbeamercolor{title}{fg= buff-grey}
-
-% Button 
-\setbeamercolor{button}{bg= buff-gold}
-
-
-% Enumitem ------------------------------------------
-% Allow to remove indent w/ \begin{itemize}[leftmargin= *]
-\usepackage{enumitem}
-\setlist[itemize]{label= \textbullet}
-
-% \begin{columns} -----------------------------------
-\usepackage{multicol}
-
-% Math Font -----------------------------------------
-\usepackage[libertine]{newtxmath}
-
+\input{preamble.tex}
 
 % ---------------------------------------------------
 \begin{document}
@@ -109,14 +67,17 @@
 % Use 16:9 ratio for figures
 \begin{frame}{Figure}
     \begin{center}
-        % \includegraphics[width= .95\linewidth]{fig1.png}
+        \includegraphics[width= .95\linewidth]{img/kanagawa.jpg}
     \end{center}
 \end{frame}
+
+% 4:3 ratio or else it will have white space
+\imageframe{img/kanagawa.jpg}
 
 \begin{frame}{Figure with comments}
     \begin{columns}[T] % align columns
     \begin{column}{.62\textwidth}
-        % \includegraphics[width= \linewidth]{fig2.png}
+        \includegraphics[width= \linewidth]{img/kanagawa.jpg}
     \end{column}%
 
     \begin{column}{.38\textwidth}

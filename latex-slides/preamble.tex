@@ -1,0 +1,53 @@
+% xcolor and define colors -------------------------
+\usepackage{xcolor}
+\definecolor{blue}{RGB}{0,114,178}
+\definecolor{red}{HTML}{EB0E09}
+\definecolor{yellow}{RGB}{240,228,66}
+\definecolor{green}{RGB}{0,158,115}
+\definecolor{maroon}{HTML}{AF3335}
+\definecolor{purple}{HTML}{7E90B8}
+
+% CU Boulder colors ---------------------------------
+\definecolor{buff-gold}{HTML}{CFB87C}
+\definecolor{buff-grey}{HTML}{565A5C}
+\definecolor{buff-lightgrey}{HTML}{A2A4A3}
+\definecolor{buff-black}{HTML}{000000}
+
+% Beamer Options -------------------------------------
+
+% Background
+\definecolor{mybackground}{HTML}{ECECEC}
+\setbeamercolor{background canvas}{bg= mybackground}
+
+% \alert
+\setbeamercolor{alerted text}{fg= buff-gold!80!black}
+
+% Frame title
+\setbeamercolor{frametitle}{bg= buff-black}
+\setbeamercolor{title}{fg= buff-grey}
+
+% Button 
+\setbeamercolor{button}{bg= buff-gold}
+
+
+% Enumitem ------------------------------------------
+% Allow to remove indent w/ \begin{itemize}[leftmargin= *]
+\usepackage{enumitem}
+\setlist[itemize]{label= \textbullet}
+
+% \begin{columns} -----------------------------------
+\usepackage{multicol}
+
+% Math Font -----------------------------------------
+\usepackage[libertine]{newtxmath}
+
+
+% \imageframe{img_name} -----------------------------
+% from https://github.com/mattblackwell/cousteau
+\newcommand{\imageframe}[1]{%
+  \begin{frame}[plain]
+    \begin{tikzpicture}[remember picture, overlay]
+      \node[at = (current page.center), xshift = 0cm] (cover) {%
+        \includegraphics[keepaspectratio, width=\paperwidth,
+        height=\paperheight]{#1}};\end{tikzpicture}\end{frame}%
+}

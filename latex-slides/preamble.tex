@@ -47,11 +47,13 @@
 % \imageframe{img_name} -----------------------------
 % from https://github.com/mattblackwell/cousteau
 \newcommand{\imageframe}[1]{%
-  \begin{frame}[plain]
-    \begin{tikzpicture}[remember picture, overlay]
-      \node[at = (current page.center), xshift = 0cm] (cover) {%
-        \includegraphics[keepaspectratio, width=\paperwidth,
-        height=\paperheight]{#1}};\end{tikzpicture}\end{frame}%
+    \begin{frame}[plain]
+        \begin{tikzpicture}[remember picture, overlay]
+            \node[at = (current page.center), xshift = 0cm] (cover) {%
+                \includegraphics[keepaspectratio, width=\paperwidth, height=\paperheight]{#1}
+            };
+        \end{tikzpicture}
+    \end{frame}%
 }
 
 % Table of Contents with Sections

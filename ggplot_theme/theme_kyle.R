@@ -12,13 +12,14 @@ if(!require("showtext")) {
 #' @param title_pos either "center" or "left" to align title and subtitle center of left respectively
 #' @param axis_title_pos either "center" or "left" to align title and subtitle center or left/top respectively
 #' @param slides if TRUE, use background #ECECEC or not
-theme_kyle <- function(title_pos = "center", axis_title_pos = "left", slides = FALSE, ...) {
+theme_kyle <- function(title_pos = "center", axis_title_pos = "left", slides = FALSE, has_subtitle = FALSE, ...) {
 	
 	title_hjust <- switch(title_pos, "center" = 0.5, "left" = 0)
-	axis_title_hjust_y <- switch(axis_title_pos, "center" = 0.5, "left" = 0.95)
-	axis_title_hjust_x <- switch(axis_title_pos, "center" = 0.5, "left" = 0)
+	axis_title_hjust_y <- switch(axis_title_pos, "center" = 0.5, "left" = 1.0)
+	axis_title_hjust_x <- switch(axis_title_pos, "center" = 0.5, "left" = 0.0)
 	plot_bg = if_else(slides, "#ECECEC", "transparent")
 	plot_grid = if_else(slides, "grey85", "grey92")
+	title_margin = if_else(has_subtitle, "4", "16")
 	
 	theme_bw(
 		base_size = 14,
@@ -33,7 +34,7 @@ theme_kyle <- function(title_pos = "center", axis_title_pos = "left", slides = F
 			# Center title
 			hjust = title_hjust,
 			# Margins
-			margin = ggplot2::margin(b = 10)
+			margin = ggplot2::margin(b = title_margin, unit = "pt")
 		),
 		plot.subtitle = ggplot2::element_text(
 			# Font
@@ -42,7 +43,7 @@ theme_kyle <- function(title_pos = "center", axis_title_pos = "left", slides = F
 			# Center subtitle 
 			hjust = title_hjust,
 			# Margins
-			margin = ggplot2::margin(b = 5)
+			margin = ggplot2::margin(b = 16, unit = "pt")
 		),
 		plot.title.position = "plot",
 		
@@ -61,7 +62,7 @@ theme_kyle <- function(title_pos = "center", axis_title_pos = "left", slides = F
 		# Axis title
 		axis.title = ggplot2::element_text(
 			# Font
-			size = 13, colour = "#454545", face = "italic"
+			size = 12, colour = "#454545", face = "italic"
 		),
 		# Axis Title x/y
 		axis.title.y = ggplot2::element_text(
@@ -132,16 +133,17 @@ theme_kyle <- function(title_pos = "center", axis_title_pos = "left", slides = F
 			# No Background Colour
 			colour = NA
 		),
-		panel.spacing = grid::unit(10, "points"),
+		panel.spacing = grid::unit(8, "points"),
 		
 		## Plot ----------------------------------------------------------------
 		plot.background = ggplot2::element_rect(
 			# No Background Colour
 			fill = plot_bg, colour = NA
 		),
-		plot.margin = ggplot2::margin(15,15,15,15),
-		
-		## Additional options passed by user -----------------------------------
+		plot.margin = ggplot2::margin(16, 16, 16, 16, unit = "pt")
+	) +
+	## Additional options passed by user ---------------------------------------
+	theme(
 		...
 	)
 }

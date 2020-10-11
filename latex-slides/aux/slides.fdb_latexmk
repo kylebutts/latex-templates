@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1598747092 "/Users/kylebutts/Documents/templates/latex-slides/slides.tex" "/Users/kylebutts/Documents/templates/latex-slides/aux/slides.pdf" "slides" 1598747098
+["pdflatex"] 1598747092 "/Users/kylebutts/Documents/templates/latex-slides/slides.tex" "/Users/kylebutts/Documents/templates/latex-slides/aux/slides.pdf" "slides" 1598747237
   "/Users/kylebutts/Documents/templates/latex-slides/aux/slides.aux" 1598747093 3702 5f2ced5bdc6da8f824aa369cc91782fc ""
   "/Users/kylebutts/Documents/templates/latex-slides/slides.tex" 1598747097 4809 c714d037b7d9a04b5a8e16f5cdfe83cc ""
   "/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
@@ -267,12 +267,12 @@
   "preamble.tex" 1598746903 1845 84a6b19d74490f33af2f747fd56297db ""
   "slides.tex" 1598747097 4809 c714d037b7d9a04b5a8e16f5cdfe83cc ""
   (generated)
-  "aux/slides.out"
-  "aux/slides.toc"
-  "/Users/kylebutts/Documents/templates/latex-slides/aux/slides.log"
   "aux/slides.snm"
-  "aux/slides.aux"
+  "aux/slides.out"
+  "aux/slides.log"
+  "aux/slides.toc"
   "aux/slides.pdf"
   "aux/slides.nav"
+  "aux/slides.aux"
+  "/Users/kylebutts/Documents/templates/latex-slides/aux/slides.log"
   "/Users/kylebutts/Documents/templates/latex-slides/aux/slides.pdf"
-  "aux/slides.log"

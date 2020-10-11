@@ -1,0 +1,57 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.1 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nyt/global//global/global}
+    \entry{Eigen1971}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=fc78f28e4b0f1b53c7ee44b5c6926c82}{%
+           family={Eigen},
+           familyi={E\bibinitperiod},
+           given={Manfred},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{fc78f28e4b0f1b53c7ee44b5c6926c82}
+      \strng{fullhash}{fc78f28e4b0f1b53c7ee44b5c6926c82}
+      \strng{bibnamehash}{fc78f28e4b0f1b53c7ee44b5c6926c82}
+      \strng{authorbibnamehash}{fc78f28e4b0f1b53c7ee44b5c6926c82}
+      \strng{authornamehash}{fc78f28e4b0f1b53c7ee44b5c6926c82}
+      \strng{authorfullhash}{fc78f28e4b0f1b53c7ee44b5c6926c82}
+      \field{sortinit}{E}
+      \field{sortinithash}{c554bd1a0b76ea92b9f105fe36d9c7b0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Naturwissenschaften}
+      \field{number}{10}
+      \field{title}{Selforganization of matter and the evolution of biological macromolecules}
+      \field{volume}{58}
+      \field{year}{1971}
+      \field{pages}{465\bibrangedash 523}
+      \range{pages}{59}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

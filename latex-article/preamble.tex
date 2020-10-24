@@ -5,6 +5,8 @@
 \renewcommand{\baselinestretch}{1.5}
 
 % Font ---------------------------------------------
+% \usepackage{libertine}
+\usepackage{utopia}
 \usepackage[libertine]{newtxmath}
 
 % Remove annoying over-full box warnings -----------
@@ -23,6 +25,10 @@
 \definecolor{dark-maroon}{HTML}{5D0F0D}
 \definecolor{teal}{HTML}{00695c}
 \definecolor{bluegrey}{HTML}{455a64}
+\definecolor{indigo}{HTML}{1A237E}
+\definecolor{navyblue}{HTML}{0A3044}
+\definecolor{bluegreen}{HTML}{4A8676}
+\definecolor{Black}{HTML}{000000}
 
 % CU Boulder colors
 \definecolor{buff-gold}{HTML}{CFB87C}
@@ -48,7 +54,7 @@
 \usepackage{titlesec}
 
 \titleformat{\section}
-  {\normalfont \bf}
+  {\Large \bf \color{navyblue}}
   {\thesection.}
   {1em}
   {}
@@ -63,7 +69,7 @@
 \renewenvironment{abstract}
 {
   \centerline
-  {\large \bfseries \scshape Abstract}
+  {\large \bfseries \scshape \color{navyblue} Abstract}
   \begin{quote}
 }
 {

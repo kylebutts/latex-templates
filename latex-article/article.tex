@@ -57,11 +57,13 @@ See below for Theorem \ref{residue_thm}, for the regression specification Equati
 
 
 \begin{table}[ht]
-    \caption{Column Width Resize Box Table}
+    \caption{Table Too Wide (adjustbox)}
     \centering
 
     \begin{adjustbox}{width = 1.2\textwidth, center}
-        \begin{tabular}{@{\extracolsep{5pt}}lrrrrrrrr}
+        \begin{tabular}{@{} @{\extracolsep{5pt}} 
+                lrrrrrrrr 
+            @{}}
             % Head
             \hline 
             & & & \multicolumn{2}{c}{Market Access} & \multicolumn{2}{c}{Urban Weekly Wage} & \multicolumn{2}{c}{Nonurban Weekly Wage} \\
@@ -73,8 +75,8 @@ See below for Theorem \ref{residue_thm}, for the regression specification Equati
             \input{summary.tex}
 
             % Notes 
-            \hline
-            \multicolumn{9}{p{.8\textwidth}}{\textit{Notes.} Weekly wage is reported in 2015 \$.}
+            \hline \hline \\[-5mm]
+            \multicolumn{9}{p{.8\textwidth}}{\hspace{.1\textwidth}\textit{Notes.} Weekly wage is reported in 2015 \$.}
         \end{tabular}
     \end{adjustbox}
 \end{table}
@@ -86,11 +88,13 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 
 \begin{table}[tb] 
-    \caption{Summary Statistics}
+    \caption{Summary Statistics (tabularx)}
     \label{summ_stat}
 
     \begin{adjustbox}{center}
-        \begin{tabular}{@{\extracolsep{10pt}}lrrr} 
+        \begin{tabularx}{\textwidth}{@{} 
+                >{\hsize=.8\hsize}L R R >{\hsize=.7\hsize}R 
+            @{}}
             % Head
             \hline \hline
             & \multicolumn{2}{c}{\textbf{Population}} & \\
@@ -111,9 +115,10 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
             Mexico & 127,540,423 & 129,163,276 & +1.3\% \\
             
             % Notes
-            \hline \hline
-            \multicolumn{4}{p{.6\textwidth}}{\textit{Source.} \href{https://en.wikipedia.org/wiki/List_of_countries_by_population_(United_Nations)}{Wikipedia}.}
-        \end{tabular} 
+            \hline \hline \\[-5mm]
+            \multicolumn{4}{@{} L}{\small\textit{Source.} \href{https://en.wikipedia.org/wiki/List_of_countries_by_population_(United_Nations)}{Wikipedia}.}
+
+        \end{tabularx}
     \end{adjustbox}
 \end{table} 
 
@@ -125,11 +130,13 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 
 \begin{table}[tb] 
-    \caption{Regression Results} 
+    \caption{Regression Results (Custom tabularx widths)} 
     \label{reg1}
 
     \begin{adjustbox}{center}
-        \begin{tabular}{@{\extracolsep{15pt}}lcc} 
+        \begin{tabularx}{\textwidth}{@{} 
+                >{\hsize=.6\hsize}L >{\hsize=.4\hsize}R >{\hsize=.4\hsize}R 
+            @{}} 
             % Head
             \hline \hline
             & \multicolumn{2}{c}{\textit{Dependent variable:} \ Overall Rating} \\ 
@@ -149,10 +156,10 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
             Adjusted R$^{2}$ & 0.656 & 0.682 \\ 
             
             % Notes
-            \hline \hline
-            \multicolumn{3}{p{.8\textwidth}}{\textit{Notes.} $^{*}$ p$< 0.1$; $^{**}$ p$< 0.05$; $^{***}$ p$< 0.01$} \\ 
-            \multicolumn{3}{p{.8\textwidth}}{Using R base dataframe attitude.} 
-        \end{tabular} 
+            \hline \hline \\[-5mm]
+            \multicolumn{3}{@{} p{\textwidth}}{\small \textit{Notes.} $^{*}$ p$< 0.1$; $^{**}$ p$< 0.05$; $^{***}$ p$< 0.01$} \\ 
+            \multicolumn{3}{@{} p{\textwidth}}{\small Using R base dataframe attitude. dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. } 
+        \end{tabularx} 
     \end{adjustbox}
 \end{table}
 

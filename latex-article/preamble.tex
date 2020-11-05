@@ -98,9 +98,20 @@
 \captionsetup[table]{format=plain,labelsep= threesdash}
 \captionsetup[figure]{format=plain, labelsep= period}
 
-% For tables resized to text width (also can do 1.2\textwidth)
-% \begin{adjustbox}{width=\textwidth, center}
+
+% Tables -------------------------------------------
+
+% Tables too big
+% \begin{adjustbox}{width = 1.2\textwidth, center}
 \usepackage{adjustbox}
+
+% Tables too narrow
+% \begin{tabularx}{\linewidth}{cols}
+% col-types: X - center, L - left, R -right
+% Relative scale: >{\hsize=.8\hsize}X/L/R
+\usepackage{tabularx}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
 
 
 % Define Theorems ----------------------------------

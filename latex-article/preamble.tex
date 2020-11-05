@@ -5,16 +5,22 @@
 \renewcommand{\baselinestretch}{1.5}
 
 % Font ---------------------------------------------
-% \usepackage{libertine}
+
 \usepackage{utopia}
-\usepackage[libertine]{newtxmath}
+\usepackage[utopia, smallerops, varg]{newtxmath}
+% \usepackage{cabin}
+% \usepackage[libertine]{newtxmath}
+
+% Small adjustments to text kerning
+\usepackage{microtype}
 
 % Remove annoying over-full box warnings -----------
 \vfuzz2pt 
 \hfuzz2pt
 
-% xcolor and define colors -------------------------
+% Color Palette ------------------------------------
 \usepackage{xcolor}
+
 % https://www.materialpalette.com/colors
 \definecolor{red}{HTML}{c62828}
 \definecolor{orange}{HTML}{ef6c00}

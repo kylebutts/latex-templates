@@ -12,4 +12,9 @@
 *.cb
 *.cb2
 .*.lb
-
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.run.xml
+*.synctex.gz

@@ -8,7 +8,6 @@
 
 \input{preamble.tex}
 
-
 % Set-up Bibliography ------------------------------
 \usepackage[
     citestyle= authoryear,
@@ -33,7 +32,7 @@
 % Paper --------------------------------------------
 \section{Introduction}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\footnote{This is a test.}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur: $\sum X_i$. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\footnote{This is a test.}
 
 See below for Theorem \ref{residue_thm}, for the regression specification Equation \ref{fe_reg}, and for Table \ref{summ_stat} \citep{Eigen1971}. 
 
@@ -48,103 +47,113 @@ See below for Theorem \ref{residue_thm}, for the regression specification Equati
 \end{theorem}
 
 \begin{equation}\label{fe_reg}
-    y = f(X) + \varepsilon = X \beta + \psi_i + \nu_t + \varepsilon_{i,t} 
+    y = f(X) + \varepsilon = X \beta + \psi_i + \nu_t + w_{i,t} + \varepsilon_{i,t} 
 \end{equation}
 
+\[ 
+    \mathbb{E} \left\{ Y_i(1) - Y_i(0) \right\} = \mathbb{P} (\tau \vert D_i = 1) 
+\]
 
-\begin{table}
+
+
+\begin{table}[ht]
     \caption{Column Width Resize Box Table}
     \centering
 
-    \begin{center}
-    \resizebox{\columnwidth}{!}{
-        \begin{tabular}{@{\extracolsep{5pt}}lcccccccc}
+    \begin{adjustbox}{width = 1.2\textwidth, center}
+        \begin{tabular}{@{\extracolsep{5pt}}lrrrrrrrr}
+            % Head
             \hline 
             & & & \multicolumn{2}{c}{Market Access} & \multicolumn{2}{c}{Urban Weekly Wage} & \multicolumn{2}{c}{Nonurban Weekly Wage} \\
             \cline{4-5} \cline{6-7} \cline{8-9}
-            Year & N & \% Urban & Mean & SD & Mean & SD & Mean & SD \\ \hline 
+            Year & \multicolumn{1}{c}{N} & \% Urban & Mean & SD & Mean & SD & Mean & SD \\ 
+            \hline 
 
-            % \input{summary.tex}
+            % Body
+            \input{summary.tex}
 
-            1940 & 16,875,829 & 0.66 & 10,708.21 & 14,819.55 & 33.22 & 19.66 & 25.23 & 16.56\\
-            1950 & 67,790 & 0.69 & 23,166.06 & 26,600.85 & 70.05 & 32.70 & 58.27 & 29.24\\
-            1960 & 1,338,491 & 0.66 & 40,328.17 & 45,385.47 & 124.11 & 77.55 & 99.37 & 59.01\\
-            1970 & 277,951 & 0.75 & 65,373.07 & 68,048.88 & 205.42 & 137.80 & 165.61 & 104.49\\
-            1980 & 1,907,836 & 0.73 & 73,223.43 & 74,906.62 & 408.83 & 284.44 & 340.82 & 220.68\\
-            1990 & 2,257,874 & 0.68 & 224,312.50 & 168,933.04 & 711.77 & 574.58 & 550.26 & 392.90\\
-            2000 & 2,581,741 & 0.73 & 288,195.77 & 199,100.92 & 1,010.36 & 1,022.77 & 754.10 & 649.57\\
-            2005 & 530,283 & 0.76 & 283,709.53 & 196,293.00 & 1,211.38 & 1,203.62 & 881.47 & 722.94\\
-            2010 & 530,359 & 0.76 & 273,754.31 & 195,220.04 & 1,306.70 & 1,281.34 & 972.40 & 817.94\\
-            2015 & 559,168 & 0.76 & 252,832.47 & 164,905.15 & 1,447.26 & 1,545.33 & 1,080.38 & 1,011.25\\
-
+            % Notes 
             \hline
-
-
             \multicolumn{9}{p{.8\textwidth}}{\textit{Notes.} Weekly wage is reported in 2015 \$.}
         \end{tabular}
-    }
-    \end{center}
+    \end{adjustbox}
 \end{table}
 
-
-
-\begin{table}[tp] 
-    \caption{Summary Statistics}
-    \label{summ_stat}
-    \centering 
-
-    \begin{tabular}{lccccccc} 
-        \hline 
-        \hline \\[-1.8ex] 
-        Statistic & N & Mean & St. Dev. & Min & Pctl(25) & Pctl(75) & Max\\ 
-        \hline \\[-1.8ex] 
-        rating & 30 & 64.633 & 12.173 & 40 & 58.8 & 71.8 & 85 \\ 
-        complaints & 30 & 66.600 & 13.315 & 37 & 58.5 & 77 & 90 \\ 
-        privileges & 30 & 53.133 & 12.235 & 30 & 45 & 62.5 & 83 \\ 
-        learning & 30 & 56.367 & 11.737 & 34 & 47 & 66.8 & 75 \\ 
-        raises & 30 & 64.633 & 10.397 & 43 & 58.2 & 71 & 88 \\ 
-        critical & 30 & 74.767 & 9.895 & 49 & 69.2 & 80 & 92 \\ 
-        advance & 30 & 42.933 & 10.289 & 25 & 35 & 47.8 & 72 \\ 
-        \hline \\[-1.8ex] 
-    \end{tabular} 
-    
-    \textit{Notes:} Using R base dataframe attitude \\ 
-\end{table} 
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
+
+\begin{table}[tb] 
+    \caption{Summary Statistics}
+    \label{summ_stat}
+
+    \begin{adjustbox}{center}
+        \begin{tabular}{@{\extracolsep{10pt}}lrrr} 
+            % Head
+            \hline \hline
+            & \multicolumn{2}{c}{\textbf{Population}} & \\
+            \cline{2-3}
+            \textbf{Country} & 2016 & 2017 & \textbf{Change (\%)} \\
+            
+            % Body
+            \hline
+            China & 1,403,500,365 & 1,409,517,397 & +0.4\% \\
+            India & 1,324,171,354 & 1,339,180,127 & +1.1\% \\
+            United States & 322,179,605 & 324,459,463 & +0.7\% \\
+            Indonesia & 261,115,456 & 263,991,379 & +1.1\% \\
+            Brazil & 207,652,865 & 209,288,278 & +0.8\% \\
+            Pakistan & 193,203,476 & 197,015,955 & +2.0\% \\
+            Nigeria & 185,989,640 & 190,886,311 & +2.6\% \\
+            Bangladesh & 162,951,560 & 164,669,751 & +1.1\% \\
+            Russia & 146,864,513 & 143,989,754 & -2.0\% \\
+            Mexico & 127,540,423 & 129,163,276 & +1.3\% \\
+            
+            % Notes
+            \hline \hline
+            \multicolumn{4}{p{.6\textwidth}}{\textit{Source.} \href{https://en.wikipedia.org/wiki/List_of_countries_by_population_(United_Nations)}{Wikipedia}.}
+        \end{tabular} 
+    \end{adjustbox}
+\end{table} 
+
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
 
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
 
 
 \begin{table}[tb] 
     \caption{Regression Results} 
     \label{reg1}
-    \centering 
-    
-    \begin{tabular}{@{\extracolsep{5pt}}lcc} 
-    \hline 
-    \hline \\[-1.8ex] 
-    & \multicolumn{2}{c}{\textit{Dependent variable: Overall Rating}} \\ 
-    \cline{2-3} 
-    \\[-1.8ex] & (1) & (2)\\ 
-    \hline \\[-1.8ex] 
-    Handling of Complaints & 0.692$^{***}$ (0.149) & 0.682$^{***}$ (0.129) \\ 
-    No Special Privileges & $-$0.104 (0.135) & $-$0.103 (0.129) \\ 
-    Opportunity to Learn & 0.249 (0.160) & 0.238$^{*}$ (0.139) \\ 
-    Performance-Based Raises & $-$0.033 (0.202) &  \\ 
-    Too Critical & 0.015 (0.147) &  \\ 
-    Advancement & 11.011 (11.704) & 11.258 (7.318) \\ 
-    \hline \\[-1.8ex] 
-    Observations & 30 & 30 \\ 
-    R$^{2}$ & 0.715 & 0.715 \\ 
-    Adjusted R$^{2}$ & 0.656 & 0.682 \\ 
-    \hline 
-    \hline \\[-1.8ex] 
-    \textit{Note:}  & \multicolumn{2}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
-    \end{tabular} 
+
+    \begin{adjustbox}{center}
+        \begin{tabular}{@{\extracolsep{15pt}}lcc} 
+            % Head
+            \hline \hline
+            & \multicolumn{2}{c}{\textit{Dependent variable:} \ Overall Rating} \\ 
+            \cline{2-3} 
+            & (1) & (2) \\ 
+            \hline
+
+            % Body
+            Handling of Complaints & 0.692$^{***}$ (0.149) & 0.682$^{***}$ (0.129) \\ 
+            No Special Privileges & $-$0.104 (0.135) & $-$0.103 (0.129) \\ 
+            Opportunity to Learn & 0.249 (0.160) & 0.238$^{*}$ (0.139) \\ 
+            Performance-Based Raises & $-$0.033 (0.202) &  \\ 
+            Too Critical & 0.015 (0.147) &  \\ 
+            Advancement & 11.011 (11.704) & 11.258 (7.318) \\ 
+            \hline 
+            Observations & 30 & 30 \\ 
+            Adjusted R$^{2}$ & 0.656 & 0.682 \\ 
+            
+            % Notes
+            \hline \hline
+            \multicolumn{3}{p{.8\textwidth}}{\textit{Notes.} $^{*}$ p$< 0.1$; $^{**}$ p$< 0.05$; $^{***}$ p$< 0.01$} \\ 
+            \multicolumn{3}{p{.8\textwidth}}{Using R base dataframe attitude.} 
+        \end{tabular} 
+    \end{adjustbox}
 \end{table}
 
 

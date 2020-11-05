@@ -92,11 +92,16 @@
 
 % Table and Figure labelling -----------------------
 \usepackage{caption}
+
 \DeclareCaptionLabelSeparator{threesdash}{\,---\,}
 \DeclareCaptionLabelSeparator{period}{\,---\,}
 \captionsetup[table]{format=plain,labelsep= threesdash}
 \captionsetup[figure]{format=plain, labelsep= period}
-%
+
+% For tables resized to text width (also can do 1.2\textwidth)
+% \begin{adjustbox}{width=\textwidth, center}
+\usepackage{adjustbox}
+
 
 % Define Theorems ----------------------------------
 % note, theorem is the name that goes in \begin{} and Theorem is the name displayed as Theorem 1

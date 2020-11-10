@@ -19,7 +19,7 @@
 
 \begin{document}
 
-% --------------------------------------------------
+
 % Title Page ---------------------------------------
 \maketitle
 \begin{abstract}
@@ -28,17 +28,24 @@
 
 \newpage
 
-% --------------------------------------------------
+
 % Paper --------------------------------------------
+
+% --------------------------------------------------
 \section{Introduction}
+% --------------------------------------------------
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur: $\sum X_i$. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\footnote{This is a test.}
 
-See below for Theorem \ref{residue_thm}, for the regression specification Equation \ref{fe_reg}, and for Table \ref{summ_stat} \citep{Eigen1971}. 
+See below for Theorem \ref{residue_thm}, for the regression specification Equation \ref{fe_reg}, and for Table \ref{summ_stat}, appendix table \ref{reg1}, and citation \citep{Eigen1971}. 
 
+% --------------------------------------------------
 \section{Econometric Model}
+% --------------------------------------------------
 
+% --------------------------------------------------
 \subsection{Principal Specification}
+% --------------------------------------------------
 
 \begin{theorem}[Example Theorem]\label{residue_thm}
     This is an example theorem \[ 
@@ -130,6 +137,37 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
 
 
+% --------------------------------------------------
+\newpage
+\printbibliography
+% --------------------------------------------------
+
+
+% --------------------------------------------------
+\newpage
+\appendix
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\numberwithin{table}{section}
+\renewcommand{\thefigure}{\Alph{section}\arabic{figure}}
+\renewcommand{\thetable}{\Alph{section}\arabic{table}}
+% --------------------------------------------------
+
+% --------------------------------------------------
+\section{Additional Results}
+% --------------------------------------------------
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
+
+% --------------------------------------------------
+\subsection{Regression Results}
+% --------------------------------------------------
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
+
+
 \begin{table}[tb] 
     \caption{Regression Results (Custom tabularx widths)} 
     \label{reg1}
@@ -138,6 +176,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
         \begin{tabularx}{\textwidth}{@{} 
                 >{\hsize=.6\hsize}L >{\hsize=.4\hsize}R >{\hsize=.4\hsize}R 
             @{}} 
+
             % Head
             \hline \hline
             & \multicolumn{2}{c}{\textit{Dependent variable:} \ Overall Rating} \\ 
@@ -163,14 +202,6 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
         \end{tabularx} 
     \end{adjustbox}
 \end{table}
-
-
-% --------------------------------------------------
-% Bibliography -------------------------------------
-\newpage~\newpage
-\printbibliography
-
-
 
 
 \end{document}

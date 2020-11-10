@@ -58,19 +58,19 @@
 \setlist[itemize]{label= \textbullet}
 
 % Section and Subsection Styling -------------------
-\usepackage{titlesec}
+\usepackage[explicit]{titlesec}
 
 \titleformat{\section}
   {\Large \bf \color{navyblue}}
   {\thesection.}
   {1em}
-  {}
+  {#1}
   
 \titleformat{\subsection}
   {\fontsize{11}{10}\it}
   {\thesubsection.}
   {1em}
-  {}
+  {#1}
 
 % Better Abstract ----------------------------------
 \renewenvironment{abstract}

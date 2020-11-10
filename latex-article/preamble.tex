@@ -72,6 +72,14 @@
   {1em}
   {#1}
 
+% Footnote -----------------------------------------
+% Spacing between footnotes on same page
+\addtolength{\footnotesep}{1mm}
+
+% Space after footnote number
+\let\oldfootnote\footnote
+\renewcommand\footnote[1]{\oldfootnote{\ #1}}
+
 % Better Abstract ----------------------------------
 \renewenvironment{abstract}
 {

@@ -149,17 +149,3 @@ theme_kyle <- function(title_pos = "center", axis_title_pos = "left", slides = F
 		...
 	)
 }
-
-# Colors from nord
-palette_kyle_categorical <- c("#5E81AC", "#BF616A", "#A3BE8C", "#EBCB8B",  "#B48EAD", "#D08770") 
-
-ggplot(data = tibble(id = 1:6, xmin = id, xmax = id + 1, ymin = 0, ymax = 1)) + 
-	geom_rect(aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax, fill = as.factor(id))) +
-	scale_fill_manual(values = palette_kyle_categorical)
-
-# Colors from RColorBrewer
-palette_kyle_oneway <- c("#FEEBE2", "#FCC5C0", "#FA9FB5", "#F768A1", "#DD3497", "#AE017E", "#7A0177")
-
-ggplot(data = tibble(id = 1:6, xmin = id, xmax = id + 1, ymin = 0, ymax = 1)) + 
-	geom_rect(aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax, fill = as.factor(id))) +
-	scale_fill_manual(values = palette_kyle_oneway)

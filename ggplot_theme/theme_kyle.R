@@ -12,7 +12,7 @@ if(!require("showtext")) {
 #' @param title_pos either "center" or "left" to align title and subtitle center of left respectively
 #' @param axis_title_pos either "center" or "left" to align title and subtitle center or left/top respectively
 #' @param slides if TRUE, use background #ECECEC or not
-theme_kyle <- function(title_pos = "center", axis_title_pos = "left", slides = FALSE, has_subtitle = FALSE, ...) {
+theme_kyle <- function(title_pos = "center", axis_title_pos = "left", slides = FALSE, has_subtitle = FALSE, base_size = 14, ...) {
 	
 	title_hjust <- switch(title_pos, "center" = 0.5, "left" = 0)
 	axis_title_hjust_y <- switch(axis_title_pos, "center" = 0.5, "left" = 1.0)
@@ -22,7 +22,7 @@ theme_kyle <- function(title_pos = "center", axis_title_pos = "left", slides = F
 	title_margin = if_else(has_subtitle, "4", "16")
 	
 	theme_bw(
-		base_size = 14,
+		base_size = base_size,
 		base_family = "fira_sans"
 	) + 
 	theme(
@@ -95,7 +95,9 @@ theme_kyle <- function(title_pos = "center", axis_title_pos = "left", slides = F
 		# Legend title
 		legend.title = ggplot2::element_text(
 			# Font
-			size = 12, colour = "#454545"
+			size = 12, colour = "#454545",
+			# Line spacing
+			lineheight = 1.2,
 		),
 		# Legend labels
 		legend.text = ggplot2::element_text(

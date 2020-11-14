@@ -1,7 +1,8 @@
 \documentclass[aspectratio=43]{beamer}
+% \documentclass[aspectratio=169]{beamer}
+
 % Metropolis Theme ---------------------------------
 \usetheme{metropolis} % Use metropolis theme
-
 
 % Title --------------------------------------------
 \title{Title}
@@ -12,11 +13,20 @@
 
 \input{preamble.tex}
 
-% ---------------------------------------------------
-\begin{document}
-\maketitle
+% Set-up Bibliography ------------------------------
+\addbibresource{references.bib}
 
+
+
+\begin{document}
+
+% --------------------------------------------------
+\maketitle
+% --------------------------------------------------
+
+% --------------------------------------------------
 \section{Common Items}
+% --------------------------------------------------
 
 \begin{frame}{Bullet Points \& Button}\label{main1}
     \begin{itemize}
@@ -28,6 +38,18 @@
     \end{itemize}
 \end{frame}
 
+\begin{frame}{Citations}
+    Topic 1: Spatial Frictions
+    \begin{citecolor}
+        [\citet{Fajgelbaum_Morales_Serrato_Zidar_2018}, \citet{Hsieh_Moretti_2019}, and \citet{Moretti_2011}]
+    \end{citecolor}
+
+    Topic 2: Blah 
+    \begin{citecolor}
+        [\citet{Suárez_Serrato_Zidar_2016}]
+    \end{citecolor}
+\end{frame}
+
 \begin{frame}{Blocks}
     \begin{block}{Regression Specification}
         \[
@@ -36,20 +58,22 @@
     \end{block}
 \end{frame}
 
+
+
+% --------------------------------------------------
 \section{Table}
+% --------------------------------------------------
 
 \begin{frame}{Table}
     
-    % Adjust Font Size to make table fit
-    {\fontsize{8}{10}\selectfont 
+    % Adjust Font Size to make table fit   
+    {\fontsize{8}{10}\selectfont
+    \begin{table}[!htbp] \centering 
+        \caption{Regression Results} 
+        \label{}
         
-        \begin{table}[!htbp] \centering 
-            \caption{Regression Results} 
-            \label{}
-            
-            \begin{tabular}{@{\extracolsep{5pt}}lcc} 
-            \hline 
-            \hline \\[-1.8ex] 
+        \begin{tabularx}{\linewidth}{@{} LCC @{}} 
+            \hline \hline \\
             & \multicolumn{2}{c}{\textit{Dependent variable: Overall Rating}} \\ 
             \cline{2-3} 
             \\[-1.8ex] & (1) & (2)\\ 
@@ -64,26 +88,31 @@
             Observations & 30 & 30 \\ 
             R$^{2}$ & 0.715 & 0.715 \\ 
             Adjusted R$^{2}$ & 0.656 & 0.682 \\ 
-            \hline 
-            \hline \\[-1.8ex] 
+            \hline \hline 
+
             \textit{Note:}  & \multicolumn{2}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
-            \end{tabular} 
-        \end{table}
+        \end{tabularx} 
+    \end{table}
     }
+    
     
 \end{frame}
 
-\section{Figures}
 
-% Use 16:9 ratio for figures
+% --------------------------------------------------
+\section{Figures}
+% --------------------------------------------------
+
+
+% 4:3 ratio or else it will have white space
+\imageframe{img/kanagawa.jpg}
+
+% Use 4:3 ratio for figures
 \begin{frame}{Figure}
     \begin{center}
         \includegraphics[width= .95\linewidth]{img/kanagawa.jpg}
     \end{center}
 \end{frame}
-
-% 4:3 ratio or else it will have white space
-\imageframe{img/kanagawa.jpg}
 
 \begin{frame}{Figure with comments}
     \begin{columns}[T] % align columns
@@ -93,10 +122,10 @@
 
     \begin{column}{.38\textwidth}
         % Horizontal Bar
-        {\color{buff-gold}\rule{\linewidth}{4pt}}
+        {\color{accent}\rule{\linewidth}{3pt}}
         
         \begin{itemize}[leftmargin=0cm]
-            \item Point 1 about the figure to the left. Columns are a bit narrow
+            \item Point 1 about the figure to the left. This really only works for 16:9 aspect ratio
             \item Point 2
         \end{itemize}
     \end{column}%
@@ -107,45 +136,58 @@
 \begin{frame}{Two Columns general}
     \begin{columns}[T] % T = vertical align columns at the top
     \begin{column}{.50\textwidth}
-        {\color{buff-gold}\rule{\linewidth}{4pt}}
+        {\color{accent}\rule{\linewidth}{3pt}}
         Column 1
     \end{column}
     
     \hfill
     
     \begin{column}{.50\textwidth}
-        {\color{buff-gold}\rule{\linewidth}{4pt}}
+        {\color{accent}\rule{\linewidth}{3pt}}
         Column 2
     \end{column}
     \end{columns}
 \end{frame}
 
 
-%%% Appendix
+% --------------------------------------------------
+\begin{frame}[allowframebreaks]{References}
+    \printbibliography
+\end{frame}
+% --------------------------------------------------
+
+
+% --------------------------------------------------
+\appendix
+% --------------------------------------------------
+
 \begin{frame}{Appendix Slide}\label{appendix1}
 
     % Adjust Font Size to make table fit
     {\fontsize{9}{10}\selectfont
     
-        \begin{table}[!htbp] \centering 
-        \caption{Summary Statistics}
-        \label{appendix_summ_stat}
-            \begin{tabular}{@{\extracolsep{5pt}}lccccccc} 
-            \hline 
-            \hline \\[-1.8ex] 
-            Statistic & \multicolumn{1}{c}{N} & \multicolumn{1}{c}{Mean} & \multicolumn{1}{c}{St. Dev.} & \multicolumn{1}{c}{Min} & \multicolumn{1}{c}{Pctl(25)} & \multicolumn{1}{c}{Pctl(75)} & \multicolumn{1}{c}{Max} \\ 
-            \hline \\[-1.8ex] 
-            rating & 30 & 64.633 & 12.173 & 40 & 58.8 & 71.8 & 85 \\ 
-            complaints & 30 & 66.600 & 13.315 & 37 & 58.5 & 77 & 90 \\ 
-            privileges & 30 & 53.133 & 12.235 & 30 & 45 & 62.5 & 83 \\ 
-            learning & 30 & 56.367 & 11.737 & 34 & 47 & 66.8 & 75 \\ 
-            raises & 30 & 64.633 & 10.397 & 43 & 58.2 & 71 & 88 \\ 
-            critical & 30 & 74.767 & 9.895 & 49 & 69.2 & 80 & 92 \\ 
-            advance & 30 & 42.933 & 10.289 & 25 & 35 & 47.8 & 72 \\ 
-            \hline \\[-1.8ex] 
-            \end{tabular} 
+        \begin{table}
+            \centering 
+            \caption{Summary Statistics}
+            \label{appendix_summ_stat}
+
+            \begin{tabularx}{\linewidth}{@{} LCCCCCCC @{}} 
+                \hline 
+                \hline \\[-1.8ex] 
+                Statistic & \multicolumn{1}{c}{N} & \multicolumn{1}{c}{Mean} & \multicolumn{1}{c}{St. Dev.} & \multicolumn{1}{c}{Min} & \multicolumn{1}{c}{Pctl(25)} & \multicolumn{1}{c}{Pctl(75)} & \multicolumn{1}{c}{Max} \\ 
+                \hline \\[-1.8ex] 
+                rating & 30 & 64.633 & 12.173 & 40 & 58.8 & 71.8 & 85 \\ 
+                complaints & 30 & 66.600 & 13.315 & 37 & 58.5 & 77 & 90 \\ 
+                privileges & 30 & 53.133 & 12.235 & 30 & 45 & 62.5 & 83 \\ 
+                learning & 30 & 56.367 & 11.737 & 34 & 47 & 66.8 & 75 \\ 
+                raises & 30 & 64.633 & 10.397 & 43 & 58.2 & 71 & 88 \\ 
+                critical & 30 & 74.767 & 9.895 & 49 & 69.2 & 80 & 92 \\ 
+                advance & 30 & 42.933 & 10.289 & 25 & 35 & 47.8 & 72 \\ 
+                \hline \\
+
+                \multicolumn{8}{p{.8\textwidth}}{\textit{Notes:} Using R base dataframe attitude}
+            \end{tabularx} 
             
-            \textit{Notes:} Using R base dataframe attitude \\ 
         \end{table} 
         
     }

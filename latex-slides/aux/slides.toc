@@ -1,3 +1,0 @@
-\beamer@sectionintoc {1}{Common Items}{2}{0}{1}
-\beamer@sectionintoc {2}{Table}{5}{0}{2}
-\beamer@sectionintoc {3}{Figures}{7}{0}{3}

@@ -10,6 +10,7 @@
 \usepackage[utopia, smallerops, varg]{newtxmath}
 % \usepackage{cabin}
 % \usepackage[libertine]{newtxmath}
+% \usepackage{Baskervaldx}
 
 % Small adjustments to text kerning
 \usepackage{microtype}
@@ -110,8 +111,11 @@
 
 \DeclareCaptionLabelSeparator{threesdash}{\,---\,}
 \DeclareCaptionLabelSeparator{period}{\,---\,}
-\captionsetup[table]{format=plain,labelsep= threesdash}
-\captionsetup[figure]{format=plain, labelsep= period}
+\captionsetup[table]{format=plain,labelsep=threesdash, font=bf}
+\captionsetup[figure]{format=plain, labelsep=period, font=bf}
+% Left align captions
+% \captionsetup[table]{labelfont=it, textfont={bf}, labelsep=newline, justification=raggedright, singlelinecheck=off}
+% \captionsetup[figure]{labelfont=it, textfont={bf}, labelsep=newline, justification=raggedright, singlelinecheck=off}
 
 
 % Tables -------------------------------------------

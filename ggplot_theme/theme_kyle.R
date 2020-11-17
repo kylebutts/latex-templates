@@ -29,7 +29,7 @@ theme_kyle <- function(title_pos = "center", axis_title_pos = "left", slides = F
 			## Title and Subtitle --------------------------------------------------
 			plot.title = ggplot2::element_text(
 				# Font
-				family = "merriweather", face = "bold", size = 18, 
+				family = "merriweather", face = "bold", size = rel(1.285), 
 				colour = "#454545", 
 				# Center title
 				hjust = title_hjust,
@@ -38,7 +38,7 @@ theme_kyle <- function(title_pos = "center", axis_title_pos = "left", slides = F
 			),
 			plot.subtitle = ggplot2::element_text(
 				# Font
-				family = "merriweather", face = "italic", size = 12, 
+				family = "merriweather", face = "italic", size = rel(.86), 
 				colour = "#454545", 
 				# Center subtitle 
 				hjust = title_hjust,

@@ -1,11 +1,10 @@
-% Margins ------------------------------------------
-\usepackage[margin=1.5in]{geometry}
+% Margins ----------------------------------------------------------------------
+\usepackage[margin=1.25in]{geometry}
 
-% Line Spacing -------------------------------------
+% Line Spacing -----------------------------------------------------------------
 \renewcommand{\baselinestretch}{1.5}
 
-% Font ---------------------------------------------
-
+% Font -------------------------------------------------------------------------
 \usepackage{utopia}
 \usepackage[utopia, smallerops, varg]{newtxmath}
 % \usepackage{cabin}
@@ -15,15 +14,15 @@
 % Small adjustments to text kerning
 \usepackage{microtype}
 
-% Remove annoying over-full box warnings -----------
+% Remove annoying over-full box warnings ---------------------------------------
 \vfuzz2pt 
 \hfuzz2pt
 
-% Tikz support -------------------------------------
+% Tikz support -----------------------------------------------------------------
 \usepackage{tikz}
 
 
-% Color Palette ------------------------------------
+% Color Palette ----------------------------------------------------------------
 \usepackage{xcolor}
 
 % https://www.materialpalette.com/colors
@@ -48,7 +47,7 @@
 \definecolor{buff-black}{HTML}{000000}
 
 
-% Hyperlinks ---------------------------------------
+% Hyperlinks -------------------------------------------------------------------
 \usepackage{hyperref}
 \hypersetup{
     colorlinks= true,
@@ -58,7 +57,7 @@
     urlcolor= dark-maroon,
 }
 
-% Citations ----------------------------------------
+% Citations --------------------------------------------------------------------
 \usepackage[
     style= authoryear, 
     natbib= true, 
@@ -66,11 +65,11 @@
 ]{biblatex}
 
 
-% Enumerate/Itemize --------------------------------
+% Enumerate/Itemize ------------------------------------------------------------
 \usepackage{enumitem}
 \setlist[itemize]{label= \textbullet}
 
-% Section and Subsection Styling -------------------
+% Section and Subsection Styling -----------------------------------------------
 \usepackage[explicit]{titlesec}
 
 \titleformat{\section}
@@ -85,7 +84,7 @@
   {1em}
   {#1}
 
-% Footnote -----------------------------------------
+% Footnote ---------------------------------------------------------------------
 % Spacing between footnotes on same page
 \addtolength{\footnotesep}{1mm}
 
@@ -93,7 +92,7 @@
 \let\oldfootnote\footnote
 \renewcommand\footnote[1]{\oldfootnote{\ #1}}
 
-% Better Abstract ----------------------------------
+% Better Abstract --------------------------------------------------------------
 \renewenvironment{abstract}
 {
   \centerline
@@ -104,13 +103,13 @@
   \end{quote}
 }
 
-% AMS ----------------------------------------------
+% AMS --------------------------------------------------------------------------
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{graphicx}
 
 
-% Table and Figure labelling -----------------------
+% Table and Figure labelling ---------------------------------------------------
 \usepackage{caption}
 
 \DeclareCaptionLabelSeparator{threesdash}{\,---\,}
@@ -122,7 +121,7 @@
 % \captionsetup[figure]{labelfont=it, textfont={bf}, labelsep=newline, justification=raggedright, singlelinecheck=off}
 
 
-% Tables -------------------------------------------
+% Tables -----------------------------------------------------------------------
 
 % Tables too big
 % \begin{adjustbox}{width = 1.2\textwidth, center}
@@ -141,7 +140,7 @@
 \newcolumntype{R}{>{\raggedleft\arraybackslash}X}
 \newcolumntype{C}{>{\centering\arraybackslash}X}
 
-% Landscape table ----------------------------------
+% Landscape table --------------------------------------------------------------
 % \begin{landscape} \pagestyle{lscaped} table... \end{landscsape}
 % \usepackage{pdflscape} - rotates page left-side up in pdf
 % \usepackage{lscape} - does not rotate page, only figure/table
@@ -161,9 +160,9 @@
 }
 
 
-% Define Theorems ----------------------------------
+% Define Theorems --------------------------------------------------------------
 % note, theorem is the name that goes in \begin{} and Theorem is the name displayed as Theorem 1
 \newtheorem{theorem}{Theorem}
 
 
-% --------------------------------------------------
+% ------------------------------------------------------------------------------

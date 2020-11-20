@@ -19,6 +19,10 @@
 \vfuzz2pt 
 \hfuzz2pt
 
+% Tikz support -------------------------------------
+\usepackage{tikz}
+
+
 % Color Palette ------------------------------------
 \usepackage{xcolor}
 
@@ -128,7 +132,6 @@
 % Slighty more spacing between rows
 \renewcommand\arraystretch{1.1}
 
-
 % Tables too narrow
 % \begin{tabularx}{\linewidth}{cols}
 % col-types: X - center, L - left, R -right
@@ -137,6 +140,25 @@
 \newcolumntype{L}{>{\raggedright\arraybackslash}X}
 \newcolumntype{R}{>{\raggedleft\arraybackslash}X}
 \newcolumntype{C}{>{\centering\arraybackslash}X}
+
+% Landscape table ----------------------------------
+% \begin{landscape} \pagestyle{lscaped} table... \end{landscsape}
+% \usepackage{pdflscape} - rotates page left-side up in pdf
+% \usepackage{lscape} - does not rotate page, only figure/table
+
+\usepackage{pdflscape}
+% \usepackage{lscape}
+
+\usepackage{fancyhdr}
+\fancypagestyle{lscaped}{%
+    \fancyhf{}
+    \renewcommand{\headrulewidth}{0pt}
+    \textnormal
+    \fancyfoot{%
+        \tikz[remember picture,overlay]
+        \node[outer sep=2.5cm,above,rotate=90] at (current page.east) {\thepage};
+    }
+}
 
 
 % Define Theorems ----------------------------------

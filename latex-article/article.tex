@@ -60,23 +60,28 @@ See below for Theorem \ref{residue_thm}, for the regression specification Equati
     \centering
 
     \begin{adjustbox}{width = 1.1\textwidth, center}
-        \begin{tabular}{@{} @{\extracolsep{5pt}} 
-                lrrrrrrrr 
-            @{}}
-            % Head
-            \hline 
-            & & & \multicolumn{2}{c}{Market Access} & \multicolumn{2}{c}{Urban Weekly Wage} & \multicolumn{2}{c}{Nonurban Weekly Wage} \\
-            \cline{4-5} \cline{6-7} \cline{8-9}
-            Year & \multicolumn{1}{c}{N} & \% Urban & Mean & SD & Mean & SD & Mean & SD \\ 
-            \hline 
+        \begin{threeparttable}
+            \begin{tabular}{@{} @{\extracolsep{5pt}} 
+                    lrrrrrrrr 
+                @{}}
+                % Head
+                \toprule
+                & & & \multicolumn{2}{c}{Market Access} & \multicolumn{2}{c}{Urban Weekly Wage} & \multicolumn{2}{c}{Nonurban Weekly Wage} \\
+                \cmidrule{4-5} \cmidrule{6-7} \cmidrule{8-9}
+                Year & \multicolumn{1}{c}{N} & \% Urban & Mean & SD & Mean & SD & Mean & SD \\ 
+                \hline 
 
-            % Body
-            \input{summary.tex}
+                % Body
+                \input{summary.tex}
+
+                \bottomrule
+            \end{tabular}
 
             % Notes 
-            \hline \hline \\[-5mm]
-            \multicolumn{9}{p{.8\textwidth}}{\hspace{.1\textwidth}\textit{Notes.} Weekly wage is reported in 2015 \$.}
-        \end{tabular}
+            \begin{tablenotes}
+                \item \textit{Notes.} Weekly wage is reported in 2015 \$.
+            \end{tablenotes}
+        \end{threeparttable}    
     \end{adjustbox}
 \end{table}
 
@@ -99,23 +104,28 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
     \centering
     
     \begin{adjustbox}{width = 1.2\textwidth, center}
+        \begin{threeparttable}
         \begin{tabular}{@{} @{\extracolsep{5pt}} 
                 lrrrrrrrr 
             @{}}
             % Head
-            \hline 
+            \toprule
             & & & \multicolumn{2}{c}{Market Access} & \multicolumn{2}{c}{Urban Weekly Wage} & \multicolumn{2}{c}{Nonurban Weekly Wage} \\
-            \cline{4-5} \cline{6-7} \cline{8-9}
+            \cmidrule{4-5} \cmidrule{6-7} \cmidrule{8-9}
             Year & \multicolumn{1}{c}{N} & \% Urban & Mean & SD & Mean & SD & Mean & SD \\ 
             \hline 
 
             % Body
             \input{summary.tex}
 
-            % Notes 
-            \hline \hline \\[-5mm]
-            \multicolumn{9}{p{.8\textwidth}}{\hspace{.1\textwidth}\textit{Notes.} Weekly wage is reported in 2015 \$.}
+            \bottomrule
         \end{tabular}
+        
+        % Notes
+        \begin{tablenotes}\footnotesize
+            \item \textit{Notes.} Weekly wage is reported in 2015 \$. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+        \end{tablenotes}
+        \end{threeparttable}
     \end{adjustbox}
 \end{table}
 \end{landscape}
@@ -132,34 +142,38 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
     \label{summ_stat}
 
     \begin{adjustbox}{center}
-        \begin{tabularx}{\textwidth}{@{} 
-                >{\hsize=.8\hsize}L R R >{\hsize=.7\hsize}R 
-            @{}}
-            
-            % Head
-            \hline \hline
-            & \multicolumn{2}{c}{\textbf{Population}} & \\
-            \cline{2-3}
-            \textbf{Country} & 2016 & 2017 & \textbf{Change (\%)} \\
-            
-            % Body
-            \hline
-            China & 1,403,500,365 & 1,409,517,397 & +0.4\% \\
-            India & 1,324,171,354 & 1,339,180,127 & +1.1\% \\
-            United States & 322,179,605 & 324,459,463 & +0.7\% \\
-            Indonesia & 261,115,456 & 263,991,379 & +1.1\% \\
-            Brazil & 207,652,865 & 209,288,278 & +0.8\% \\
-            Pakistan & 193,203,476 & 197,015,955 & +2.0\% \\
-            Nigeria & 185,989,640 & 190,886,311 & +2.6\% \\
-            Bangladesh & 162,951,560 & 164,669,751 & +1.1\% \\
-            Russia & 146,864,513 & 143,989,754 & -2.0\% \\
-            Mexico & 127,540,423 & 129,163,276 & +1.3\% \\
+        \begin{threeparttable}
+            \begin{tabularx}{\textwidth}{@{} 
+                    >{\hsize=.9\hsize}R >{\hsize=1.1\hsize}R >{\hsize=1.1\hsize}R >{\hsize=.9\hsize}R
+                @{}}
+                
+                % Head
+                \toprule
+                & \multicolumn{2}{c}{\textbf{Population}} & \\
+                \cmidrule{2-3}
+                \textbf{Country} & 2016 & 2017 & \textbf{Change (\%)} \\
+                
+                % Body
+                \hline
+                China & 1,403,500,365 & 1,409,517,397 & +0.4\% \\
+                India & 1,324,171,354 & 1,339,180,127 & +1.1\% \\
+                United States & 322,179,605 & 324,459,463 & +0.7\% \\
+                Indonesia & 261,115,456 & 263,991,379 & +1.1\% \\
+                Brazil & 207,652,865 & 209,288,278 & +0.8\% \\
+                Pakistan & 193,203,476 & 197,015,955 & +2.0\% \\
+                Nigeria & 185,989,640 & 190,886,311 & +2.6\% \\
+                Bangladesh & 162,951,560 & 164,669,751 & +1.1\% \\
+                Russia & 146,864,513 & 143,989,754 & -2.0\% \\
+                Mexico & 127,540,423 & 129,163,276 & +1.3\% \\
+                
+                \bottomrule
+            \end{tabularx}
             
             % Notes
-            \hline \hline \\[-5mm]
-            \multicolumn{4}{@{} L}{\small\textit{Source.} \href{https://en.wikipedia.org/wiki/List_of_countries_by_population_(United_Nations)}{Wikipedia}.}
-
-        \end{tabularx}
+            \begin{tablenotes}\setlength\labelsep{0pt}\small
+                \item \textit{Source:} \href{https://en.wikipedia.org/wiki/List_of_countries_by_population_(United_Nations)}{Wikipedia}.
+            \end{tablenotes}
+        \end{threeparttable}
     \end{adjustbox}
 \end{table} 
 
@@ -172,7 +186,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 % ------------------------------------------------------------------------------
 \newpage
-\printbibliography
+\printbibliography%
 % ------------------------------------------------------------------------------
 
 
@@ -213,7 +227,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
             % Head
             \hline \hline
             & \multicolumn{2}{c}{\textit{Dependent variable:} \ Overall Rating} \\ 
-            \cline{2-3} 
+            \cmidrule{2-3} 
             & (1) & (2) \\ 
             \hline
 

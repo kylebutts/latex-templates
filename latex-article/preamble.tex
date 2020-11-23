@@ -140,6 +140,18 @@
 \newcolumntype{R}{>{\raggedleft\arraybackslash}X}
 \newcolumntype{C}{>{\centering\arraybackslash}X}
 
+% \begin{threeparttable}
+%    \begin{tabular} ... \end{tabular}
+%    \begin{tablenotes}
+%        \item \textit{Notes.}
+%    \end{tablenotes}  
+% \end{threeparttable}
+\usepackage[flushleft]{threeparttable}
+\setlength\labelsep{0pt}
+
+% \toprule, \cmidrule, \bottomrule
+\usepackage{booktabs}
+
 % Landscape table --------------------------------------------------------------
 % \begin{landscape} \pagestyle{lscaped} table... \end{landscsape}
 % \usepackage{pdflscape} - rotates page left-side up in pdf

@@ -93,6 +93,15 @@
 \hfuzz2pt
 
 
+% Table of Contents with Sections
+\setbeamerfont{myTOC}{series=\bfseries, size=\Large}
+\AtBeginSection[]{
+        \frame{
+            \frametitle{Outline}
+            \usebeamerfont{myTOC}
+            \tableofcontents[current]
+        }
+    }
 
 
 % References ----------------------------------------
@@ -147,12 +156,27 @@
 }
 
 
-% Table of Contents with Sections
-\setbeamerfont{myTOC}{series=\bfseries, size=\Large}
-\AtBeginSection[]{
-        \frame{
-            \frametitle{Outline}
-            \usebeamerfont{myTOC}
-            \tableofcontents[current]
-        }
-    }
+% Table Highlighting --------------------------------
+% Create top-left and bottom-right markets in tabular cells with a unique matching id and these commands will outline those cells
+\usepackage[beamer,customcolors]{hf-tikz}
+\usetikzlibrary{calc}
+\usetikzlibrary{fit,shapes.misc}
+
+% To set the hypothesis highlighting boxes red.
+\tikzset{hl/.style={
+    set fill color=red!80!black!40,
+    set border color=red!80!black,
+  },
+}
+\newcommand\marktopleft[1]{%
+    \tikz[overlay,remember picture] 
+        \node (marker-#1-a) at (0,1.5ex) {};%
+}
+\newcommand\markbottomright[1]{%
+    \tikz[overlay,remember picture] 
+        \node (marker-#1-b) at (0,0) {};%
+    \tikz[red, ultra thick, overlay, remember picture, inner sep=4pt]
+        \node[draw, rectangle, fit=(marker-#1-a.center) (marker-#1-b.center)] {};%
+}
+
+

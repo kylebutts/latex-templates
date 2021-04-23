@@ -37,9 +37,6 @@
 % Font -------------------------------------------------------------------------
 \usepackage{utopia}
 \usepackage[utopia, smallerops, varg]{newtxmath}
-% \usepackage{cabin}
-% \usepackage[libertine]{newtxmath}
-% \usepackage{Baskervaldx}
 
 % Small adjustments to text kerning
 \usepackage{microtype}
@@ -136,6 +133,14 @@
 {
   \end{quote}
 }
+
+
+% Custom Math Definitions ------------------------------------------------------
+\global\long\def\expec#1{\mathbb{E}\left[#1\right]}%
+\global\long\def\prob#1{\mathbb{P}\left[#1\right]}%
+\global\long\def\var#1{\mathrm{Var}\left[#1\right]}%
+\global\long\def\cov#1{\mathrm{Cov}\left[#1\right]}%
+\global\long\def\one{\mathbf{1}}%
 
 
 % Table and Figure labelling ---------------------------------------------------

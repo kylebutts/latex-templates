@@ -7,6 +7,8 @@
 % Include Theme
 \input{preamble.tex}
 
+\hypersetup{pdftitle={Example Paper}, pdfauthor={Kyle Butts}}
+
 \begin{document}
 
 % Title Page -------------------------------------------------------------------
@@ -38,17 +40,19 @@ See below for Theorem \ref{residue_thm}, for the regression specification Equati
 
 \begin{theorem}[Example Theorem]\label{residue_thm}
     This is an example theorem \[ 
-        y = f(X) + \varepsilon 
+        \hat{\beta}=\frac{\sum_{\ell}e_{\ell}z_{\ell}y_{\ell}^{\perp}}{\sum_{\ell}e_{\ell}z_{\ell}x_{\ell}^{\perp}}
     \]
 \end{theorem}
 
+Example numbered and non-numbered equations
 \begin{equation}\label{fe_reg}
     y = f(X) + \varepsilon = X \beta + \psi_i + \nu_t + w_{i,t} + \varepsilon_{i,t} 
 \end{equation}
 
 \[ 
-    \mathbb{E} \left\{ Y_i(1) - Y_i(0) \right\} = \mathbb{P} (\tau \vert D_i = 1) 
+    \expec{Y_i(1) - Y_i(0)} = \prob{\tau \ \vert \ \one(D_i = 1)} 
 \]
+
 
 
 

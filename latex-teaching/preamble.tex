@@ -1,0 +1,186 @@
+
+\usepackage[margin=2cm]{geometry}
+
+% Font -------------------------------------------------------------------------
+\usepackage{utopia}
+\usepackage[utopia, smallerops, varg]{newtxmath}
+
+% Small adjustments to text kerning
+\usepackage{microtype}
+
+
+% Remove annoying over-full box warnings ---------------------------------------
+\vfuzz2pt 
+\hfuzz2pt
+\usepackage{fontawesome}
+
+\usepackage{enumitem}
+
+
+% Colors -----------------------------------------------------------------------
+\usepackage{xcolor}
+
+% https://www.materialpalette.com/colors
+\definecolor{red}{HTML}{c62828}
+\definecolor{orange}{HTML}{ef6c00}
+\definecolor{green}{HTML}{2e7d32}
+\definecolor{blue}{HTML}{1565c0}
+\definecolor{purple}{HTML}{283593}
+\definecolor{maroon}{HTML}{AF3335}
+\definecolor{dark-maroon}{HTML}{5D0F0D}
+\definecolor{teal}{HTML}{00695c}
+\definecolor{bluegrey}{HTML}{455a64}
+\definecolor{indigo}{HTML}{1A237E}
+\definecolor{navyblue}{HTML}{0A3044}
+\definecolor{bluegreen}{HTML}{4A8676}
+\definecolor{Black}{HTML}{000000}
+
+
+
+
+% Highlight Words --------------------------------------------------------------
+
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+
+% \itemtag[optional color]{text} highlights text in color. 
+\newcommand{\itemtag}[2][accent]{
+    \tikz[overlay]
+    \node[fill=#1!20!white, inner sep=2pt, anchor=text, rectangle, rounded corners=1mm] {#2};
+    \phantom{#2}
+}
+
+% \circled{#} puts number in circle
+\newcommand*\circled[1]{
+    \tikz[baseline=(char.base)]{\node[shape=circle,draw,inner sep=2pt] (char) {#1};}
+}
+
+
+% Colored Boxes ----------------------------------------------------------------
+
+\usepackage[most]{tcolorbox}
+\newtcolorbox{def_box}[1][accent]{
+    enhanced, boxrule=0pt, frame hidden, borderline west={4pt}{0pt}{#1!75!black}, colback=#1!20!white, sharp corners, enlarge top by=2.5mm, enlarge bottom by=2.5mm
+}
+
+\newtcolorbox{example_box}[2][accent]{
+    fontupper=\scriptsize, fonttitle=\bfseries\sffamily\scriptsize, colbacktitle=#1!75!black, colframe=#1!75!black, colback=white, enhanced, sharp corners, attach boxed title to top left={yshift=-2mm,xshift=3mm}, boxed title style={sharp corners}, top=12pt, bottom=8pt, title=#2, enlarge top by=2.5mm, enlarge bottom by=2.5mm
+}
+
+
+
+% Bubbles out of 5 -------------------------------------------------------------
+% \outoffive{text}{#} makes text and fills in # out of 5 circles
+\usepackage{etoolbox}
+
+\newcommand{\outoffive}[2]{%
+    \textcolor{emphasis}{\textbf{#1}}
+    \foreach \x in {1,...,5}{
+        \ifnumgreater{\x}{#2}{\color{black!30}}{\color{accent}} \faCircle
+    }\par%
+}
+
+
+% Section and Subsection -------------------------------------------------------
+\usepackage[explicit]{titlesec}
+
+
+\titleformat{\section}[frame]
+    {\normalfont}
+    {\filright\footnotesize\enspace SECTION \thesection\enspace}
+    {8pt}
+    {\Large\bfseries\filcenter\color{heading}#1}
+  
+\titleformat{\subsection}
+  {\fontsize{11}{10}\it}
+  {\thesubsection.}
+  {1em}
+  {#1}
+  [\titleline{\color{heading!20}\makebox[\linewidth]{\titlerule[2.5pt]}}]
+
+
+% Fancy Make Title -------------------------------------------------------------
+
+\makeatletter
+\renewcommand{\maketitle}{
+    \begin{center}
+        \vspace{2ex}
+        \textbf{\huge \color{heading} \textsc{\@title}}
+        \vspace{3ex}\\
+        \Large \@author\\
+        \hrulefill\\
+        \vspace{1ex}
+    \end{center}
+}
+\makeatother
+
+
+% Table and Figure labelling ---------------------------------------------------
+
+\usepackage{caption}
+% multifigure with \caption
+% \begin{subfigure} \end{subfigure}
+\usepackage{subcaption}
+
+\DeclareCaptionLabelSeparator{threedash}{\,---\,}
+\DeclareCaptionFont{accent}{\color{accent}}
+\captionsetup[table]{format=plain, labelsep=threedash, font={accent, bf}}
+\captionsetup[figure]{format=plain, labelsep=threedash, font={accent, bf}}
+
+
+
+% Tables -----------------------------------------------------------------------
+
+% Make tables/figures wider than paragraph using:
+% \begin{adjustbox}{width = 1.2\textwidth, center}
+
+\usepackage{adjustbox}
+\usepackage{array}
+
+% Slighty more spacing between rows
+\renewcommand\arraystretch{1.1}
+
+% If tables are too narrow, fill columns using:
+% \begin{tabularx}{\linewidth}{cols}
+% col-types: X - center, L - left, R -right
+% If you want relative scale for columns: 
+% >{\hsize=.8\hsize}X/L/R
+
+\usepackage{tabularx}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+
+% Table with easy to use footnotes
+% \begin{threeparttable}
+%    \begin{tabular} ... \end{tabular}
+%    \begin{tablenotes}
+%        \item \textit{Notes.}
+%    \end{tablenotes}  
+% \end{threeparttable}
+\usepackage[flushleft]{threeparttable}
+\setlength\labelsep{0pt}
+
+% \toprule, \cmidrule, \bottomrule
+\usepackage{booktabs}
+    
+% Landscape table --------------------------------------------------------------
+% \begin{landscape} \pagestyle{lscaped} table... \end{landscsape}
+% \usepackage{pdflscape} - rotates page left-side up in pdf
+% \usepackage{lscape} - does not rotate page, only figure/table
+    
+\usepackage{pdflscape}
+% \usepackage{lscape}
+
+% For landscape, fix page number location
+\usepackage{fancyhdr}
+\fancypagestyle{lscaped}{%
+    \fancyhf{}
+    \renewcommand{\headrulewidth}{0pt}
+    \textnormal
+    \fancyfoot{%
+        \tikz[remember picture,overlay]
+        \node[outer sep=2.5cm,above,rotate=90] at (current page.east) {\thepage};
+    }
+}
+      

@@ -1,12 +1,17 @@
 \documentclass[12pt]{article}
 
-\title{\color{navyblue} Example Paper}
-\author{\normalsize Kyle Butts\\{\footnotesize Univ. of Colorado, Boulder}}
-\date{\footnotesize\today}
 
 % Include Theme
 \input{preamble.tex}
 
+% \maketitle info
+\title{Example Paper}
+\author{
+    \href{https://kylebutts.com/}{Kyle Butts}\thanks{University of Colorado, Boulder. Email: \href{mailto:buttskyle96@gmail.com}{buttskyle96@gmail.com}.} % \ and Other Author
+}
+\date{\today}
+
+% pdf info
 \hypersetup{pdftitle={Example Paper}, pdfauthor={Kyle Butts}}
 
 \begin{document}
@@ -15,6 +20,12 @@
 \maketitle
 \begin{abstract}
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+    \par~\par\noindent
+    JEL-Classification: 
+    \par\noindent
+    Keywords: 
+    \par
 \end{abstract}
 
 \newpage
@@ -75,7 +86,7 @@ Example numbered and non-numbered equations
                 % Body
                 \input{summary.tex}
 
-                \bottomrule
+                \\\bottomrule
             \end{tabular}
 
             % Notes 

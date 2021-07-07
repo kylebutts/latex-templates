@@ -1,40 +1,23 @@
 % Margins ----------------------------------------------------------------------
+
 \usepackage[margin=1.25in]{geometry}
 
 
-% Line Spacing -----------------------------------------------------------------
-\renewcommand{\baselinestretch}{1.5}
-
-
 % AMS --------------------------------------------------------------------------
+
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amsthm}
 \usepackage{graphicx}
 
 
-% Define Theorems --------------------------------------------------------------
-% note, theorem is the name that goes in \begin{} and Theorem is the name displayed as Theorem 1
+% Line Spacing -----------------------------------------------------------------
 
-% Put proper spacing after Theorem #. 
-\newtheoremstyle{spacing}
-{}%          Space above, empty = `usual value'
-{}%          Space below
-{\itshape}%  Body font
-{}%          Indent amount (empty = no indent, \parindent = para indent)
-{\bfseries\color{navyblue}}% Thm head font
-{.}%         Punctuation after thm head
-{2.5mm}%  Space after thm head: \newline = linebreak
-{}%          Thm head spec
-
-\theoremstyle{spacing}
-\newtheorem{theorem}{Theorem}
-\newtheorem{proposition}{Proposition}
-\newtheorem{assumption}{Assumption}
-\newtheorem{example}{Example}
+\renewcommand{\baselinestretch}{1.5}
 
 
 % Font -------------------------------------------------------------------------
+
 \usepackage[T1]{fontenc}
 \usepackage[utopia, varg]{newtxmath}
 \renewcommand{\rmdefault}{futs} % Utopia as text font 
@@ -42,17 +25,18 @@
 % Small adjustments to text kerning
 \usepackage{microtype}
 
-
-% Remove annoying over-full box warnings ---------------------------------------
+% Remove annoying over-full box warnings
 \vfuzz2pt 
 \hfuzz2pt
 
 
 % Tikz support -----------------------------------------------------------------
+
 \usepackage{tikz}
 
 
 % Color Palette ----------------------------------------------------------------
+
 \usepackage{xcolor}
 
 % https://www.materialpalette.com/colors
@@ -78,6 +62,7 @@
 
 
 % Hyperlinks -------------------------------------------------------------------
+
 \usepackage{hyperref}
 \hypersetup{
     colorlinks= true,
@@ -89,17 +74,73 @@
 
 
 % Citations --------------------------------------------------------------------
+
+% note, natbib provides better hyperlinking
 \usepackage{natbib}
 \bibliographystyle{econ-aea}
 
 
-% Enumerate/Itemize ------------------------------------------------------------
-\usepackage{enumitem}
-\setitemize{labelindent=0.5em,labelsep=0.25cm,leftmargin=*}
-\setenumerate{labelindent=0.5em,labelsep=0.25cm,leftmargin=*}
+% Define Theorems --------------------------------------------------------------
+
+% Put proper spacing after Theorem #. 
+\newtheoremstyle{spacing}
+{}%          Space above, empty = `usual value'
+{}%          Space below
+{\itshape}%  Body font
+{}%          Indent amount (empty = no indent, \parindent = para indent)
+{\bfseries\color{navyblue}}% Thm head font
+{.}%         Punctuation after thm head
+{2.5mm}%  Space after thm head: \newline = linebreak
+{}%          Thm head spec
+
+% note, theorem is the name that goes in \begin{} and Theorem is the name displayed as Theorem 1
+\theoremstyle{spacing}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{assumption}{Assumption}
+\newtheorem{example}{Example}
+
+
+% Custom Math Definitions ------------------------------------------------------
+
+\global\long\def\expec#1{\mathbb{E}\left[#1\right]}%
+\global\long\def\prob#1{\mathbb{P}\left[#1\right]}%
+\global\long\def\var#1{\mathrm{Var}\left[#1\right]}%
+\global\long\def\cov#1{\mathrm{Cov}\left[#1\right]}%
+\global\long\def\one{\mathbf{1}}%
+
+
+% Titlepage --------------------------------------------------------------------
+
+% \maketitle
+\usepackage{titling}
+
+% title
+\pretitle{\begin{flushleft}\LARGE}
+\posttitle{\end{flushleft}\vspace{-5mm}}
+% author, note don't use \and 
+\preauthor{\begin{flushleft}\Large}
+\postauthor{\end{flushleft}\vspace{-5mm}}
+% date
+\predate{\begin{flushleft}\scshape}
+\postdate{\end{flushleft}\vspace{-5mm}}
+
+% Abstract
+\renewenvironment{abstract}
+ {\noindent\rule{\linewidth}{.5pt}\noindent}
+ {\noindent\rule{\linewidth}{.5pt}}
+
+% alternative abstract
+% \renewenvironment{abstract}
+% {
+%   \centerline {\large \bfseries \scshape \color{navyblue} Abstract}
+%   \begin{quote}
+% }
+% {\end{quote}}
 
 
 % Section and Subsection Styling -----------------------------------------------
+
 \usepackage[explicit]{titlesec}
 
 \titleformat{\section}
@@ -116,6 +157,7 @@
 
 
 % Footnote ---------------------------------------------------------------------
+
 % Spacing between footnotes on same page
 \addtolength{\footnotesep}{1mm}
 
@@ -124,62 +166,48 @@
 \renewcommand\footnote[1]{\oldfootnote{\ #1}}
 
 
-% Better Abstract --------------------------------------------------------------
-\renewenvironment{abstract}
-{
-  \centerline
-  {\large \bfseries \scshape \color{navyblue} Abstract}
-  \begin{quote}
-}
-{
-  \end{quote}
-}
+% Enumerate/Itemize ------------------------------------------------------------
 
-
-% Custom Math Definitions ------------------------------------------------------
-\global\long\def\expec#1{\mathbb{E}\left[#1\right]}%
-\global\long\def\prob#1{\mathbb{P}\left[#1\right]}%
-\global\long\def\var#1{\mathrm{Var}\left[#1\right]}%
-\global\long\def\cov#1{\mathrm{Cov}\left[#1\right]}%
-\global\long\def\one{\mathbf{1}}%
+\usepackage{enumitem}
+\setitemize{labelindent=0.5em,labelsep=0.25cm,leftmargin=*}
+\setenumerate{labelindent=0.5em,labelsep=0.25cm,leftmargin=*}
 
 
 % Table and Figure labelling ---------------------------------------------------
+
 \usepackage{caption}
-% multifigure with \caption
-% \begin{subfigure} \end{subfigure}
-\usepackage{subcaption}
 
 \DeclareCaptionLabelSeparator{threedash}{\,---\,}
 \DeclareCaptionFont{navyblue}{\color{navyblue}}
 \captionsetup[table]{format=plain, labelsep=threedash, font={navyblue, bf}}
 \captionsetup[figure]{format=plain, labelsep=threedash, font={navyblue, bf}}
 
-% Left align captions
+% Alternative: Left align captions
 % \captionsetup[table]{labelfont=it, textfont={navyblue, bf}, labelsep=newline, justification=raggedright, singlelinecheck=off}
 % \captionsetup[figure]{labelfont=it, textfont={navyblue, bf}, labelsep=newline, justification=raggedright, singlelinecheck=off}
+
+% multifigure with \caption
+% \begin{subfigure}\caption{} \end{subfigure}
+\usepackage{subcaption}
 
 
 % Tables -----------------------------------------------------------------------
 
-% Make tables/figures wider than paragraph using:
+% Fix \input with tables
+% \input fails when \\ is at end of external .tex file
+
+\makeatletter
+\let\input\@@input
+\makeatother
+
+% Make tables/figures wider than \textwidth using:
 % \begin{adjustbox}{width = 1.2\textwidth, center}
+% \end{adjustbox}
 \usepackage{adjustbox}
-\usepackage{array}
 
 % Slighty more spacing between rows
+\usepackage{array}
 \renewcommand\arraystretch{1.1}
-
-% If tables are too narrow, fill columns using:
-% \begin{tabularx}{\linewidth}{cols}
-% col-types: X - center, L - left, R -right
-% If you want relative scale for columns: 
-% >{\hsize=.8\hsize}X/L/R
-
-\usepackage{tabularx}
-\newcolumntype{L}{>{\raggedright\arraybackslash}X}
-\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
-\newcolumntype{C}{>{\centering\arraybackslash}X}
 
 % Table with easy to use footnotes
 % \begin{threeparttable}
@@ -194,13 +222,22 @@
 % \toprule, \cmidrule, \bottomrule
 \usepackage{booktabs}
 
-% Landscape table --------------------------------------------------------------
+% If tables are too narrow, fill columns using:
+% \begin{tabularx}{\linewidth}{cols}
+% col-types: X - center, L - left, R -right
+% If you want relative scale for columns: 
+% >{\hsize=.8\hsize}X/L/R
+\usepackage{tabularx}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+
+% Landscape table 
 % \begin{landscape} \pagestyle{lscaped} table... \end{landscsape}
 % \usepackage{pdflscape} - rotates page left-side up in pdf
 % \usepackage{lscape} - does not rotate page, only figure/table
 
 \usepackage{pdflscape}
-% \usepackage{lscape}
 
 % For landscape, fix page number location
 \usepackage{fancyhdr}

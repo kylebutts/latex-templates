@@ -39,7 +39,7 @@
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur: $\sum X_i$. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\footnote{This is a test.}
 
-See below for Theorem \ref{residue_thm}, for the regression specification Equation \ref{fe_reg}, and for Table \ref{summ_stat}, appendix table \ref{reg1}, and citation \citet{Eigen1971}.
+See below for Theorem \ref{thm:residue_thm}, for the regression specification (\ref{eq:fe_reg}), and for \autoref{tab:summ_stat}, appendix \autoref{tab:reg1}, and citation \citet{Eigen1971}.
 
 % ------------------------------------------------------------------------------
 \section{Econometric Model}
@@ -49,14 +49,14 @@ See below for Theorem \ref{residue_thm}, for the regression specification Equati
 \subsection{Principal Specification}
 % ------------------------------------------------------------------------------
 
-\begin{theorem}[Example Theorem]\label{residue_thm}
+\begin{theorem}[Example Theorem]\label{thm:residue_thm}
     This is an example theorem \[ 
         \hat{\beta}=\frac{\sum_{\ell}e_{\ell}z_{\ell}y_{\ell}^{\perp}}{\sum_{\ell}e_{\ell}z_{\ell}x_{\ell}^{\perp}}
     \]
 \end{theorem}
 
 Example numbered and non-numbered equations
-\begin{equation}\label{fe_reg}
+\begin{equation}\label{eq:fe_reg}
     y = f(X) + \varepsilon = X \beta + \psi_i + \nu_t + w_{i,t} + \varepsilon_{i,t} 
 \end{equation}
 
@@ -151,7 +151,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 \begin{table}[tb] 
     \caption{Summary Statistics (tabularx)}
-    \label{summ_stat}
+    \label{tab:summ_stat}
 
     \begin{adjustbox}{center}
         \begin{threeparttable}
@@ -229,7 +229,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 \begin{table}[tb] 
     \caption{Regression Results (Custom tabularx widths)} 
-    \label{reg1}
+    \label{tab:reg1}
 
     \begin{adjustbox}{center}
         \begin{tabularx}{\textwidth}{@{} 

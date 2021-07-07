@@ -165,6 +165,17 @@
 \let\oldfootnote\footnote
 \renewcommand\footnote[1]{\oldfootnote{\ #1}}
 
+% No footnote line
+\renewcommand\footnoterule{}
+
+% No supsercript in footer
+\makeatletter
+\renewcommand\@makefntext[1]{%
+    \parindent 1em \noindent
+    \hb@xt@1.8em{\hss\normalfont\@thefnmark.\hfill}#1
+  }
+\makeatother
+
 
 % Enumerate/Itemize ------------------------------------------------------------
 

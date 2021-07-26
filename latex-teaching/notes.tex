@@ -12,6 +12,28 @@
 \colorlet{heading}{indigo!70!black}
 \colorlet{emphasis}{indigo}
 
+\newcommand{\foo}{\color{heading}\makebox[0pt]{\textbullet}\hskip-0.5pt\vrule width 1pt\hspace{\labelsep}}
+
+
+
+\newtcolorbox[blend into=figures]{myfigure}[2][]{
+    enhanced,
+    attach boxed title to top left={
+        yshift=0.2mm
+    },
+    top=1.5em,
+    colback=white,
+    colframe=white,
+    fonttitle=\bfseries,
+    boxed title style={
+        sharp corners,
+        size=small,
+        colback=indigo,
+        colframe=indigo
+    },
+    borderline north={0.5mm}{0mm}{line width=3pt},
+    float, title=#2, #1
+}
 
 
 \begin{document}
@@ -57,6 +79,32 @@ These boxes can be put in any color desired:
     A band limited signal cannot be time limited and a time-limited signal cannot be band limited and options.
 \end{example_box}
 
+
+\begin{myfigure}{Duck}
+    \includegraphics{example-image-duck}
+    
+    \tcblower
+    \textbf{Notes:} A band limited signal cannot be time limited and a time-limited signal cannot be band limited and options.
+\end{myfigure}
+
+\begin{table}
+    \renewcommand\arraystretch{2}
+    \caption{Timeline}
+
+    \begin{tabular}{@{}r <{\hskip 2pt} !{\foo} >{\raggedright\arraybackslash} p{10cm}@{}}
+    \addlinespace[1.5ex]
+    1947 & AT and T Bell Labs develop the idea of cellular phones\\
+    1968 & Xerox Palo Alto Research Centre envisage the 'Dynabook\\
+    1971 & Busicom 'Handy-LE' Calculator\\
+    1973 & First mobile handset invented by Martin Cooper\\
+    1978 & Parker Bros. Merlin Computer Toy\\
+    1981 & Osborne 1 Portable Computer\\
+    1982 & Grid Compass 1100 Clamshell Laptop\\
+    1983 & TRS-80 Model 100 Portable PC\\
+    1984 & Psion Organiser Handheld Computer\\
+    1991 & Psion Series 3 Minicomputer\\
+    \end{tabular}
+\end{table}
 
 
 

@@ -1,3 +1,9 @@
+snippet introblock
+	`r paste0("## .R --------------------------------------------------------------------------", 
+	"\n## Kyle Butts, CU Boulder Economics \n",
+	"## \n", "## \n", sep="")`
+
+
 snippet banner
 bannerCommenter::banner("${1:title}", bandChar = "-", fold= TRUE, rightSideHashes= 4, minHashes= 80)
 

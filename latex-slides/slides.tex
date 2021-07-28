@@ -1,9 +1,6 @@
 \documentclass[aspectratio=43]{beamer}
 % \documentclass[aspectratio=169]{beamer}
 
-% Metropolis Theme ---------------------------------
-\usetheme{metropolis} % Use metropolis theme
-
 % Title --------------------------------------------
 \title{Title}
 \subtitle{Subtitle}
@@ -20,160 +17,203 @@
 
 \begin{document}
 
-% --------------------------------------------------
+% ------------------------------------------------------------------------------
 \maketitle
-% --------------------------------------------------
+% ------------------------------------------------------------------------------
 
-% --------------------------------------------------
+% ------------------------------------------------------------------------------
 \section{Common Items}
-% --------------------------------------------------
+% ------------------------------------------------------------------------------
 
-\begin{frame}{Bullet Points \& Button}\label{main1}
+\begin{frame}{Components}{Bullet Points \& Button}\label{main1}
+    This section highlights commonly used components and their theming
+
     \begin{itemize}
         \item Can emphasize with \alert{the alert command}
         
         \item To include things in appendix, you must first label the slide and the appendix slide and then include a hyperlink:
         
+        \vspace{5mm}
         \hyperlink{appendix1}{\beamergotobutton{Appendix}}
     \end{itemize}
 \end{frame}
 
-\begin{frame}{Citations}
+\begin{frame}{Components}{Numbered Lists}
+    You can also use numbered items that look a bit more professional
+
+    \begin{enumerate}
+        \item Pretty good
+        
+        \item To include things in appendix
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}{Components}{Citations}
     Topic 1: Spatial Frictions
     \begin{citecolor}
         [\citet{Fajgelbaum_Morales_Serrato_Zidar_2018}, \citet{Hsieh_Moretti_2019}, and \citet{Moretti_2011}]
     \end{citecolor}
 
+    \vspace{5mm}
     Topic 2: Blah 
     \begin{citecolor}
         [\citet{Suárez_Serrato_Zidar_2016}]
     \end{citecolor}
 \end{frame}
 
-\begin{frame}{Blocks}
+\begin{frame}{Components}{Blocks}
     \begin{block}{Regression Specification}
+        The main specificaiton is as follows: 
+
         \[
             y_{it} = X_{it} \beta + \mu_i + \varepsilon_{it}
         \]
     \end{block}
 \end{frame}
 
-
-
-% --------------------------------------------------
-\section{Table}
-% --------------------------------------------------
-
-\begin{frame}{Table}
-    
-    % Adjust Font Size to make table fit   
-    {\fontsize{8}{10}\selectfont
-    \begin{table}[!htbp] \centering 
-        \caption{Regression Results} 
-        \label{}
-        
-        \begin{tabularx}{\linewidth}{@{} LCC @{}} 
-            \hline \hline \\
-            & \multicolumn{2}{c}{\textit{Dependent variable: Overall Rating}} \\ 
-            \cline{2-3} 
-            \\[-1.8ex] & (1) & (2)\\ 
-            \hline \\[-1.8ex] 
-            \marktopleft{ex1} Handling of Complaints & 0.692$^{***}$ (0.149) & 0.682$^{***}$ (0.129) \\ 
-            No Special Privileges & $-$0.104 (0.135) & $-$0.103 (0.129) \markbottomright{ex1}  \\ 
-            Opportunity to Learn & 0.249 (0.160) & 0.238$^{*}$ (0.139) \\ 
-            Performance-Based Raises & $-$0.033 (0.202) &  \\ 
-            Too Critical & 0.015 (0.147) &  \\ 
-            Advancement & 11.011 (11.704) & 11.258 (7.318) \\ 
-            \hline \\[-1.8ex] 
-            Observations & 30 & 30 \\ 
-            R$^{2}$ & 0.715 & 0.715 \\ 
-            Adjusted R$^{2}$ & 0.656 & 0.682 \\ 
-            \hline \hline 
-
-            \textit{Note:}  & \multicolumn{2}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
-        \end{tabularx} 
-    \end{table}
-    }
-    
-    
+\begin{frame}{Components}{Colors}
+    {\color{navy} Test sentence with \textbackslash color\{navy\}}\newline
+    {\color{kelly} Test sentence with \textbackslash color\{kelly\}}\newline
+    {\color{ruby} Test sentence with \textbackslash color\{ruby\}}\newline
+    {\color{alice} Test sentence with \textbackslash color\{alice\}}\newline
+    {\color{daisy} Test sentence with \textbackslash color\{daisy\}}\newline
+    {\color{coral} Test sentence with \textbackslash color\{coral\}}\newline
+    {\color{jet} Test sentence with \textbackslash color\{jet\}}\newline
+    {\color{asher} Test sentence with \textbackslash color\{asher\}}\newline
 \end{frame}
 
-
-% --------------------------------------------------
-\section{Figures}
-% --------------------------------------------------
-
-
-% 4:3 ratio or else it will have white space
-\imageframe{img/kanagawa.jpg}
-
-% Use 4:3 ratio for figures
-\begin{frame}{Figure}
-    \begin{center}
-        \includegraphics[width= .95\linewidth]{img/kanagawa.jpg}
-    \end{center}
-\end{frame}
-
-\begin{frame}{Figure with comments}
-    \begin{columns}[T] % align columns
-    \begin{column}{.62\textwidth}
-        \includegraphics[width= \linewidth]{img/kanagawa.jpg}
-    \end{column}%
-
-    \begin{column}{.38\textwidth}
-        % Horizontal Bar
-        {\color{accent}\rule{\linewidth}{3pt}}
-        
-        \begin{itemize}[leftmargin=0cm]
-            \item Point 1 about the figure to the left. This really only works for 16:9 aspect ratio
-            \item Point 2
-        \end{itemize}
-    \end{column}%
-    \end{columns}
-\end{frame}
-
-
-\begin{frame}{Two Columns general}
+\begin{frame}{Components}{Two Columns general}
     \begin{columns}[T] % T = vertical align columns at the top
     \begin{column}{.50\textwidth}
-        {\color{accent}\rule{\linewidth}{3pt}}
+        {\color{accent}\rule{\linewidth}{2pt}}
         Column 1
+
+        \begin{enumerate}
+            \item Bullet points for this column that can go over lines
+            \item b
+            \item c
+        \end{enumerate}
     \end{column}
     
     \hfill
     
     \begin{column}{.50\textwidth}
-        {\color{accent}\rule{\linewidth}{3pt}}
+        {\color{accent}\rule{\linewidth}{2pt}}
         Column 2
+
+        \begin{enumerate}
+            \item a
+            \item b
+            \item c
+        \end{enumerate}
     \end{column}
     \end{columns}
 \end{frame}
 
+\begin{frame}{Components}{Example of tikz figure}
 
-% --------------------------------------------------
+\begin{figure}
+\begin{center}
+\begin{tikzpicture}[node distance=1.5cm]
+    % nodes %
+    \node[text centered] (d) {$D$};
+    \node[below right of = d, text centered] (x) [draw, shape=circle, line width = 1] {$X$};
+    \node[above right of = x, text centered] (y) {$Y$};
+    \node[below of = x, text centered, purple] (z) {$Z$};
+    
+    % edges %
+    \path[->, line width= 1] 
+        (d) edge (y)
+        (x) edge (d)
+        (x) edge (y);
+    \path[->, line width= 1, purple]
+        (z) edge [out=135, in=260, looseness=0.5] node[left, black] {$\text{Good variation in D}$} (d)
+        (z) edge [out=45, in=280, looseness=0.5] (y);
+\end{tikzpicture}
+\end{center}
+\end{figure}
+    
+\end{frame}
+
+% ------------------------------------------------------------------------------
+\section{Table}
+% ------------------------------------------------------------------------------
+
+\begin{frame}
+    
+% Adjust Font Size to make table fit   
+\begin{table}[!htbp]
+    \caption{Regression Results} 
+    \label{}
+    
+    \begin{adjustbox}{max width = \textwidth, width = 0.75\textwidth, center}
+        \begin{threeparttable}
+            \begin{tabular}{@{} lcc @{}} 
+                \toprule
+                & \multicolumn{2}{c}{\textit{Dependent variable: Overall Rating}} \\ 
+                \cline{2-3} \\
+                & (1) & (2)\\ 
+                \midrule
+                
+                \marktopleft{ex1}Handling of Complaints & 0.692$^{***}$ (0.149) & 0.682$^{***}$ (0.129) \markbottomright{ex1} \\ 
+                No Special Privileges & $-$0.104 (0.135) & $-$0.103 (0.129)  \\ 
+                Opportunity to Learn & 0.249 (0.160) & 0.238$^{*}$ (0.139) \\ 
+                Performance-Based Raises & $-$0.033 (0.202) &  \\ 
+                Too Critical & 0.015 (0.147) &  \\ 
+                Advancement & 11.011 (11.704) & 11.258 (7.318) \\ 
+                \hline \\[-1.8ex] 
+                Observations & 30 & 30 \\ 
+                R$^{2}$ & 0.715 & 0.715 \\ 
+                \bottomrule
+
+            \end{tabular} 
+            % Notes 
+            \begin{tablenotes}
+                \item \textit{Notes.} $^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01.
+            \end{tablenotes}
+        \end{threeparttable}
+    \end{adjustbox}
+\end{table}
+\end{frame}
+
+
+% ------------------------------------------------------------------------------
+\section{Figures}
+% ------------------------------------------------------------------------------
+
+
+% 4:3 ratio for figures
+% or else it will have white space
+\imageframe{img/kanagawa.jpg}
+
+\begin{frame}{Figure}{}
+    \begin{center}
+        \resizebox{0.9\columnwidth}{!}{%
+            \includegraphics{img/kanagawa.jpg}
+        }
+    \end{center}
+\end{frame}
+
+% ------------------------------------------------------------------------------
 \begin{frame}[allowframebreaks]{References}
     \printbibliography
 \end{frame}
-% --------------------------------------------------
+% ------------------------------------------------------------------------------
 
 
-% --------------------------------------------------
+% ------------------------------------------------------------------------------
 \appendix
-% --------------------------------------------------
+% ------------------------------------------------------------------------------
 
 \begin{frame}{Appendix Slide}\label{appendix1}
 
-    % Adjust Font Size to make table fit
-    {\fontsize{9}{10}\selectfont
-    
-        \begin{table}
-            \centering 
-            \caption{Summary Statistics}
-            \label{appendix_summ_stat}
-
-            \begin{tabularx}{\linewidth}{@{} LCCCCCCC @{}} 
-                \hline 
-                \hline \\[-1.8ex] 
+\begin{table}
+    \caption{Summary Statistics}
+    \label{appendix_summ_stat}
+    \begin{adjustbox}{max width = \textwidth, width = 0.8 \textwidth, center}
+        \begin{threeparttable}
+            \begin{tabular}{@{} lccccccc @{}} 
+                \toprule
                 Statistic & \multicolumn{1}{c}{N} & \multicolumn{1}{c}{Mean} & \multicolumn{1}{c}{St. Dev.} & \multicolumn{1}{c}{Min} & \multicolumn{1}{c}{Pctl(25)} & \multicolumn{1}{c}{Pctl(75)} & \multicolumn{1}{c}{Max} \\ 
                 \hline \\[-1.8ex] 
                 rating & 30 & 64.633 & 12.173 & 40 & 58.8 & 71.8 & 85 \\ 
@@ -183,14 +223,15 @@
                 raises & 30 & 64.633 & 10.397 & 43 & 58.2 & 71 & 88 \\ 
                 critical & 30 & 74.767 & 9.895 & 49 & 69.2 & 80 & 92 \\ 
                 advance & 30 & 42.933 & 10.289 & 25 & 35 & 47.8 & 72 \\ 
-                \hline \\
-
-                \multicolumn{8}{p{.8\textwidth}}{\textit{Notes:} Using R base dataframe attitude}
-            \end{tabularx} 
-            
-        \end{table} 
-        
-    }
+                \bottomrule
+            \end{tabular} 
+            % Notes 
+            \begin{tablenotes}
+                \item \textit{Notes.} Using R base dataframe attitude.
+            \end{tablenotes}
+        \end{threeparttable}
+    \end{adjustbox}
+\end{table}
     
     \hyperlink{main1}{\beamergotobutton{Back to Main}}
 \end{frame}

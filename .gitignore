@@ -18,3 +18,5 @@
 *.fdb_latexmk
 *.run.xml
 *.synctex.gz
+*.nav
+*.snm

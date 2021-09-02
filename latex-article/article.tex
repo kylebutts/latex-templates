@@ -7,7 +7,7 @@
 % \maketitle info
 \title{Example Paper}
 \author{
-    \href{https://kylebutts.com/}{Kyle Butts}\thanks{University of Colorado, Boulder. Email: \href{mailto:buttskyle96@gmail.com}{buttskyle96@gmail.com}.} % \ and Other Author
+    \href{https://kylebutts.com/}{Kyle Butts}\thanks{University of Colorado, Boulder. Email: \href{mailto:buttskyle96@gmail.com}{buttskyle96@gmail.com}.} % and Other Author
 }
 \date{\today}
 
@@ -37,7 +37,7 @@
 \section{Introduction}
 % ------------------------------------------------------------------------------
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur: $\sum X_i$. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\footnote{This is a test.}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur: $\sum X_i$. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\footnote{This is an example footnote.}
 
 See below for Theorem \ref{thm:residue_thm}, for the regression specification (\ref{eq:fe_reg}), and for \autoref{tab:summ_stat}, appendix \autoref{tab:reg1}, and citation \citet{Eigen1971}.
 
@@ -74,7 +74,7 @@ Example numbered and non-numbered equations
     \begin{adjustbox}{width = 1.1\textwidth, center}
         \begin{threeparttable}
             \begin{tabular}{@{} @{\extracolsep{5pt}} 
-                    lrrrrrrrr 
+                    l*{8}{r} 
                 @{}}
                 % Head
                 \toprule
@@ -86,7 +86,7 @@ Example numbered and non-numbered equations
                 % Body
                 \input{summary.tex}
 
-                \\\bottomrule
+                \bottomrule
             \end{tabular}
 
             % Notes 
@@ -232,33 +232,38 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
     \label{tab:reg1}
 
     \begin{adjustbox}{center}
-        \begin{tabularx}{\textwidth}{@{} 
-                >{\hsize=.6\hsize}L >{\hsize=.4\hsize}R >{\hsize=.4\hsize}R 
-            @{}} 
+        \begin{threeparttable}
+            \begin{tabular}{\textwidth}{@{} 
+                    >{\hsize=.6\hsize}L >{\hsize=.4\hsize}R >{\hsize=.4\hsize}R 
+                @{}} 
 
-            % Head
-            \hline \hline
-            & \multicolumn{2}{c}{\textit{Dependent variable:} \ Overall Rating} \\ 
-            \cmidrule{2-3} 
-            & (1) & (2) \\ 
-            \hline
+                % Head
+                \toprule
+                & \multicolumn{2}{c}{\textit{Dependent variable:} \ Overall Rating} \\ 
+                \cmidrule{2-3} 
+                & (1) & (2) \\ 
+                \hline
 
-            % Body
-            Handling of Complaints & 0.692$^{***}$ (0.149) & 0.682$^{***}$ (0.129) \\ 
-            No Special Privileges & $-$0.104 (0.135) & $-$0.103 (0.129) \\ 
-            Opportunity to Learn & 0.249 (0.160) & 0.238$^{*}$ (0.139) \\ 
-            Performance-Based Raises & $-$0.033 (0.202) &  \\ 
-            Too Critical & 0.015 (0.147) &  \\ 
-            Advancement & 11.011 (11.704) & 11.258 (7.318) \\ 
-            \hline 
-            Observations & 30 & 30 \\ 
-            Adjusted R$^{2}$ & 0.656 & 0.682 \\ 
-            
+                % Body
+                Handling of Complaints & 0.692$^{***}$ (0.149) & 0.682$^{***}$ (0.129) \\ 
+                No Special Privileges & $-$0.104 (0.135) & $-$0.103 (0.129) \\ 
+                Opportunity to Learn & 0.249 (0.160) & 0.238$^{*}$ (0.139) \\ 
+                Performance-Based Raises & $-$0.033 (0.202) &  \\ 
+                Too Critical & 0.015 (0.147) &  \\ 
+                Advancement & 11.011 (11.704) & 11.258 (7.318) \\ 
+                \hline 
+                Observations & 30 & 30 \\ 
+                Adjusted R$^{2}$ & 0.656 & 0.682 \\ 
+                
+                \bottomrule
+            \end{tabular} 
+
             % Notes
-            \hline \hline \\[-5mm]
-            \multicolumn{3}{@{} p{\textwidth}}{\small \textit{Notes.} $^{*}$ p$< 0.1$; $^{**}$ p$< 0.05$; $^{***}$ p$< 0.01$} \\ 
-            \multicolumn{3}{@{} p{\textwidth}}{\small Using R base dataframe attitude. dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. } 
-        \end{tabularx} 
+            \begin{tablenotes}\setlength\labelsep{0pt}\small
+                \item {\small \textit{Notes.} $^{*}$ p$< 0.1$; $^{**}$ p$< 0.05$; $^{***}$ p$< 0.01$}
+                \item {\small Using R base dataframe attitude. dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. } 
+            \end{tablenotes}
+        \end{threeparttable}
     \end{adjustbox}
 \end{table}
 

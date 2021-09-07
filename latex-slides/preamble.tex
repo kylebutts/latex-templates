@@ -1,20 +1,6 @@
 % xcolor and define colors -------------------------
 \usepackage{xcolor}
 
-% https://www.materialpalette.com/colors
-\definecolor{red}{HTML}{c62828}
-\definecolor{orange}{HTML}{ef6c00}
-\definecolor{green}{HTML}{2e7d32}
-\definecolor{blue}{HTML}{1565c0}
-% \definecolor{purple}{HTML}{283593}
-\definecolor{maroon}{HTML}{AF3335}
-\definecolor{dark-maroon}{HTML}{5D0F0D}
-\definecolor{teal}{HTML}{00695c}
-\definecolor{bluegrey}{HTML}{455a64}
-% \definecolor{indigo}{HTML}{1A237E}
-\definecolor{navyblue}{HTML}{0A3044}
-\definecolor{bluegreen}{HTML}{4A8676}
-
 % https://www.viget.com/articles/color-contrast/
 \definecolor{purple}{HTML}{5601A4}
 \definecolor{navy}{HTML}{0D3D56}
@@ -23,8 +9,10 @@
 \definecolor{daisy}{HTML}{EBC944}
 \definecolor{coral}{HTML}{F26D21}
 \definecolor{kelly}{HTML}{829356}
+\definecolor{cranberry}{HTML}{E64173}
 \definecolor{jet}{HTML}{131516}
 \definecolor{asher}{HTML}{555F61}
+\definecolor{slate}{HTML}{314F4F}
 
 % Main theme colors
 \definecolor{accent}{HTML}{107895}
@@ -32,7 +20,6 @@
 
 
 % Beamer Options -------------------------------------
-
 
 % Background
 \setbeamercolor{background canvas}{bg = white}
@@ -49,12 +36,24 @@
 \setbeamerfont{framesubtitle}{size = \small, shape = \itshape}
 
 % Block
-\setbeamercolor{block title}{fg = white, bg = accent!20!jet}
-\setbeamercolor{block body}{fg = jet, bg = black!5!white}
+\setbeamercolor{block title}{fg = white, bg = accent2}
+\setbeamercolor{block body}{fg = jet, bg = jet!10!white}
 
 % Title page
 \setbeamercolor{title}{fg = jet}
 \setbeamercolor{subtitle}{fg = accent}
+
+%% Custom \maketitle and \titlepage
+\setbeamertemplate{title page}
+{
+    %\begin{centering}
+        \vspace{20mm}
+        {\Large \usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle}\\
+        {\large \itshape \usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle}\\ \vspace{10mm}
+        {\insertauthor}\\
+        {\color{asher}\small{\insertdate}}\\
+    %\end{centering}
+}
 
 % Table of Contents
 \setbeamercolor{section in toc}{fg = accent!70!jet}
@@ -83,13 +82,13 @@
 \setbeamertemplate{enumerate item}{\insertenumlabel.}
 
 %% itemize
-\setbeamercolor{itemize item}{fg = jet}
+\setbeamercolor{itemize item}{fg = accent!70!white}
 \setbeamerfont{itemize item}{size = \small}
-\setbeamertemplate{itemize item}[square]
+\setbeamertemplate{itemize item}[circle]
 
-\setbeamertemplate{itemize subitem}[square]
-\setbeamercolor{itemize subitem}{fg = jet}
+\setbeamercolor{itemize subitem}{fg = accent!70!white}
 \setbeamerfont{itemize subitem}{size = \small}
+\setbeamertemplate{itemize subitem}[square]
 
 \setbeamertemplate{itemize subsubitem}[square]
 \setbeamercolor{itemize subsubitem}{fg = jet}
@@ -236,11 +235,6 @@
 \usetikzlibrary{fit,shapes.misc}
 
 % To set the hypothesis highlighting boxes red.
-\tikzset{hl/.style={
-    set fill color=red!80!jet!40,
-    set border color=red!80!jet,
-  },
-}
 \newcommand\marktopleft[1]{%
     \tikz[overlay,remember picture] 
         \node (marker-#1-a) at (0,1.5ex) {};%
@@ -251,5 +245,3 @@
     \tikz[accent!80!jet, ultra thick, overlay, remember picture, inner sep=4pt]
         \node[draw, rectangle, fit=(marker-#1-a.center) (marker-#1-b.center)] {};%
 }
-
-

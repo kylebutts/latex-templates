@@ -159,7 +159,7 @@
 \setbeamerfont{myTOC}{series=\bfseries, size=\Large}
 \AtBeginSection[]{
         \frame{
-            \frametitle{Outline}
+            \frametitle{Roadmap}
             \tableofcontents[current]   
         }
     }
@@ -226,6 +226,17 @@
 
 % subfigures
 \usepackage{subfigure}
+
+
+% Highlight slide -----------------------------------
+% \begin{transitionframe} Text \end{transitionframe}
+% from paulgp's beamer tips
+\newenvironment{transitionframe}{
+    \setbeamercolor{background canvas}{bg=accent!40!black}
+    \begin{frame}\color{accent!10!white}\LARGE\centering
+}{
+    \end{frame}
+}
 
 
 % Table Highlighting --------------------------------

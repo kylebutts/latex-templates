@@ -7,7 +7,7 @@
 % \maketitle info
 \title{Example Paper}
 \author{
-    \href{https://kylebutts.com/}{Kyle Butts}\thanks{University of Colorado, Boulder. Email: \href{mailto:buttskyle96@gmail.com}{buttskyle96@gmail.com}.} % and Other Author
+    Author One\thanks{School. Email: \href{mailto:email@gmail.com}{email@gmail.com}.} \ and Author Two\thanks{School. Email: \href{mailto:email@gmail.com}{email@gmail.com}.}
 }
 \date{\today}
 
@@ -22,10 +22,10 @@
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
     \par~\par\noindent
-    JEL-Classification: 
+    {\color{asher}JEL-Classification:} ...
     \par\noindent
-    Keywords: 
-    \par
+    {\color{asher}Keywords:} ...
+    \par\vspace{-2.5mm}
 \end{abstract}
 
 \newpage
@@ -150,7 +150,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 
 \begin{table}[tb] 
-    \caption{Summary Statistics (tabularx)}
+    \caption{Table Too Narrow (tabularx)}
     \label{tab:summ_stat}
 
     \begin{adjustbox}{center}
@@ -228,13 +228,13 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 
 \begin{table}[tb] 
-    \caption{Regression Results (Custom tabularx widths)} 
+    \caption{Regression Results} 
     \label{tab:reg1}
 
     \begin{adjustbox}{center}
         \begin{threeparttable}
-            \begin{tabularx}{\textwidth}{@{} 
-                    >{\hsize=.6\hsize}L >{\hsize=.4\hsize}R >{\hsize=.4\hsize}R 
+            \begin{tabular}{@{} 
+                    lrr
                 @{}} 
 
                 % Head
@@ -256,7 +256,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
                 Adjusted R$^{2}$ & 0.656 & 0.682 \\ 
                 
                 \bottomrule
-            \end{tabularx} 
+            \end{tabular} 
 
             % Notes
             \begin{tablenotes}\setlength\labelsep{0pt}\small

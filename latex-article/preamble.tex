@@ -2,7 +2,6 @@
 
 \usepackage[margin=1.25in]{geometry}
 
-
 % AMS --------------------------------------------------------------------------
 
 \usepackage{amsmath}
@@ -19,8 +18,9 @@
 % Font -------------------------------------------------------------------------
 
 \usepackage[T1]{fontenc}
-\usepackage[utopia, varg]{newtxmath}
-\renewcommand{\rmdefault}{futs} % Utopia as text font 
+\usepackage[default]{lato} % Lato as text font
+% \usepackage[utopia, varg]{newtxmath}
+% \renewcommand{\rmdefault}{futs} % Utopia as text font 
 
 % Small adjustments to text kerning
 \usepackage{microtype}
@@ -40,25 +40,21 @@
 \usepackage{xcolor}
 
 % https://www.materialpalette.com/colors
-\definecolor{red}{HTML}{c62828}
-\definecolor{orange}{HTML}{ef6c00}
-\definecolor{green}{HTML}{2e7d32}
-\definecolor{blue}{HTML}{1565c0}
-\definecolor{purple}{HTML}{283593}
-\definecolor{maroon}{HTML}{AF3335}
 \definecolor{dark-maroon}{HTML}{5D0F0D}
-\definecolor{teal}{HTML}{00695c}
-\definecolor{bluegrey}{HTML}{455a64}
-\definecolor{indigo}{HTML}{1A237E}
 \definecolor{navyblue}{HTML}{0A3044}
-\definecolor{bluegreen}{HTML}{4A8676}
-\definecolor{Black}{HTML}{000000}
 
-% CU Boulder colors
-\definecolor{buff-gold}{HTML}{CFB87C}
-\definecolor{buff-grey}{HTML}{565A5C}
-\definecolor{buff-lightgrey}{HTML}{A2A4A3}
-\definecolor{buff-black}{HTML}{000000}
+% https://www.viget.com/articles/color-contrast/
+\definecolor{purple}{HTML}{5601A4}
+\definecolor{navy}{HTML}{0D3D56}
+\definecolor{ruby}{HTML}{9a2515}
+\definecolor{alice}{HTML}{107895}
+\definecolor{daisy}{HTML}{EBC944}
+\definecolor{coral}{HTML}{F26D21}
+\definecolor{kelly}{HTML}{829356}
+\definecolor{cranberry}{HTML}{E64173}
+\definecolor{jet}{HTML}{131516}
+\definecolor{asher}{HTML}{555F61}
+\definecolor{slate}{HTML}{314F4F}
 
 
 % Hyperlinks -------------------------------------------------------------------
@@ -86,7 +82,7 @@
 \newtheoremstyle{spacing}
 {}%          Space above, empty = `usual value'
 {}%          Space below
-{\itshape}%  Body font
+{}%  Body font
 {}%          Indent amount (empty = no indent, \parindent = para indent)
 {\bfseries\color{navyblue}}% Thm head font
 {.}%         Punctuation after thm head
@@ -99,31 +95,34 @@
 \newtheorem{proposition}{Proposition}
 \newtheorem{assumption}{Assumption}
 \newtheorem{example}{Example}
-\newtheorem{remark}{Remark}
 
 
 % Custom Math Definitions ------------------------------------------------------
 
-\global\long\def\expec#1{\mathbb{E}\left[#1\right]}%
-\global\long\def\prob#1{\mathbb{P}\left[#1\right]}%
-\global\long\def\var#1{\mathrm{Var}\left[#1\right]}%
-\global\long\def\cov#1{\mathrm{Cov}\left[#1\right]}%
-\global\long\def\one{\mathbf{1}}%
+\newcommand{\expec}[1]{\mathbb{E}\left[#1\right]}%
+\newcommand{\condexpec}[2]{\mathbb{E}\left[#1 \ \vert \ #2\right]}%
+\newcommand{\prob}[1]{\mathbb{P}\left[#1\right]}%
+\newcommand{\var}[1]{\mathrm{Var}\left[#1\right]}%
+\newcommand{\cov}[1]{\mathrm{Cov}\left[#1\right]}%
+\newcommand{\one}{\mathbf{1}}
 
 
 % Titlepage --------------------------------------------------------------------
 
 % \maketitle
 \usepackage{titling}
+\usepackage{setspace}
 
 % title
-\pretitle{\begin{flushleft}\LARGE}
-\posttitle{\end{flushleft}\vspace{-5mm}}
+\pretitle{\begin{spacing}{1}\begin{flushleft}\huge}
+\posttitle{\end{flushleft}\end{spacing}\vspace{-5mm}}
+
 % author, note don't use \and 
-\preauthor{\begin{flushleft}\Large}
-\postauthor{\end{flushleft}\vspace{-5mm}}
+\preauthor{\begin{flushleft}\Large\color{asher}}
+\postauthor{\end{flushleft}\vspace{-7.5mm}}
+
 % date
-\predate{\begin{flushleft}\scshape}
+\predate{\begin{flushleft}\scshape\color{asher}}
 \postdate{\end{flushleft}\vspace{-5mm}}
 
 % Abstract
@@ -178,6 +177,8 @@
 \makeatother
 
 
+
+
 % Enumerate/Itemize ------------------------------------------------------------
 
 \usepackage{enumitem}
@@ -191,6 +192,7 @@
 
 \DeclareCaptionLabelSeparator{threedash}{\,---\,}
 \DeclareCaptionFont{navyblue}{\color{navyblue}}
+\DeclareCaptionFont{jet}{\color{jet}}
 \captionsetup[table]{format=plain, labelsep=threedash, font={navyblue, bf}}
 \captionsetup[figure]{format=plain, labelsep=threedash, font={navyblue, bf}}
 
@@ -201,6 +203,7 @@
 % multifigure with \caption
 % \begin{subfigure}\caption{} \end{subfigure}
 \usepackage{subcaption}
+\captionsetup[subfigure]{format=plain, font={jet, footnotesize, bf}}
 
 
 % Tables -----------------------------------------------------------------------

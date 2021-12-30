@@ -2,9 +2,9 @@
 
 ## Latex Slides
 
-[PDF Preview](https://raw.githubusercontent.com/kylebutts/templates/master/latex-slides/auxiliary/slides.pdf)
+[PDF Preview](https://raw.githack.com/kylebutts/templates/master/latex-slides/auxiliary/slides.pdf)
 
 
 ## Latex Article
 
-[PDF Preview](https://raw.githubusercontent.com/kylebutts/templates/master/latex-article/auxiliary/article.pdf)
+[PDF Preview](https://raw.githack.com/kylebutts/templates/master/latex-article/auxiliary/article.pdf)

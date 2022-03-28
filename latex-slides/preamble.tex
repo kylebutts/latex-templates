@@ -48,9 +48,13 @@
 {
     %\begin{centering}
         \vspace{20mm}
-        {\Large \usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle}\\
-        {\large \itshape \usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle}\\ \vspace{10mm}
-        {\insertauthor}\\
+        {\Large \usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle}\par%
+        \ifx\insertsubtitle\@empty%
+        \else%
+        \vskip0.25em%
+        {\usebeamerfont{subtitle} \large \itshape \usebeamercolor[fg]{subtitle}\insertsubtitle}%
+        \fi%
+        {\vspace{10mm}\insertauthor}\\
         {\color{asher}\small{\insertdate}}\\
     %\end{centering}
 }

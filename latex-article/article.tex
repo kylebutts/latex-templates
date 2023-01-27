@@ -7,12 +7,30 @@
 % \maketitle info
 \title{Example Paper}
 \author{
-    Author One\thanks{School. Email: \href{mailto:email@gmail.com}{email@gmail.com}.} \ and Author Two\thanks{School. Email: \href{mailto:email@gmail.com}{email@gmail.com}.}
+    Author One%
+    \thanks{School. Email: \href{mailto:email@gmail.com}{email@gmail.com}.} \ and Author Two%
+    \thanks{School. Email: \href{mailto:email@gmail.com}{email@gmail.com}.}
 }
 \date{\today}
 
 % pdf info
 \hypersetup{pdftitle={Example Paper}, pdfauthor={Kyle Butts}}
+
+
+% Conditionally display thoughts with coauthors
+% Simply togglefalse and the comments will disappear
+% https://tex.stackexchange.com/questions/33576/conditional-typesetting-build
+\usepackage{etoolbox}
+\newtoggle{INCLUDECOMMENTS}
+\toggletrue{INCLUDECOMMENTS}
+% \togglefalse{INCLUDECOMMENTS}
+
+\newcommand{\kyle}[1]{\iftoggle{INCLUDECOMMENTS}{{\color{cranberry}\textbf{Kyle:} #1}}{}}
+
+
+
+
+
 
 \begin{document}
 
@@ -103,44 +121,44 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-% in Preamble:
-% \usepackage{pdflscape} - rotates page left-side up in pdf
-% \usepackage{lscape} - does not rotate page, only figure/table
+% % in Preamble:
+% % \usepackage{pdflscape} - rotates page left-side up in pdf
+% % \usepackage{lscape} - does not rotate page, only figure/table
 
-\begin{landscape}
-%\thispagestyle{empty}
-\thispagestyle{lscaped}
+% \begin{landscape}
+% %\thispagestyle{empty}
+% \thispagestyle{lscaped}
 
-\begin{table}[h!]
-    \caption{Landscape Table}
-    \centering
+% \begin{table}[h!]
+%     \caption{Landscape Table}
+%     \centering
     
-    \begin{adjustbox}{width = 1.2\textwidth, center}
-        \begin{threeparttable}
-        \begin{tabular}{@{} @{\extracolsep{5pt}} 
-                lrrrrrrrr 
-            @{}}
-            % Head
-            \toprule
-            & & & \multicolumn{2}{c}{Market Access} & \multicolumn{2}{c}{Urban Weekly Wage} & \multicolumn{2}{c}{Nonurban Weekly Wage} \\
-            \cmidrule{4-5} \cmidrule{6-7} \cmidrule{8-9}
-            Year & \multicolumn{1}{c}{N} & \% Urban & Mean & SD & Mean & SD & Mean & SD \\ 
-            \hline 
+%     \begin{adjustbox}{width = 1.2\textwidth, center}
+%         \begin{threeparttable}
+%         \begin{tabular}{@{} @{\extracolsep{5pt}} 
+%                 lrrrrrrrr 
+%             @{}}
+%             % Head
+%             \toprule
+%             & & & \multicolumn{2}{c}{Market Access} & \multicolumn{2}{c}{Urban Weekly Wage} & \multicolumn{2}{c}{Nonurban Weekly Wage} \\
+%             \cmidrule{4-5} \cmidrule{6-7} \cmidrule{8-9}
+%             Year & \multicolumn{1}{c}{N} & \% Urban & Mean & SD & Mean & SD & Mean & SD \\ 
+%             \hline 
 
-            % Body
-            \input{summary.tex}
+%             % Body
+%             \input{summary.tex}
 
-            \bottomrule
-        \end{tabular}
+%             \bottomrule
+%         \end{tabular}
         
-        % Notes
-        \begin{tablenotes}\footnotesize
-            \item \textit{Notes.} Weekly wage is reported in 2015 \$. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-        \end{tablenotes}
-        \end{threeparttable}
-    \end{adjustbox}
-\end{table}
-\end{landscape}
+%         % Notes
+%         \begin{tablenotes}\footnotesize
+%             \item \textit{Notes.} Weekly wage is reported in 2015 \$. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+%         \end{tablenotes}
+%         \end{threeparttable}
+%     \end{adjustbox}
+% \end{table}
+% \end{landscape}
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
 

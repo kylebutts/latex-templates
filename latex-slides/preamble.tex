@@ -1,7 +1,6 @@
 % Define colors ----------------------------------------------------------------
 \usepackage{xcolor}
 
-% https://www.viget.com/articles/color-contrast/
 \definecolor{purple}{HTML}{695693}
 \definecolor{cranberry}{HTML}{E64173}
 \definecolor{orange}{HTML}{D65616}
@@ -29,18 +28,19 @@
 \definecolor{slate900}{HTML}{0f172a}
 \definecolor{slate950}{HTML}{020617}
 
+% Easily color text
 \newcommand\purple[1]{{\color{purple}#1}}
 \newcommand\cranberry[1]{{\color{cranberry}#1}}
 \newcommand\orange[1]{{\color{orange}#1}}
 \newcommand\navy[1]{{\color{navy}#1}}
 \newcommand\teal[1]{{\color{teal}#1}}
-
 \newcommand\kelly[1]{{\color{kelly}#1}}
 \newcommand\ruby[1]{{\color{ruby}#1}}
 \newcommand\alice[1]{{\color{alice}#1}}
 \newcommand\daisy[1]{{\color{daisy}#1}}
 \newcommand\coral[1]{{\color{coral}#1}}
 
+% Color background of text
 \newcommand\bgNavy[1]{{\colorbox{navy!80!white}{#1}}}
 \newcommand\bgOrange[1]{{\colorbox{orange!80!white}{#1}}}
 \newcommand\bgTeal[1]{{\colorbox{teal!80!white}{#1}}}
@@ -78,13 +78,15 @@
 \setbeamercolor{subsection in toc}{fg = slate900}
 
 % Button 
-\setbeamercolor{button}{bg = accent}
+\setbeamercolor{button}{bg = white, fg = slate900}
+\setbeamerfont{button}{}
+\setbeamercolor{button border}{fg = accent}
 
 % Remove navigation symbols
 \setbeamertemplate{navigation symbols}{}
 
 % Table and Figure captions
-\setbeamercolor{caption}{fg=slate900!70!white}
+\setbeamercolor{caption}{fg = slate900!70!white}
 \setbeamercolor{caption name}{fg=slate900}
 \setbeamerfont{caption name}{shape = \itshape}
 

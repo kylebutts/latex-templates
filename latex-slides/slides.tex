@@ -1,12 +1,17 @@
-% \documentclass[aspectratio=43]{beamer}
 \documentclass[aspectratio=169]{beamer}
+% \documentclass[aspectratio=43]{beamer}
+
+% Define `accent`/`accent2` colors for theme customization
+\definecolor{accent}{HTML}{006896}
+\definecolor{accent2}{HTML}{E64173}
+
+% Beamer theme
+\input{preamble.tex}
 
 % Title --------------------------------------------
 \title{What is the Effect of X on Y?}
 \date{\today}
 \author{Kyle Butts}
-
-\input{preamble.tex}
 
 % Set-up Bibliography ------------------------------
 \addbibresource{references.bib}
@@ -195,58 +200,63 @@ Transitioning Sentence
 \section{Table}
 % ------------------------------------------------------------------------------
 
-\begin{frame}
+\begin{frame}{Table}
     
-% Adjust Font Size to make table fit   
-\begin{table}[!htbp]
-    \caption{Regression Results} 
-    \label{}
-    
-    \begin{adjustbox}{max width = \textwidth, width = 0.5\textwidth, center}
-        \begin{threeparttable}
-            \begin{tabular}{@{} l *{2}{r} @{}} 
-                \toprule
-                & \multicolumn{2}{c}{\textit{Dependent variable: Overall Rating}} \\ 
-                \cline{2-3} \\
-                & (1) & (2)\\ 
-                \midrule
-                
-                \only<1>{
-                    Handling of Complaints & 0.692$^{***}$& 0.682$^{***}$ \\ 
-                    &  (0.149) & (0.129) \\
-                }
-                \only<2>{
-                    \marktopleft{ex1}Handling of Complaints & 0.692$^{***}$& 0.682$^{***}$ \\ 
-                    &  (0.149) & (0.129) \markbottomright{ex1} \\
-                }
-                No Special Privileges & -0.104 & $-$0.103  \\ 
-                & (0.135) & (0.129) \\
-                Opportunity to Learn & 0.249 & 0.238$^{*}$ \\ 
-                & (0.160) & (0.139) \\
-                Performance-Based Raises & -0.033 &  \\ 
-                & (0.202) & \\
-                Too Critical & 0.015 &  \\ 
-                & (0.147) & \\
-                Advancement & 11.011 & 11.258 \\ 
-                & (11.704) & (7.318) \\
-                
-                \midrule 
-                Observations & 30 & 30 \\ 
-                R$^{2}$ & 0.715 & 0.715 \\ 
-                \bottomrule
+\begin{columns}[T]
+  \vspace{0pt}
+  \begin{column}{.6\textwidth}
+    % Adjust Font Size to make table fit   
+    \begin{table}[!htbp]
+      % \caption{Regression Results} 
+      \label{}
+      
+      \begin{adjustbox}{max width = \textwidth, width = 0.8 \textwidth, center}
+          \begin{threeparttable}
+              \begin{tabular}{@{} l *{2}{r} @{}} 
+                  \toprule
+                  & \multicolumn{2}{c}{\textit{Dependent variable: Overall Rating}} \\ 
+                  \cline{2-3} \\
+                  & (1) & (2)\\ 
+                  \midrule
+                  
+                  \only<1>{
+                      Handling of Complaints & 0.692$^{***}$& 0.682$^{***}$ \\ 
+                      &  (0.149) & (0.129) \\
+                  }
+                  \only<2>{
+                      \marktopleft{ex1}Handling of Complaints & 0.692$^{***}$& 0.682$^{***}$ \\ 
+                      &  (0.149) & (0.129) \markbottomright{ex1} \\
+                  }
+                  No Special Privileges & -0.104 & $-$0.103  \\ 
+                  & (0.135) & (0.129) \\
+                  Opportunity to Learn & 0.249 & 0.238$^{*}$ \\ 
+                  & (0.160) & (0.139) \\
+                  
+                  \midrule 
+                  Observations & 30 & 30 \\ 
+                  R$^{2}$ & 0.715 & 0.715 \\ 
+                  \bottomrule
 
-            \end{tabular} 
-            % Notes 
-            \begin{tablenotes}
-                \item \textit{Notes.} $^{*} p<0.1$; $^{**} p<0.05$; $^{***} p<0.01$.
-            \end{tablenotes}
-        \end{threeparttable}
-    \end{adjustbox}
-\end{table}
+              \end{tabular} 
+              % Notes 
+              \begin{tablenotes}
+                  \item \textit{Notes.} $^{*} p<0.1$; $^{**} p<0.05$; $^{***} p<0.01$.
+              \end{tablenotes}
+          \end{threeparttable}
+      \end{adjustbox}
+    \end{table}
 
-{\small
-Use \textbackslash marktopleft\{name\} and \textbackslash markbottomright\{name\} to create box.
-}
+      \vspace*{50mm} % Ensures columns are up top; delete if you want columns centered on page
+  \end{column}
+  \hfill
+  \begin{column}{.4\textwidth}
+      \begin{itemize}
+          \item Use \texttt{\textbackslash marktopleft\{name\}} and \texttt{\textbackslash markbottomright\{name\}} within the table to create box.
+          \item Using \texttt{\textbackslash only} or \texttt{\textbackslash on} lets you conditionally display box
+      \end{itemize}
+  \end{column}
+\end{columns}
+
 \end{frame}
 
 % ------------------------------------------------------------------------------
@@ -259,11 +269,11 @@ Use \textbackslash marktopleft\{name\} and \textbackslash markbottomright\{name\
 \imageframe{img/kanagawa_16_9.png}
 
 \begin{frame}{Figure}{Full-size Figures}
-    You can use the command \textbackslash imageframe\{img-path\} and it will create a full-frame of a picture. 
-    
-    \begin{itemize}
-        \item Ideally, your figure is the same aspect as the frame $4:3$ or $16:9$ or else there will be white space in one of the directions.
-    \end{itemize}
+  You can use the command \texttt{\textbackslash imageframe\{img-path\}} and it will create a full-frame of a picture. 
+  
+  \begin{itemize}
+    \item Ideally, your figure is the same aspect as the frame \texttt{4:3} or \texttt{16:9} or else there will be white space in one of the directions.
+  \end{itemize}
 \end{frame}
 
 \begin{frame}{Figure}{}
@@ -286,11 +296,10 @@ Use \textbackslash marktopleft\{name\} and \textbackslash markbottomright\{name\
 % ------------------------------------------------------------------------------
 
 \begin{frame}{Appendix Slide}\label{appendix1}
-
 \begin{table}
     \caption{Summary Statistics}
     \label{appendix_summ_stat}
-    \begin{adjustbox}{max width = \textwidth, width = 0.8 \textwidth, center}
+    \begin{adjustbox}{max width = \textwidth, width = 0.7\textwidth, center}
         \begin{threeparttable}
             \begin{tabular}{@{} lccccccc @{}} 
                 \toprule

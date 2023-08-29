@@ -1,4 +1,4 @@
-% xcolor and define colors -------------------------
+% Define colors ----------------------------------------------------------------
 \usepackage{xcolor}
 
 % https://www.viget.com/articles/color-contrast/
@@ -29,10 +29,6 @@
 \definecolor{slate900}{HTML}{0f172a}
 \definecolor{slate950}{HTML}{020617}
 
-% Main theme colors
-\definecolor{accent}{HTML}{695693}
-\definecolor{accent2}{HTML}{E64173}
-
 \newcommand\purple[1]{{\color{purple}#1}}
 \newcommand\cranberry[1]{{\color{cranberry}#1}}
 \newcommand\orange[1]{{\color{orange}#1}}
@@ -56,7 +52,7 @@
 \newcommand\bgCoral[1]{{\colorbox{coral!80!white}{#1}}}
 \newcommand\bgCranberry[1]{{\colorbox{cranberry!80!white}{#1}}}
 
-% Beamer Options -------------------------------------
+% Beamer Options ---------------------------------------------------------------
 
 % Background
 \setbeamercolor{background canvas}{bg = white}
@@ -77,7 +73,68 @@
 \setbeamercolor{page number in head/foot}{fg=slate600}
 \setbeamertemplate{footline}[frame number]
 
-% Block
+% Table of Contents
+\setbeamercolor{section in toc}{fg = slate700}
+\setbeamercolor{subsection in toc}{fg = slate900}
+
+% Button 
+\setbeamercolor{button}{bg = accent}
+
+% Remove navigation symbols
+\setbeamertemplate{navigation symbols}{}
+
+% Table and Figure captions
+\setbeamercolor{caption}{fg=slate900!70!white}
+\setbeamercolor{caption name}{fg=slate900}
+\setbeamerfont{caption name}{shape = \itshape}
+
+% Links
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks = true,
+  linkcolor = accent2,
+  filecolor = accent2,
+  urlcolor = accent2,
+  citecolor = accent2,
+}
+
+% Line spacing
+\usepackage{setspace}
+\setstretch{1.3}
+
+% Remove annoying over-full box warnings
+\vfuzz2pt 
+\hfuzz2pt
+
+
+% Title page -------------------------------------------------------------------
+\setbeamercolor{title}{fg = slate900}
+\setbeamercolor{subtitle}{fg = accent}
+
+%% Custom \maketitle and \titlepage
+\setbeamertemplate{title page}
+{
+  %\begin{centering}
+  \vspace{20mm}
+  {\Large \usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle}\\ \vskip0.25em%
+  \ifx\insertsubtitle\@empty%
+  \else%
+    {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
+  \fi% 
+  {\vspace{10mm}\insertauthor}\\
+  {\color{asher}\small{\insertdate}}\\
+  %\end{centering}
+}
+
+% Table of Contents with Sections ----------------------------------------------
+\setbeamerfont{myTOC}{series=\bfseries, size=\Large}
+\AtBeginSection[]{
+  \begin{frame}{Roadmap}
+    \tableofcontents[current]   
+  \end{frame}
+}
+
+% Block ------------------------------------------------------------------------
 \usepackage{tcolorbox}
 
 \defbeamertemplate{block begin}{framed}[1][] {
@@ -149,42 +206,7 @@
   \vskip\smallskipamount\end{tcolorbox}
 }
 
-
-% Title page
-\setbeamercolor{title}{fg = slate900}
-\setbeamercolor{subtitle}{fg = accent}
-
-%% Custom \maketitle and \titlepage
-\setbeamertemplate{title page}
-{
-  %\begin{centering}
-  \vspace{20mm}
-  {\Large \usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle}\\ \vskip0.25em%
-  \ifx\insertsubtitle\@empty%
-  \else%
-    {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
-  \fi% 
-  {\vspace{10mm}\insertauthor}\\
-  {\color{asher}\small{\insertdate}}\\
-  %\end{centering}
-}
-
-% Table of Contents
-\setbeamercolor{section in toc}{fg = slate700}
-\setbeamercolor{subsection in toc}{fg = slate900}
-
-% Button 
-\setbeamercolor{button}{bg = accent}
-
-% Remove navigation symbols
-\setbeamertemplate{navigation symbols}{}
-
-% Table and Figure captions
-\setbeamercolor{caption}{fg=slate900!70!white}
-\setbeamercolor{caption name}{fg=slate900}
-\setbeamerfont{caption name}{shape = \itshape}
-
-% Bullet points
+% Bullet points ----------------------------------------------------------------
 
 %% Fix left-margins
 \settowidth{\leftmargini}{\usebeamertemplate{itemize item}}
@@ -209,7 +231,7 @@
 \setbeamerfont{itemize subsubitem}{size = \small}
 \setbeamertemplate{itemize subsubitem}[square]
 
-% References
+% References -------------------------------------------------------------------
 
 %% Bibliography Font, roughly matching aea
 \setbeamerfont{bibliography item}{size = \footnotesize}
@@ -228,31 +250,11 @@
 \setbeamertemplate{bibliography item}{}
 
 
-
-
-
-% Links ----------------------------------------------
-
-\usepackage{hyperref}
-\hypersetup{
-  colorlinks = true,
-  linkcolor = accent2,
-  filecolor = accent2,
-  urlcolor = accent2,
-  citecolor = accent2,
-}
-
-
-% Line spacing --------------------------------------
-\usepackage{setspace}
-\setstretch{1.3}
-
-
-% \begin{columns} -----------------------------------
+% \begin{columns} --------------------------------------------------------------
 \usepackage{multicol}
 
 
-% Fonts ---------------------------------------------
+% Fonts ------------------------------------------------------------------------
 % Beamer Option to use custom fonts
 \usefonttheme{professionalfonts}
 
@@ -264,23 +266,7 @@
 \usepackage{microtype}
 
 
-
-% Remove annoying over-full box warnings -----------
-\vfuzz2pt 
-\hfuzz2pt
-
-
-% Table of Contents with Sections
-\setbeamerfont{myTOC}{series=\bfseries, size=\Large}
-\AtBeginSection[]{
-  \frame{
-    \frametitle{Roadmap}
-    \tableofcontents[current]   
-  }
-}
-
-
-% References ----------------------------------------
+% References -------------------------------------------------------------------
 \usepackage[
     citestyle= authoryear,
     style = authoryear,
@@ -294,7 +280,7 @@
 % Remove "In:"
 \renewbibmacro{in:}{}
 
-% Color citations for slides
+% Color citations for slides 
 \newenvironment{citecolor}
     {\footnotesize\begin{color}{accent2}}
     {\end{color}}
@@ -302,8 +288,9 @@
 \newcommand{\citetcolor}[1]{{\footnotesize\textcolor{gray}{\citet{#1}}}}
 \newcommand{\citepcolor}[1]{{\footnotesize\textcolor{gray}{\citep{#1}}}}
 
-% Tables -------------------------------------------
-% Tables too big
+% Tables -----------------------------------------------------------------------
+
+% When tables are too big, use adjustbox
 % \begin{adjustbox}{width = 1.2\textwidth, center}
 \usepackage{adjustbox}
 \usepackage{array}
@@ -311,7 +298,6 @@
     
 % Fix \input with tables
 % \input fails when \\ is at end of external .tex file
-
 \makeatletter
 \let\input\@@input
 \makeatother
@@ -325,36 +311,7 @@
 \newcolumntype{R}{>{\raggedleft\arraybackslash}X}
 \newcolumntype{C}{>{\centering\arraybackslash}X}
 
-% Figures
-
-% \imageframe{img_name} -----------------------------
-% from https://github.com/mattslate900well/cousteau
-\newcommand{\imageframe}[1]{%
-    \begin{frame}[plain]
-        \begin{tikzpicture}[remember picture, overlay]
-            \node[at = (current page.center), xshift = 0cm] (cover) {%
-                \includegraphics[keepaspectratio, width=\paperwidth, height=\paperheight]{#1}
-            };
-        \end{tikzpicture}
-    \end{frame}%
-}
-
-% subfigures
-\usepackage{subfigure}
-
-
-% Highlight slide -----------------------------------
-% \begin{transitionframe} Text \end{transitionframe}
-% from paulgp's beamer tips
-\newenvironment{transitionframe}{
-    \setbeamercolor{background canvas}{bg=accent!60!black}
-    \begin{frame}\color{white}\LARGE\centering
-}{
-    \end{frame}
-}
-
-
-% Table Highlighting --------------------------------
+% Table Highlighting -----------------------------------------------------------
 % Create top-left and bottom-right markets in tabular cells with a unique matching id and these commands will outline those cells
 \usepackage[beamer,customcolors]{hf-tikz}
 \usetikzlibrary{calc}
@@ -371,3 +328,31 @@
     \tikz[accent!80!slate900, ultra thick, overlay, remember picture, inner sep=4pt]
         \node[draw, rectangle, fit=(marker-#1-a.center) (marker-#1-b.center)] {};%
 }
+
+% Figures ----------------------------------------------------------------------
+
+% \imageframe{img_name}
+% from https://github.com/mattslate900well/cousteau
+\newcommand{\imageframe}[1]{%
+    \begin{frame}[plain]
+        \begin{tikzpicture}[remember picture, overlay]
+            \node[at = (current page.center), xshift = 0cm] (cover) {%
+                \includegraphics[keepaspectratio, width=\paperwidth, height=\paperheight]{#1}
+            };
+        \end{tikzpicture}
+    \end{frame}%
+}
+
+% subfigures
+\usepackage{subfigure}
+
+% Highlight slide --------------------------------------------------------------
+% \begin{transitionframe} Text \end{transitionframe}
+% from paulgp's beamer tips
+\newenvironment{transitionframe}{
+    \setbeamercolor{background canvas}{bg=accent!60!black}
+    \begin{frame}\color{white}\LARGE\centering
+}{
+    \end{frame}
+}
+

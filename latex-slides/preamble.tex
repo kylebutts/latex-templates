@@ -3,35 +3,51 @@
 
 % https://www.viget.com/articles/color-contrast/
 \definecolor{purple}{HTML}{695693}
-\definecolor{navy}{HTML}{567293}
+\definecolor{cranberry}{HTML}{E64173}
+\definecolor{orange}{HTML}{D65616}
+\definecolor{navy}{HTML}{006896}
+\definecolor{teal}{HTML}{1A505A}
 \definecolor{ruby}{HTML}{9a2515}
 \definecolor{alice}{HTML}{107895}
 \definecolor{daisy}{HTML}{EBC944}
 \definecolor{coral}{HTML}{F26D21}
 \definecolor{kelly}{HTML}{829356}
-\definecolor{cranberry}{HTML}{E64173}
-\definecolor{jet}{HTML}{131516}
+\definecolor{slate900}{HTML}{131516}
 \definecolor{asher}{HTML}{555F61}
 \definecolor{slate}{HTML}{314F4F}
 
+% Slate from Tailwind Colors
+\definecolor{slate50}{HTML}{f8fafc}
+\definecolor{slate100}{HTML}{f1f5f9}
+\definecolor{slate200}{HTML}{e2e8f0}
+\definecolor{slate300}{HTML}{cbd5e1}
+\definecolor{slate400}{HTML}{94a3b8}
+\definecolor{slate500}{HTML}{64748b}
+\definecolor{slate600}{HTML}{475569}
+\definecolor{slate700}{HTML}{334155}
+\definecolor{slate800}{HTML}{1e293b}
+\definecolor{slate900}{HTML}{0f172a}
+\definecolor{slate950}{HTML}{020617}
+
 % Main theme colors
-\definecolor{accent}{HTML}{107895}
-\definecolor{accent2}{HTML}{9a2515}
+\definecolor{accent}{HTML}{695693}
+\definecolor{accent2}{HTML}{E64173}
 
-
-\newcommand\navy[1]{{\color{navy}#1}}
 \newcommand\purple[1]{{\color{purple}#1}}
+\newcommand\cranberry[1]{{\color{cranberry}#1}}
+\newcommand\orange[1]{{\color{orange}#1}}
+\newcommand\navy[1]{{\color{navy}#1}}
+\newcommand\teal[1]{{\color{teal}#1}}
+
 \newcommand\kelly[1]{{\color{kelly}#1}}
 \newcommand\ruby[1]{{\color{ruby}#1}}
 \newcommand\alice[1]{{\color{alice}#1}}
 \newcommand\daisy[1]{{\color{daisy}#1}}
 \newcommand\coral[1]{{\color{coral}#1}}
-\newcommand\cranberry[1]{{\color{cranberry}#1}}
-\newcommand\slate[1]{{\color{slate}#1}}
-\newcommand\jet[1]{{\color{jet}#1}}
-\newcommand\asher[1]{{\color{asher}#1}}
 
 \newcommand\bgNavy[1]{{\colorbox{navy!80!white}{#1}}}
+\newcommand\bgOrange[1]{{\colorbox{orange!80!white}{#1}}}
+\newcommand\bgTeal[1]{{\colorbox{teal!80!white}{#1}}}
 \newcommand\bgPurple[1]{{\colorbox{purple!80!white}{#1}}}
 \newcommand\bgKelly[1]{{\colorbox{kelly!80!white}{#1}}}
 \newcommand\bgRuby[1]{{\colorbox{ruby!80!white}{#1}}}
@@ -39,7 +55,6 @@
 \newcommand\bgDaisy[1]{{\colorbox{daisy!80!white}{#1}}}
 \newcommand\bgCoral[1]{{\colorbox{coral!80!white}{#1}}}
 \newcommand\bgCranberry[1]{{\colorbox{cranberry!80!white}{#1}}}
-
 
 % Beamer Options -------------------------------------
 
@@ -53,36 +68,110 @@
 \setbeamercolor{alerted text}{fg = accent2}
 
 % Frame title
-\setbeamercolor{frametitle}{bg = white, fg = jet}
+\setbeamercolor{frametitle}{bg = white, fg = slate900}
 \setbeamercolor{framesubtitle}{bg = white, fg = accent}
 \setbeamerfont{framesubtitle}{size = \small, shape = \itshape}
 
+% Page numbering
+\usepackage{appendixnumberbeamer}
+\setbeamercolor{page number in head/foot}{fg=slate600}
+\setbeamertemplate{footline}[frame number]
+
 % Block
-\setbeamercolor{block title}{fg = white, bg = accent2}
-\setbeamercolor{block body}{fg = jet, bg = jet!10!white}
+\usepackage{tcolorbox}
+
+\defbeamertemplate{block begin}{framed}[1][] {
+  \begin{tcolorbox}[colback=slate50, colframe=slate200, arc=0mm]
+  {
+    \vskip\smallskipamount%
+    \ifthenelse{\equal{#1}{}}{}{%
+      \raggedright\usebeamerfont*{block title}\usebeamercolor[fg]{title}%
+      \textbf{\insertblocktitle}%
+      \vskip\medskipamount%
+    }
+  }%
+  \raggedright%
+  \usebeamerfont{block body}%
+}
+\defbeamertemplate{block end}{framed}[1][] {
+  \vskip\smallskipamount\end{tcolorbox}
+}
+\setbeamertemplate{blocks}[framed]
+
+% Colors from plugging base color into https://uicolors.app/create
+\usepackage{ifthen}
+\newenvironment*{slateBlock}[1]{%
+  \begin{tcolorbox}[colback=slate50, colframe=slate200, arc=0mm]{
+    \vskip\smallskipamount%
+    \ifthenelse{\equal{#1}{}}{}{%
+      \raggedright\usebeamerfont*{block title}\usebeamercolor[fg]{title}%
+      \textbf{#1}%
+      \vskip\medskipamount%
+    }%
+  }%
+  \raggedright%
+  \usebeamerfont{block body}%
+}{%
+  \vskip\smallskipamount\end{tcolorbox}
+}
+
+\definecolor{purple50}{HTML}{f9f8fc}
+\definecolor{purple100}{HTML}{f1eff8}
+\definecolor{purple200}{HTML}{e6e2f2}
+\newenvironment*{purpleBlock}[1]{%
+  \begin{tcolorbox}[colback=purple50, colframe=purple200, arc=0mm]{
+    \vskip\smallskipamount%
+    \ifthenelse{\equal{#1}{}}{}{%
+      \raggedright\usebeamerfont*{block title}\usebeamercolor[fg]{title}%
+      \textbf{#1}%
+      \vskip\medskipamount%
+    }%
+  }%
+  \raggedright%
+  \usebeamerfont{block body}%
+}{%
+  \vskip\smallskipamount\end{tcolorbox}
+}
+
+\definecolor{cranberry50}{HTML}{fdf2f6}
+\definecolor{cranberry100}{HTML}{fbe8ef}
+\definecolor{cranberry200}{HTML}{fad0e0}
+\newenvironment*{cranberryBlock}[1]{%
+  \begin{tcolorbox}[colback=cranberry50, colframe=cranberry200, arc=0mm]{
+    \vskip\smallskipamount%
+    \raggedright\usebeamerfont*{block title}\usebeamercolor[fg]{title}%
+    \textbf{#1}%
+  }%
+  \vskip\medskipamount%
+  \raggedright%
+  \usebeamerfont{block body}%
+}{%
+  \vskip\smallskipamount\end{tcolorbox}
+}
+
 
 % Title page
-\setbeamercolor{title}{fg = jet}
+\setbeamercolor{title}{fg = slate900}
 \setbeamercolor{subtitle}{fg = accent}
 
 %% Custom \maketitle and \titlepage
 \setbeamertemplate{title page}
 {
-    %\begin{centering}
-        \vspace{20mm}
-        {\Large \usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle}\\ \vskip0.25em%
-        \ifx\insertsubtitle\@empty%
-        \else%
-          {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
-        \fi% 
-        {\vspace{10mm}\insertauthor}\\
-        {\color{asher}\small{\insertdate}}\\
-    %\end{centering}
+  %\begin{centering}
+  \vspace{20mm}
+  {\Large \usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle}\\ \vskip0.25em%
+  \ifx\insertsubtitle\@empty%
+  \else%
+    {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
+  \fi% 
+  {\vspace{10mm}\insertauthor}\\
+  {\color{asher}\small{\insertdate}}\\
+  %\end{centering}
 }
 
 % Table of Contents
-\setbeamercolor{section in toc}{fg = accent!70!jet}
-\setbeamercolor{subsection in toc}{fg = jet}
+\setbeamercolor{section in toc}{fg = slate700}
+\setbeamercolor{subsection in toc}{fg = slate900}
 
 % Button 
 \setbeamercolor{button}{bg = accent}
@@ -91,8 +180,8 @@
 \setbeamertemplate{navigation symbols}{}
 
 % Table and Figure captions
-\setbeamercolor{caption}{fg=jet!70!white}
-\setbeamercolor{caption name}{fg=jet}
+\setbeamercolor{caption}{fg=slate900!70!white}
+\setbeamercolor{caption name}{fg=slate900}
 \setbeamerfont{caption name}{shape = \itshape}
 
 % Bullet points
@@ -102,23 +191,23 @@
 \addtolength{\leftmargini}{\labelsep}
 
 %% enumerate item color
-\setbeamercolor{enumerate item}{fg = accent}
+\setbeamercolor{enumerate item}{fg = slate600}
 \setbeamerfont{enumerate item}{size = \small}
 \setbeamertemplate{enumerate item}{\insertenumlabel.}
 
 %% itemize
-\setbeamercolor{itemize item}{fg = accent!70!white}
+\setbeamercolor{itemize item}{fg = slate600}
 \setbeamerfont{itemize item}{size = \small}
 \setbeamertemplate{itemize item}[circle]
 
 %% right arrow for subitems
-\setbeamercolor{itemize subitem}{fg = accent!60!white}
+\setbeamercolor{itemize subitem}{fg = slate600}
 \setbeamerfont{itemize subitem}{size = \small}
 \setbeamertemplate{itemize subitem}{$\rightarrow$}
 
-\setbeamertemplate{itemize subsubitem}[square]
-\setbeamercolor{itemize subsubitem}{fg = jet}
+\setbeamercolor{itemize subsubitem}{fg = slate600}
 \setbeamerfont{itemize subsubitem}{size = \small}
+\setbeamertemplate{itemize subsubitem}[square]
 
 % References
 
@@ -129,11 +218,11 @@
 \setbeamerfont{bibliography entry location}{size = \footnotesize, shape = \itshape}
 \setbeamerfont{bibliography entry note}{size = \footnotesize}
 
-\setbeamercolor{bibliography item}{fg = jet}
-\setbeamercolor{bibliography entry author}{fg = accent!60!jet}
-\setbeamercolor{bibliography entry title}{fg = jet}
-\setbeamercolor{bibliography entry location}{fg = jet}
-\setbeamercolor{bibliography entry note}{fg = jet}
+\setbeamercolor{bibliography item}{fg = slate900}
+\setbeamercolor{bibliography entry author}{fg = accent!60!slate900}
+\setbeamercolor{bibliography entry title}{fg = slate900}
+\setbeamercolor{bibliography entry location}{fg = slate900}
+\setbeamercolor{bibliography entry note}{fg = slate900}
 
 %% Remove bibliography symbol in slides
 \setbeamertemplate{bibliography item}{}
@@ -184,11 +273,11 @@
 % Table of Contents with Sections
 \setbeamerfont{myTOC}{series=\bfseries, size=\Large}
 \AtBeginSection[]{
-        \frame{
-            \frametitle{Roadmap}
-            \tableofcontents[current]   
-        }
-    }
+  \frame{
+    \frametitle{Roadmap}
+    \tableofcontents[current]   
+  }
+}
 
 
 % References ----------------------------------------
@@ -239,7 +328,7 @@
 % Figures
 
 % \imageframe{img_name} -----------------------------
-% from https://github.com/mattjetwell/cousteau
+% from https://github.com/mattslate900well/cousteau
 \newcommand{\imageframe}[1]{%
     \begin{frame}[plain]
         \begin{tikzpicture}[remember picture, overlay]
@@ -259,7 +348,7 @@
 % from paulgp's beamer tips
 \newenvironment{transitionframe}{
     \setbeamercolor{background canvas}{bg=accent!60!black}
-    \begin{frame}\color{accent!10!white}\LARGE\centering
+    \begin{frame}\color{white}\LARGE\centering
 }{
     \end{frame}
 }
@@ -279,6 +368,6 @@
 \newcommand\markbottomright[1]{%
     \tikz[overlay,remember picture] 
         \node (marker-#1-b) at (0,0) {};%
-    \tikz[accent!80!jet, ultra thick, overlay, remember picture, inner sep=4pt]
+    \tikz[accent!80!slate900, ultra thick, overlay, remember picture, inner sep=4pt]
         \node[draw, rectangle, fit=(marker-#1-a.center) (marker-#1-b.center)] {};%
 }

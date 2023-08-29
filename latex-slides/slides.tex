@@ -1,5 +1,5 @@
-\documentclass[aspectratio=43]{beamer}
-% \documentclass[aspectratio=169]{beamer}
+% \documentclass[aspectratio=43]{beamer}
+\documentclass[aspectratio=169]{beamer}
 
 % Title --------------------------------------------
 \title{What is the Effect of X on Y?}
@@ -71,17 +71,29 @@ Transitioning Sentence
 \end{frame}
 
 \begin{frame}{Components}{Blocks}
-    \begin{block}{Regression Specification}
-        The main specificaiton is as follows: 
+  \begin{block}{}
+    The main specificaiton is as follows: 
+    $$
+      y_{it} = X_{it} \beta + \mu_i + \varepsilon_{it}
+    $$
+    With $\mu_i$ being unit fixed effects.
+  \end{block}
+\end{frame}
 
-        \[
-            y_{it} = X_{it} \beta + \mu_i + \varepsilon_{it}
-        \]
-    \end{block}
+\begin{frame}{Components}{Blocks}
+  \begin{purpleBlock}{}
+      This is a purple block
+  \end{purpleBlock}
+
+  \begin{cranberryBlock}{With Title}
+    This is a cranberry block
+  \end{cranberryBlock}
 \end{frame}
 
 \begin{frame}{Components}{Colors}
   \navy{Test sentence with \textbackslash navy\{...\}}
+
+  \teal{Test sentence with \textbackslash teal\{...\}}
 
   \purple{Test sentence with \textbackslash purple\{...\}}
 
@@ -96,19 +108,19 @@ Transitioning Sentence
   \coral{Test sentence with \textbackslash coral\{...\}}
 
   \cranberry{Test sentence with \textbackslash color\{cranbery\}}
-
-  \slate{Test sentence with \textbackslash color\{slate\}}
-
-  \jet{Test sentence with \textbackslash color\{jet\}}
-
-  \asher{Test sentence with \textbackslash color\{asher\}}
 \end{frame}
 
-\begin{frame}{Components}{Colored Boxes}
+\begin{frame}[plain]
   \bgNavy{Test word} with \textbackslash bgNavy\{...\}
 
   \vspace{2.5mm}
   \bgPurple{Test word} with \textbackslash bgPurple\{...\}
+
+  \vspace{2.5mm}
+  \bgOrange{Test word} with \textbackslash bgOrange\{...\}
+
+  \vspace{2.5mm}
+  \bgTeal{Test word} with \textbackslash bgTeal\{...\}
 
   \vspace{2.5mm}
   \bgKelly{Test word} with \textbackslash bgKelly\{...\}
@@ -164,15 +176,13 @@ Transitioning Sentence
 \begin{frame}{Components}{Two Columns with Figure}
     \begin{columns}[T]
     \vspace{0pt}
-    \begin{column}{.60\textwidth}
-        \includegraphics[width=\textwidth]{img/kanagawa.jpg}
+    \begin{column}{.6\textwidth}
+        \includegraphics[width=0.9\textwidth]{img/kanagawa.jpg}
 
         \vspace*{50mm} % Ensures columns are up top; delete if you want columns centered on page
     \end{column}
-    
     \hfill
-    
-    \begin{column}{.40\textwidth}
+    \begin{column}{.4\textwidth}
         \begin{itemize}
             \item A point about the figure that is potentially important.
             \item Another point about the figure that is also potentially important.
@@ -246,7 +256,7 @@ Use \textbackslash marktopleft\{name\} and \textbackslash markbottomright\{name\
 
 % 4:3 ratio for figures
 % or else it will have white space
-\imageframe{img/kanagawa.jpg}
+\imageframe{img/kanagawa_16_9.png}
 
 \begin{frame}{Figure}{Full-size Figures}
     You can use the command \textbackslash imageframe\{img-path\} and it will create a full-frame of a picture. 
@@ -258,8 +268,8 @@ Use \textbackslash marktopleft\{name\} and \textbackslash markbottomright\{name\
 
 \begin{frame}{Figure}{}
     \begin{center}
-        \resizebox{0.9\columnwidth}{!}{%
-            \includegraphics{img/kanagawa.jpg}
+        \resizebox{0.85\columnwidth}{!}{%
+            \includegraphics{img/kanagawa_16_9.png}
         }
     \end{center}
 \end{frame}

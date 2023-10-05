@@ -57,21 +57,44 @@
 \providecolor{accent}{HTML}{006896}
 \providecolor{accent2}{HTML}{E64173}
 
+% Math stuff -------------------------------------------------------------------
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{bm}
+
+% Latex Programming tools ------------------------------------------------------
+% \AtBeginEnvironment
+% https://tex.stackexchange.com/questions/33576/conditional-typesetting-build
+\usepackage{etoolbox}
+\usepackage{xparse}
+
+% Remove annoying over-full box warnings
+\vfuzz=2pt 
+\hfuzz=2pt
+
 % Fonts ------------------------------------------------------------------------
 % Beamer Option to use custom fonts
 \usefonttheme{professionalfonts}
-\usepackage{inputenc}
 % T1 removes errors for things like \textbackslash
 \usepackage[T1]{fontenc}
+\usepackage{inputenc}
 
+% Serif option:
+% Libertine for serif text font
+% \usepackage{libertine}
+% Source Code Pro for monospace font
+% \usepackage[scale=0.88]{plex-mono}
+% \renewcommand{\ttdefault}{\plexmonofamily}
+
+% Sans-serif option:
 \usepackage[sfdefault]{roboto}
-% \usepackage{sourcesanspro}
-% \usepackage{sourcecodepro}
-% \usepackage[italic,eulergreek,symbolmisc]{mathastext}
+\usepackage[scale=0.95]{plex-mono}
+\renewcommand{\ttdefault}{\plexmonofamily}
 
 % Small adjustments to text kerning
 \usepackage{microtype}
-\DisableLigatures[f]{encoding = *, family = *}
 
 % Beamer Options ---------------------------------------------------------------
 
@@ -79,7 +102,7 @@
 \setbeamercolor{background canvas}{bg = white}
 
 % Change text margins
-\setbeamersize{text margin left = 15pt, text margin right = 15pt} 
+\setbeamersize{text margin left = 20pt, text margin right = 20pt}  
 
 % \alert
 \setbeamercolor{alerted text}{fg = accent2}
@@ -90,8 +113,20 @@
 \setbeamerfont{framesubtitle}{size = \small, shape = \itshape}
 
 % Page numbering
+% Slightly modified for nicer page numbering
 \setbeamercolor{page number in head/foot}{fg=zinc600}
-\setbeamertemplate{footline}[frame number]
+\setbeamerfont{footline}{size=\scriptsize, family=\ttfamily}
+\defbeamertemplate{footline}{frame number spacing}{
+  \hfill%
+  \usebeamercolor[fg]{page number in head/foot}%
+  \usebeamerfont{page number in head/foot}%
+  \strut\usebeamertemplate*{page number in head/foot}\kern0.6em\vskip1.4pt%
+}
+[action]
+{
+  \setbeamertemplate{page number in head/foot}[totalframenumber]%
+}
+\setbeamertemplate{footline}[frame number spacing]{}
 
 % Appendix numbering
 \usepackage{appendixnumberbeamer}
@@ -102,9 +137,24 @@
 \setbeamercolor{subsection in toc}{fg = zinc900}
 
 % Button 
-\setbeamercolor{button}{bg = accent, fg = white}
-\setbeamerfont{button}{}
-\setbeamercolor{button border}{fg = accent}
+\setbeamercolor{button}{bg = white, fg = zinc600!80!accent}
+\setbeamerfont{button}{family = \ttfamily}
+\setbeamercolor{button border}{fg = black}
+% \def\insertreturnsymbol{}
+% \def\insertgotosymbol{}
+
+% Let's you put \beamerbutton in bottom right corner
+\usepackage[absolute,overlay]{textpos}
+\newcommand\bottomleft[1]{%
+  \begin{textblock*}{\paperwidth}(0pt,{\dimexpr\textheight + 5pt})
+    \hspace{8pt}\raggedright #1
+  \end{textblock*}
+}
+\newcommand\bottomright[1]{%
+  \begin{textblock*}{\paperwidth}(0pt,\textheight)
+    \raggedleft #1\hspace{8pt}
+  \end{textblock*}
+}
 
 % Remove navigation symbols
 \setbeamertemplate{navigation symbols}{}
@@ -155,7 +205,7 @@
 % Table of Contents with Sections ----------------------------------------------
 \setbeamerfont{myTOC}{series=\bfseries, size=\Large}
 \AtBeginSection[]{
-  \begin{frame}{Roadmap}
+  \begin{frame}[noframenumbering,plain]{Roadmap}
     \tableofcontents[current]   
   \end{frame}
 }
@@ -302,19 +352,37 @@
 \usepackage{multicol}
 
 % Tables -----------------------------------------------------------------------
-
-% When tables are too big, use adjustbox
-% \begin{adjustbox}{width = 1\textwidth, center}
-\usepackage{adjustbox}
-\usepackage{array}
-\usepackage{threeparttable}
-\usepackage{booktabs}
-    
 % Fix \input with tables
 % \input fails when \\ is at end of external .tex file
 \makeatletter
 \let\input\@@input
 \makeatother
+
+% Slighty more spacing between rows
+\usepackage{array}
+\renewcommand\arraystretch{1}
+
+% Scale table proportionally to a width
+% \begin{adjustbox}{width=\textwidth, center}
+%   ...
+% \end{adjustbox}
+\usepackage{adjustbox}
+
+% Table notes with \notes{...} or \notes[Source:]{...} command
+\RenewDocumentCommand{\note}{O{Notes.} m g}{%
+  \IfNoValueTF{#3}{%
+    \parbox{\textwidth}{\footnotesize\vspace*{\medskipamount}%
+      \noindent\emph{#1} #2
+    }%
+  }{%
+    \parbox{#2}{\footnotesize\vspace*{\medskipamount}%
+      \noindent\emph{#1} #3
+    }%
+  }
+}
+
+% \toprule, \cmidrule, \bottomrule
+\usepackage{booktabs}
 
 % Tables too narrow
 % \begin{tabularx}{\linewidth}{cols}
@@ -365,24 +433,8 @@
 % from paulgp's beamer tips
 \newenvironment{transitionframe}{
     \setbeamercolor{background canvas}{bg=accent!60!black}
-    \begin{frame}[c]\color{white}\LARGE\centering
+    \begin{frame}[noframenumbering,plain,c]\color{white}\LARGE\centering
 }{
     \end{frame}
 }
 
-
-% Math stuff -------------------------------------------------------------------
-\usepackage{amsmath}
-\usepackage{amsfonts}
-\usepackage{amsthm}
-\usepackage{graphicx}
-\usepackage{bm}
-
-% Custom Math Definitions ------------------------------------------------------
-\newcommand{\expec}[1]{\mathbb{E}\left[#1\right]}%
-\newcommand{\condexpec}[2]{\mathbb{E}\left[#1 \ \vert \ #2\right]}%
-\newcommand{\prob}[1]{\text{Pr}\left[#1\right]}%
-\newcommand{\condprob}[2]{\text{Pr}\left[#1 \ \vert \ #2\right]}%
-\newcommand{\var}[1]{\mathrm{Var}\left[#1\right]}%
-\newcommand{\cov}[1]{\mathrm{Cov}\left[#1\right]}%
-\newcommand{\one}{\mathbf{1}}

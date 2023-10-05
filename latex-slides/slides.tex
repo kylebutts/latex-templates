@@ -1,6 +1,6 @@
-\documentclass[aspectratio=169,t]{beamer}
-% \documentclass[aspectratio=43]{beamer}
-\usepackage{slides}
+\documentclass[aspectratio=169,t,11pt]{beamer}
+% \documentclass[aspectratio=43,t,11pt]{beamer}
+\usepackage{slides,math}
 
 % Define `accent`/`accent2` colors for theme customization
 \definecolor{accent}{HTML}{006896}
@@ -13,8 +13,9 @@
 \begin{document}
 
 % ------------------------------------------------------------------------------
-\begin{frame}
+\begin{frame}[noframenumbering,plain]
 \maketitle
+
 
 % \vspace{2.5mm}
 % {\footnotesize $^*$ A bit of extra info here. Add an asterich to title or author}
@@ -24,10 +25,6 @@
 % ------------------------------------------------------------------------------
 \section{Common Items}
 % ------------------------------------------------------------------------------
-
-\begin{transitionframe}
-  Transitioning Sentence
-\end{transitionframe}
 
 \begin{frame}{Components}{Bullet Points \& Button}\label{main1}
   This section highlights commonly used components and their theming
@@ -39,11 +36,10 @@
       \item This allows you to draw attention to specific words/phrases
     \end{itemize}
     
-    \item To include things in appendix, you must first label the slide and the appendix slide and then include a hyperlink:
-    
-    \vspace{5mm}
-    \hyperlink{appendix1}{\beamergotobutton{Appendix}}
+    \item To include things in appendix, you must first label the slide and the appendix slide and then include a hyperlink. The command \texttt{\textbackslash bottomleft} will position in the bottom left corner nicely
   \end{itemize}
+
+  \bottomleft{\hyperlink{appendix1}{\beamergotobutton{Appendix}}}
 \end{frame}
 
 
@@ -182,46 +178,35 @@
 
 \begin{frame}{Table}
   \begin{columns}[T]
-  \begin{column}{.5\textwidth}
-    % Adjust Font Size to make table fit   
-    \begin{table}[!htbp]
-    % \caption{Regression Results} 
-    
-    \begin{adjustbox}{max width = \textwidth, width = \textwidth, center}
-      \begin{threeparttable}
-        \begin{tabular}{@{} l *{2}{r} @{}} 
-          \toprule
-          & \multicolumn{2}{c}{\textit{Dependent variable: Overall Rating}} \\ 
-          \cline{2-3} \\
-          & (1) & (2)\\ 
-          \midrule
-          
-          \only<1>{
-            Handling of Complaints & 0.692$^{***}$& 0.682$^{***}$ \\ 
-            &  (0.149) & (0.129) \\
-          }
-          \only<2>{
-            \marktopleft{ex1}Handling of Complaints & 0.692$^{***}$& 0.682$^{***}$ \\ 
-            &  (0.149) & (0.129) \markbottomright{ex1} \\
-          }
-          No Special Privileges & -0.104 & $-$0.103  \\ 
-          & (0.135) & (0.129) \\
-          Opportunity to Learn & 0.249 & 0.238$^{*}$ \\ 
-          & (0.160) & (0.139) \\
-          
-          \midrule 
-          Observations & 30 & 30 \\ 
-          R$^{2}$ & 0.715 & 0.715 \\ 
-          \bottomrule
+  \begin{column}{.4\textwidth}
+    \begin{adjustbox}{max width = \textwidth, center}
+      \begin{tabular}{@{} l *{2}{r} @{}} 
+        \toprule
+        & (1) & (2)\\ 
+        \midrule
+        
+        \only<1>{
+          Handling of Complaints & 0.692$^{***}$& 0.682$^{***}$ \\ 
+          &  (0.149) & (0.129) \\
+        }
+        \only<2>{
+          \marktopleft{ex1}Handling of Complaints & 0.692$^{***}$& 0.682$^{***}$ \\ 
+          &  (0.149) & (0.129) \markbottomright{ex1} \\
+        }
+        No Special Privileges & -0.104 & $-$0.103  \\ 
+        & (0.135) & (0.129) \\
+        Opportunity to Learn & 0.249 & 0.238$^{*}$ \\ 
+        & (0.160) & (0.139) \\
+        
+        \midrule 
+        Observations & 30 & 30 \\ 
+        R$^{2}$ & 0.715 & 0.715 \\ 
+        \bottomrule
 
-        \end{tabular} 
-        % Notes 
-        \begin{tablenotes}
-          \item \textit{Notes.} $^{*} p<0.1$; $^{**} p<0.05$; $^{***} p<0.01$.
-        \end{tablenotes}
-      \end{threeparttable}
+      \end{tabular}   
     \end{adjustbox}
-    \end{table}
+      
+    \note{$^{*} p<0.1$; $^{**} p<0.05$; $^{***} p<0.01$.}
   \end{column}
   \hfill
   \begin{column}{.5\textwidth}
@@ -256,36 +241,35 @@
 \end{frame}
 
 % ------------------------------------------------------------------------------
-\begin{frame}[allowframebreaks]{References}
+\begin{frame}[allowframebreaks,noframenumbering]{References}
+  \thispagestyle{empty}
   \printbibliography
 \end{frame}
 \appendix
 % ------------------------------------------------------------------------------
 
-\begin{frame}{Appendix Slide}{\hyperlink{main1}{\beamergotobutton{Back to Main}}}\label{appendix1}
-  \begin{table}
-  \caption{Summary Statistics}
-  \label{appendix_summ_stat}
-  \begin{adjustbox}{max width = \textwidth, width = 0.7\textwidth, center}
-    \begin{threeparttable}
-    \begin{tabular}{@{} lccccccc @{}} 
-      \toprule
-      Statistic & \multicolumn{1}{c}{N} & \multicolumn{1}{c}{Mean} & \multicolumn{1}{c}{St. Dev.} & \multicolumn{1}{c}{Min} & \multicolumn{1}{c}{Pctl(25)} & \multicolumn{1}{c}{Pctl(75)} & \multicolumn{1}{c}{Max} \\ 
-      \hline \\[-1.8ex] 
-      rating & 30 & 64.633 & 12.173 & 40 & 58.8 & 71.8 & 85 \\ 
-      complaints & 30 & 66.600 & 13.315 & 37 & 58.5 & 77 & 90 \\ 
-      privileges & 30 & 53.133 & 12.235 & 30 & 45 & 62.5 & 83 \\ 
-      learning & 30 & 56.367 & 11.737 & 34 & 47 & 66.8 & 75 \\ 
-      raises & 30 & 64.633 & 10.397 & 43 & 58.2 & 71 & 88 \\ 
-      \bottomrule
-    \end{tabular} 
-
-    \begin{tablenotes}
-      \item \textit{Notes.} Using R base dataframe attitude.
-    \end{tablenotes}
-    \end{threeparttable}
-  \end{adjustbox}
+\begin{frame}{Appendix Slide}{Summary Slides}\label{appendix1}
+  \begin{table}[t]
+    % \caption{Summary Statistics}\label{tab:summary_stats}
+    \begin{adjustbox}{width = 0.8\textwidth}
+      \begin{tabular}{@{} lccccccc @{}} 
+        \toprule
+        Statistic & \multicolumn{1}{c}{N} & \multicolumn{1}{c}{Mean} & \multicolumn{1}{c}{St. Dev.} & \multicolumn{1}{c}{Min} & \multicolumn{1}{c}{Pctl(25)} & \multicolumn{1}{c}{Pctl(75)} & \multicolumn{1}{c}{Max} \\ 
+        \hline \\[-1.8ex] 
+        rating & 30 & 64.633 & 12.173 & 40 & 58.8 & 71.8 & 85 \\ 
+        complaints & 30 & 66.600 & 13.315 & 37 & 58.5 & 77 & 90 \\ 
+        privileges & 30 & 53.133 & 12.235 & 30 & 45 & 62.5 & 83 \\ 
+        learning & 30 & 56.367 & 11.737 & 34 & 47 & 66.8 & 75 \\ 
+        raises & 30 & 64.633 & 10.397 & 43 & 58.2 & 71 & 88 \\ 
+        \bottomrule
+      \end{tabular} 
+    \end{adjustbox}
+    
+    \note{0.8\textwidth}{Using R base dataframe \texttt{attitude}. R base dataframe attitude. R base dataframe attitude.}
   \end{table}
+
+  \bottomleft{\hyperlink{main1}{\beamerreturnbutton{Back}}}
+  % \bottomright{\hyperlink{main1}{\beamerreturnbutton{Back}}}
 \end{frame}
 
 \end{document}

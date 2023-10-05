@@ -5,28 +5,35 @@
 \renewcommand{\baselinestretch}{1.5}
 \usepackage{setspace}
 
-% Font -------------------------------------------------------------------------
-\usepackage[T1]{fontenc}
-\usepackage{inputenc}
-\usepackage[default]{lato} % Lato as text font
-% \usepackage[utopia, varg]{newtxmath}
-% \renewcommand{\rmdefault}{futs} % Utopia as text font 
-
-% Small adjustments to text kerning
-\usepackage{microtype}
-
-% Remove annoying over-full box warnings
-\vfuzz2pt 
-\hfuzz2pt
-
-
 % Math stuff -------------------------------------------------------------------
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amsthm}
 \usepackage{amssymb}
-\usepackage{graphicx}
 \usepackage{bm}
+
+% Font -------------------------------------------------------------------------
+
+% T1 removes errors for things like \textbackslash
+\usepackage[T1]{fontenc}
+\usepackage{inputenc}
+
+% Serif option:
+% Libertine for serif text font
+\usepackage{libertine}
+% Source Code Pro for monospace font
+\usepackage[scale=0.88]{plex-mono}
+\renewcommand{\ttdefault}{\plexmonofamily}
+
+% Sans-serif option:
+% Lato for sans-serif text font
+% \usepackage[default]{lato}
+% Source Code Pro for monospace font
+% \usepackage[scale=0.95]{plex-mono}
+% \renewcommand{\ttdefault}{\plexmonofamily} 
+
+% Small adjustments to text kerning
+\usepackage{microtype}
 
 % Define Theorems --------------------------------------------------------------
 % Put proper spacing after Theorem #. 
@@ -102,6 +109,21 @@
 % Breaks long citations to new lines
 \usepackage{breakcites}
 
+% Section and Subsection Styling -----------------------------------------------
+\usepackage[explicit]{titlesec}
+
+\titleformat{\section}
+  {\large \bf}
+  {\thesection \,---}
+  {0.25em}
+  {#1}
+  
+\titleformat{\subsection}
+  {\fontsize{12}{10}\it}
+  {\thesubsection.}
+  {1em}
+  {#1}
+
 % Appendix ---------------------------------------------------------------------
 
 \AfterEndEnvironment{thebibliography}{
@@ -130,9 +152,15 @@
   \renewcommand{\theequation}{\Alph{section}\arabic{equation}}
 }
 
-% Conditionals -----------------------------------------------------------------
+% Latex Programming tools ------------------------------------------------------
+% \AtBeginEnvironment
 % https://tex.stackexchange.com/questions/33576/conditional-typesetting-build
 \usepackage{etoolbox}
+\usepackage{xparse}
+
+% Remove annoying over-full box warnings
+\vfuzz=2pt 
+\hfuzz=2pt
 
 % Titlepage --------------------------------------------------------------------
 % \maketitle
@@ -162,22 +190,6 @@
 %   \begin{quote}
 % }
 % {\end{quote}}
-
-
-% Section and Subsection Styling -----------------------------------------------
-\usepackage[explicit]{titlesec}
-
-\titleformat{\section}
-  {\Large \bf}
-  {\thesection \,---}
-  {0.25em}
-  {#1}
-  
-\titleformat{\subsection}
-  {\fontsize{12}{10}\it}
-  {\thesubsection.}
-  {1em}
-  {#1}
 
 
 % Footnote ---------------------------------------------------------------------
@@ -211,6 +223,7 @@
 
 % Table and Figure labelling ---------------------------------------------------
 \usepackage{caption}
+\usepackage{graphicx}
 
 \DeclareCaptionLabelSeparator{threedash}{\,---\,}
 \DeclareCaptionFont{jet}{\color{jet}}
@@ -234,27 +247,22 @@
 \let\input\@@input
 \makeatother
 
-% Centered figures & tables
-\makeatletter\g@addto@macro\@floatboxreset\centering\makeatother 
-
-% Make tables/figures wider than \textwidth using:
-% \begin{adjustbox}{width = 1.2\textwidth, center}
-% \end{adjustbox}
-\usepackage{adjustbox}
-
 % Slighty more spacing between rows
 \usepackage{array}
 \renewcommand\arraystretch{1.2}
 
-% Table with easy to use footnotes
-% \begin{threeparttable}
-%    \begin{tabular} ... \end{tabular}
-%    \begin{tablenotes}
-%        \item \textit{Notes.}
-%    \end{tablenotes}  
-% \end{threeparttable}
-\usepackage[flushleft]{threeparttable}
-\setlength\labelsep{0pt}
+% Scale table proportionally to a width
+% \begin{adjustbox}{width=\textwidth, center}
+%   ...
+% \end{adjustbox}
+\usepackage{adjustbox}
+
+% Table notes with \notes{...} or \notes[Source:]{...} command
+\RenewDocumentCommand{\note}{O{Notes.} m}{%
+  \parbox{\textwidth}{\small\vspace*{\medskipamount}%
+    \noindent\emph{#1} #2
+  }%
+}
 
 % \toprule, \cmidrule, \bottomrule
 \usepackage{booktabs}
@@ -273,7 +281,6 @@
 % \begin{landscape} \pagestyle{lscaped} table... \end{landscsape}
 % \usepackage{pdflscape} - rotates page left-side up in pdf
 % \usepackage{lscape} - does not rotate page, only figure/table
-
 \usepackage{pdflscape}
 
 % For landscape, fix page number location
@@ -288,14 +295,3 @@
     }
 }
 
-% Custom Math Definitions ------------------------------------------------------
-
-\newcommand{\expec}[1]{\mathbb{E}\left[#1\right]}%
-\newcommand{\condexpec}[2]{\mathbb{E}\left[#1 \ \vert \ #2\right]}%
-\newcommand{\prob}[1]{\text{Pr}\left[#1\right]}%
-\newcommand{\condprob}[2]{\text{Pr}\left[#1 \ \vert \ #2\right]}%
-\newcommand{\var}[1]{\mathrm{Var}\left[#1\right]}%
-\newcommand{\cov}[1]{\mathrm{Cov}\left[#1\right]}%
-\newcommand{\one}{\mathbf{1}}
-\newcommand{\plim}{\stackrel{p}{\rightarrow}} % convergence in probability 
-\newcommand{\convd}{\stackrel{d}{\rightarrow}} % convergence in distribution symbol

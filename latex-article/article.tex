@@ -1,11 +1,12 @@
 \documentclass[12pt]{article}
 \usepackage{paper}
+\usepackage{math}
 
 \title{Example Paper}
 \author{
-    Author One%
-    \thanks{School. Email: \href{mailto:email@gmail.com}{email@gmail.com}.} \ and Author Two%
-    \thanks{School. Email: \href{mailto:email@gmail.com}{email@gmail.com}.}
+  Author One%
+  \thanks{School. Email: \href{mailto:email@gmail.com}{email@gmail.com}.} \ and Author Two%
+  \thanks{School. Email: \href{mailto:email@gmail.com}{email@gmail.com}.}
 }
 \date{\today}
 
@@ -13,7 +14,11 @@
 \newtoggle{INCLUDECOMMENTS}
 \toggletrue{INCLUDECOMMENTS}
 % \togglefalse{INCLUDECOMMENTS}
-\newcommand{\kyle}[1]{\iftoggle{INCLUDECOMMENTS}{{\color{cranberry}\textbf{Kyle:} #1}}{}}
+\newcommand{\kyle}[1]{\iftoggle{INCLUDECOMMENTS}{
+  \cranberry{\textbf{Kyle:} #1}
+}{}}
+
+\hfuzz=100pt
 
 \begin{document}
 
@@ -33,7 +38,6 @@
 
 
 % Paper ------------------------------------------------------------------------
-
 % ------------------------------------------------------------------------------
 \section{Introduction}
 % ------------------------------------------------------------------------------
@@ -47,14 +51,40 @@ See below for Theorem \ref{thm:residue_thm}, for the regression specification (\
 
 Colors: \navy{Navy}, \teal{Teal}, \purple{Purple}, \cranberry{Cranberry}, \orange{Orange}
 
-
 % ------------------------------------------------------------------------------
 \section{Section Header}
 % ------------------------------------------------------------------------------
 
 % ------------------------------------------------------------------------------
-\subsection{Subsection}
+\subsection{Math Commands}
 % ------------------------------------------------------------------------------
+
+\kyle{I'm including this comment for coauthors. If I switch above to \texttt{togglefalse}, this will dissapear}
+
+Credit to \url{https://pascalmichaillat.org/d3/} for his math commands package
+
+The command \texttt{\textbackslash E[optional]\{optional\}\{optional\}} now lets you specify subscript, the inner term, and a second bracket to do conditional expectation. All three are optional and \textbackslash expec is a alias.
+$$\E \quad \E[i] \quad \E{X_i} \quad \E[i]{X_i} \quad \E{X_i}{n} \quad \E[i]{X_i}{n}$$
+
+\texttt{\textbackslash P}, \texttt{\textbackslash prob}, \texttt{\textbackslash cov}, and \texttt{\textbackslash var} work the same way too:
+$$\P \quad \P[i] \quad \P{X_i} \quad \P[i]{D_i} \quad \P{\bar{X}_n > \bar{X}}{\mu = \mu_0} \quad \P[\mathcal{F}]{X_i}{D_i = 1}$$
+$$\cov{X_n, Y_n} \quad \var[i](\bar{X}_n)$$
+
+\texttt{\textbackslash one} does an indicator. Same as above, but no conditional:
+$$\one{X_i > 0}$$
+
+We have \texttt{\textbackslash aslim}, \texttt{\textbackslash plim}, and \texttt{\textbackslash convd} for convergence symbols. There's also \texttt{\textbackslash iid}. Examples:
+$$\bar{x}_n \aslim \mu \quad \bar{x}_n \plim \mu \quad \bar{x}_n \convd N(0, 1)$$
+$$X_i \iid N(0, 1)$$
+
+To wrap things in automatically scaling wrappers, can use \texttt{\textbackslash bp} for parenthesis, \texttt{\textbackslash bc} for curly braces, and \texttt{\textbackslash bs} for square brackets:
+$$\bp{y_i} \quad \bc{y_i} \quad \bs{y_i}$$
+
+Similar to expectations, I have `upgraded' \texttt{\textbackslash min}, \texttt{\textbackslash inf}, \texttt{\textbackslash liminf}, \texttt{\textbackslash max}, \texttt{\textbackslash sup}, and \texttt{\textbackslash limsup} commands to use the optional `\texttt{[]}' for subscript:
+$$\min[i]{x_i} \quad \inf[i]{x_i} \quad \liminf[n \to \infty]{x_i}$$
+$$\max[i]{x_i} \quad \sup[i]{x_i} \quad \limsup[n \to \infty]{x_i}$$
+
+Theorem environments look nice. There are the following environments and their numbering resets automatically for appendices: \texttt{theorem}, \texttt{proposition}, \texttt{assumption}, \texttt{example}, \texttt{lemma}, \texttt{corollary}, \texttt{definition}, \texttt{remark}
 
 \begin{theorem}[Example Theorem]\label{thm:residue_thm}
   This is an example theorem \[
@@ -68,46 +98,33 @@ Jibberish math to show off symbols:
   y = f(X) + \varepsilon = X \beta + \psi_i + \nu_t + w_{i,t} + \varepsilon_{i,t}
 \end{equation}
 
-Has iriure invenire no, vidit tamquam ad nec, sea unum efficiantur no. In fugit eruditi quaerendum qui. Eleifend interpretaris mel id. Cu tation veniam habemus ius. Prima tritani duo ei, est iuvaret dignissim an, efficiendi adversarium per ut. Sit eu lucilius postulant, ut nam falli vitae theophrastus. Vel ex audire referrentur.
-
-Tibique reformidans ut eum, oratio singulis efficiantur eam eu. Modus simul quo cu, id populo essent urbanitas nec. Cum agam aeterno cu, soleat iuvaret posidonium mel cu. Eirmod noluisse ad vix.
-
-\[
-  \condexpec{Y_i(1) - Y_i(0)}{\one(D_i = 1)} = \prob{\tau}
-\]
-
+Lorem ipsum dolor sit amet, mei no electram definiebas. Usu nibh brute laoreet ad. Discere habemus referrentur nam ea, sanctus principes accommodare vim ea, his an quis legendos. Id omnis option eum, sit ad agam quando putant. Per elit impetus corpora ut, nam quot mutat soleat ei. No falli scaevola sit, an vix civibus philosophia. Stet posse omittantur ei per, eum no magna dicit recteque.
 
 \begin{table}[ht]
   \caption{Table Too Wide (adjustbox)}
   \centering
 
-  \begin{threeparttable}
-    \begin{adjustbox}{width = \textwidth, center}
-      \begin{tabular}{@{} @{\extracolsep{5pt}}
-          l*{8}{r}
-          @{}}
-        % Head
-        \toprule
-        & & & \multicolumn{2}{c}{Market Access} & \multicolumn{2}{c}{Urban Weekly Wage} & \multicolumn{2}{c}{Nonurban Weekly Wage} \\
-        \cmidrule{4-5} \cmidrule{6-7} \cmidrule{8-9}
-        Year & \multicolumn{1}{c}{N} & \% Urban & Mean & SD & Mean & SD & Mean & SD \\
-        \hline
+  \begin{adjustbox}{width = \textwidth, center}
+    \begin{tabular}{ 
+      @{} @{\extracolsep{5pt}} l*{8}{r} @{}
+    }
+      % Head
+      \toprule
+      & & & \multicolumn{2}{c}{Market Access} & \multicolumn{2}{c}{Urban Weekly Wage} & \multicolumn{2}{c}{Nonurban Weekly Wage} \\
+      \cmidrule{4-5} \cmidrule{6-7} \cmidrule{8-9}
+      Year & \multicolumn{1}{c}{N} & \% Urban & Mean & SD & Mean & SD & Mean & SD \\
+      \hline
 
-        % Body
-        \input{summary.tex}
+      % Body
+      \input{summary.tex}
 
-        \bottomrule
-      \end{tabular}
-    \end{adjustbox}
+      \bottomrule
+    \end{tabular}
+  \end{adjustbox}
 
-    % Notes 
-    \begin{tablenotes}
-      \item \textit{Notes.} Weekly wage is reported in 2015 \$.
-    \end{tablenotes}
-  \end{threeparttable}
+  \note{Weekly wage is reported in 2015 \$.}
 \end{table}
 
-Lorem ipsum dolor sit amet, mei no electram definiebas. Usu nibh brute laoreet ad. Discere habemus referrentur nam ea, sanctus principes accommodare vim ea, his an quis legendos. Id omnis option eum, sit ad agam quando putant. Per elit impetus corpora ut, nam quot mutat soleat ei. No falli scaevola sit, an vix civibus philosophia. Stet posse omittantur ei per, eum no magna dicit recteque.
 
 Paulo mundi quodsi cu eum. Cu unum bonorum invenire pri, quem rebum detracto quo cu, sea legere legendos at. Eu his meis constituam reformidans, an nec bonorum maiestatis, dicat omittam honestatis cum an. Te sed porro deserunt imperdiet, discere inciderint instructior ea sea. Autem mentitum copiosae mei te.
 

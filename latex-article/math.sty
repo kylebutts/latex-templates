@@ -1,0 +1,173 @@
+% Lightly modified from: https://pascalmichaillat.org/d3/
+\usepackage{xparse}
+
+% --- Brackets ---
+\newcommand{\bc}[1]{\left\lbrace #1 \right\rbrace} 
+\newcommand{\bp}[1]{\left( #1 \right)} 
+\newcommand{\bs}[1]{\left[ #1 \right]} 
+\newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
+\newcommand{\absx}[1]{\lvert #1 \rvert}
+\newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
+\newcommand{\normx}[1]{\lVert #1 \rVert}
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+\newcommand{\floorx}[1]{\lfloor #1 \rfloor}
+\newcommand{\of}[1]{{\left( #1 \right)}}
+
+% --- Operators ---
+% Logarithm
+\let\oldln\ln
+\RenewDocumentCommand{\ln}{g}{\IfNoValueTF{#1}{\oldln}{\,{\oldln}{\bp{#1}}}}
+
+% Exponential
+\let\oldexp\exp
+\RenewDocumentCommand{\exp}{g}{\IfNoValueTF{#1}{\oldexp}{\,{\oldexp}{\bp{#1}}}}
+
+% Maximum / Supremum / Limit Supremum
+\let\oldmax\max
+\RenewDocumentCommand{\max}{o g}{%
+\IfNoValueTF{#2}{\oldmax\IfValueT{#1}{_{#1}}}%
+{\,{\oldmax\IfValueT{#1}{_{#1}}}{\bc{#2}}}}
+
+\let\oldsup\sup
+\RenewDocumentCommand{\sup}{o g}{%
+\IfNoValueTF{#2}{\oldsup\IfValueT{#1}{_{#1}}}%
+{\,{\oldsup\IfValueT{#1}{_{#1}}}{\bc{#2}}}}
+
+\let\oldlimsup\limsup
+\RenewDocumentCommand{\limsup}{o g}{%
+\IfNoValueTF{#2}{\oldlimsup\IfValueT{#1}{_{#1}}}%
+{\,{\oldlimsup\IfValueT{#1}{_{#1}}}{\bc{#2}}}}
+
+% Argmax
+\DeclareMathOperator*{\argmax}{argmax}
+
+% Minimum / Infimum / Limit Infimum
+\let\oldmin\min
+\RenewDocumentCommand{\min}{o g}{%
+\IfNoValueTF{#2}{\oldmin\IfValueT{#1}{_{#1}}}%
+{\,{\oldmin\IfValueT{#1}{_{#1}}}{\bc{#2}}}}
+
+\let\oldinf\inf
+\RenewDocumentCommand{\inf}{o g}{%
+\IfNoValueTF{#2}{\oldinf\IfValueT{#1}{_{#1}}}%
+{\,{\oldinf\IfValueT{#1}{_{#1}}}{\bc{#2}}}}
+
+\let\oldliminf\liminf
+\RenewDocumentCommand{\liminf}{o g}{%
+\IfNoValueTF{#2}{\oldliminf\IfValueT{#1}{_{#1}}}%
+{\,{\oldliminf\IfValueT{#1}{_{#1}}}{\bc{#2}}}}
+
+% Argmin
+\DeclareMathOperator*{\argmin}{argmin}
+
+% Expectation
+\NewDocumentCommand{\E}{o g g}{%
+  \IfNoValueTF{#2}{%
+    \operatorname{\mathbb{E}}\IfValueT{#1}{_{#1}}%
+  }{%
+    \IfNoValueTF{#3}{%
+      \,\mathbb{E}\IfValueT{#1}{_{#1}}{\bs{#2}}
+    }{%
+      \,\mathbb{E}\IfValueT{#1}{_{#1}}{\bs{#2 \ |\ #3}}
+    }
+  }
+}
+\NewDocumentCommand{\expec}{o g g}{%
+  \IfNoValueTF{#2}{%
+    \operatorname{\mathbb{E}}\IfValueT{#1}{_{#1}}%
+  }{%
+    \IfNoValueTF{#3}{%
+      \,\mathbb{E}\IfValueT{#1}{_{#1}}{\bs{#2}}
+    }{%
+      \,\mathbb{E}\IfValueT{#1}{_{#1}}{\bs{#2 \ |\ #3}}
+    }
+  }
+}
+
+% Probability
+\RenewDocumentCommand{\P}{o g g}{%
+  \IfNoValueTF{#2}{%
+    \operatorname{\mathbb{P}}\IfValueT{#1}{_{#1}}%
+  }{%
+    \IfNoValueTF{#3}{%
+      \,\mathbb{P}\IfValueT{#1}{_{#1}}{\bs{#2}}
+    }{%
+      \,\mathbb{P}\IfValueT{#1}{_{#1}}{\bs{#2 \ |\ #3}}
+    }
+  }
+}
+\NewDocumentCommand{\prob}{o g g}{%
+  \IfNoValueTF{#2}{%
+    \operatorname{\mathbb{P}}\IfValueT{#1}{_{#1}}%
+  }{%
+    \IfNoValueTF{#3}{%
+      \,\mathbb{P}\IfValueT{#1}{_{#1}}{\bs{#2}}
+    }{%
+      \,\mathbb{P}\IfValueT{#1}{_{#1}}{\bs{#2 \ |\ #3}}
+    }
+  }
+}
+
+% Variance
+\NewDocumentCommand{\var}{o g g}{%
+  \IfNoValueTF{#2}{%
+    \operatorname{\operatorname{var}}\IfValueT{#1}{_{#1}}%
+  }{%
+    \IfNoValueTF{#3}{%
+      \,\operatorname{var}\IfValueT{#1}{_{#1}}{\bp{#2}}
+    }{%
+      \,\operatorname{var}\IfValueT{#1}{_{#1}}{\bp{#2 \ |\ #3}}
+    }
+  }
+}
+
+% Covariance
+\NewDocumentCommand{\cov}{o g g}{%
+  \IfNoValueTF{#2}{%
+    \operatorname{\operatorname{cov}}\IfValueT{#1}{_{#1}}%
+  }{%
+    \IfNoValueTF{#3}{%
+      \,\operatorname{cov}\IfValueT{#1}{_{#1}}{\bp{#2}}
+    }{%
+      \,\operatorname{cov}\IfValueT{#1}{_{#1}}{\bp{#2 \ |\ #3}}
+    }
+  }
+}
+
+% Indicator
+\NewDocumentCommand{\one}{g}{%
+  \IfNoValueTF{#1}{
+    \operatorname{1}
+  }{%
+    \,\operatorname{1}{\bs{#1}}
+  }
+}
+% \operatorname{1}
+
+% Trace
+\NewDocumentCommand{\tr}{g}{%
+\IfNoValueTF{#1}{\operatorname{tr}}%
+{\,{\operatorname{tr}}{\bp{#1}}}}
+
+% Correlation
+\NewDocumentCommand{\corr}{g}{%
+\IfNoValueTF{#1}{\operatorname{corr}}%
+{\,{\operatorname{corr}}{\bp{#1}}}}
+
+% Standard deviation
+\NewDocumentCommand{\sd}{g}{%
+\IfNoValueTF{#1}{\operatorname{sd}}%
+{\,{\operatorname{sd}}{\bp{#1}}}}
+
+% Standard error
+\NewDocumentCommand{\se}{g}{%
+\IfNoValueTF{#1}{\operatorname{se}}%
+{\,{\operatorname{se}}{\bp{#1}}}}
+
+% Distributed iid
+\newcommand{\iid}{\mathbin{\overset{iid}{\sim}}}
+
+% Limits
+\newcommand{\aslim}{\mathbin{\overset{as}{\to}}}
+\newcommand{\convd}{\mathbin{\overset{d}{\to}}}
+\newcommand{\plim}{\mathbin{\overset{p}{\to}}}

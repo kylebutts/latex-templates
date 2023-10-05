@@ -1,19 +1,15 @@
-\documentclass[aspectratio=169]{beamer}
+\documentclass[aspectratio=169,t]{beamer}
 % \documentclass[aspectratio=43]{beamer}
+\input{preamble.tex}
 
 % Define `accent`/`accent2` colors for theme customization
 \definecolor{accent}{HTML}{006896}
 \definecolor{accent2}{HTML}{695693}
 
-% Beamer theme
-\input{preamble.tex}
-
-% Title --------------------------------------------
 \title{What is the Effect of X on Y?}
 \date{\today}
 \author{Kyle Butts}
 
-% Set-up Bibliography ------------------------------
 \addbibresource{references.bib}
 
 \begin{document}
@@ -32,7 +28,7 @@
 % ------------------------------------------------------------------------------
 
 \begin{transitionframe}
-Transitioning Sentence
+  Transitioning Sentence
 \end{transitionframe}
 
 \begin{frame}{Components}{Bullet Points \& Button}\label{main1}
@@ -52,6 +48,7 @@ Transitioning Sentence
     \end{itemize}
 \end{frame}
 
+
 \begin{frame}{Components}{Numbered Lists}
     You can also use numbered items that look a bit more professional
 
@@ -64,25 +61,27 @@ Transitioning Sentence
 
 \begin{frame}{Components}{Citations}
     Topic 1: Spatial Frictions
-    \begin{citecolor}
-        [\citet{Fajgelbaum_Morales_Serrato_Zidar_2018}, \citet{Hsieh_Moretti_2019}, and \citet{Moretti_2011}]
-    \end{citecolor}
+    \citecolor{
+      [\citet{Fajgelbaum_Morales_Serrato_Zidar_2018}, \citet{Hsieh_Moretti_2019}, and \citet{Moretti_2011}]
+    }
 
     \vspace{5mm}
     Topic 2: Blah 
-    \begin{citecolor}
-        [\citet{Suárez_Serrato_Zidar_2016}]
-    \end{citecolor}
+    \citecolor{
+      [\citet{Suárez_Serrato_Zidar_2016}]
+    }
 \end{frame}
 
 \begin{frame}{Components}{Blocks}
-  \begin{block}{}
+  \begin{block}{Theorem 1}
     The main specificaiton is as follows: 
     $$
     y_{it} = X_{it} \beta + \mu_i + \varepsilon_{it}
     $$
   \end{block}
+\end{frame}
 
+\begin{frame}{Components}{Blocks}
   \begin{purpleBlock}{}
       This is a purple block
   \end{purpleBlock}
@@ -112,40 +111,30 @@ Transitioning Sentence
   \cranberry{Test sentence with \textbackslash color\{cranbery\}}
 \end{frame}
 
-\begin{frame}[plain]
+\begin{frame}{Components}{Background Colors}
   \bgNavy{Test word} with \textbackslash bgNavy\{...\}
 
-  \vspace{2.5mm}
   \bgPurple{Test word} with \textbackslash bgPurple\{...\}
 
-  \vspace{2.5mm}
   \bgOrange{Test word} with \textbackslash bgOrange\{...\}
 
-  \vspace{2.5mm}
   \bgTeal{Test word} with \textbackslash bgTeal\{...\}
 
-  \vspace{2.5mm}
   \bgKelly{Test word} with \textbackslash bgKelly\{...\}
 
-  \vspace{2.5mm}
   \bgRuby{Test word} with \textbackslash bgRuby\{...\}
 
-  \vspace{2.5mm}
   \bgAlice{Test word} with \textbackslash bgAlice\{...\}
 
-  \vspace{2.5mm}
   \bgDaisy{Test word} with \textbackslash bgDaisy\{...\}
 
-  \vspace{2.5mm}
   \bgCoral{Test word} with \textbackslash bgCoral\{...\}
 
-  \vspace{2.5mm}
   \bgCranberry{Test word} with \textbackslash bgCranberry\{...\}
 \end{frame}
 
 \begin{frame}{Components}{Two Columns}
-    \begin{columns}[T]
-    \vspace{0pt}
+  \begin{columns}[T]
     \begin{column}{.50\textwidth}
         \vspace{0pt}
         {\color{accent}\rule{\linewidth}{2pt}}
@@ -156,8 +145,6 @@ Transitioning Sentence
             \item b
             \item c
         \end{enumerate}
-
-        \vspace*{50mm} % Ensures columns are up top; delete if you want columns centered on page
     \end{column}
     
     \hfill
@@ -172,16 +159,14 @@ Transitioning Sentence
             \item c
         \end{itemize}
     \end{column}
-    \end{columns}
+  \end{columns}
 \end{frame}
 
 \begin{frame}{Components}{Two Columns with Figure}
-    \begin{columns}[T]
+  \begin{columns}[T]
     \vspace{0pt}
     \begin{column}{.6\textwidth}
         \includegraphics[width=0.9\textwidth]{img/kanagawa.jpg}
-
-        \vspace*{50mm} % Ensures columns are up top; delete if you want columns centered on page
     \end{column}
     \hfill
     \begin{column}{.4\textwidth}
@@ -190,7 +175,7 @@ Transitioning Sentence
             \item Another point about the figure that is also potentially important.
         \end{itemize}
     \end{column}
-    \end{columns}
+  \end{columns}
 \end{frame}
 
 % ------------------------------------------------------------------------------
@@ -198,68 +183,61 @@ Transitioning Sentence
 % ------------------------------------------------------------------------------
 
 \begin{frame}{Table}
-    
-\begin{columns}[T]
-  \vspace{0pt}
-  \begin{column}{.6\textwidth}
-    % Adjust Font Size to make table fit   
-    \begin{table}[!htbp]
-      % \caption{Regression Results} 
-      \label{}
-      
-      \begin{adjustbox}{max width = \textwidth, width = 0.8 \textwidth, center}
-          \begin{threeparttable}
-              \begin{tabular}{@{} l *{2}{r} @{}} 
-                  \toprule
-                  & \multicolumn{2}{c}{\textit{Dependent variable: Overall Rating}} \\ 
-                  \cline{2-3} \\
-                  & (1) & (2)\\ 
-                  \midrule
-                  
-                  \only<1>{
-                      Handling of Complaints & 0.692$^{***}$& 0.682$^{***}$ \\ 
-                      &  (0.149) & (0.129) \\
-                  }
-                  \only<2>{
-                      \marktopleft{ex1}Handling of Complaints & 0.692$^{***}$& 0.682$^{***}$ \\ 
-                      &  (0.149) & (0.129) \markbottomright{ex1} \\
-                  }
-                  No Special Privileges & -0.104 & $-$0.103  \\ 
-                  & (0.135) & (0.129) \\
-                  Opportunity to Learn & 0.249 & 0.238$^{*}$ \\ 
-                  & (0.160) & (0.139) \\
-                  
-                  \midrule 
-                  Observations & 30 & 30 \\ 
-                  R$^{2}$ & 0.715 & 0.715 \\ 
-                  \bottomrule
+  \begin{columns}[T]
+    \begin{column}{.6\textwidth}
+      % Adjust Font Size to make table fit   
+      \begin{table}[!htbp]
+        % \caption{Regression Results} 
+        
+        \begin{adjustbox}{max width = \textwidth, width = 0.8 \textwidth, center}
+            \begin{threeparttable}
+                \begin{tabular}{@{} l *{2}{r} @{}} 
+                    \toprule
+                    & \multicolumn{2}{c}{\textit{Dependent variable: Overall Rating}} \\ 
+                    \cline{2-3} \\
+                    & (1) & (2)\\ 
+                    \midrule
+                    
+                    \only<1>{
+                        Handling of Complaints & 0.692$^{***}$& 0.682$^{***}$ \\ 
+                        &  (0.149) & (0.129) \\
+                    }
+                    \only<2>{
+                        \marktopleft{ex1}Handling of Complaints & 0.692$^{***}$& 0.682$^{***}$ \\ 
+                        &  (0.149) & (0.129) \markbottomright{ex1} \\
+                    }
+                    No Special Privileges & -0.104 & $-$0.103  \\ 
+                    & (0.135) & (0.129) \\
+                    Opportunity to Learn & 0.249 & 0.238$^{*}$ \\ 
+                    & (0.160) & (0.139) \\
+                    
+                    \midrule 
+                    Observations & 30 & 30 \\ 
+                    R$^{2}$ & 0.715 & 0.715 \\ 
+                    \bottomrule
 
-              \end{tabular} 
-              % Notes 
-              \begin{tablenotes}
-                  \item \textit{Notes.} $^{*} p<0.1$; $^{**} p<0.05$; $^{***} p<0.01$.
-              \end{tablenotes}
-          \end{threeparttable}
-      \end{adjustbox}
-    \end{table}
-
-      \vspace*{50mm} % Ensures columns are up top; delete if you want columns centered on page
-  \end{column}
-  \hfill
-  \begin{column}{.4\textwidth}
-      \begin{itemize}
-          \item Use \texttt{\textbackslash marktopleft\{name\}} and \texttt{\textbackslash markbottomright\{name\}} within the table to create box.
-          \item Using \texttt{\textbackslash only} or \texttt{\textbackslash on} lets you conditionally display box
-      \end{itemize}
-  \end{column}
-\end{columns}
-
+                \end{tabular} 
+                % Notes 
+                \begin{tablenotes}
+                    \item \textit{Notes.} $^{*} p<0.1$; $^{**} p<0.05$; $^{***} p<0.01$.
+                \end{tablenotes}
+            \end{threeparttable}
+        \end{adjustbox}
+      \end{table}
+    \end{column}
+    \hfill
+    \begin{column}{.4\textwidth}
+        \begin{itemize}
+            \item Use \texttt{\textbackslash marktopleft\{name\}} and \texttt{\textbackslash markbottomright\{name\}} within the table to create box.
+            \item Using \texttt{\textbackslash only} or \texttt{\textbackslash on} lets you conditionally display box
+        \end{itemize}
+    \end{column}
+  \end{columns}
 \end{frame}
 
 % ------------------------------------------------------------------------------
 \section{Figures}
 % ------------------------------------------------------------------------------
-
 
 % 4:3 ratio for figures
 % or else it will have white space
@@ -274,11 +252,9 @@ Transitioning Sentence
 \end{frame}
 
 \begin{frame}{Figure}{}
-    \begin{center}
-        \resizebox{0.85\columnwidth}{!}{%
-            \includegraphics{img/kanagawa_16_9.png}
-        }
-    \end{center}
+  \begin{adjustbox}{width = 0.7\textwidth, center}
+    \includegraphics{img/kanagawa_16_9.png}
+  \end{adjustbox}
 \end{frame}
 
 % ------------------------------------------------------------------------------
@@ -292,33 +268,30 @@ Transitioning Sentence
 \appendix
 % ------------------------------------------------------------------------------
 
-\begin{frame}{Appendix Slide}\label{appendix1}
-\begin{table}
+\begin{frame}{Appendix Slide}{\hyperlink{main1}{\beamergotobutton{Back to Main}}}\label{appendix1}
+  \begin{table}
     \caption{Summary Statistics}
     \label{appendix_summ_stat}
     \begin{adjustbox}{max width = \textwidth, width = 0.7\textwidth, center}
-        \begin{threeparttable}
-            \begin{tabular}{@{} lccccccc @{}} 
-                \toprule
-                Statistic & \multicolumn{1}{c}{N} & \multicolumn{1}{c}{Mean} & \multicolumn{1}{c}{St. Dev.} & \multicolumn{1}{c}{Min} & \multicolumn{1}{c}{Pctl(25)} & \multicolumn{1}{c}{Pctl(75)} & \multicolumn{1}{c}{Max} \\ 
-                \hline \\[-1.8ex] 
-                rating & 30 & 64.633 & 12.173 & 40 & 58.8 & 71.8 & 85 \\ 
-                complaints & 30 & 66.600 & 13.315 & 37 & 58.5 & 77 & 90 \\ 
-                privileges & 30 & 53.133 & 12.235 & 30 & 45 & 62.5 & 83 \\ 
-                learning & 30 & 56.367 & 11.737 & 34 & 47 & 66.8 & 75 \\ 
-                raises & 30 & 64.633 & 10.397 & 43 & 58.2 & 71 & 88 \\ 
-                critical & 30 & 74.767 & 9.895 & 49 & 69.2 & 80 & 92 \\ 
-                advance & 30 & 42.933 & 10.289 & 25 & 35 & 47.8 & 72 \\ 
-                \bottomrule
-            \end{tabular} 
-            % Notes 
-            \begin{tablenotes}
-                \item \textit{Notes.} Using R base dataframe attitude.
-            \end{tablenotes}
-        \end{threeparttable}
+      \begin{threeparttable}
+        \begin{tabular}{@{} lccccccc @{}} 
+          \toprule
+          Statistic & \multicolumn{1}{c}{N} & \multicolumn{1}{c}{Mean} & \multicolumn{1}{c}{St. Dev.} & \multicolumn{1}{c}{Min} & \multicolumn{1}{c}{Pctl(25)} & \multicolumn{1}{c}{Pctl(75)} & \multicolumn{1}{c}{Max} \\ 
+          \hline \\[-1.8ex] 
+          rating & 30 & 64.633 & 12.173 & 40 & 58.8 & 71.8 & 85 \\ 
+          complaints & 30 & 66.600 & 13.315 & 37 & 58.5 & 77 & 90 \\ 
+          privileges & 30 & 53.133 & 12.235 & 30 & 45 & 62.5 & 83 \\ 
+          learning & 30 & 56.367 & 11.737 & 34 & 47 & 66.8 & 75 \\ 
+          raises & 30 & 64.633 & 10.397 & 43 & 58.2 & 71 & 88 \\ 
+          \bottomrule
+        \end{tabular} 
+
+        \begin{tablenotes}
+            \item \textit{Notes.} Using R base dataframe attitude.
+        \end{tablenotes}
+      \end{threeparttable}
     \end{adjustbox}
-\end{table}
-    
-    \hyperlink{main1}{\beamergotobutton{Back to Main}}
+  \end{table}
 \end{frame}
+
 \end{document}

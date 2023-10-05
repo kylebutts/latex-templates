@@ -278,11 +278,10 @@
 % Table notes with \notes{...} or \notes[Source:]{...} command
 \NewDocumentCommand{\note}{O{Notes.} m g}{%
   \IfNoValueTF{#3}{%
-    \parbox{\textwidth}{\raggedright\footnotesize\vspace*{\medskipamount}%
-      \noindent\emph{#1} #2
-    }%
+    \footnotesize\vspace*{\medskipamount}%
+    \noindent\emph{#1} #2
   }{%
-    \parbox{#2}{\raggedright\footnotesize\vspace*{\medskipamount}%
+    \parbox{#2}{\footnotesize\vspace*{\medskipamount}%
       \noindent\emph{#1} #3
     }%
   }

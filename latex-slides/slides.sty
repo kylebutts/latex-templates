@@ -371,9 +371,8 @@
 % Table notes with \notes{...} or \notes[Source:]{...} command
 \RenewDocumentCommand{\note}{O{Notes.} m g}{%
   \IfNoValueTF{#3}{%
-    \parbox{\textwidth}{\footnotesize\vspace*{\medskipamount}%
-      \noindent\emph{#1} #2
-    }%
+    \footnotesize\vspace*{\medskipamount}%
+    \noindent\emph{#1} #2
   }{%
     \parbox{#2}{\footnotesize\vspace*{\medskipamount}%
       \noindent\emph{#1} #3

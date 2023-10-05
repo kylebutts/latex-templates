@@ -1,6 +1,6 @@
 \documentclass[aspectratio=169,t]{beamer}
 % \documentclass[aspectratio=43]{beamer}
-\input{preamble.tex}
+\usepackage{slides}
 
 % Define `accent`/`accent2` colors for theme customization
 \definecolor{accent}{HTML}{006896}
@@ -9,9 +9,7 @@
 \title{What is the Effect of X on Y?}
 \date{\today}
 \author{Kyle Butts}
-
 \addbibresource{references.bib}
-
 \begin{document}
 
 % ------------------------------------------------------------------------------
@@ -76,7 +74,7 @@
   \begin{block}{Theorem 1}
   The main specificaiton is as follows: 
   $$
-  y_{it} = X_{it} \beta + \mu_i + \varepsilon_{it}
+    y_{it} = X_{it} \beta + \mu_i + \varepsilon_{it}
   $$
   \end{block}
 \end{frame}

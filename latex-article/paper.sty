@@ -1,5 +1,5 @@
 % Margins ----------------------------------------------------------------------
-\usepackage[margin=1.25in]{geometry}
+\usepackage[margin=1in]{geometry}
 
 % Line Spacing -----------------------------------------------------------------
 \renewcommand{\baselinestretch}{1.5}
@@ -18,6 +18,38 @@
 % Remove annoying over-full box warnings
 \vfuzz2pt 
 \hfuzz2pt
+
+
+% Math stuff -------------------------------------------------------------------
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{bm}
+
+% Define Theorems --------------------------------------------------------------
+% Put proper spacing after Theorem #. 
+\newtheoremstyle{spacing}
+{}%          Space above, empty = `usual value'
+{}%          Space below
+{}%  Body font
+{}%          Indent amount (empty = no indent, \parindent = para indent)
+{\bfseries}% Thm head font
+{.}%         Punctuation after thm head
+{2.5mm}%  Space after thm head: \newline = linebreak
+{}%          Thm head spec
+
+% note, theorem is the name that goes in \begin{} and Theorem is the name displayed as Theorem 1
+\theoremstyle{spacing}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{assumption}{Assumption}
+\newtheorem{example}{Example}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{definition}{Definition}
+\newtheorem{remark}{Remark}
 
 % Color Palette ----------------------------------------------------------------
 \usepackage{xcolor}
@@ -53,16 +85,50 @@
 \newcommand\asher[1]{{\color{asher}#1}}
 
 % Hyperlinks -------------------------------------------------------------------
-\usepackage{hyperref}
+\usepackage[breaklinks=true]{hyperref}
 \hypersetup{
   colorlinks = true,
   allcolors = purple
 }
 
-% Citations --------------------------------------------------------------------
+% References -------------------------------------------------------------------
 % note, natbib provides better hyperlinking
 \usepackage{natbib}
 \bibliographystyle{econ-aea}
+
+% Reduced spacing in bibliography
+\AtBeginEnvironment{thebibliography}{\setstretch{1.1}}
+
+% Breaks long citations to new lines
+\usepackage{breakcites}
+
+% Appendix ---------------------------------------------------------------------
+
+\AfterEndEnvironment{thebibliography}{
+  \setcounter{theorem}{0}
+  \setcounter{proposition}{0} 
+  \setcounter{lemma}{0}
+  \setcounter{corollary}{0}
+  \setcounter{definition}{0}
+  \setcounter{assumption}{0}
+  \setcounter{remark}{0}
+  \setcounter{table}{0}
+  \setcounter{figure}{0}
+  \setcounter{equation}{0} 
+  \numberwithin{equation}{section}
+  \numberwithin{figure}{section}
+  \numberwithin{table}{section}
+  \renewcommand{\thetheorem}{\Alph{section}\arabic{theorem}}
+  \renewcommand{\theproposition}{\Alph{section}\arabic{proposition}}
+  \renewcommand{\thelemma}{\Alph{section}\arabic{lemma}}
+  \renewcommand{\thecorollary}{\Alph{section}\arabic{corollary}}
+  \renewcommand{\thedefinition}{\Alph{section}\arabic{definition}}
+  \renewcommand{\theassumption}{\Alph{section}\arabic{assumption}}
+  \renewcommand{\theremark}{\Alph{section}\arabic{remark}}
+  \renewcommand{\thetable}{\Alph{section}\arabic{table}}
+  \renewcommand{\thefigure}{\Alph{section}\arabic{figure}}
+  \renewcommand{\theequation}{\Alph{section}\arabic{equation}}
+}
 
 % Conditionals -----------------------------------------------------------------
 % https://tex.stackexchange.com/questions/33576/conditional-typesetting-build
@@ -108,7 +174,7 @@
   {#1}
   
 \titleformat{\subsection}
-  {\fontsize{11}{10}\it}
+  {\fontsize{12}{10}\it}
   {\thesubsection.}
   {1em}
   {#1}
@@ -134,7 +200,7 @@
 \makeatother
 
 % Enumerate/Itemize ------------------------------------------------------------
-\usepackage{enumitem}
+\usepackage[shortlabels]{enumitem}
 \setitemize{labelindent=0.5em,labelsep=0.25cm,leftmargin=*}
 \setenumerate{labelindent=0.5em,labelsep=0.25cm,leftmargin=*}
 
@@ -167,6 +233,9 @@
 \makeatletter
 \let\input\@@input
 \makeatother
+
+% Centered figures & tables
+\makeatletter\g@addto@macro\@floatboxreset\centering\makeatother 
 
 % Make tables/figures wider than \textwidth using:
 % \begin{adjustbox}{width = 1.2\textwidth, center}
@@ -219,34 +288,8 @@
     }
 }
 
-% Math stuff -------------------------------------------------------------------
-\usepackage{amsmath}
-\usepackage{amsfonts}
-\usepackage{amsthm}
-\usepackage{graphicx}
-\usepackage{bm}
-
-% Define Theorems --------------------------------------------------------------
-% Put proper spacing after Theorem #. 
-\newtheoremstyle{spacing}
-{}%          Space above, empty = `usual value'
-{}%          Space below
-{}%  Body font
-{}%          Indent amount (empty = no indent, \parindent = para indent)
-{\bfseries}% Thm head font
-{.}%         Punctuation after thm head
-{2.5mm}%  Space after thm head: \newline = linebreak
-{}%          Thm head spec
-
-% note, theorem is the name that goes in \begin{} and Theorem is the name displayed as Theorem 1
-\theoremstyle{spacing}
-\newtheorem{theorem}{Theorem}
-\newtheorem{proposition}{Proposition}
-\newtheorem{assumption}{Assumption}
-\newtheorem{example}{Example}
-
-
 % Custom Math Definitions ------------------------------------------------------
+
 \newcommand{\expec}[1]{\mathbb{E}\left[#1\right]}%
 \newcommand{\condexpec}[2]{\mathbb{E}\left[#1 \ \vert \ #2\right]}%
 \newcommand{\prob}[1]{\text{Pr}\left[#1\right]}%
@@ -254,3 +297,5 @@
 \newcommand{\var}[1]{\mathrm{Var}\left[#1\right]}%
 \newcommand{\cov}[1]{\mathrm{Cov}\left[#1\right]}%
 \newcommand{\one}{\mathbf{1}}
+\newcommand{\plim}{\stackrel{p}{\rightarrow}} % convergence in probability 
+\newcommand{\convd}{\stackrel{d}{\rightarrow}} % convergence in distribution symbol

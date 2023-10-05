@@ -259,18 +259,19 @@
 
 % References -------------------------------------------------------------------
 
+% biblatex 
 \usepackage[
   natbib = true, 
   backend = biber,
   citestyle= authoryear,
   style = ext-authoryear-ecomp,
+  url = false,
 ]{biblatex}
-
 
 % Smaller font-size for references
 \renewcommand*{\bibfont}{\small}
 
-% Remove "In:"
+% % Remove "In:"
 \renewbibmacro{in:}{}
 
 % Color citations for slides \citecolor{}
@@ -282,7 +283,6 @@
 
 % Bibliography Font, roughly matching AEA
 \setbeamertemplate{bibliography item}{}
-\setbeamerfont{bibliography entry}{series = \mdseries}
 
 \setbeamerfont{bibliography entry author}{size = \footnotesize, series = \bfseries}
 \setbeamercolor{bibliography entry author}{fg = accent!60!zinc900}

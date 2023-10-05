@@ -1,9 +1,6 @@
 \documentclass[12pt]{article}
+\usepackage{paper}
 
-% Include Theme
-\input{preamble.tex}
-
-% \maketitle info
 \title{Example Paper}
 \author{
     Author One%
@@ -12,16 +9,11 @@
 }
 \date{\today}
 
-% pdf info
-\hypersetup{pdftitle={Example Paper}, pdfauthor={Kyle Butts}}
-
 % Conditionally include comments. Switch to \togglefalse
 \newtoggle{INCLUDECOMMENTS}
 \toggletrue{INCLUDECOMMENTS}
 % \togglefalse{INCLUDECOMMENTS}
-
 \newcommand{\kyle}[1]{\iftoggle{INCLUDECOMMENTS}{{\color{cranberry}\textbf{Kyle:} #1}}{}}
-
 
 \begin{document}
 

@@ -111,12 +111,12 @@
 % Variance
 \NewDocumentCommand{\var}{o g g}{%
   \IfNoValueTF{#2}{%
-    \operatorname{\operatorname{var}}\IfValueT{#1}{_{#1}}%
+    \operatorname{\operatorname{Var}}\IfValueT{#1}{_{#1}}%
   }{%
     \IfNoValueTF{#3}{%
-      \,\operatorname{var}\IfValueT{#1}{_{#1}}{\bp{#2}}
+      \,\operatorname{Var}\IfValueT{#1}{_{#1}}{\bp{#2}}
     }{%
-      \,\operatorname{var}\IfValueT{#1}{_{#1}}{\bp{#2 \ |\ #3}}
+      \,\operatorname{Var}\IfValueT{#1}{_{#1}}{\bp{#2 \ |\ #3}}
     }
   }
 }
@@ -124,12 +124,12 @@
 % Covariance
 \NewDocumentCommand{\cov}{o g g}{%
   \IfNoValueTF{#2}{%
-    \operatorname{\operatorname{cov}}\IfValueT{#1}{_{#1}}%
+    \operatorname{\operatorname{Cov}}\IfValueT{#1}{_{#1}}%
   }{%
     \IfNoValueTF{#3}{%
-      \,\operatorname{cov}\IfValueT{#1}{_{#1}}{\bp{#2}}
+      \,\operatorname{Cov}\IfValueT{#1}{_{#1}}{\bp{#2}}
     }{%
-      \,\operatorname{cov}\IfValueT{#1}{_{#1}}{\bp{#2 \ |\ #3}}
+      \,\operatorname{Cov}\IfValueT{#1}{_{#1}}{\bp{#2 \ |\ #3}}
     }
   }
 }
@@ -142,7 +142,6 @@
     \,\operatorname{1}{\bs{#1}}
   }
 }
-% \operatorname{1}
 
 % Trace
 \NewDocumentCommand{\tr}{g}{%

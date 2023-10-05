@@ -91,6 +91,19 @@
 \newcommand\jet[1]{{\color{jet}#1}}
 \newcommand\asher[1]{{\color{asher}#1}}
 
+% Zinc from Tailwind Colors
+\definecolor{zinc50}{HTML}{fafafa}
+\definecolor{zinc100}{HTML}{f4f4f5}
+\definecolor{zinc200}{HTML}{e4e4e7}
+\definecolor{zinc300}{HTML}{d4d4d8}
+\definecolor{zinc400}{HTML}{a1a1aa}
+\definecolor{zinc500}{HTML}{71717a}
+\definecolor{zinc600}{HTML}{52525b}
+\definecolor{zinc700}{HTML}{3f3f46}
+\definecolor{zinc800}{HTML}{27272a}
+\definecolor{zinc900}{HTML}{18181b}
+\definecolor{zinc950}{HTML}{09090b}
+
 % Hyperlinks -------------------------------------------------------------------
 \usepackage[breaklinks=true]{hyperref}
 \hypersetup{
@@ -213,8 +226,13 @@
 
 % Enumerate/Itemize ------------------------------------------------------------
 \usepackage[shortlabels]{enumitem}
-\setitemize{labelindent=0.5em,labelsep=0.25cm,leftmargin=*}
-\setenumerate{labelindent=0.5em,labelsep=0.25cm,leftmargin=*}
+% \setitemize{labelindent=0.5em,labelsep=0.25cm,leftmargin=*}
+% \setenumerate{labelindent=0.5em,labelsep=0.25cm,leftmargin=*}
+\setlist{nosep}
+\setlist[itemize,1]{leftmargin=\parindent,label=\color{zinc600}{\upshape\textbullet}}
+\setlist[itemize,2]{leftmargin=2\parindent,label=\color{zinc600}{\upshape\textendash}}
+\setlist[enumerate,1]{leftmargin=\parindent,label=\color{zinc600}{\upshape\arabic*.}}
+\setlist[enumerate,2]{leftmargin=2\parindent,label=\color{zinc600}{\upshape\roman*.}}
 
 % tikz support -----------------------------------------------------------------
 \usepackage{tikz}
@@ -258,10 +276,16 @@
 \usepackage{adjustbox}
 
 % Table notes with \notes{...} or \notes[Source:]{...} command
-\RenewDocumentCommand{\note}{O{Notes.} m}{%
-  \parbox{\textwidth}{\small\vspace*{\medskipamount}%
-    \noindent\emph{#1} #2
-  }%
+\NewDocumentCommand{\note}{O{Notes.} m g}{%
+  \IfNoValueTF{#3}{%
+    \parbox{\textwidth}{\footnotesize\vspace*{\medskipamount}%
+      \noindent\emph{#1} #2
+    }%
+  }{%
+    \parbox{#2}{\footnotesize\vspace*{\medskipamount}%
+      \noindent\emph{#1} #3
+    }%
+  }
 }
 
 % \toprule, \cmidrule, \bottomrule

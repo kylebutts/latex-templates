@@ -15,7 +15,7 @@
 \toggletrue{INCLUDECOMMENTS}
 % \togglefalse{INCLUDECOMMENTS}
 \newcommand{\kyle}[1]{\iftoggle{INCLUDECOMMENTS}{
-  \cranberry{\textbf{Kyle:} #1}
+  \orange{\textbf{Kyle:} #1}
 }{}}
 
 \hfuzz=100pt
@@ -42,26 +42,33 @@
 \section{Introduction}
 % ------------------------------------------------------------------------------
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur: $\sum X_i$. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\footnote{This is an example footnote.}
+Hi and welcome to my default paper template. I tried to make the theme minimal and beautiful while able to do all the things that I want it to do. These include making it easy to make figures/tables with notes; have powerful math commands; have nice readable typography; make co-authoring in a document easy; have a nice looking bibliography; and make appendices easy.\kyle{I'm including this comment for coauthors. If I switch above to \texttt{togglefalse}, this will dissapear.}  I'll show off these things, but make sure to check the source code alongside to see how simple it is to typset with this. 
 
-\kyle{I'm including this comment for coauthors. If I switch above to \texttt{togglefalse}, this will dissapear}
-
-
-See below for Theorem \ref{thm:residue_thm}, for the regression specification (\ref{eq:fe_reg}), and for \autoref{tab:summ_stat}, appendix \autoref{tab:reg1}, and citation \citet{Eigen1971}.
-
-Colors: \navy{Navy}, \teal{Teal}, \purple{Purple}, \cranberry{Cranberry}, \orange{Orange}
+See below for \autoref{thm:residue_thm}, the regression specification (\autoref{eq:fe_reg}), \autoref{tab:summ_stat}, \autoref{fig:event_timing}, appendix \autoref{tab:reg1}. Of course, make sure to touch up on your micro theory with \citet{mas1995microeconomic}. I also provide a set of colors: \navy{Navy}, \teal{Teal}, \purple{Purple}, \cranberry{Cranberry}, \orange{Orange}.
 
 % ------------------------------------------------------------------------------
-\section{Section Header}
+\section{Highlights}
 % ------------------------------------------------------------------------------
 
 % ------------------------------------------------------------------------------
 \subsection{Math Commands}
 % ------------------------------------------------------------------------------
 
-\kyle{I'm including this comment for coauthors. If I switch above to \texttt{togglefalse}, this will dissapear}
+Theorem environments look nice. There are the following environments and their numbering resets automatically for appendices: \texttt{theorem}, \texttt{proposition}, \texttt{assumption}, \texttt{example}, \texttt{lemma}, \texttt{corollary}, \texttt{definition}, \texttt{remark}
 
-Credit to \url{https://pascalmichaillat.org/d3/} for his math commands package
+\begin{theorem}[Example Theorem]\label{thm:residue_thm}
+  This is an example theorem \[
+    \hat{\beta}=\frac{\sum_{\ell}e_{\ell}z_{\ell}y_{\ell}^{\perp}}{\sum_{\ell}e_{\ell}z_{\ell}x_{\ell}^{\perp}}
+  \]
+\end{theorem}
+
+Jibberish math to show off symbols:
+
+\begin{equation}\label{eq:fe_reg}
+  y = f(X) + \varepsilon = X \beta + \psi_i + \nu_t + w_{i,t} + \varepsilon_{i,t}
+\end{equation}
+
+I've included a file \texttt{math.sty} that has a set of math operators that I find useful.\footnote{Credit to \url{https://pascalmichaillat.org/d3/} for his math commands package which I took almost all of this from.} 
 
 The command \texttt{\textbackslash E[optional]\{optional\}\{optional\}} now lets you specify subscript, the inner term, and a second bracket to do conditional expectation. All three are optional and \textbackslash expec is a alias.
 $$\E \quad \E[i] \quad \E{X_i} \quad \E[i]{X_i} \quad \E{X_i}{n} \quad \E[i]{X_i}{n}$$
@@ -84,24 +91,23 @@ Similar to expectations, I have `upgraded' \texttt{\textbackslash min}, \texttt{
 $$\min[i]{x_i} \quad \inf[i]{x_i} \quad \liminf[n \to \infty]{x_i}$$
 $$\max[i]{x_i} \quad \sup[i]{x_i} \quad \limsup[n \to \infty]{x_i}$$
 
-Theorem environments look nice. There are the following environments and their numbering resets automatically for appendices: \texttt{theorem}, \texttt{proposition}, \texttt{assumption}, \texttt{example}, \texttt{lemma}, \texttt{corollary}, \texttt{definition}, \texttt{remark}
 
-\begin{theorem}[Example Theorem]\label{thm:residue_thm}
-  This is an example theorem \[
-    \hat{\beta}=\frac{\sum_{\ell}e_{\ell}z_{\ell}y_{\ell}^{\perp}}{\sum_{\ell}e_{\ell}z_{\ell}x_{\ell}^{\perp}}
-  \]
-\end{theorem}
+% ------------------------------------------------------------------------------
+\subsection{Tables}
+% ------------------------------------------------------------------------------
 
-Jibberish math to show off symbols:
+For tables, I use the \texttt{tabular} and \texttt{booktabs} packages. For table and figure notes, I use a custom \texttt{\textbackslash note} command. It uses \texttt{\textbackslash parbox} under the hood. You can use it in one of of four ways:
+\begin{enumerate}
+  \item \texttt{\textbackslash note\{text\}}
+  \item \texttt{\textbackslash note[Notes.]\{text\}}
+  \item \texttt{\textbackslash note\{0.6\textbackslash textwidth\}\{text\}}
+  \item \texttt{\textbackslash note[Notes.]\{0.6\textwidth\}\{text\}}
+\end{enumerate}
 
-\begin{equation}\label{eq:fe_reg}
-  y = f(X) + \varepsilon = X \beta + \psi_i + \nu_t + w_{i,t} + \varepsilon_{i,t}
-\end{equation}
-
-Lorem ipsum dolor sit amet, mei no electram definiebas. Usu nibh brute laoreet ad. Discere habemus referrentur nam ea, sanctus principes accommodare vim ea, his an quis legendos. Id omnis option eum, sit ad agam quando putant. Per elit impetus corpora ut, nam quot mutat soleat ei. No falli scaevola sit, an vix civibus philosophia. Stet posse omittantur ei per, eum no magna dicit recteque.
+In addition, I use the \texttt{adjustbox} package for resizing figures/tables. It automatically scales the figure/table proportionally, so things look right. For example, here's a table that's too wide. I use the \texttt{adjustbox} package to fix it.
 
 \begin{table}[ht]
-  \caption{Table Too Wide (adjustbox)}
+  \caption{Table Too Wide (adjustbox)}\label{tab:summ_stat}
   \centering
 
   \begin{adjustbox}{width = \textwidth, center}
@@ -125,26 +131,11 @@ Lorem ipsum dolor sit amet, mei no electram definiebas. Usu nibh brute laoreet a
   \note{Weekly wage is reported in 2015 \$.}
 \end{table}
 
+Figures also use the \texttt{\textbackslash note} and the \texttt{adjustbox} package. Here's an example figure:
 
-Paulo mundi quodsi cu eum. Cu unum bonorum invenire pri, quem rebum detracto quo cu, sea legere legendos at. Eu his meis constituam reformidans, an nec bonorum maiestatis, dicat omittam honestatis cum an. Te sed porro deserunt imperdiet, discere inciderint instructior ea sea. Autem mentitum copiosae mei te.
-
-Has debet mentitum ei, ne mel ullum electram, ei est putant iracundia concludaturque. Ne modus debet suscipit eam. Mea sapientem tincidunt accommodare ea. Illum voluptaria id mea. Duo ei facilis sapientem consulatu, utinam gloriatur cu eos.
-
-Ex diam paulo inimicus nec. Nam ea mazim singulis, ius omnis modus ad. Cu ius summo referrentur, audire iuvaret dignissim id sed. Mei an volutpat gubergren, ne eos graece albucius reformidans, usu modo indoctum no.
-
-Fastidii scriptorem ea per, offendit ponderum at vel, sumo intellegebat ei eos. Sea movet legendos et, sea simul petentium sadipscing cu, his audire deterruisset ne. Te commune conclusionemque has, ad ignota molestiae pro, pri te mutat euripidis adipiscing. Vel novum percipit ad, officiis recteque referrentur mel ut, quaerendum referrentur quo et. Sea dicit nonumy inermis et, vis eros dolorum in, no ius natum magna officiis. Cu natum ancillae hendrerit vim, eos ei possit habemus lucilius.
-
-Et sea vitae legere efficiendi, recusabo dissentiunt theophrastus id eum. Eam at munere integre vivendo. Meis regione necessitatibus pro in, ut vis autem labores. At purto disputationi his.
-
-Mundi nobis dignissim eu has, oratio salutandi pro ut. Ei vocibus electram sit, ad pri dolor feugiat molestie. An brute option recteque vim. Qui percipit oporteat perfecto ne. Ut mel summo nonumes expetenda, prompta percipit accusamus mel ex, cu possit option fabulas est.
-
-An hinc tation facilisis vim, vim id diam euismod voluptatibus, modo putent vel no. Elit quaeque luptatum has in, ne vis errem deleniti inimicus, at quo ancillae concludaturque. Ut ius tempor aperiam nostrum. Elitr vulputate ne nec. Ex rebum principes deterruisset mea, quo at unum graeco.
-
-
-\begin{figure}
-  \caption{Event-timing}
-
-  \begin{adjustbox}{center}
+\begin{figure}[b!]
+  \caption{Event-timing}\label{fig:event_timing}
+  \begin{adjustbox}{width = 0.6\textwidth, center}
     \begin{tikzpicture}
       \draw (0,0) -- (11,0);
       \foreach \x in {0.8,4,5.5,7,10.2}
@@ -157,63 +148,12 @@ An hinc tation facilisis vim, vim id diam euismod voluptatibus, modo putent vel 
       \draw (2.35,0) node[above=6pt, align=center]
       {\begin{tabular}{c}Estimation \\Window\end{tabular}};
     \end{tikzpicture}
-
   \end{adjustbox}
-  {\footnotesize \emph{Notes:} This is an example figure in the paper}
+  
+  \begin{center}
+    \note{0.6\textwidth}{This is an example figure in the paper}
+  \end{center}
 \end{figure}
-
-Stet nulla ubique quo an, sit nibh vituperata ut, ei qui electram dignissim. Nec tota minimum ex. Malis mucius epicurei ex nam, has saepe tincidunt te. Eos ei dicit denique ullamcorper, te dicam conceptam sea.
-
-Nec et libris feugiat, ut vis dolor suavitate. An pro hendrerit deterruisset, nam velit comprehensam te. Tation minimum ut his. At illum dicat sed, ex atomorum delicatissimi concludaturque nec, mea menandri referrentur ei. Bonorum quaestio imperdiet mea ei. Ferri ponderum voluptatibus ei est, cu atqui paulo patrioque mei, vim ex nobis postea eligendi.
-
-Ne eam animal sententiae contentiones, his no fierent incorrupte. Etiam eripuit patrioque eum ne. Quo ei duis autem aperiam, et purto temporibus has. Et posse ignota per. Ei solum tempor argumentum qui.
-
-
-\begin{table}[tb]
-  \caption{Table Too Narrow (tabularx)}
-  \label{tab:summ_stat}
-
-  \begin{threeparttable}
-    \begin{adjustbox}{center}
-      \begin{tabularx}{\textwidth}{@{}
-          >{\hsize=.9\hsize}R >{\hsize=1.1\hsize}R >{\hsize=1.1\hsize}R >{\hsize=.9\hsize}R
-      @{}}
-
-        % Head
-        \toprule
-        & \multicolumn{2}{c}{\textbf{Population}} & \\
-        \cmidrule{2-3}
-        \textbf{Country} & 2016          & 2017          & \textbf{Change (\%)} \\
-
-        % Body
-        \hline
-        China            & 1,403,500,365 & 1,409,517,397 & +0.4\%               \\
-        India            & 1,324,171,354 & 1,339,180,127 & +1.1\%               \\
-        United States    & 322,179,605   & 324,459,463   & +0.7\%               \\
-        Indonesia        & 261,115,456   & 263,991,379   & +1.1\%               \\
-        Brazil           & 207,652,865   & 209,288,278   & +0.8\%               \\
-        Pakistan         & 193,203,476   & 197,015,955   & +2.0\%               \\
-        Nigeria          & 185,989,640   & 190,886,311   & +2.6\%               \\
-        Bangladesh       & 162,951,560   & 164,669,751   & +1.1\%               \\
-        Russia           & 146,864,513   & 143,989,754   & -2.0\%               \\
-        Mexico           & 127,540,423   & 129,163,276   & +1.3\%               \\
-
-        \bottomrule
-      \end{tabularx}
-    \end{adjustbox}
-
-    % Notes
-    \begin{tablenotes}\setlength\labelsep{0pt}\small
-      \item \textit{Source:} \href{https://en.wikipedia.org/wiki/List_of_countries_by_population_(United_Nations)}{Wikipedia}.
-    \end{tablenotes}
-  \end{threeparttable}
-
-\end{table}
-
-Per cu offendit vituperata dissentiet, pro vocibus mus deterruisset eu, habeo libris reprehendunt qui et. Omnis saepe referrentur et qui, at duo ipsum eripuit numquam. At eam vocent euismod. Tation graeci interesset et est, ea essent definitiones mei. His ne lobortis persequeris, usu te vide invenire, usu ad tempor dissentias.
-
-Sit id possit nemore, partem apeirian intellegam mea ut. Qui ei etiam dissentias. Alienum disputando pro ea, ex vero mandamus omittantur est, insolens electram an eum. Possit omittam vis et, in his cibo impetus. Eos te minim alienum petentium, malorum eripuit bonorum mei ei.
-
 
 % ------------------------------------------------------------------------------
 \newpage
@@ -230,54 +170,43 @@ Sit id possit nemore, partem apeirian intellegam mea ut. Qui ei etiam dissentias
 \section{Additional Results}
 % ------------------------------------------------------------------------------
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+The appendix will automatically start numbering tables, figures, and theorem-like environments using the appendix section \textbackslash Alph (e.g. \autoref{tab:reg1}).
 
 % ------------------------------------------------------------------------------
 \subsection{Regression Results}
 % ------------------------------------------------------------------------------
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+In this table example, the table is narrower than textwidth, so I adjust the \texttt{\textbackslash note} width. 
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-\begin{table}[tb]
+\begin{table}[h!]
   \caption{Regression Results}
   \label{tab:reg1}
+  \begin{center}
+    \begin{tabular}{@{} lrr @{}}
+      % Head
+      \toprule
+      & \multicolumn{2}{c}{\textit{Dependent variable:} \ Overall Rating} \\
+      \cmidrule{2-3}
+                                & (1)                   & (2)                   \\
+      \hline
 
-  \begin{adjustbox}{center}
-    \begin{threeparttable}
-      \begin{tabular}{@{}
-          lrr
-          @{}}
+      % Body
+      Handling of Complaints   & 0.692$^{***}$ (0.149) & 0.682$^{***}$ (0.129) \\
+      No Special Privileges    & $-$0.104 (0.135)      & $-$0.103 (0.129)      \\
+      Opportunity to Learn     & 0.249 (0.160)         & 0.238$^{*}$ (0.139)   \\
+      Performance-Based Raises & $-$0.033 (0.202)      &                       \\
+      Too Critical             & 0.015 (0.147)         &                       \\
+      Advancement              & 11.011 (11.704)       & 11.258 (7.318)        \\
+      \hline
+      Observations             & 30                    & 30                    \\
+      Adjusted R$^{2}$         & 0.656                 & 0.682                 \\
 
-        % Head
-        \toprule
-        & \multicolumn{2}{c}{\textit{Dependent variable:} \ Overall Rating} \\
-        \cmidrule{2-3}
-                                 & (1)                   & (2)                   \\
-        \hline
+      \bottomrule
+    \end{tabular}
 
-        % Body
-        Handling of Complaints   & 0.692$^{***}$ (0.149) & 0.682$^{***}$ (0.129) \\
-        No Special Privileges    & $-$0.104 (0.135)      & $-$0.103 (0.129)      \\
-        Opportunity to Learn     & 0.249 (0.160)         & 0.238$^{*}$ (0.139)   \\
-        Performance-Based Raises & $-$0.033 (0.202)      &                       \\
-        Too Critical             & 0.015 (0.147)         &                       \\
-        Advancement              & 11.011 (11.704)       & 11.258 (7.318)        \\
-        \hline
-        Observations             & 30                    & 30                    \\
-        Adjusted R$^{2}$         & 0.656                 & 0.682                 \\
-
-        \bottomrule
-      \end{tabular}
-
-      % Notes
-      \begin{tablenotes}\setlength\labelsep{0pt}\small
-        \item {\small \textit{Notes.} $^{*}$ p$< 0.1$; $^{**}$ p$< 0.05$; $^{***}$ p$< 0.01$}
-        \item {\small Using R base dataframe attitude. dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. }
-      \end{tablenotes}
-    \end{threeparttable}
-  \end{adjustbox}
+    \note{0.68\textwidth}{Using R base dataframe attitude. dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.}
+    \note[]{0.68\textwidth}{$^{*}$ $p < 0.1$; $^{**}$ $p < 0.05$; $^{***}$ $p < 0.01$.}
+  \end{center}
 \end{table}
 
 

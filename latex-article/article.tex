@@ -12,23 +12,18 @@
 }
 \date{\today}
 
-% pdf info
-\hypersetup{pdftitle={Example Paper}, pdfauthor={Kyle Butts}}
-
 % Conditionally include comments. Switch to \togglefalse
 \newtoggle{INCLUDECOMMENTS}
 \toggletrue{INCLUDECOMMENTS}
 % \togglefalse{INCLUDECOMMENTS}
-
 \newcommand{\kyle}[1]{\iftoggle{INCLUDECOMMENTS}{{\color{cranberry}\textbf{Kyle:} #1}}{}}
-
 
 \begin{document}
 
 % Title Page -------------------------------------------------------------------
 \maketitle
 \begin{abstract}
-
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
   \par~\par\noindent
   {\color{asher}JEL-Classification:} ...
@@ -46,17 +41,175 @@
 \section{Introduction}
 % ------------------------------------------------------------------------------
 
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur: $\sum X_i$. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\footnote{This is an example footnote.}
+
+\kyle{I'm including this comment for coauthors. If I switch above to \texttt{togglefalse}, this will dissapear}
 
 
+See below for Theorem \ref{thm:residue_thm}, for the regression specification (\ref{eq:fe_reg}), and for \autoref{tab:summ_stat}, appendix \autoref{tab:reg1}, and citation \citet{Eigen1971}.
+
+Colors: \navy{Navy}, \teal{Teal}, \purple{Purple}, \cranberry{Cranberry}, \orange{Orange}
 
 
 % ------------------------------------------------------------------------------
-\newpage~\bibliography{references.bib}
+\section{Section Header}
+% ------------------------------------------------------------------------------
+
+% ------------------------------------------------------------------------------
+\subsection{Subsection}
+% ------------------------------------------------------------------------------
+
+\begin{theorem}[Example Theorem]\label{thm:residue_thm}
+  This is an example theorem \[
+    \hat{\beta}=\frac{\sum_{\ell}e_{\ell}z_{\ell}y_{\ell}^{\perp}}{\sum_{\ell}e_{\ell}z_{\ell}x_{\ell}^{\perp}}
+  \]
+\end{theorem}
+
+Jibberish math to show off symbols:
+
+\begin{equation}\label{eq:fe_reg}
+  y = f(X) + \varepsilon = X \beta + \psi_i + \nu_t + w_{i,t} + \varepsilon_{i,t}
+\end{equation}
+
+Has iriure invenire no, vidit tamquam ad nec, sea unum efficiantur no. In fugit eruditi quaerendum qui. Eleifend interpretaris mel id. Cu tation veniam habemus ius. Prima tritani duo ei, est iuvaret dignissim an, efficiendi adversarium per ut. Sit eu lucilius postulant, ut nam falli vitae theophrastus. Vel ex audire referrentur.
+
+Tibique reformidans ut eum, oratio singulis efficiantur eam eu. Modus simul quo cu, id populo essent urbanitas nec. Cum agam aeterno cu, soleat iuvaret posidonium mel cu. Eirmod noluisse ad vix.
+
+\[
+  \condexpec{Y_i(1) - Y_i(0)}{\one(D_i = 1)} = \prob{\tau}
+\]
+
+
+\begin{table}[ht]
+  \caption{Table Too Wide (adjustbox)}
+  \centering
+
+  \begin{threeparttable}
+    \begin{adjustbox}{width = \textwidth, center}
+      \begin{tabular}{@{} @{\extracolsep{5pt}}
+          l*{8}{r}
+          @{}}
+        % Head
+        \toprule
+        & & & \multicolumn{2}{c}{Market Access} & \multicolumn{2}{c}{Urban Weekly Wage} & \multicolumn{2}{c}{Nonurban Weekly Wage} \\
+        \cmidrule{4-5} \cmidrule{6-7} \cmidrule{8-9}
+        Year & \multicolumn{1}{c}{N} & \% Urban & Mean & SD & Mean & SD & Mean & SD \\
+        \hline
+
+        % Body
+        \input{summary.tex}
+
+        \bottomrule
+      \end{tabular}
+    \end{adjustbox}
+
+    % Notes 
+    \begin{tablenotes}
+      \item \textit{Notes.} Weekly wage is reported in 2015 \$.
+    \end{tablenotes}
+  \end{threeparttable}
+\end{table}
+
+Lorem ipsum dolor sit amet, mei no electram definiebas. Usu nibh brute laoreet ad. Discere habemus referrentur nam ea, sanctus principes accommodare vim ea, his an quis legendos. Id omnis option eum, sit ad agam quando putant. Per elit impetus corpora ut, nam quot mutat soleat ei. No falli scaevola sit, an vix civibus philosophia. Stet posse omittantur ei per, eum no magna dicit recteque.
+
+Paulo mundi quodsi cu eum. Cu unum bonorum invenire pri, quem rebum detracto quo cu, sea legere legendos at. Eu his meis constituam reformidans, an nec bonorum maiestatis, dicat omittam honestatis cum an. Te sed porro deserunt imperdiet, discere inciderint instructior ea sea. Autem mentitum copiosae mei te.
+
+Has debet mentitum ei, ne mel ullum electram, ei est putant iracundia concludaturque. Ne modus debet suscipit eam. Mea sapientem tincidunt accommodare ea. Illum voluptaria id mea. Duo ei facilis sapientem consulatu, utinam gloriatur cu eos.
+
+Ex diam paulo inimicus nec. Nam ea mazim singulis, ius omnis modus ad. Cu ius summo referrentur, audire iuvaret dignissim id sed. Mei an volutpat gubergren, ne eos graece albucius reformidans, usu modo indoctum no.
+
+Fastidii scriptorem ea per, offendit ponderum at vel, sumo intellegebat ei eos. Sea movet legendos et, sea simul petentium sadipscing cu, his audire deterruisset ne. Te commune conclusionemque has, ad ignota molestiae pro, pri te mutat euripidis adipiscing. Vel novum percipit ad, officiis recteque referrentur mel ut, quaerendum referrentur quo et. Sea dicit nonumy inermis et, vis eros dolorum in, no ius natum magna officiis. Cu natum ancillae hendrerit vim, eos ei possit habemus lucilius.
+
+Et sea vitae legere efficiendi, recusabo dissentiunt theophrastus id eum. Eam at munere integre vivendo. Meis regione necessitatibus pro in, ut vis autem labores. At purto disputationi his.
+
+Mundi nobis dignissim eu has, oratio salutandi pro ut. Ei vocibus electram sit, ad pri dolor feugiat molestie. An brute option recteque vim. Qui percipit oporteat perfecto ne. Ut mel summo nonumes expetenda, prompta percipit accusamus mel ex, cu possit option fabulas est.
+
+An hinc tation facilisis vim, vim id diam euismod voluptatibus, modo putent vel no. Elit quaeque luptatum has in, ne vis errem deleniti inimicus, at quo ancillae concludaturque. Ut ius tempor aperiam nostrum. Elitr vulputate ne nec. Ex rebum principes deterruisset mea, quo at unum graeco.
+
+
+\begin{figure}
+  \caption{Event-timing}
+
+  \begin{adjustbox}{center}
+    \begin{tikzpicture}
+      \draw (0,0) -- (11,0);
+      \foreach \x in {0.8,4,5.5,7,10.2}
+      \draw(\x cm,3pt) -- (\x cm, -3pt);
+      \draw (0.8,0) node[below=3pt] {$T_0$};
+      \draw (4,0) node[below=3pt] {$T_1$};
+      \draw (5.5,0) node[below=3pt] {$0$};
+      \draw (7,0) node[below=3pt] {$T_2$};
+      \draw (10.2,0) node[below=3pt] {$T_3$};
+      \draw (2.35,0) node[above=6pt, align=center]
+      {\begin{tabular}{c}Estimation \\Window\end{tabular}};
+    \end{tikzpicture}
+
+  \end{adjustbox}
+  {\footnotesize \emph{Notes:} This is an example figure in the paper}
+\end{figure}
+
+Stet nulla ubique quo an, sit nibh vituperata ut, ei qui electram dignissim. Nec tota minimum ex. Malis mucius epicurei ex nam, has saepe tincidunt te. Eos ei dicit denique ullamcorper, te dicam conceptam sea.
+
+Nec et libris feugiat, ut vis dolor suavitate. An pro hendrerit deterruisset, nam velit comprehensam te. Tation minimum ut his. At illum dicat sed, ex atomorum delicatissimi concludaturque nec, mea menandri referrentur ei. Bonorum quaestio imperdiet mea ei. Ferri ponderum voluptatibus ei est, cu atqui paulo patrioque mei, vim ex nobis postea eligendi.
+
+Ne eam animal sententiae contentiones, his no fierent incorrupte. Etiam eripuit patrioque eum ne. Quo ei duis autem aperiam, et purto temporibus has. Et posse ignota per. Ei solum tempor argumentum qui.
+
+
+\begin{table}[tb]
+  \caption{Table Too Narrow (tabularx)}
+  \label{tab:summ_stat}
+
+  \begin{threeparttable}
+    \begin{adjustbox}{center}
+      \begin{tabularx}{\textwidth}{@{}
+          >{\hsize=.9\hsize}R >{\hsize=1.1\hsize}R >{\hsize=1.1\hsize}R >{\hsize=.9\hsize}R
+      @{}}
+
+        % Head
+        \toprule
+        & \multicolumn{2}{c}{\textbf{Population}} & \\
+        \cmidrule{2-3}
+        \textbf{Country} & 2016          & 2017          & \textbf{Change (\%)} \\
+
+        % Body
+        \hline
+        China            & 1,403,500,365 & 1,409,517,397 & +0.4\%               \\
+        India            & 1,324,171,354 & 1,339,180,127 & +1.1\%               \\
+        United States    & 322,179,605   & 324,459,463   & +0.7\%               \\
+        Indonesia        & 261,115,456   & 263,991,379   & +1.1\%               \\
+        Brazil           & 207,652,865   & 209,288,278   & +0.8\%               \\
+        Pakistan         & 193,203,476   & 197,015,955   & +2.0\%               \\
+        Nigeria          & 185,989,640   & 190,886,311   & +2.6\%               \\
+        Bangladesh       & 162,951,560   & 164,669,751   & +1.1\%               \\
+        Russia           & 146,864,513   & 143,989,754   & -2.0\%               \\
+        Mexico           & 127,540,423   & 129,163,276   & +1.3\%               \\
+
+        \bottomrule
+      \end{tabularx}
+    \end{adjustbox}
+
+    % Notes
+    \begin{tablenotes}\setlength\labelsep{0pt}\small
+      \item \textit{Source:} \href{https://en.wikipedia.org/wiki/List_of_countries_by_population_(United_Nations)}{Wikipedia}.
+    \end{tablenotes}
+  \end{threeparttable}
+
+\end{table}
+
+Per cu offendit vituperata dissentiet, pro vocibus mus deterruisset eu, habeo libris reprehendunt qui et. Omnis saepe referrentur et qui, at duo ipsum eripuit numquam. At eam vocent euismod. Tation graeci interesset et est, ea essent definitiones mei. His ne lobortis persequeris, usu te vide invenire, usu ad tempor dissentias.
+
+Sit id possit nemore, partem apeirian intellegam mea ut. Qui ei etiam dissentias. Alienum disputando pro ea, ex vero mandamus omittantur est, insolens electram an eum. Possit omittam vis et, in his cibo impetus. Eos te minim alienum petentium, malorum eripuit bonorum mei ei.
+
+
+% ------------------------------------------------------------------------------
+\newpage
+\bibliography{references.bib}
 % ------------------------------------------------------------------------------
 
 
 % ------------------------------------------------------------------------------
-\newpage~\appendix
+\newpage
+\appendix
 \numberwithin{equation}{section}
 \numberwithin{figure}{section}
 \numberwithin{table}{section}
@@ -64,9 +217,59 @@
 \renewcommand{\thetable}{\Alph{section}\arabic{table}}
 % ------------------------------------------------------------------------------
 
+% ------------------------------------------------------------------------------
+\section{Additional Results}
+% ------------------------------------------------------------------------------
 
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
+% ------------------------------------------------------------------------------
+\subsection{Regression Results}
+% ------------------------------------------------------------------------------
 
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+\begin{table}[tb]
+  \caption{Regression Results}
+  \label{tab:reg1}
+
+  \begin{adjustbox}{center}
+    \begin{threeparttable}
+      \begin{tabular}{@{}
+          lrr
+          @{}}
+
+        % Head
+        \toprule
+        & \multicolumn{2}{c}{\textit{Dependent variable:} \ Overall Rating} \\
+        \cmidrule{2-3}
+                                 & (1)                   & (2)                   \\
+        \hline
+
+        % Body
+        Handling of Complaints   & 0.692$^{***}$ (0.149) & 0.682$^{***}$ (0.129) \\
+        No Special Privileges    & $-$0.104 (0.135)      & $-$0.103 (0.129)      \\
+        Opportunity to Learn     & 0.249 (0.160)         & 0.238$^{*}$ (0.139)   \\
+        Performance-Based Raises & $-$0.033 (0.202)      &                       \\
+        Too Critical             & 0.015 (0.147)         &                       \\
+        Advancement              & 11.011 (11.704)       & 11.258 (7.318)        \\
+        \hline
+        Observations             & 30                    & 30                    \\
+        Adjusted R$^{2}$         & 0.656                 & 0.682                 \\
+
+        \bottomrule
+      \end{tabular}
+
+      % Notes
+      \begin{tablenotes}\setlength\labelsep{0pt}\small
+        \item {\small \textit{Notes.} $^{*}$ p$< 0.1$; $^{**}$ p$< 0.05$; $^{***}$ p$< 0.01$}
+        \item {\small Using R base dataframe attitude. dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. }
+      \end{tablenotes}
+    \end{threeparttable}
+  \end{adjustbox}
+\end{table}
 
 
 \end{document}

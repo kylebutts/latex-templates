@@ -64,12 +64,14 @@
 % T1 removes errors for things like \textbackslash
 \usepackage[T1]{fontenc}
 
-% \usepackage[utopia, smallerops, varg]{newtxmath}
-% \usepackage{utopia}
-% \usepackage[sfdefault,light]{roboto}
+\usepackage[sfdefault]{roboto}
+% \usepackage{sourcesanspro}
+% \usepackage{sourcecodepro}
+% \usepackage[italic,eulergreek,symbolmisc]{mathastext}
 
 % Small adjustments to text kerning
 \usepackage{microtype}
+\DisableLigatures[f]{encoding = *, family = *}
 
 % Beamer Options ---------------------------------------------------------------
 
@@ -100,7 +102,7 @@
 \setbeamercolor{subsection in toc}{fg = zinc900}
 
 % Button 
-\setbeamercolor{button}{bg = white, fg = zinc900}
+\setbeamercolor{button}{bg = accent, fg = white}
 \setbeamerfont{button}{}
 \setbeamercolor{button border}{fg = accent}
 
@@ -258,11 +260,12 @@
 % References -------------------------------------------------------------------
 
 \usepackage[
-    citestyle= authoryear,
-    style = authoryear,
-    natbib = true, 
-    backend = biber
+  natbib = true, 
+  backend = biber,
+  citestyle= authoryear,
+  style = ext-authoryear-ecomp,
 ]{biblatex}
+
 
 % Smaller font-size for references
 \renewcommand*{\bibfont}{\small}
@@ -272,24 +275,25 @@
 
 % Color citations for slides \citecolor{}
 \newcommand{\citecolor}[1]{%
-  \footnotesize\begin{color}{zinc500}%
+  {\footnotesize\begin{color}{zinc500}%
     #1%
-  \end{color}%
+  \end{color}}%
 }
 
 % Bibliography Font, roughly matching AEA
 \setbeamertemplate{bibliography item}{}
+\setbeamerfont{bibliography entry}{series = \mdseries}
 
 \setbeamerfont{bibliography entry author}{size = \footnotesize, series = \bfseries}
 \setbeamercolor{bibliography entry author}{fg = accent!60!zinc900}
 
-\setbeamerfont{bibliography entry title}{size = \footnotesize}
+\setbeamerfont{bibliography entry title}{size = \footnotesize, series = \mdseries}
 \setbeamercolor{bibliography entry title}{fg = zinc900}
 
-\setbeamerfont{bibliography entry location}{size = \footnotesize, shape = \itshape}
+\setbeamerfont{bibliography entry location}{size = \footnotesize, shape = \itshape, series = \mdseries}
 \setbeamercolor{bibliography entry location}{fg = zinc900}
 
-\setbeamerfont{bibliography entry note}{size = \footnotesize}
+\setbeamerfont{bibliography entry note}{size = \footnotesize, series = \mdseries}
 \setbeamercolor{bibliography entry note}{fg = zinc900}
 
 
@@ -366,3 +370,19 @@
     \end{frame}
 }
 
+
+% Math stuff -------------------------------------------------------------------
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{bm}
+
+% Custom Math Definitions ------------------------------------------------------
+\newcommand{\expec}[1]{\mathbb{E}\left[#1\right]}%
+\newcommand{\condexpec}[2]{\mathbb{E}\left[#1 \ \vert \ #2\right]}%
+\newcommand{\prob}[1]{\text{Pr}\left[#1\right]}%
+\newcommand{\condprob}[2]{\text{Pr}\left[#1 \ \vert \ #2\right]}%
+\newcommand{\var}[1]{\mathrm{Var}\left[#1\right]}%
+\newcommand{\cov}[1]{\mathrm{Cov}\left[#1\right]}%
+\newcommand{\one}{\mathbf{1}}

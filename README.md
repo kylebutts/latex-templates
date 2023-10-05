@@ -17,3 +17,30 @@ This latex slide aims for nice typography, minimal aesthetics so the focus is on
 ## Latex Article
 
 [PDF Preview](https://raw.githack.com/kylebutts/templates/master/latex-article/article.pdf)
+
+### .gitignore
+
+This is a recommended set of files to include in `.gitignore` to not commit ugly latex auxiliary files:
+
+```text
+*.aux
+*.lof
+*.log
+*.lot
+*.fls
+*.out
+*.toc
+*.fmt
+*.fot
+*.cb
+*.cb2
+.*.lb
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.run.xml
+*.synctex.gz
+*.nav
+*.snm
+```

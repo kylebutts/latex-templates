@@ -1,22 +1,13 @@
 % Margins ----------------------------------------------------------------------
-
 \usepackage[margin=1.25in]{geometry}
 
 % Line Spacing -----------------------------------------------------------------
-
 \renewcommand{\baselinestretch}{1.5}
-
-% Math stuff -------------------------------------------------------------------
-
-\usepackage{amsmath}
-\usepackage{amsfonts}
-\usepackage{amsthm}
-\usepackage{graphicx}
-\usepackage{bm}
+\usepackage{setspace}
 
 % Font -------------------------------------------------------------------------
-
 \usepackage[T1]{fontenc}
+\usepackage{inputenc}
 \usepackage[default]{lato} % Lato as text font
 % \usepackage[utopia, varg]{newtxmath}
 % \renewcommand{\rmdefault}{futs} % Utopia as text font 
@@ -29,7 +20,6 @@
 \hfuzz2pt
 
 % Color Palette ----------------------------------------------------------------
-
 \usepackage{xcolor}
 
 % High contrast colors
@@ -62,9 +52,7 @@
 \newcommand\jet[1]{{\color{jet}#1}}
 \newcommand\asher[1]{{\color{asher}#1}}
 
-
 % Hyperlinks -------------------------------------------------------------------
-
 \usepackage{hyperref}
 \hypersetup{
   colorlinks = true,
@@ -72,53 +60,17 @@
 }
 
 % Citations --------------------------------------------------------------------
-
 % note, natbib provides better hyperlinking
 \usepackage{natbib}
 \bibliographystyle{econ-aea}
 
 % Conditionals -----------------------------------------------------------------
 % https://tex.stackexchange.com/questions/33576/conditional-typesetting-build
-
 \usepackage{etoolbox}
 
-% Define Theorems --------------------------------------------------------------
-
-% Put proper spacing after Theorem #. 
-\newtheoremstyle{spacing}
-{}%          Space above, empty = `usual value'
-{}%          Space below
-{}%  Body font
-{}%          Indent amount (empty = no indent, \parindent = para indent)
-{\bfseries}% Thm head font
-{.}%         Punctuation after thm head
-{2.5mm}%  Space after thm head: \newline = linebreak
-{}%          Thm head spec
-
-% note, theorem is the name that goes in \begin{} and Theorem is the name displayed as Theorem 1
-\theoremstyle{spacing}
-\newtheorem{theorem}{Theorem}
-\newtheorem{proposition}{Proposition}
-\newtheorem{assumption}{Assumption}
-\newtheorem{example}{Example}
-
-
-% Custom Math Definitions ------------------------------------------------------
-
-\newcommand{\expec}[1]{\mathbb{E}\left[#1\right]}%
-\newcommand{\condexpec}[2]{\mathbb{E}\left[#1 \ \vert \ #2\right]}%
-\newcommand{\prob}[1]{\text{Pr}\left[#1\right]}%
-\newcommand{\condprob}[2]{\text{Pr}\left[#1 \ \vert \ #2\right]}%
-\newcommand{\var}[1]{\mathrm{Var}\left[#1\right]}%
-\newcommand{\cov}[1]{\mathrm{Cov}\left[#1\right]}%
-\newcommand{\one}{\mathbf{1}}
-
-
 % Titlepage --------------------------------------------------------------------
-
 % \maketitle
 \usepackage{titling}
-\usepackage{setspace}
 
 % title
 \pretitle{\begin{spacing}{1}\begin{flushleft}\huge}
@@ -128,8 +80,8 @@
 \preauthor{\begin{flushleft}\large}
 \postauthor{\end{flushleft}\vspace{-7.5mm}}
 
-% date
-\predate{\begin{flushleft}\scshape\color{asher}}
+% date \scshape
+\predate{\begin{flushleft}\color{asher}}
 \postdate{\end{flushleft}\vspace{-5mm}}
 
 % Abstract
@@ -147,7 +99,6 @@
 
 
 % Section and Subsection Styling -----------------------------------------------
-
 \usepackage[explicit]{titlesec}
 
 \titleformat{\section}
@@ -164,7 +115,6 @@
 
 
 % Footnote ---------------------------------------------------------------------
-
 % Spacing between footnotes on same page
 \addtolength{\footnotesep}{1mm}
 
@@ -184,19 +134,22 @@
 \makeatother
 
 % Enumerate/Itemize ------------------------------------------------------------
-
 \usepackage{enumitem}
 \setitemize{labelindent=0.5em,labelsep=0.25cm,leftmargin=*}
 \setenumerate{labelindent=0.5em,labelsep=0.25cm,leftmargin=*}
 
-% Table and Figure labelling ---------------------------------------------------
+% tikz support -----------------------------------------------------------------
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.7}
 
+% Table and Figure labelling ---------------------------------------------------
 \usepackage{caption}
 
 \DeclareCaptionLabelSeparator{threedash}{\,---\,}
 \DeclareCaptionFont{jet}{\color{jet}}
-\captionsetup[table]{format=plain, labelsep=threedash, font={bf}}
-\captionsetup[figure]{format=plain, labelsep=threedash, font={bf}}
+\captionsetup*[table]{format=plain, labelsep=threedash, font={bf}}
+\captionsetup*[figure]{format=plain, labelsep=threedash, font={bf}}
 
 % Alternative: Left align captions
 % \captionsetup[table]{labelfont=it, textfont={bf}, labelsep=newline, justification=raggedright, singlelinecheck=off}
@@ -205,11 +158,10 @@
 % multifigure with \caption
 % \begin{subfigure}\caption{} \end{subfigure}
 \usepackage{subcaption}
-\captionsetup[subfigure]{format=plain, font={jet, footnotesize, bf}}
+\captionsetup*[subfigure]{format=plain, font={jet, footnotesize, bf}}
 
 
 % Tables -----------------------------------------------------------------------
-
 % Fix \input with tables
 % \input fails when \\ is at end of external .tex file
 \makeatletter
@@ -266,9 +218,39 @@
         \node[outer sep=2.5cm,above,rotate=90] at (current page.east) {\thepage};
     }
 }
-  
-% tikz support -----------------------------------------------------------------
 
-\usepackage{tikz}
-\usepackage{pgfplots}
+% Math stuff -------------------------------------------------------------------
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{bm}
 
+% Define Theorems --------------------------------------------------------------
+% Put proper spacing after Theorem #. 
+\newtheoremstyle{spacing}
+{}%          Space above, empty = `usual value'
+{}%          Space below
+{}%  Body font
+{}%          Indent amount (empty = no indent, \parindent = para indent)
+{\bfseries}% Thm head font
+{.}%         Punctuation after thm head
+{2.5mm}%  Space after thm head: \newline = linebreak
+{}%          Thm head spec
+
+% note, theorem is the name that goes in \begin{} and Theorem is the name displayed as Theorem 1
+\theoremstyle{spacing}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{assumption}{Assumption}
+\newtheorem{example}{Example}
+
+
+% Custom Math Definitions ------------------------------------------------------
+\newcommand{\expec}[1]{\mathbb{E}\left[#1\right]}%
+\newcommand{\condexpec}[2]{\mathbb{E}\left[#1 \ \vert \ #2\right]}%
+\newcommand{\prob}[1]{\text{Pr}\left[#1\right]}%
+\newcommand{\condprob}[2]{\text{Pr}\left[#1 \ \vert \ #2\right]}%
+\newcommand{\var}[1]{\mathrm{Var}\left[#1\right]}%
+\newcommand{\cov}[1]{\mathrm{Cov}\left[#1\right]}%
+\newcommand{\one}{\mathbf{1}}

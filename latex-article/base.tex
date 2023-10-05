@@ -1,0 +1,72 @@
+\documentclass[12pt]{article}
+
+% Include Theme
+\input{preamble.tex}
+
+% \maketitle info
+\title{Example Paper}
+\author{
+    Author One%
+    \thanks{School. Email: \href{mailto:email@gmail.com}{email@gmail.com}.} \ and Author Two%
+    \thanks{School. Email: \href{mailto:email@gmail.com}{email@gmail.com}.}
+}
+\date{\today}
+
+% pdf info
+\hypersetup{pdftitle={Example Paper}, pdfauthor={Kyle Butts}}
+
+% Conditionally include comments. Switch to \togglefalse
+\newtoggle{INCLUDECOMMENTS}
+\toggletrue{INCLUDECOMMENTS}
+% \togglefalse{INCLUDECOMMENTS}
+
+\newcommand{\kyle}[1]{\iftoggle{INCLUDECOMMENTS}{{\color{cranberry}\textbf{Kyle:} #1}}{}}
+
+
+\begin{document}
+
+% Title Page -------------------------------------------------------------------
+\maketitle
+\begin{abstract}
+
+
+  \par~\par\noindent
+  {\color{asher}JEL-Classification:} ...
+  \par\noindent
+  {\color{asher}Keywords:} ...
+  \par\vspace{-2.5mm}
+\end{abstract}
+
+\newpage
+
+
+% Paper ------------------------------------------------------------------------
+
+% ------------------------------------------------------------------------------
+\section{Introduction}
+% ------------------------------------------------------------------------------
+
+
+
+
+
+% ------------------------------------------------------------------------------
+% \newpage~\bibliography{references.bib}
+% ------------------------------------------------------------------------------
+
+
+% ------------------------------------------------------------------------------
+\newpage~\appendix
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\numberwithin{table}{section}
+\renewcommand{\thefigure}{\Alph{section}\arabic{figure}}
+\renewcommand{\thetable}{\Alph{section}\arabic{table}}
+% ------------------------------------------------------------------------------
+
+
+
+
+
+
+\end{document}

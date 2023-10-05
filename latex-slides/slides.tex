@@ -32,62 +32,62 @@
 \end{transitionframe}
 
 \begin{frame}{Components}{Bullet Points \& Button}\label{main1}
-    This section highlights commonly used components and their theming
+  This section highlights commonly used components and their theming
 
+  \begin{itemize}
+    \item Can emphasize with \alert{the alert command}
+    
     \begin{itemize}
-        \item Can emphasize with \alert{the alert command}
-        
-        \begin{itemize}
-            \item This allows you to draw attention to specific words/phrases
-        \end{itemize}
-        
-        \item To include things in appendix, you must first label the slide and the appendix slide and then include a hyperlink:
-        
-        \vspace{5mm}
-        \hyperlink{appendix1}{\beamergotobutton{Appendix}}
+      \item This allows you to draw attention to specific words/phrases
     \end{itemize}
+    
+    \item To include things in appendix, you must first label the slide and the appendix slide and then include a hyperlink:
+    
+    \vspace{5mm}
+    \hyperlink{appendix1}{\beamergotobutton{Appendix}}
+  \end{itemize}
 \end{frame}
 
 
 \begin{frame}{Components}{Numbered Lists}
-    You can also use numbered items that look a bit more professional
+  You can also use numbered items that look a bit more professional
 
-    \begin{enumerate}
-        \item Pretty good
-        
-        \item To include things in appendix
-    \end{enumerate}
+  \begin{enumerate}
+    \item Pretty good
+    
+    \item To include things in appendix
+  \end{enumerate}
 \end{frame}
 
 \begin{frame}{Components}{Citations}
-    Topic 1: Spatial Frictions
-    \citecolor{
-      [\citet{Fajgelbaum_Morales_Serrato_Zidar_2018}, \citet{Hsieh_Moretti_2019}, and \citet{Moretti_2011}]
-    }
+  Topic 1: Spatial Frictions
+  \citecolor{
+    [\citet{Fajgelbaum_Morales_Serrato_Zidar_2018}, \citet{Hsieh_Moretti_2019}, and \citet{Moretti_2011}]
+  }
 
-    \vspace{5mm}
-    Topic 2: Blah 
-    \citecolor{
-      [\citet{Suárez_Serrato_Zidar_2016}]
-    }
+  \vspace{5mm}
+  Topic 2: Blah 
+  \citecolor{
+    [\citet{Suárez_Serrato_Zidar_2016}]
+  }
 \end{frame}
 
 \begin{frame}{Components}{Blocks}
   \begin{block}{Theorem 1}
-    The main specificaiton is as follows: 
-    $$
-    y_{it} = X_{it} \beta + \mu_i + \varepsilon_{it}
-    $$
+  The main specificaiton is as follows: 
+  $$
+  y_{it} = X_{it} \beta + \mu_i + \varepsilon_{it}
+  $$
   \end{block}
 \end{frame}
 
 \begin{frame}{Components}{Blocks}
   \begin{purpleBlock}{}
-      This is a purple block
+    This is a purple block
   \end{purpleBlock}
 
   \begin{cranberryBlock}{With Title}
-    This is a cranberry block
+  This is a cranberry block
   \end{cranberryBlock}
 \end{frame}
 
@@ -135,46 +135,46 @@
 
 \begin{frame}{Components}{Two Columns}
   \begin{columns}[T]
-    \begin{column}{.50\textwidth}
-        \vspace{0pt}
-        {\color{accent}\rule{\linewidth}{2pt}}
-        Column 1
+  \begin{column}{.50\textwidth}
+    \vspace{0pt}
+    {\color{accent}\rule{\linewidth}{2pt}}
+    Column 1
 
-        \begin{enumerate}
-            \item Bullet points for this column that can go over lines
-            \item b
-            \item c
-        \end{enumerate}
-    \end{column}
-    
-    \hfill
-    
-    \begin{column}{.50\textwidth}
-        {\color{accent}\rule{\linewidth}{2pt}}
-        Column 2
+    \begin{enumerate}
+      \item Bullet points for this column that can go over lines
+      \item b
+      \item c
+    \end{enumerate}
+  \end{column}
+  
+  \hfill
+  
+  \begin{column}{.50\textwidth}
+    {\color{accent}\rule{\linewidth}{2pt}}
+    Column 2
 
-        \begin{itemize}
-            \item a
-            \item b
-            \item c
-        \end{itemize}
-    \end{column}
+    \begin{itemize}
+      \item a
+      \item b
+      \item c
+    \end{itemize}
+  \end{column}
   \end{columns}
 \end{frame}
 
 \begin{frame}{Components}{Two Columns with Figure}
   \begin{columns}[T]
-    \vspace{0pt}
-    \begin{column}{.6\textwidth}
-        \includegraphics[width=0.9\textwidth]{img/kanagawa.jpg}
-    \end{column}
-    \hfill
-    \begin{column}{.4\textwidth}
-        \begin{itemize}
-            \item A point about the figure that is potentially important.
-            \item Another point about the figure that is also potentially important.
-        \end{itemize}
-    \end{column}
+  \vspace{0pt}
+  \begin{column}{.5\textwidth}
+    \includegraphics[width=\textwidth]{img/kanagawa.jpg}
+  \end{column}
+  \hfill
+  \begin{column}{.48\textwidth}
+    \begin{itemize}
+    \item A point about the figure that is potentially important.
+    \item Another point about the figure that is also potentially important.
+    \end{itemize}
+  \end{column}
   \end{columns}
 \end{frame}
 
@@ -184,54 +184,54 @@
 
 \begin{frame}{Table}
   \begin{columns}[T]
-    \begin{column}{.6\textwidth}
-      % Adjust Font Size to make table fit   
-      \begin{table}[!htbp]
-        % \caption{Regression Results} 
-        
-        \begin{adjustbox}{max width = \textwidth, width = 0.8 \textwidth, center}
-            \begin{threeparttable}
-                \begin{tabular}{@{} l *{2}{r} @{}} 
-                    \toprule
-                    & \multicolumn{2}{c}{\textit{Dependent variable: Overall Rating}} \\ 
-                    \cline{2-3} \\
-                    & (1) & (2)\\ 
-                    \midrule
-                    
-                    \only<1>{
-                        Handling of Complaints & 0.692$^{***}$& 0.682$^{***}$ \\ 
-                        &  (0.149) & (0.129) \\
-                    }
-                    \only<2>{
-                        \marktopleft{ex1}Handling of Complaints & 0.692$^{***}$& 0.682$^{***}$ \\ 
-                        &  (0.149) & (0.129) \markbottomright{ex1} \\
-                    }
-                    No Special Privileges & -0.104 & $-$0.103  \\ 
-                    & (0.135) & (0.129) \\
-                    Opportunity to Learn & 0.249 & 0.238$^{*}$ \\ 
-                    & (0.160) & (0.139) \\
-                    
-                    \midrule 
-                    Observations & 30 & 30 \\ 
-                    R$^{2}$ & 0.715 & 0.715 \\ 
-                    \bottomrule
+  \begin{column}{.5\textwidth}
+    % Adjust Font Size to make table fit   
+    \begin{table}[!htbp]
+    % \caption{Regression Results} 
+    
+    \begin{adjustbox}{max width = \textwidth, width = \textwidth, center}
+      \begin{threeparttable}
+        \begin{tabular}{@{} l *{2}{r} @{}} 
+          \toprule
+          & \multicolumn{2}{c}{\textit{Dependent variable: Overall Rating}} \\ 
+          \cline{2-3} \\
+          & (1) & (2)\\ 
+          \midrule
+          
+          \only<1>{
+            Handling of Complaints & 0.692$^{***}$& 0.682$^{***}$ \\ 
+            &  (0.149) & (0.129) \\
+          }
+          \only<2>{
+            \marktopleft{ex1}Handling of Complaints & 0.692$^{***}$& 0.682$^{***}$ \\ 
+            &  (0.149) & (0.129) \markbottomright{ex1} \\
+          }
+          No Special Privileges & -0.104 & $-$0.103  \\ 
+          & (0.135) & (0.129) \\
+          Opportunity to Learn & 0.249 & 0.238$^{*}$ \\ 
+          & (0.160) & (0.139) \\
+          
+          \midrule 
+          Observations & 30 & 30 \\ 
+          R$^{2}$ & 0.715 & 0.715 \\ 
+          \bottomrule
 
-                \end{tabular} 
-                % Notes 
-                \begin{tablenotes}
-                    \item \textit{Notes.} $^{*} p<0.1$; $^{**} p<0.05$; $^{***} p<0.01$.
-                \end{tablenotes}
-            \end{threeparttable}
-        \end{adjustbox}
-      \end{table}
-    \end{column}
-    \hfill
-    \begin{column}{.4\textwidth}
-        \begin{itemize}
-            \item Use \texttt{\textbackslash marktopleft\{name\}} and \texttt{\textbackslash markbottomright\{name\}} within the table to create box.
-            \item Using \texttt{\textbackslash only} or \texttt{\textbackslash on} lets you conditionally display box
-        \end{itemize}
-    \end{column}
+        \end{tabular} 
+        % Notes 
+        \begin{tablenotes}
+          \item \textit{Notes.} $^{*} p<0.1$; $^{**} p<0.05$; $^{***} p<0.01$.
+        \end{tablenotes}
+      \end{threeparttable}
+    \end{adjustbox}
+    \end{table}
+  \end{column}
+  \hfill
+  \begin{column}{.5\textwidth}
+    \begin{itemize}
+      \item Use \texttt{\textbackslash marktopleft\{name\}} and \texttt{\textbackslash markbottomright\{name\}} within the table to create box.
+      \item Using \texttt{\textbackslash only} or \texttt{\textbackslash on} lets you conditionally display box
+    \end{itemize}
+  \end{column}
   \end{columns}
 \end{frame}
 
@@ -247,50 +247,46 @@
   You can use the command \texttt{\textbackslash imageframe\{img-path\}} and it will create a full-frame of a picture. 
   
   \begin{itemize}
-    \item Ideally, your figure is the same aspect as the frame \texttt{4:3} or \texttt{16:9} or else there will be white space in one of the directions.
+  \item Ideally, your figure is the same aspect as the frame \texttt{4:3} or \texttt{16:9} or else there will be white space in one of the directions.
   \end{itemize}
 \end{frame}
 
 \begin{frame}{Figure}{}
   \begin{adjustbox}{width = 0.7\textwidth, center}
-    \includegraphics{img/kanagawa_16_9.png}
+  \includegraphics{img/kanagawa_16_9.png}
   \end{adjustbox}
 \end{frame}
 
 % ------------------------------------------------------------------------------
 \begin{frame}[allowframebreaks]{References}
-    \printbibliography
+  \printbibliography
 \end{frame}
-% ------------------------------------------------------------------------------
-
-
-% ------------------------------------------------------------------------------
 \appendix
 % ------------------------------------------------------------------------------
 
 \begin{frame}{Appendix Slide}{\hyperlink{main1}{\beamergotobutton{Back to Main}}}\label{appendix1}
   \begin{table}
-    \caption{Summary Statistics}
-    \label{appendix_summ_stat}
-    \begin{adjustbox}{max width = \textwidth, width = 0.7\textwidth, center}
-      \begin{threeparttable}
-        \begin{tabular}{@{} lccccccc @{}} 
-          \toprule
-          Statistic & \multicolumn{1}{c}{N} & \multicolumn{1}{c}{Mean} & \multicolumn{1}{c}{St. Dev.} & \multicolumn{1}{c}{Min} & \multicolumn{1}{c}{Pctl(25)} & \multicolumn{1}{c}{Pctl(75)} & \multicolumn{1}{c}{Max} \\ 
-          \hline \\[-1.8ex] 
-          rating & 30 & 64.633 & 12.173 & 40 & 58.8 & 71.8 & 85 \\ 
-          complaints & 30 & 66.600 & 13.315 & 37 & 58.5 & 77 & 90 \\ 
-          privileges & 30 & 53.133 & 12.235 & 30 & 45 & 62.5 & 83 \\ 
-          learning & 30 & 56.367 & 11.737 & 34 & 47 & 66.8 & 75 \\ 
-          raises & 30 & 64.633 & 10.397 & 43 & 58.2 & 71 & 88 \\ 
-          \bottomrule
-        \end{tabular} 
+  \caption{Summary Statistics}
+  \label{appendix_summ_stat}
+  \begin{adjustbox}{max width = \textwidth, width = 0.7\textwidth, center}
+    \begin{threeparttable}
+    \begin{tabular}{@{} lccccccc @{}} 
+      \toprule
+      Statistic & \multicolumn{1}{c}{N} & \multicolumn{1}{c}{Mean} & \multicolumn{1}{c}{St. Dev.} & \multicolumn{1}{c}{Min} & \multicolumn{1}{c}{Pctl(25)} & \multicolumn{1}{c}{Pctl(75)} & \multicolumn{1}{c}{Max} \\ 
+      \hline \\[-1.8ex] 
+      rating & 30 & 64.633 & 12.173 & 40 & 58.8 & 71.8 & 85 \\ 
+      complaints & 30 & 66.600 & 13.315 & 37 & 58.5 & 77 & 90 \\ 
+      privileges & 30 & 53.133 & 12.235 & 30 & 45 & 62.5 & 83 \\ 
+      learning & 30 & 56.367 & 11.737 & 34 & 47 & 66.8 & 75 \\ 
+      raises & 30 & 64.633 & 10.397 & 43 & 58.2 & 71 & 88 \\ 
+      \bottomrule
+    \end{tabular} 
 
-        \begin{tablenotes}
-            \item \textit{Notes.} Using R base dataframe attitude.
-        \end{tablenotes}
-      \end{threeparttable}
-    \end{adjustbox}
+    \begin{tablenotes}
+      \item \textit{Notes.} Using R base dataframe attitude.
+    \end{tablenotes}
+    \end{threeparttable}
+  \end{adjustbox}
   \end{table}
 \end{frame}
 

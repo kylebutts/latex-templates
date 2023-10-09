@@ -1,0 +1,39 @@
+% Referee Comments
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable, skins}
+\newtcolorbox{commentbox}{
+  blanker, breakable, left=1em,
+  top = 0.5em, bottom = 0.5em,
+  borderline west={2pt}{0pt}{jet}
+}
+
+\newcommand{\RefName}{}
+\newcommand{\RefAbbr}{}
+\newcounter{commentcount}
+\setcounter{commentcount}{1}
+\newenvironment{refcomment}{
+  \subsection*{\RefAbbr \ Comment \thecommentcount}
+  \addtocounter{commentcount}{1}
+  \begin{commentbox}\color{jet}
+}{
+  \end{commentbox}
+}
+
+% Reset counter and create section
+\newcommand{\NewRef}[2]{
+    \renewcommand{\RefName}{#1}
+    \renewcommand{\RefAbbr}{#2}
+    \setcounter{commentcount}{1}
+    \section*{Responses to \RefName}
+}
+
+% Todos
+\newbool{INCLUDETODOS}
+\NewDocumentEnvironment{todos}{+b}{%
+    \ifbool{INCLUDETODOS}{\textcolor{cranberry}{#1}}{}
+}{}
+
+% Response
+\newenvironment{response}
+  {}
+  {}

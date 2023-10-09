@@ -1,0 +1,75 @@
+\documentclass[12pt]{article}
+% Should copy over the .sty files from latex-article
+\usepackage{../latex-article/paper}
+\usepackage{../latex-article/math}
+\usepackage{referee-response}
+
+% Conditionally display thoughts (hide by switching to `\boolfalse`)
+\booltrue{INCLUDECOMMENTS}
+\newcommand{\kyle}[1]{\coauthorComment[Kyle]{#1}}
+
+% (hide by switching to `\boolfalse`)
+\booltrue{INCLUDETODOS}
+
+% Reference main document ------------------------------------------------------
+% Note: I compile to `auxiliary/` to avoid cluttering the main directory. You might neeed to delete `auxiliary/`
+% \usepackage{xr}
+% \externaldocument[main-]{auxiliary/article}
+
+\begin{document}
+
+% Title ------------------------------------------------------------------------
+\begin{center}
+    {\large\bf Paper Title}
+    
+    \emph{Authors' Responses to Referee Comments}
+    
+    \emph{Journal} (\texttt{Review Number})
+\end{center}
+% ------------------------------------------------------------------------------
+
+\noindent Thank you for the additional suggestions. The reviewer's comment is marked with a left border. Our responses follow below each comment.
+
+\section*{Summary of Revisions}
+
+
+% ------------------------------------------------------------------------------
+\NewRef{Referee 1}{R1}
+% ------------------------------------------------------------------------------
+
+\begin{refcomment}
+  Comment 
+\end{refcomment}
+
+\begin{todos}
+  Thoughts / plan of action. These can be hidden by toggling \texttt{INCLUDETODOS} to \texttt{\textbackslash boolfalse}. 
+\end{todos}
+
+\begin{response}
+  Response
+\end{response}
+
+
+
+\begin{refcomment}
+  Comment 
+\end{refcomment}
+
+\begin{todos}
+  Thoughts / plan of action. 
+\end{todos}
+
+\begin{response}
+  Response
+\end{response}
+
+
+% ------------------------------------------------------------------------------
+\NewRef{Referee 2}{R2}
+% ------------------------------------------------------------------------------
+
+
+
+
+
+\end{document}

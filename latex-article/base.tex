@@ -1,5 +1,6 @@
 \documentclass[12pt]{article}
 \usepackage{paper}
+\usepackage{math}
 
 \title{Example Paper}
 \author{
@@ -7,13 +8,11 @@
     \thanks{School. Email: \href{mailto:email@gmail.com}{email@gmail.com}.} \ and Author Two%
     \thanks{School. Email: \href{mailto:email@gmail.com}{email@gmail.com}.}
 }
-\date{\today}
+\date{\textsc{\today}}
 
-% Conditionally include comments. Switch to \togglefalse
-\newtoggle{INCLUDECOMMENTS}
-\toggletrue{INCLUDECOMMENTS}
-% \togglefalse{INCLUDECOMMENTS}
-\newcommand{\kyle}[1]{\iftoggle{INCLUDECOMMENTS}{{\color{cranberry}\textbf{Kyle:} #1}}{}}
+% Conditionally display thoughts (hide by switching to `\boolfalse`)
+\booltrue{INCLUDECOMMENTS}
+\newcommand{\kyle}[1]{\coauthorComment[Kyle]{#1}}
 
 \begin{document}
 

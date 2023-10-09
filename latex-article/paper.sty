@@ -50,13 +50,50 @@
 % note, theorem is the name that goes in \begin{} and Theorem is the name displayed as Theorem 1
 \theoremstyle{spacing}
 \newtheorem{theorem}{Theorem}
+\newcommand{\theoremautorefname}{Theorem}
 \newtheorem{proposition}{Proposition}
+\newcommand{\propositionautorefname}{Proposition}
 \newtheorem{assumption}{Assumption}
+\newcommand{\assumptionautorefname}{Assumption}
 \newtheorem{example}{Example}
+\newcommand{\exampleautorefname}{Example}
 \newtheorem{lemma}{Lemma}
+\newcommand{\lemmaautorefname}{Lemma}
 \newtheorem{corollary}{Corollary}
+\newcommand{\corollaryautorefname}{Corollary}
 \newtheorem{definition}{Definition}
+\newcommand{\definitionautorefname}{Definition}
 \newtheorem{remark}{Remark}
+\newcommand{\remarkautorefname}{Remark}
+
+% Appendix ---------------------------------------------------------------------
+
+\AtBeginEnvironment{appendix}{
+% \AfterEndEnvironment{thebibliography}{
+  \setcounter{theorem}{0}
+  \setcounter{proposition}{0} 
+  \setcounter{lemma}{0}
+  \setcounter{corollary}{0}
+  \setcounter{definition}{0}
+  \setcounter{assumption}{0}
+  \setcounter{remark}{0}
+  \setcounter{table}{0}
+  \setcounter{figure}{0}
+  \setcounter{equation}{0} 
+  \numberwithin{equation}{section}
+  \numberwithin{figure}{section}
+  \numberwithin{table}{section}
+  \renewcommand{\thetheorem}{\Alph{section}\arabic{theorem}}
+  \renewcommand{\theproposition}{\Alph{section}\arabic{proposition}}
+  \renewcommand{\thelemma}{\Alph{section}\arabic{lemma}}
+  \renewcommand{\thecorollary}{\Alph{section}\arabic{corollary}}
+  \renewcommand{\thedefinition}{\Alph{section}\arabic{definition}}
+  \renewcommand{\theassumption}{\Alph{section}\arabic{assumption}}
+  \renewcommand{\theremark}{\Alph{section}\arabic{remark}}
+  \renewcommand{\thetable}{\Alph{section}\arabic{table}}
+  \renewcommand{\thefigure}{\Alph{section}\arabic{figure}}
+  \renewcommand{\theequation}{\Alph{section}\arabic{equation}}
+}
 
 % Color Palette ----------------------------------------------------------------
 \usepackage{xcolor}
@@ -137,43 +174,23 @@
   {1em}
   {#1}
 
-% Appendix ---------------------------------------------------------------------
-
-\AfterEndEnvironment{thebibliography}{
-  \setcounter{theorem}{0}
-  \setcounter{proposition}{0} 
-  \setcounter{lemma}{0}
-  \setcounter{corollary}{0}
-  \setcounter{definition}{0}
-  \setcounter{assumption}{0}
-  \setcounter{remark}{0}
-  \setcounter{table}{0}
-  \setcounter{figure}{0}
-  \setcounter{equation}{0} 
-  \numberwithin{equation}{section}
-  \numberwithin{figure}{section}
-  \numberwithin{table}{section}
-  \renewcommand{\thetheorem}{\Alph{section}\arabic{theorem}}
-  \renewcommand{\theproposition}{\Alph{section}\arabic{proposition}}
-  \renewcommand{\thelemma}{\Alph{section}\arabic{lemma}}
-  \renewcommand{\thecorollary}{\Alph{section}\arabic{corollary}}
-  \renewcommand{\thedefinition}{\Alph{section}\arabic{definition}}
-  \renewcommand{\theassumption}{\Alph{section}\arabic{assumption}}
-  \renewcommand{\theremark}{\Alph{section}\arabic{remark}}
-  \renewcommand{\thetable}{\Alph{section}\arabic{table}}
-  \renewcommand{\thefigure}{\Alph{section}\arabic{figure}}
-  \renewcommand{\theequation}{\Alph{section}\arabic{equation}}
-}
-
 % Latex Programming tools ------------------------------------------------------
 % \AtBeginEnvironment
-% https://tex.stackexchange.com/questions/33576/conditional-typesetting-build
 \usepackage{etoolbox}
 \usepackage{xparse}
 
 % Remove annoying over-full box warnings
 \vfuzz=2pt 
 \hfuzz=2pt
+
+% Coauthors comments that you can hide -----------------------------------------
+% Define in the main document:
+% \booltrue{INCLUDECOMMENTS}
+% \newcommand{\kyle}[1]{\comment[Kyle]{#1}}
+\newbool{INCLUDECOMMENTS}
+\NewDocumentCommand{\coauthorComment}{O{NAME} +m}{%
+    \ifbool{INCLUDECOMMENTS}{{\color{cranberry}\textbf{#1:} #2}}{}
+}
 
 % Titlepage --------------------------------------------------------------------
 % \maketitle

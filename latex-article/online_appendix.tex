@@ -1,0 +1,55 @@
+\documentclass[12pt]{article}
+\usepackage{paper}
+\usepackage{math}
+
+\title{Online Appendix for Example Paper}
+\author{
+  Author One%
+  \thanks{School. Email: \href{mailto:email@gmail.com}{email@gmail.com}.} \ and Author Two%
+  \thanks{School. Email: \href{mailto:email@gmail.com}{email@gmail.com}.}
+}
+\date{\textsc{\today}}
+
+% Conditionally display thoughts (hide by switching to `\boolfalse`)
+\booltrue{INCLUDECOMMENTS}
+\newcommand{\kyle}[1]{\coauthorComment[Kyle]{#1}}
+
+% Reference main document ------------------------------------------------------
+% Note: I compile to `auxiliary/` to avoid cluttering the main directory. You might neeed to delete `auxiliary/`
+\usepackage{xr}
+\externaldocument[main-]{auxiliary/article}
+
+\begin{document}
+
+% Title Page -------------------------------------------------------------------
+\maketitle
+\appendix
+\renewcommand{\thesection}{O\Alph{section}\arabic{section}}
+\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+\renewcommand{\thetheorem}{O\Alph{section}\arabic{theorem}}
+\renewcommand{\theproposition}{O\Alph{section}\arabic{proposition}}
+\renewcommand{\thelemma}{O\Alph{section}\arabic{lemma}}
+\renewcommand{\thecorollary}{O\Alph{section}\arabic{corollary}}
+\renewcommand{\thedefinition}{O\Alph{section}\arabic{definition}}
+\renewcommand{\theassumption}{O\Alph{section}\arabic{assumption}}
+\renewcommand{\theremark}{O\Alph{section}\arabic{remark}}
+\renewcommand{\thetable}{O\Alph{section}\arabic{table}}
+\renewcommand{\thefigure}{O\Alph{section}\arabic{figure}}
+\renewcommand{\theequation}{O\Alph{section}\arabic{equation}}
+% ------------------------------------------------------------------------------
+
+\section{New Section}
+\subsection{New Subsection}
+
+Referencing \autoref{main-thm:residue_thm} of main text. The proof follows from \citet{mas1995microeconomic}.
+
+
+
+
+
+% ------------------------------------------------------------------------------
+\newpage
+\bibliography{references.bib}
+% ------------------------------------------------------------------------------
+
+\end{document}

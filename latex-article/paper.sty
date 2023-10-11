@@ -193,20 +193,59 @@
 }
 
 % Titlepage --------------------------------------------------------------------
-% \maketitle
-\usepackage{titling}
+% Update \maketitle command
+% \usepackage{titling}
 
 % title
-\pretitle{\begin{spacing}{1}\begin{flushleft}\huge}
-\posttitle{\end{flushleft}\end{spacing}\vspace{-5mm}}
+% \pretitle{\begin{spacing}{1}\huge}
+% \posttitle{\end{spacing}\vspace{-5mm}}
 
 % author, note don't use \and 
-\preauthor{\begin{flushleft}\large}
-\postauthor{\end{flushleft}\vspace{-7.5mm}}
+% \preauthor{\large}
+% \postauthor{\vspace{-7.5mm}}
 
 % date \scshape
-\predate{\begin{flushleft}\color{asher}}
-\postdate{\end{flushleft}\vspace{-5mm}}
+% \predate{\color{asher}}
+% \postdate{\vspace{-5mm}}
+% \usepackage[symbol]{footmisc}
+
+% \makeatletter
+% \renewcommand{\maketitle}{%
+%   \renewcommand{\thefootnote}{\fnsymbol{footnote}}
+%   {\huge \@title}
+
+%   {\large%
+%     \lineskip .5em%
+%     \begin{tabular}[t]{c}%
+%       \@author
+%     \end{tabular}\par
+%   }
+
+%   {\color{asher} \@date}
+
+%   \setcounter{footnote}{0}
+%   \renewcommand{\thefootnote}{\arabic{footnote}}
+% }
+% \makeatother
+
+
+% ----
+\def\@maketitle{%
+  \vspace*{\bigskipamount}
+
+  \begin{flushleft}%
+  \let \footnote \thanks
+    {\huge \@title \par}%
+    
+    \medskip
+    {\large \@author \par}%
+
+    \smallskip
+    {\color{asher} \@date}%
+  \end{flushleft}%
+
+}
+
 
 % Abstract
 \renewenvironment{abstract}

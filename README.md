@@ -18,6 +18,10 @@ This latex slide aims for nice typography, minimal aesthetics so the focus is on
 
 [PDF Preview](https://raw.githack.com/kylebutts/templates/master/latex-article/article.pdf)
 
+## Response to Referees
+
+[PDF Preview](https://raw.githack.com/kylebutts/templates/master/referee-response/responses.pdf)
+
 ### .gitignore
 
 This is a recommended set of files to include in `.gitignore` to not commit ugly latex auxiliary files:

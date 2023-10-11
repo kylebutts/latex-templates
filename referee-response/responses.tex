@@ -8,9 +8,6 @@
 \booltrue{INCLUDECOMMENTS}
 \newcommand{\kyle}[1]{\coauthorComment[Kyle]{#1}}
 
-% (hide by switching to `\boolfalse`)
-\booltrue{INCLUDETODOS}
-
 % Reference main document ------------------------------------------------------
 % Note: I compile to `auxiliary/` to avoid cluttering the main directory. You might neeed to delete `auxiliary/`
 % \usepackage{xr}
@@ -32,36 +29,28 @@
 
 \section*{Summary of Revisions}
 
+The command \texttt{\textbackslash NewRef\{Name\}\{Abbreviation\}} will create a \texttt{\textbackslash section*} for that referee's comments
 
 % ------------------------------------------------------------------------------
 \NewRef{Referee 1}{R1}
 % ------------------------------------------------------------------------------
 
 \begin{refcomment}
-  Comment 
+  Full text of the referee's comment. It will automatically create a \texttt{\textbackslash subsection*} with the comment number.
 \end{refcomment}
 
-\begin{todos}
+\kyle{
   Thoughts / plan of action. These can be hidden by toggling \texttt{INCLUDETODOS} to \texttt{\textbackslash boolfalse}. 
-\end{todos}
+}
 
-\begin{response}
-  Response
-\end{response}
-
-
+Response
 
 \begin{refcomment}
   Comment 
 \end{refcomment}
 
-\begin{todos}
-  Thoughts / plan of action. 
-\end{todos}
+Response
 
-\begin{response}
-  Response
-\end{response}
 
 
 % ------------------------------------------------------------------------------

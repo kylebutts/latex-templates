@@ -26,14 +26,3 @@
     \setcounter{commentcount}{1}
     \section*{Responses to \RefName}
 }
-
-% Todos
-\newbool{INCLUDETODOS}
-\NewDocumentEnvironment{todos}{+b}{%
-    \ifbool{INCLUDETODOS}{\textcolor{cranberry}{#1}}{}
-}{}
-
-% Response
-\newenvironment{response}
-  {}
-  {}

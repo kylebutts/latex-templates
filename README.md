@@ -42,11 +42,38 @@ Here are some highlights
 
 ## Latex Article
 
-[PDF Preview](https://raw.githack.com/kylebutts/templates/master/latex-article/article.pdf)
+This is how I write my papers.
+
+### Math commands
+
+I have a set of math commands in `math.sty` that borrow heavily from [Pascal Michaillat](https://github.com/pmichaillat/latex-math). See the document for examples of what I've included.
+
+### Easily-hideable comments in paper
+
+This also includes a very useful way to leave notes in a document. Then, you can comment `\kyle{Thoughts here}` to leave a comment. Toggling `\booltrue` to `\boolfalse` will hide the comments from the document.
+
+```tex
+% Conditionally display thoughts (hide by switching to `\boolfalse`)
+\booltrue{INCLUDECOMMENTS}
+\newcommand{\kyle}[1]{\coauthorComment[Kyle]{#1}}
+```
+
+
 
 ## Response to Referees
 
-[PDF Preview](https://raw.githack.com/kylebutts/templates/master/referee-response/responses.pdf)
+The goal of this is to make referee reports look nice and make it easy to structure the document. For each referee, use this to create a section with the referee:
+
+```tex
+\NewRef{Referee 1}{R1}
+```
+
+Then for each comment, wrap the referee's comment with a `refcomment` environment and it will create a subsection and automatically number the comments
+```tex
+\begin{refcomment}
+
+\end{refcomment}
+```
 
 
 ## .gitignore

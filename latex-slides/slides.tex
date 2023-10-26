@@ -145,7 +145,7 @@
 \begin{frame}{Components}{Two Columns with Figure}
   \begin{columns}[T]
     \begin{column}{.54\textwidth}
-      \includegraphics[width=\textwidth]{img/kanagawa.jpg}
+      \includegraphics[width=\textwidth]{figures/plot_did2s_retail_slides.pdf}
     \end{column}
     \hfill
     \begin{column}{.46\textwidth}
@@ -232,7 +232,7 @@
 
 % 4:3 ratio for figures
 % or else it will have white space
-\imageframe{img/kanagawa_16_9.png}
+\imageframe{figures/plot_did2s_retail_slides.pdf}
 
 \begin{frame}{Figure}{Full-size Figures}
   You can use the command \texttt{\textbackslash imageframe\{img-path\}} and it will create a full-frame of a picture. 
@@ -242,13 +242,11 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Figure}{}
-  The \texttt{adjustbox} environment helps resize figures/tables
-
-  \medskip
-  \begin{adjustbox}{width = 0.7\textwidth, center}
-    \includegraphics{img/kanagawa_16_9.png}
+\begin{frame}{Figure}
+  \begin{adjustbox}{width = 0.75\textwidth, center}
+    \includegraphics{figures/plot_did2s_retail_slides.pdf}
   \end{adjustbox}
+  \note{The \texttt{adjustbox} environment helps resize figures/tables}
 \end{frame}
 
 % ------------------------------------------------------------------------------

@@ -2,9 +2,9 @@
 
 This is a repository of all my latex templates. I've done my best to document every line of code for these themes so that you can understand what it does and delete/modify things as you see fit. You can see a live preview of each one here:
 
-[Slides](https://raw.githack.com/kylebutts/latex-templates/master/latex-slides/slides.pdf) | 
-[Article](https://raw.githack.com/kylebutts/latex-templates/master/latex-article/article.pdf) | 
-[Referee Report](https://raw.githack.com/kylebutts/latex-templates/master/referee-response/responses.pdf)
+[Slides](https://raw.githack.com/kylebutts/latex-templates/main/latex-slides/slides.pdf) | 
+[Article](https://raw.githack.com/kylebutts/latex-templates/main/latex-article/article.pdf) | 
+[Referee Report](https://raw.githack.com/kylebutts/latex-templates/main/referee-response/responses.pdf)
 
 
 ## Latex Slides 
@@ -18,12 +18,26 @@ This latex slide aims for nice typography, minimal aesthetics so the focus is on
 \usepackage{slides}
 ```
 
-<img style="width: 48%;" src="https://raw.githubusercontent.com/kylebutts/latex-templates/main/img/latex-slides/title.png" alt="Title slides" />
-<img style="width: 48%;" src="https://raw.githubusercontent.com/kylebutts/latex-templates/main/img/latex-slides/text.png" alt="Example slide of text with button" />
-<img style="width: 48%;" src="https://raw.githubusercontent.com/kylebutts/latex-templates/main/img/latex-slides/figure-1.png" alt="Example of including full size figure" />
-<img style="width: 48%;" src="https://raw.githubusercontent.com/kylebutts/latex-templates/main/img/latex-slides/figure-2.png" alt="Full size image example" />
-<img style="width: 48%;" src="https://raw.githubusercontent.com/kylebutts/latex-templates/main/img/latex-slides/table.png" alt="Table with colored rows" />
-<img style="width: 48%;" src="https://raw.githubusercontent.com/kylebutts/latex-templates/main/img/latex-slides/references.png" alt="Bibliography slides" />
+Here are some highlights
+
+<a href="https://raw.githack.com/kylebutts/latex-templates/main/latex-slides/slides.pdf">
+  <img style="width: 48%;" src="https://raw.githubusercontent.com/kylebutts/latex-templates/main/img/latex-slides/title.png" alt="Title slides" />
+</a>
+<a href="https://raw.githack.com/kylebutts/latex-templates/main/latex-slides/slides.pdf">
+  <img style="width: 48%;" src="https://raw.githubusercontent.com/kylebutts/latex-templates/main/img/latex-slides/text.png" alt="Example slide of text with button" />
+</a>
+<a href="https://raw.githack.com/kylebutts/latex-templates/main/latex-slides/slides.pdf">
+  <img style="width: 48%;" src="https://raw.githubusercontent.com/kylebutts/latex-templates/main/img/latex-slides/figure-1.png" alt="Example of including full size figure" />
+</a>
+<a href="https://raw.githack.com/kylebutts/latex-templates/main/latex-slides/slides.pdf">
+  <img style="width: 48%;" src="https://raw.githubusercontent.com/kylebutts/latex-templates/main/img/latex-slides/figure-2.png" alt="Full size image example" />
+</a>
+<a href="https://raw.githack.com/kylebutts/latex-templates/main/latex-slides/slides.pdf">
+  <img style="width: 48%;" src="https://raw.githubusercontent.com/kylebutts/latex-templates/main/img/latex-slides/table.png" alt="Table with colored rows" />
+</a>
+<a href="https://raw.githack.com/kylebutts/latex-templates/main/latex-slides/slides.pdf">
+  <img style="width: 48%;" src="https://raw.githubusercontent.com/kylebutts/latex-templates/main/img/latex-slides/references.png" alt="Bibliography slides" />
+</a>
 
 
 ## Latex Article

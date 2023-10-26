@@ -164,21 +164,18 @@
 \begin{frame}{Table with cell / row highlighting}{}
   Use \texttt{\textbackslash cellcolor<\#>\{color\}} and \texttt{\textbackslash rowcolor<\#>\{color\}} to color cell / row. The \texttt{<\#>} is an optional overlay specification
 
-  \medskip
+  \bigskip
   \begin{table}[h]
     \centering
-    \begin{tabular}{lc}
+    \begin{tabular}{l cc}
       \toprule
-      & (1) \\
+      & (1) & (2) \\
       \midrule
-      \rowcolor<2>{alice!15!white}Treatment dummy & \cellcolor<1>{accent!15!white} 0.0694* \\
-      \rowcolor<2>{alice!15!white}& (0.0401) \\
-      \rowcolor<3>{alice!15!white} Constant & -1.2238*** \\
-      \rowcolor<3>{alice!15!white} & (0.0764)  \\
+      Treatment dummy & \cellcolor<1>{accent!15!white} 0.0694* & \cellcolor<2>{accent!15!white} 0.0713** \\
+      & (0.0401) & (0.0381) \\
       \hline
-      Observations & 1,673  \\
-      R-squared & 0.0401 \\
-      
+      \rowcolor<3>{accent!15!white} State Fixed Effects & & $\checkmark$ \\
+      Observations & 1,673 & 1,673 \\
       \bottomrule
     \end{tabular}
   \end{table}
@@ -193,11 +190,11 @@
         & (1) & (2)\\ 
         \midrule
         
-        \only<1>{
+        \only<2>{
           \marktopleft{ex1}Handling of Complaints & 0.692$^{***}$& 0.682$^{***}$ \\ 
           &  (0.149) & (0.129) \markbottomright{ex1} \\
         }
-        \only<2>{
+        \only<1>{
           Handling of Complaints & 0.692$^{***}$& 0.682$^{***}$ \\ 
           &  (0.149) & (0.129) \\
         }

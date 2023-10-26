@@ -9,15 +9,13 @@ This is a repository of all my latex templates. I've done my best to document ev
 
 ## Latex Slides 
 
-This latex slide aims for nice typography, minimal aesthetics so the focus is on the content, and a set of helpful commands including easily colored words, full-size image frames, table highlighting, multi-column layouts, and more. The theme is highly customizable with (1) a well commented `preamble.tex` file so you can tweak it and make it your own and (2) by defining the colors in the top of your document:
+This latex slide aims for nice typography, minimal aesthetics so the focus is on the content, and a set of helpful commands including easily colored words, full-size image frames, table highlighting, multi-column layouts, and more. The theme is highly customizable with (1) a well commented `slides.sty` file so you can tweak it and make it your own and (2) by defining the colors in the top of your document:
 
 ```latex
 % Define `accent`/`accent2` colors for theme customization
 \definecolor{accent}{HTML}{006896}
 \definecolor{accent2}{HTML}{E64173}
-
-% Beamer theme
-\input{preamble.tex}
+\usepackage{slides}
 ```
 
 <img style="width: 48%;" src="https://raw.githubusercontent.com/kylebutts/latex-templates/main/img/latex-slides/title.png" alt="Title slides" />

@@ -3,6 +3,7 @@
 
 \definecolor{purple}{HTML}{695693}
 \definecolor{cranberry}{HTML}{E64173}
+\definecolor{raspberry}{HTML}{940034}
 \definecolor{orange}{HTML}{D65616}
 \definecolor{navy}{HTML}{006896}
 \definecolor{teal}{HTML}{1A505A}
@@ -31,6 +32,7 @@
 % Easily color text
 \newcommand\purple[1]{{\color{purple}#1}}
 \newcommand\cranberry[1]{{\color{cranberry}#1}}
+\newcommand\raspberry[1]{{\color{raspberry}#1}}
 \newcommand\orange[1]{{\color{orange}#1}}
 \newcommand\navy[1]{{\color{navy}#1}}
 \newcommand\teal[1]{{\color{teal}#1}}
@@ -139,7 +141,7 @@
 % Button 
 \setbeamercolor{button}{bg = white, fg = zinc600!80!accent}
 \setbeamerfont{button}{family = \ttfamily}
-\setbeamercolor{button border}{fg = black}
+% \setbeamercolor{button border}{fg = black}
 % \def\insertreturnsymbol{}
 % \def\insertgotosymbol{}
 
@@ -393,6 +395,7 @@
 \newcolumntype{C}{>{\centering\arraybackslash}X}
 
 % Table Highlighting -----------------------------------------------------------
+
 % Create top-left and bottom-right markets in tabular cells with a unique matching id and these commands will outline those cells
 \usepackage[beamer,customcolors]{hf-tikz}
 \usetikzlibrary{calc}
@@ -400,15 +403,40 @@
 
 % To set the hypothesis highlighting boxes red.
 \newcommand\marktopleft[1]{%
-    \tikz[overlay,remember picture] 
-        \node (marker-#1-a) at (0,1.5ex) {};%
+  \tikz[overlay,remember picture] 
+      \node (marker-#1-a) at (0,1.5ex) {};%
 }
 \newcommand\markbottomright[1]{%
-    \tikz[overlay,remember picture] 
-        \node (marker-#1-b) at (0,0) {};%
-    \tikz[accent!80!zinc900, ultra thick, overlay, remember picture, inner sep=4pt]
-        \node[draw, rectangle, fit=(marker-#1-a.center) (marker-#1-b.center)] {};%
+  \tikz[overlay,remember picture] 
+    \node (marker-#1-b) at (0,0) {};%
+  \tikz[accent!80!zinc900, ultra thick, overlay, remember picture, inner sep=4pt]
+    \node[draw, rectangle, fit=(marker-#1-a.center) (marker-#1-b.center)] {};%
 }
+
+% \cellcolor<#>{color}
+\renewcommand<>\cellcolor[1]{\only#2{\beameroriginal\cellcolor{#1}}}
+
+% https://tex.stackexchange.com/questions/18427/why-cant-i-wrap-rowcolor-in-only-beamer
+% Redefine `\rowcolor` to allow a beamer overlay specifier
+% New syntax: \rowcolor<overlay>[color model]{color}[left overhang][right overhang]
+\makeatletter
+% Open `\noalign` and check for overlay specification:
+\def\rowcolor{\noalign{\ifnum0=`}\fi\bmr@rowcolor}
+\newcommand<>{\bmr@rowcolor}{%
+    \alt#1%
+        {\global\let\CT@do@color\CT@@do@color\@ifnextchar[\CT@rowa\CT@rowb}% Rest of original `\rowcolor`
+        {\ifnum0=`{\fi}\@gooble@rowcolor}% End `\noalign` and gobble all arguments of `\rowcolor`.
+}
+% Gobble all normal arguments of `\rowcolor`:
+\newcommand{\@gooble@rowcolor}[2][]{\@gooble@rowcolor@}
+\newcommand{\@gooble@rowcolor@}[1][]{\@gooble@rowcolor@@}
+\newcommand{\@gooble@rowcolor@@}[1][]{\ignorespaces}
+\makeatother
+
+% Test
+\usepackage{dcolumn}
+\newcolumntype{d}[0]{D{.}{.}{-1}}
+
 
 % Figures ----------------------------------------------------------------------
 

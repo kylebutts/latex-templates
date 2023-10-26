@@ -1,10 +1,12 @@
-\documentclass[aspectratio=169,t,11pt]{beamer}
-% \documentclass[aspectratio=43,t,11pt]{beamer}
+\documentclass[aspectratio=169,t,11pt,table]{beamer}
 \usepackage{slides,math}
+% \geometry{paperwidth=168mm,paperheight=94.5mm}
 
 % Define `accent`/`accent2` colors for theme customization
+% I recommend changing the top slider on this: 
+% https://hslpicker.com/#1e9400
 \definecolor{accent}{HTML}{006896}
-\definecolor{accent2}{HTML}{695693}
+\definecolor{accent2}{HTML}{940034}
 
 \title{What is the Effect of X on Y?}
 \date{\today}
@@ -39,7 +41,11 @@
     \item To include things in appendix, you must first label the slide and the appendix slide and then include a hyperlink. The command \texttt{\textbackslash bottomleft} will position in the bottom left corner nicely
   \end{itemize}
 
-  \bottomleft{\hyperlink{appendix1}{\beamergotobutton{Appendix}}}
+  \bottomleft{
+    \hyperlink{appendix1}{\beamergotobutton{Appendix}}
+    \beamergotobutton{Button 2} 
+    \beamergotobutton{Button 3}
+  }
 \end{frame}
 
 
@@ -107,76 +113,76 @@
   \cranberry{Test sentence with \textbackslash color\{cranbery\}}
 \end{frame}
 
-\begin{frame}{Components}{Background Colors}
-  \bgNavy{Test word} with \textbackslash bgNavy\{...\}
-
-  \bgPurple{Test word} with \textbackslash bgPurple\{...\}
-
-  \bgOrange{Test word} with \textbackslash bgOrange\{...\}
-
-  \bgTeal{Test word} with \textbackslash bgTeal\{...\}
-
-  \bgKelly{Test word} with \textbackslash bgKelly\{...\}
-
-  \bgRuby{Test word} with \textbackslash bgRuby\{...\}
-
-  \bgAlice{Test word} with \textbackslash bgAlice\{...\}
-
-  \bgDaisy{Test word} with \textbackslash bgDaisy\{...\}
-
-  \bgCoral{Test word} with \textbackslash bgCoral\{...\}
-
-  \bgCranberry{Test word} with \textbackslash bgCranberry\{...\}
-\end{frame}
-
 \begin{frame}{Components}{Two Columns}
   \begin{columns}[T]
-  \begin{column}{.50\textwidth}
-    \vspace{0pt}
-    {\color{accent}\rule{\linewidth}{2pt}}
-    Column 1
+    \begin{column}{.50\textwidth}
+      \vspace{0pt}
+      {\color{accent}\rule{\linewidth}{2pt}}
+      Column 1
 
-    \begin{enumerate}
-      \item Bullet points for this column that can go over lines
-      \item b
-      \item c
-    \end{enumerate}
-  \end{column}
-  
-  \hfill
-  
-  \begin{column}{.50\textwidth}
-    {\color{accent}\rule{\linewidth}{2pt}}
-    Column 2
+      \begin{enumerate}
+        \item Bullet points for this column that can go over lines
+        \item b
+        \item c
+      \end{enumerate}
+    \end{column}
+    
+    \hfill
+    
+    \begin{column}{.50\textwidth}
+      {\color{accent}\rule{\linewidth}{2pt}}
+      Column 2
 
-    \begin{itemize}
-      \item a
-      \item b
-      \item c
-    \end{itemize}
-  \end{column}
+      \begin{itemize}
+        \item a
+        \item b
+        \item c
+      \end{itemize}
+    \end{column}
   \end{columns}
 \end{frame}
 
 \begin{frame}{Components}{Two Columns with Figure}
   \begin{columns}[T]
-  \vspace{0pt}
-  \begin{column}{.5\textwidth}
-    \includegraphics[width=\textwidth]{img/kanagawa.jpg}
-  \end{column}
-  \hfill
-  \begin{column}{.48\textwidth}
-    \begin{itemize}
-    \item A point about the figure that is potentially important.
-    \item Another point about the figure that is also potentially important.
-    \end{itemize}
-  \end{column}
+    \begin{column}{.54\textwidth}
+      \includegraphics[width=\textwidth]{img/kanagawa.jpg}
+    \end{column}
+    \hfill
+    \begin{column}{.46\textwidth}
+      \begin{itemize}
+      \item A point about the figure that is potentially important.
+      \item Another point about the figure that is also potentially important.
+      \end{itemize}
+    \end{column}
   \end{columns}
 \end{frame}
 
 % ------------------------------------------------------------------------------
 \section{Table}
 % ------------------------------------------------------------------------------
+
+\begin{frame}{Table with cell / row highlighting}{}
+  Use \texttt{\textbackslash cellcolor<\#>\{color\}} and \texttt{\textbackslash rowcolor<\#>\{color\}} to color cell / row. The \texttt{<\#>} is an optional overlay specification
+
+  \medskip
+  \begin{table}[h]
+    \centering
+    \begin{tabular}{lc}
+      \toprule
+      & (1) \\
+      \midrule
+      \rowcolor<2>{alice!15!white}Treatment dummy & \cellcolor<1>{accent!15!white} 0.0694* \\
+      \rowcolor<2>{alice!15!white}& (0.0401) \\
+      \rowcolor<3>{alice!15!white} Constant & -1.2238*** \\
+      \rowcolor<3>{alice!15!white} & (0.0764)  \\
+      \hline
+      Observations & 1,673  \\
+      R-squared & 0.0401 \\
+      
+      \bottomrule
+    \end{tabular}
+  \end{table}
+\end{frame}
 
 \begin{frame}{Table}
   \begin{columns}[T]
@@ -188,12 +194,12 @@
         \midrule
         
         \only<1>{
-          Handling of Complaints & 0.692$^{***}$& 0.682$^{***}$ \\ 
-          &  (0.149) & (0.129) \\
-        }
-        \only<2>{
           \marktopleft{ex1}Handling of Complaints & 0.692$^{***}$& 0.682$^{***}$ \\ 
           &  (0.149) & (0.129) \markbottomright{ex1} \\
+        }
+        \only<2>{
+          Handling of Complaints & 0.692$^{***}$& 0.682$^{***}$ \\ 
+          &  (0.149) & (0.129) \\
         }
         No Special Privileges & -0.104 & $-$0.103  \\ 
         & (0.135) & (0.129) \\
@@ -232,13 +238,16 @@
   You can use the command \texttt{\textbackslash imageframe\{img-path\}} and it will create a full-frame of a picture. 
   
   \begin{itemize}
-  \item Ideally, your figure is the same aspect as the frame \texttt{4:3} or \texttt{16:9} or else there will be white space in one of the directions.
+  \item Ideally, your figure is the same aspect as the frame (\texttt{4:3} or \texttt{16:9}) or else there will be white space in one of the directions.
   \end{itemize}
 \end{frame}
 
 \begin{frame}{Figure}{}
+  The \texttt{adjustbox} environment helps resize figures/tables
+
+  \medskip
   \begin{adjustbox}{width = 0.7\textwidth, center}
-  \includegraphics{img/kanagawa_16_9.png}
+    \includegraphics{img/kanagawa_16_9.png}
   \end{adjustbox}
 \end{frame}
 
@@ -267,10 +276,11 @@
       \end{tabular} 
     \end{adjustbox}
     
-    \note{0.8\textwidth}{Using R base dataframe \texttt{attitude}. R base dataframe attitude. R base dataframe attitude.}
+    \note{0.8\textwidth}{Using R base dataframe \texttt{attitude}. I use my custom \texttt{\textbackslash note} command for notes}
   \end{table}
 
-  \bottomleft{\hyperlink{main1}{\beamerreturnbutton{Back}}}
+  \bottomleft{
+    \hyperlink{main1}{\beamerreturnbutton{Back}}}
   % \bottomright{\hyperlink{main1}{\beamerreturnbutton{Back}}}
 \end{frame}
 

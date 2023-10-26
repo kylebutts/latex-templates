@@ -42,7 +42,7 @@ Here are some highlights
 
 ## Latex Article
 
-This is how I write my papers.
+This is how I write my papers. There's not many special bells and whistles, but I think it looks nice and clean. 
 
 ### Math commands
 

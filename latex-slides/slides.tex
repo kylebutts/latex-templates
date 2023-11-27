@@ -141,11 +141,11 @@
 
 \begin{frame}{Components}{Two Columns with Figure}
   \begin{columns}[T]
-    \begin{column}{.54\textwidth}
+    \begin{column}{.6\textwidth}
       \includegraphics[width=\textwidth]{figures/plot_did2s_retail_slides.pdf}
     \end{column}
     \hfill
-    \begin{column}{.46\textwidth}
+    \begin{column}{.4\textwidth}
       \begin{itemize}
       \item A point about the figure that is potentially important.
       \item Another point about the figure that is also potentially important.
@@ -162,8 +162,9 @@
   Use \texttt{\textbackslash cellcolor<\#>\{color\}} and \texttt{\textbackslash rowcolor<\#>\{color\}} to color cell / row. The \texttt{<\#>} is an optional overlay specification
 
   \bigskip
-  \begin{table}[h]
-    \centering
+  \begin{center}
+    {\footnotesize\textsc{Outcome:} Log of Real Per Capita Income \\}
+
     \begin{tabular}{l cc}
       \toprule
       & (1) & (2) \\
@@ -175,12 +176,14 @@
       Observations & 1,673 & 1,673 \\
       \bottomrule
     \end{tabular}
-  \end{table}
+  \end{center}
 \end{frame}
 
 \begin{frame}{Table}
   \begin{columns}[T]
   \begin{column}{.4\textwidth}
+    \tabletitle{Job Satisfaction Score}
+    
     \begin{adjustbox}{max width = \textwidth, center}
       \begin{tabular}{@{} l *{2}{r} @{}} 
         \toprule

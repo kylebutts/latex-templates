@@ -134,16 +134,10 @@
 \usepackage{appendixnumberbeamer}
 \renewcommand\appendixname{Appendix}
 
-% Table of Contents
-\setbeamercolor{section in toc}{fg = zinc700}
-\setbeamercolor{subsection in toc}{fg = zinc900}
-
 % Button 
 \setbeamercolor{button}{bg = white, fg = zinc600!80!accent}
 \setbeamerfont{button}{family = \ttfamily}
 \setbeamercolor{button border}{fg = black}
-% \def\insertreturnsymbol{}
-% \def\insertgotosymbol{}
 
 % Let's you put \beamerbutton in bottom right corner
 \usepackage[absolute,overlay]{textpos}
@@ -180,9 +174,6 @@
   citecolor = accent2,
 }
 
-% Remove annoying over-full box warnings
-\vfuzz2pt 
-\hfuzz2pt
 
 
 % Title page -------------------------------------------------------------------
@@ -205,11 +196,17 @@
 }
 
 % Table of Contents with Sections ----------------------------------------------
-\setbeamerfont{myTOC}{series=\bfseries, size=\Large}
+\setbeamerfont{section in toc}{size = \Large, series = \bfseries}
+\setbeamerfont{section in toc shaded}{size = \large}
+\setbeamertemplate{section in toc shaded}[default][80]
 \AtBeginSection[]{
-  \begin{frame}[noframenumbering,plain]{Roadmap}
-    \tableofcontents[current]   
-  \end{frame}
+  {
+    % \hypersetup{linkcolor = white}
+    % \setbeamercolor{background canvas}{bg = accent2} 
+    \begin{frame}[noframenumbering,plain]{Outline}
+      \tableofcontents[currentsection]
+    \end{frame}
+  }
 }
 
 % Block ------------------------------------------------------------------------
@@ -370,18 +367,6 @@
 % \end{adjustbox}
 \usepackage{adjustbox}
 
-% Table notes with \notes{...} or \notes[Source:]{...} command
-\RenewDocumentCommand{\note}{O{Notes.} m g}{%
-  \IfNoValueTF{#3}{%
-    \footnotesize\vspace*{\medskipamount}%
-    \noindent\emph{#1} #2
-  }{%
-    \parbox{#2}{\footnotesize\vspace*{\medskipamount}%
-      \noindent\emph{#1} #3
-    }%
-  }
-}
-
 % \toprule, \cmidrule, \bottomrule
 \usepackage{booktabs}
 
@@ -393,6 +378,23 @@
 \newcolumntype{L}{>{\raggedright\arraybackslash}X}
 \newcolumntype{R}{>{\raggedleft\arraybackslash}X}
 \newcolumntype{C}{>{\centering\arraybackslash}X}
+
+% Table notes with \note{...} or \note[Source:]{...} command
+\RenewDocumentCommand{\note}{O{Notes.} m g}{%
+  \IfNoValueTF{#3}{%
+    \footnotesize\vspace*{\medskipamount}%
+    \noindent\emph{#1} #2
+  }{%
+    \parbox{#2}{\footnotesize\vspace*{\medskipamount}%
+      \noindent\emph{#1} #3
+    }%
+  }
+}
+
+% Since we don't use `table` environments in slides
+\NewDocumentCommand{\tabletitle}{O{Outcome:} m}{%
+  {\footnotesize\textsc{#1} #2 \\[\medskipamount]}
+}
 
 % Table Highlighting -----------------------------------------------------------
 

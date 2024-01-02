@@ -58,6 +58,30 @@ This also includes a very useful way to leave notes in a document. Then, you can
 \newcommand{\kyle}[1]{\coauthorComment[Kyle]{#1}}
 ```
 
+#### Use `biblatex` instead of `natbib`
+
+In paper.sty, replace
+```tex
+\usepackage{natbib}
+\bibliographystyle{econ-aea}
+```
+with 
+```tex
+\usepackage[
+  style = chicago-authordate,
+  doi = true, 
+  backend = biber,
+  natbib = true
+]{biblatex}
+\usepackage[authordate, backend = biber]{biblatex-chicago}
+```
+
+2. Add the following 
+
+In the main document, do the following: 
+1. Add `\addbibresource{references.bib}` before `\begin{document}`
+2. Replace `\bibliography{references.bib}` with ``
+
 
 
 ## Response to Referees

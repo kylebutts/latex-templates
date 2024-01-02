@@ -26,9 +26,9 @@
 \renewcommand{\ttdefault}{\plexmonofamily}
 
 % Sans-serif option:
-% Lato for sans-serif text font
+% % Lato for sans-serif text font
 % \usepackage[default]{lato}
-% Source Code Pro for monospace font
+% % Source Code Pro for monospace font
 % \usepackage[scale=0.95]{plex-mono}
 % \renewcommand{\ttdefault}{\plexmonofamily} 
 
@@ -142,16 +142,34 @@
 \definecolor{zinc950}{HTML}{09090b}
 
 % Hyperlinks -------------------------------------------------------------------
-\usepackage[breaklinks=true]{hyperref}
+\usepackage[
+  breaklinks=true
+]{hyperref}
 \hypersetup{
   colorlinks = true,
   allcolors = purple
 }
 
 % References -------------------------------------------------------------------
-% note, natbib provides better hyperlinking
+% You can use either biblatex or natbib, see https://tex.stackexchange.com/questions/25701/bibtex-vs-biber-and-biblatex-vs-natbib for discussion
+
+% Natbib
 \usepackage{natbib}
 \bibliographystyle{econ-aea}
+
+% Biblatex
+% To use, do the following:
+% 1. Add \addbibresource{references.bib} before \begin{document}
+% 2. Replace \bibliography{references.bib} with ``
+% 
+% Source: https://social-science-data-editors.github.io/guidance/citations/guidance_data_citations_biblatex.pdf
+% \usepackage[
+%   style = chicago-authordate,
+%   doi = true, 
+%   backend = biber,
+%   natbib = true
+% ]{biblatex}
+% \usepackage[authordate, backend = biber]{biblatex-chicago}
 
 % Reduced spacing in bibliography
 \AtBeginEnvironment{thebibliography}{\setstretch{1.1}}

@@ -153,9 +153,9 @@
 % References -------------------------------------------------------------------
 % You can use either biblatex or natbib, see https://tex.stackexchange.com/questions/25701/bibtex-vs-biber-and-biblatex-vs-natbib for discussion
 
-% Natbib
-\usepackage{natbib}
-\bibliographystyle{econ-aea}
+% % Natbib
+% \usepackage{natbib}
+% \bibliographystyle{econ-aea}
 
 % Biblatex
 % To use, do the following:
@@ -163,13 +163,25 @@
 % 2. Replace \bibliography{references.bib} with ``
 % 
 % Source: https://social-science-data-editors.github.io/guidance/citations/guidance_data_citations_biblatex.pdf
-% \usepackage[
-%   style = chicago-authordate,
-%   doi = true, 
-%   backend = biber,
-%   natbib = true
-% ]{biblatex}
-% \usepackage[authordate, backend = biber]{biblatex-chicago}
+% https://tex.stackexchange.com/questions/604482/add-hyperref-links-at-the-end-of-bib-items-pointing-back-to-the-pages-where-the
+\usepackage[
+  style = chicago-authordate,
+  doi = true, 
+  backend = biber,
+  backref=true, % Prints back references e.g (cit. pp. 1)
+  backrefstyle=none, % How to sequence page numbers in back references
+  hyperref=true, % Enables hyperref
+  indexing=true,
+  natbib = true
+]{biblatex}
+\usepackage[authordate, backend = biber]{biblatex-chicago}
+
+% change display of DOI fields
+\DeclareFieldFormat{doi}{%
+  \ifhyperref{%
+    \href{https://doi.org/#1}{\nolinkurl{https://doi.org/#1}}}
+    {\nolinkurl{https://doi.org/#1}}
+}
 
 % Reduced spacing in bibliography
 \AtBeginEnvironment{thebibliography}{\setstretch{1.1}}
@@ -273,7 +285,7 @@
 % tikz support -----------------------------------------------------------------
 \usepackage{tikz}
 \usepackage{pgfplots}
-\pgfplotsset{compat=1.7}
+\pgfplotsset{compat=1.18}
 
 % Table and Figure labelling ---------------------------------------------------
 \usepackage{caption}

@@ -293,7 +293,11 @@
 \setbeamerfont{enumerate item}{size = \small}
 \setbeamertemplate{enumerate item}{\insertenumlabel.}
 
-%% itemize
+%% enumerate subitems and subsubitems
+\setbeamercolor{enumerate subitem}{fg = zinc600}
+\setbeamercolor{enumerate subsubitem}{fg = zinc600}
+
+%% itemize item
 \setbeamercolor{itemize item}{fg = zinc600}
 \setbeamerfont{itemize item}{size = \small}
 \setbeamertemplate{itemize item}[circle]
@@ -303,6 +307,7 @@
 \setbeamerfont{itemize subitem}{size = \small}
 \setbeamertemplate{itemize subitem}{$\rightarrow$}
 
+%% square for subsubitems
 \setbeamercolor{itemize subsubitem}{fg = zinc600}
 \setbeamerfont{itemize subsubitem}{size = \small}
 \setbeamertemplate{itemize subsubitem}[square]

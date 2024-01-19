@@ -1,6 +1,7 @@
 \documentclass[12pt]{article}
 \usepackage{paper}
 \usepackage{math}
+\addbibresource{references.bib}
 
 \title{Example Paper\thanks{\acknlowledgements}}
 \author{
@@ -42,7 +43,7 @@
 \section{Introduction}
 % ------------------------------------------------------------------------------
 
-Hi and welcome to my default paper template. I tried to make the theme minimal and beautiful while able to do all the things that I want it to do. These include making it easy to make figures/tables with notes; have powerful math commands; have nice readable typography; make co-authoring in a document easy; have a nice looking bibliography; and make appendices easy.\kyle{I'm including this comment for coauthors. If I switch above to \texttt{togglefalse}, this will dissapear.}  I'll show off these things, but make sure to check the source code alongside to see how simple it is to typset with this. 
+Hi and welcome to my default paper template. I tried to make the theme minimal and beautiful while able to do all the things that I want it to do. These include making it easy to make figures/tables with notes; have powerful math commands; have nice readable typography; make co-authoring in a document easy; have a nice looking bibliography; and make appendices easy. \kyle{I'm including this comment for coauthors. If I switch above to \texttt{togglefalse}, this will dissapear.} I'll show off these things, but make sure to check the source code alongside to see how simple it is to typset with this. 
 
 See below for \autoref{thm:residue_thm}, the regression specification (\autoref{eq:fe_reg}), \autoref{tab:summ_stat}, \autoref{fig:event_timing}, appendix \autoref{tab:reg1}. Of course, make sure to touch up on your micro theory with \citet{mas1995microeconomic}. I also provide a set of colors: \navy{Navy}, \teal{Teal}, \purple{Purple}, \cranberry{Cranberry}, \orange{Orange}.
 
@@ -159,7 +160,8 @@ Figures also use the \texttt{\textbackslash note} and the \texttt{adjustbox} pac
 
 % ------------------------------------------------------------------------------
 \newpage
-\bibliography{references.bib}
+% \bibliography{references.bib}
+\printbibliography
 % ------------------------------------------------------------------------------
 
 % ------------------------------------------------------------------------------

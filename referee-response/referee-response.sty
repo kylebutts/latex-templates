@@ -1,3 +1,37 @@
+% \usepackage{xparse}
+% 
+% \let\oldsection\section
+% \let\oldsubsection\subsection
+% 
+% \makeatletter
+% \newcounter{@secnumdepth}
+% \RenewDocumentCommand{\section}{s o m}{%
+%   \IfBooleanTF{#1}
+%     {\setcounter{@secnumdepth}{\value{secnumdepth}}% Store secnumdepth
+%      \setcounter{secnumdepth}{0}% Print only up to \chapter numbers
+%      \oldsection{#3}% \section*
+%      \setcounter{secnumdepth}{\value{@secnumdepth}}}% Restore secnumdepth
+%     {\IfValueTF{#2}% \section
+%        {\oldsection[#2]{#3}}% \section[.]{..}
+%        {\oldsection{#3}}}% \section{..}
+% }
+% \RenewDocumentCommand{\subsection}{s o m}{%
+%   \IfBooleanTF{#1}{% 
+%     \setcounter{@secnumdepth}{\value{secnumdepth}}% Store secnumdepth
+%     \setcounter{secnumdepth}{1}% Print only up to \chapter numbers
+%     \oldsubsection{#3}% \subsection*
+%     \setcounter{secnumdepth}{\value{@secnumdepth}}
+%   }% Restore secnumdepth
+%   {
+%     \IfValueTF{#2}% \subsection
+%        {\oldsubsection[#2]{#3}}% \subsection[.]{..}
+%        {\oldsubsection{#3}}% \subsection{..}
+%   }
+% }
+% \makeatother
+
+\setcounter{tocdepth}{3}
+
 % Referee Comments
 \usepackage{tcolorbox}
 \tcbuselibrary{breakable, skins}
@@ -7,12 +41,13 @@
   borderline west={2pt}{0pt}{jet}
 }
 
+
 \newcommand{\RefName}{}
 \newcommand{\RefAbbr}{}
 \newcounter{commentcount}
 \setcounter{commentcount}{1}
 \newenvironment{refcomment}{
-  \subsection*{\RefAbbr \ Comment \thecommentcount}
+  \subsection{\RefAbbr \ Comment \thecommentcount}
   \addtocounter{commentcount}{1}
   \begin{commentbox}\color{jet}
 }{
@@ -23,6 +58,20 @@
 \newcommand{\NewRef}[2]{
     \renewcommand{\RefName}{#1}
     \renewcommand{\RefAbbr}{#2}
+    \section{Responses to \RefName}
     \setcounter{commentcount}{1}
-    \section*{Responses to \RefName}
 }
+
+% Styling sections
+\usepackage[explicit]{titlesec}
+\titleformat{\section}
+  {\large \bf}
+  {}
+  {0em}
+  {#1}
+  
+\titleformat{\subsection}
+  {\fontsize{12}{10}\it}
+  {}
+  {0em}
+  {#1}

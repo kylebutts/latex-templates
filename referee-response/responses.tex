@@ -10,7 +10,8 @@
 
 % Reference main document ------------------------------------------------------
 % Note: I compile to `auxiliary/` to avoid cluttering the main directory. You might neeed to delete `auxiliary/`
-% \usepackage{xr}
+% Note: The numbering of the main document is colored, but not clickable which is kind of confusing. Not sure if I like this approach or not
+% \usepackage{xr,xr-hyper}
 % \externaldocument[main-]{auxiliary/article}
 
 \begin{document}
@@ -25,18 +26,18 @@
 \end{center}
 % ------------------------------------------------------------------------------
 
-\noindent Thank you for the additional suggestions. The reviewer's comment is marked with a left border. Our responses follow below each comment.
+\noindent We would like to thank the referees for their time and detailed feedback on our paper. We have done our best to respond to each and every comment. Below, the reviewer's comment is marked with a left border. Our responses follow below each comment.
 
-\section*{Summary of Revisions}
+\section{Summary of Revisions}
 
-The command \texttt{\textbackslash NewRef\{Name\}\{Abbreviation\}} will create a \texttt{\textbackslash section*} for that referee's comments
+The major changes in this draft include ....
 
 % ------------------------------------------------------------------------------
-\NewRef{Referee 1}{R1}
+\vspace*{\bigskipamount}\NewRef{Referee 1}{R1}
 % ------------------------------------------------------------------------------
 
 \begin{refcomment}
-  Full text of the referee's comment. It will automatically create a \texttt{\textbackslash subsection*} with the comment number.
+  Full text of the referee's comment. It will automatically create a \texttt{\textbackslash subsection} with the comment number.
 \end{refcomment}
 
 \kyle{
@@ -53,12 +54,26 @@ Response
 
 
 
+
 % ------------------------------------------------------------------------------
-\NewRef{Referee 2}{R2}
+\vspace*{\bigskipamount}\NewRef{Referee 2}{R2}
 % ------------------------------------------------------------------------------
 
+\begin{refcomment}
+  Comment 
+\end{refcomment}
 
 
+
+
+% ------------------------------------------------------------------------------
+\newpage
+\section*{How to use this template}
+% ------------------------------------------------------------------------------
+
+There are two main commands provided by the document. First, for each referee, a  \texttt{\textbackslash section} is created using the \texttt{\textbackslash NewRef\{Name\}\{Abbreviation\}} command. The \texttt{Name} is what will be displayed by the section and \texttt{Abbreviation} is what will label each comment.
+
+Within each section, each referee comment will be written using \texttt{\textbackslash begin\{refcomment\} ... \textbackslash end\{refcomment\}}. This command automatically numbers the comments and labels it using the \texttt{Abbreviation} from the \texttt{NewRef} declaration. Responses to the comment should go below the \texttt{refcomment} block.
 
 
 \end{document}

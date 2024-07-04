@@ -1,19 +1,16 @@
-% Margins ----------------------------------------------------------------------
+% Page setup -------------------------------------------------------------------
 \usepackage[margin=1in]{geometry}
-
-% Line Spacing -----------------------------------------------------------------
-\renewcommand{\baselinestretch}{1.5}
 \usepackage{setspace}
+\renewcommand{\baselinestretch}{1.5}
 
-% Math stuff -------------------------------------------------------------------
-\usepackage{amsmath}
-\usepackage{amsfonts}
-\usepackage{amsthm}
-\usepackage{amssymb}
-\usepackage{bm}
+% Remove annoying over-full box warnings
+\vfuzz=2pt 
+\hfuzz=2pt
+
+% Latex Programming tools ------------------------------------------------------
+\usepackage{etoolbox,xparse}
 
 % Font -------------------------------------------------------------------------
-
 % T1 removes errors for things like \textbackslash
 \usepackage[T1]{fontenc}
 \usepackage{inputenc}
@@ -35,19 +32,24 @@
 % Small adjustments to text kerning
 \usepackage{microtype}
 
+% Math stuff -------------------------------------------------------------------
+\usepackage{amsmath,amsfonts,amsthm,amssymb}
+\usepackage{bm}
+
 % Define Theorems --------------------------------------------------------------
 % Put proper spacing after Theorem #. 
 \newtheoremstyle{spacing}
-{}%          Space above, empty = `usual value'
-{}%          Space below
-{}%  Body font
-{}%          Indent amount (empty = no indent, \parindent = para indent)
-{\bfseries}% Thm head font
-{.}%         Punctuation after thm head
-{2.5mm}%  Space after thm head: \newline = linebreak
-{}%          Thm head spec
+{}%           Space above, empty = `usual value'
+{}%           Space below
+{}%           Body font
+{}%           Indent amount (empty = no indent, \parindent = para indent)
+{\bfseries}%  Thm head font
+{.}%          Punctuation after thm head
+{2.5mm}%      Space after thm head: \newline = linebreak
+{}%           Thm head spec
 
-% note, theorem is the name that goes in \begin{} and Theorem is the name displayed as Theorem 1
+% Create different theorem environments and setup \autoref for them
+% \label{X:label_name} should match \Xautorefname 
 \theoremstyle{spacing}
 \newtheorem{theorem}{Theorem}
 \newcommand{\theoremautorefname}{Theorem}
@@ -67,9 +69,24 @@
 \newcommand{\remarkautorefname}{Remark}
 
 % Appendix ---------------------------------------------------------------------
+\apptocmd{\appendix}{
+  % Section numbering (A.1)
+  \renewcommand{\thesection}{\Alph{section}}
+  \renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+  
+  % Figures and tables
+  \numberwithin{figure}{section}
+  \numberwithin{table}{section}
+  \setcounter{table}{0}
+  \setcounter{figure}{0}
+  \renewcommand{\thetable}{\thesection\arabic{table}}
+  \renewcommand{\thefigure}{\thesection\arabic{figure}}
+  
+  % Equations
+  \numberwithin{equation}{section}
+  \setcounter{equation}{0}
 
-\AtBeginEnvironment{appendix}{
-% \AfterEndEnvironment{thebibliography}{
+  % Theorems
   \setcounter{theorem}{0}
   \setcounter{proposition}{0} 
   \setcounter{lemma}{0}
@@ -77,25 +94,19 @@
   \setcounter{definition}{0}
   \setcounter{assumption}{0}
   \setcounter{remark}{0}
-  \setcounter{table}{0}
-  \setcounter{figure}{0}
-  \setcounter{equation}{0} 
-  \numberwithin{equation}{section}
-  \numberwithin{figure}{section}
-  \numberwithin{table}{section}
-  \renewcommand{\thetheorem}{\Alph{section}\arabic{theorem}}
-  \renewcommand{\theproposition}{\Alph{section}\arabic{proposition}}
-  \renewcommand{\thelemma}{\Alph{section}\arabic{lemma}}
-  \renewcommand{\thecorollary}{\Alph{section}\arabic{corollary}}
-  \renewcommand{\thedefinition}{\Alph{section}\arabic{definition}}
-  \renewcommand{\theassumption}{\Alph{section}\arabic{assumption}}
-  \renewcommand{\theremark}{\Alph{section}\arabic{remark}}
-  \renewcommand{\thetable}{\Alph{section}\arabic{table}}
-  \renewcommand{\thefigure}{\Alph{section}\arabic{figure}}
-  \renewcommand{\theequation}{\Alph{section}\arabic{equation}}
-}
+  \renewcommand{\theequation}{\thesection.\arabic{equation}}
+  \renewcommand{\thetheorem}{\thesection.\arabic{theorem}}
+  \renewcommand{\theproposition}{\thesection.\arabic{proposition}}
+  \renewcommand{\thelemma}{\thesection.\arabic{lemma}}
+  \renewcommand{\thecorollary}{\thesection.\arabic{corollary}}
+  \renewcommand{\thedefinition}{\thesection.\arabic{definition}}
+  \renewcommand{\theassumption}{\thesection.\arabic{assumption}}
+  \renewcommand{\theremark}{\thesection.\arabic{remark}}
+}{}{}
 
-% Color Palette ----------------------------------------------------------------
+
+% Colors -----------------------------------------------------------------------
+
 \usepackage{xcolor}
 
 % High contrast colors
@@ -142,52 +153,13 @@
 \definecolor{zinc950}{HTML}{09090b}
 
 % Hyperlinks -------------------------------------------------------------------
-\usepackage[
-  breaklinks=true
-]{hyperref}
+\usepackage{hyperref}
 \hypersetup{
   colorlinks = true,
-  allcolors = purple
+  allcolors = purple,
+  breaklinks = true,
+  bookmarksopen = true
 }
-
-% References -------------------------------------------------------------------
-% You can use either biblatex or natbib, see https://tex.stackexchange.com/questions/25701/bibtex-vs-biber-and-biblatex-vs-natbib for discussion
-
-% % Natbib
-% \usepackage{natbib}
-% \bibliographystyle{econ-aea}
-
-% Biblatex
-% To use, do the following:
-% 1. Add \addbibresource{references.bib} before \begin{document}
-% 2. Replace \bibliography{references.bib} with ``
-% 
-% Source: https://social-science-data-editors.github.io/guidance/citations/guidance_data_citations_biblatex.pdf
-% https://tex.stackexchange.com/questions/604482/add-hyperref-links-at-the-end-of-bib-items-pointing-back-to-the-pages-where-the
-\usepackage[
-  style = chicago-authordate,
-  doi = true, 
-  backend = biber,
-  backref=true, % Prints back references e.g (cit. pp. 1)
-  backrefstyle=none, % How to sequence page numbers in back references
-  hyperref=true, % Enables hyperref
-  indexing=true,
-  natbib = true
-]{biblatex}
-\usepackage[authordate, backend = biber]{biblatex-chicago}
-
-% change display of DOI fields
-\DeclareFieldFormat{doi}{%
-  \ifhyperref{%
-    \href{https://doi.org/#1}{\nolinkurl{https://doi.org/#1}}}
-    {\nolinkurl{https://doi.org/#1}}
-}
-
-% Reduced spacing in bibliography
-\AtBeginEnvironment{thebibliography}{\setstretch{1.1}}
-
-% Breaks long citations to new lines
-\usepackage{breakcites}
 
 % Section and Subsection Styling -----------------------------------------------
 \usepackage[explicit]{titlesec}
@@ -201,56 +173,61 @@
 \titleformat{\subsection}
   {\fontsize{12}{10}\it}
   {\thesubsection.}
-  {1em}
+  {0.5em}
   {#1}
 
-% Latex Programming tools ------------------------------------------------------
-% \AtBeginEnvironment
-\usepackage{etoolbox}
-\usepackage{xparse}
-
-% Remove annoying over-full box warnings
-\vfuzz=2pt 
-\hfuzz=2pt
-
-% Coauthors comments that you can hide -----------------------------------------
-% Define in the main document:
-% \booltrue{INCLUDECOMMENTS}
-% \newcommand{\kyle}[1]{\comment[Kyle]{#1}}
-\newbool{INCLUDECOMMENTS}
-\NewDocumentCommand{\coauthorComment}{O{NAME} +m}{%
-    \ifbool{INCLUDECOMMENTS}{{\color{cranberry}\textbf{#1:} #2}}{}
-}
 
 % Titlepage --------------------------------------------------------------------
-% Update \maketitle command
-\def\@maketitle{%
-  \vspace*{\bigskipamount}
+\usepackage{titling}
 
-  \begin{flushleft}%
-  \let \footnote \thanks
-    {\huge \@title \par}%
-    
-    \medskip
-    {\large \@author \par}%
+% \today => Month Year
+\renewcommand{\today}{\ifcase \month \or January\or February\or March\or April\or May \or June\or July\or August\or September\or October\or November\or December\fi\ \number \year}
 
-    \smallskip
-    {\color{asher} \@date}%
-  \end{flushleft}%
+% Title
+\pretitle{\begin{center}\huge}
+\posttitle{\par\end{center}}
+
+% Author
+\preauthor{
+  \begin{center}\Large\renewcommand{\arraystretch}{0.75}
+  \begin{tabular}[t]{c}
 }
+\postauthor{
+  \end{tabular}
+  \end{center}
+}
+
+% Date
+\predate{\begin{center}\large\scshape\color{zinc700}}
+\postdate{\end{center}}
 
 % Abstract
 \renewenvironment{abstract}
- {\noindent\rule{\linewidth}{.5pt}\noindent}
- {\noindent\rule{\linewidth}{.5pt}}
+  {\noindent\rule{\linewidth}{.5pt}\noindent}
+  {\noindent\rule{\linewidth}{.5pt}}
 
-% alternative abstract
-% \renewenvironment{abstract}
-% {
-%   \centerline {\large \bfseries \scshape  Abstract}
-%   \begin{quote}
+
+
+% % Update \maketitle command
+% \def\@maketitle{%
+%   % \vspace*{\bigskipamount}
+% 
+%   \begin{flushleft}%
+%   \let \footnote \thanks
+%     {\huge \@title \par}%
+%     
+%     \medskip
+%     {\large \@author \par}%
+% 
+%     \smallskip
+%     {\color{asher} \@date}%
+%   \end{flushleft}%
 % }
-% {\end{quote}}
+% 
+% % Abstract
+% \renewenvironment{abstract}
+%  {\noindent\rule{\linewidth}{.5pt}\noindent}
+%  {\noindent\rule{\linewidth}{.5pt}}
 
 
 % Footnote ---------------------------------------------------------------------
@@ -271,21 +248,6 @@
     \hb@xt@1.8em{\hss\normalfont\@thefnmark.\hfill}#1
   }
 \makeatother
-
-% Enumerate/Itemize ------------------------------------------------------------
-\usepackage[shortlabels]{enumitem}
-% \setitemize{labelindent=0.5em,labelsep=0.25cm,leftmargin=*}
-% \setenumerate{labelindent=0.5em,labelsep=0.25cm,leftmargin=*}
-\setlist{nosep}
-\setlist[itemize,1]{leftmargin=\parindent,label=\color{zinc600}{\upshape\textbullet}}
-\setlist[itemize,2]{leftmargin=2\parindent,label=\color{zinc600}{\upshape\textendash}}
-\setlist[enumerate,1]{leftmargin=\parindent,label=\color{zinc600}{\upshape\arabic*.}}
-\setlist[enumerate,2]{leftmargin=2\parindent,label=\color{zinc600}{\upshape\roman*.}}
-
-% tikz support -----------------------------------------------------------------
-\usepackage{tikz}
-\usepackage{pgfplots}
-\pgfplotsset{compat=1.18}
 
 % Table and Figure labelling ---------------------------------------------------
 \usepackage{caption}
@@ -365,5 +327,123 @@
         \tikz[remember picture,overlay]
         \node[outer sep=2.5cm,above,rotate=90] at (current page.east) {\thepage};
     }
+}
+
+% Bibliography -----------------------------------------------------------------
+% You can use either biblatex or natbib, see https://tex.stackexchange.com/questions/25701/bibtex-vs-biber-and-biblatex-vs-natbib for discussion
+
+% % Natbib
+% % To use, do the following:
+% % 1. Delete \addbibresource{references.bib} before \begin{document}
+% % 2. Put \bibliography{references.bib} before \printbibliography
+% \usepackage{natbib}
+% \bibliographystyle{econ-aea}
+
+% Biblatex
+% 
+% Source: https://social-science-data-editors.github.io/guidance/citations/guidance_data_citations_biblatex.pdf
+% Source: https://github.com/dmsul/biblatex-aer/blob/master/biblatex-aer.tex
+\usepackage[
+  style = chicago-authordate,
+  doi = true, 
+  backend = biber,
+  backref = true, % Prints back references e.g (cit. pp. 1)
+  backrefstyle = none, % How to sequence page numbers in back references
+  hyperref = true, % Enables hyperref
+  indexing = true,
+  natbib = true
+]{biblatex}
+\usepackage[
+  authordate, 
+  backend = biber,
+  uniquename = false, 
+  noibid
+]{biblatex-chicago}
+
+% Reduced spacing in bibliography
+\AtBeginEnvironment{thebibliography}{\setstretch{1.1}}
+
+% Breaks long citations to new lines
+\usepackage{breakcites}
+
+% change display of DOI fields
+\DeclareFieldFormat{doi}{%
+  \href{https://doi.org/#1}{\nolinkurl{https://doi.org/#1}}%
+}
+
+% Make author names bold in References but not in body of paper
+% 1. Check if name belongs to 'labelname' (Whoever the bib entry is sorted on, i.e., the author(s) or, if no author, editor(s), but not an editor if an author is present). This check keeps entries with both authors and editors from having both sets of names bolded.
+\def\ifmknamebold{\ifboolexpr{%  
+  test {\ifcurrentname{labelname}}
+  or test {\ifcurrentname{author}}
+  or ( test {\ifnameundef{author}} and test {\ifcurrentname{editor}} )
+}}
+
+% Re-define naming commands to bold if necessary (but only in bibliography)
+\AtBeginBibliography{
+  \renewcommand*{\mkbibnamefamily}[1]{\ifmknamebold{\mkbibbold{#1}}{#1}}
+  \renewcommand*{\mkbibnamegiven}[1]{\ifmknamebold{\mkbibbold{#1}}{#1}}
+  \renewcommand*{\mkbibnameprefix}[1]{\ifmknamebold{\mkbibbold{#1}}{#1}}
+  \renewcommand*{\mkbibnamesuffix}[1]{\ifmknamebold{\mkbibbold{#1}}{#1}}
+  \renewcommand*{\finalnamedelim}{\ifmknamebold{%
+    \mkbibbold{\finalandcomma\addspace\bibstring{and}\addspace}%
+  }{%     
+    % Check for 'if editors with no author, only add a comma before 'and' if there are more than three authors. ('labelname' guys don't need these check because first name is reversed and so always has a comma, even with only two people, e.g., Nash, Steve, and Amare Stoudamire.
+    \ifnumgreater{\value{liststop}}{2}{\finalandcomma}{}\addspace\bibstring{and}\addspace%
+  }}
+}
+
+% % Include author names in hyperlink (default is date only)
+% \DeclareFieldFormat{citehyperref}{%
+%   \DeclareFieldAlias{bibhyperref}{noformat}% Avoid nested links
+%   \bibhyperref{#1}%
+% }
+% 
+% \DeclareFieldFormat{textcitehyperref}{%
+%   \DeclareFieldAlias{bibhyperref}{noformat}% Avoid nested links
+%   \bibhyperref{%
+%     #1%
+%     \ifbool{cbx:parens}{\bibcloseparen\global\boolfalse{cbx:parens}}{}%
+%   }%
+% }
+% 
+% \savebibmacro{cite}
+% \savebibmacro{textcite}
+% \renewbibmacro*{cite}{%
+%   \printtext[citehyperref]{\restorebibmacro{cite}\usebibmacro{cite}}
+% }
+% 
+% \renewbibmacro*{textcite}{%
+%   \ifboolexpr{
+%     ( not test {\iffieldundef{prenote}} and test {\ifnumequal{\value{citecount}}{1}} )
+%     or ( not test {\iffieldundef{postnote}} and test {\ifnumequal{\value{citecount}}{\value{citetotal}}} )
+%   }{
+%     \DeclareFieldAlias{textcitehyperref}{noformat}%
+%   }{}%
+%   \printtext[textcitehyperref]{\restorebibmacro{textcite}\usebibmacro{textcite}}
+% }
+
+% Enumerate/Itemize ------------------------------------------------------------
+\usepackage[shortlabels]{enumitem}
+\setlist{nosep}
+\setlist[itemize,1]{leftmargin=\parindent,label=\color{zinc600}{\upshape\textbullet}}
+\setlist[itemize,2]{leftmargin=2\parindent,label=\color{zinc600}{\upshape\textendash}}
+\setlist[enumerate,1]{leftmargin=\parindent,label=\color{zinc600}{\upshape\arabic*.}}
+\setlist[enumerate,2]{leftmargin=2\parindent,label=\color{zinc600}{\upshape\roman*.}}
+
+
+% tikz support -----------------------------------------------------------------
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
+
+% Coauthors comments that you can hide -----------------------------------------
+% Define in the main document:
+% \booltrue{INCLUDECOMMENTS}
+% \newcommand{\kyle}[1]{\comment[Kyle]{#1}}
+\newbool{INCLUDECOMMENTS}
+\NewDocumentCommand{\coauthorComment}{O{NAME} +m}{%
+    \ifbool{INCLUDECOMMENTS}{{\color{cranberry}\textbf{#1:} #2}}{}
 }
 

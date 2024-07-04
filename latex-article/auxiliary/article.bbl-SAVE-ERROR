@@ -1,0 +1,64 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{cms/global//global/global/global}
+    \entry{mas1995microeconomic}{book}{}{}
+      \name{author}{3}{}{%
+        {{hash=b76f97409971b7c349c5ca95c956f216}{%
+           family={Mas-Colell},
+           familyi={M\bibinithyphendelim C\bibinitperiod},
+           given={Andreu},
+           giveni={A\bibinitperiod}}}%
+        {{hash=af8fb43e720fb828e2675ca752dab059}{%
+           family={Whinston},
+           familyi={W\bibinitperiod},
+           given={Michael\bibnamedelima Dennis},
+           giveni={M\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+        {{hash=3351d53ca164d7525b03413fc0e38b7c}{%
+           family={Green},
+           familyi={G\bibinitperiod},
+           given={Jerry\bibnamedelima R},
+           giveni={J\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Oxford university press New York}%
+      }
+      \strng{namehash}{eba193a65b833f23ce32186bd3529df8}
+      \strng{fullhash}{eba193a65b833f23ce32186bd3529df8}
+      \strng{fullhashraw}{eba193a65b833f23ce32186bd3529df8}
+      \strng{bibnamehash}{eba193a65b833f23ce32186bd3529df8}
+      \strng{authorbibnamehash}{eba193a65b833f23ce32186bd3529df8}
+      \strng{authornamehash}{eba193a65b833f23ce32186bd3529df8}
+      \strng{authorfullhash}{eba193a65b833f23ce32186bd3529df8}
+      \strng{authorfullhashraw}{eba193a65b833f23ce32186bd3529df8}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Microeconomic theory}
+      \field{volume}{1}
+      \field{year}{1995}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

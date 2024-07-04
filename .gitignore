@@ -1,5 +1,26 @@
-.DS_Store
+# DS_Store on mac
+**/.DS_Store
 
+# Quarto specific files
+docs/*
+**/.quarto/
+**/site_libs/
+**/_site/*
+
+# R files
+.Rhistory
+.Rapp.history
+.RData
+.RDataTmp
+.Ruserdata
+.Rproj.user/
+*_cache/
+/cache/
+*.utf8.md
+*.knit.md
+.Renviron
+
+# Latex auxiliary files
 *.aux
 *.lof
 *.log

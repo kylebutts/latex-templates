@@ -166,6 +166,11 @@
 \IfNoValueTF{#1}{\operatorname{se}}%
 {\,{\operatorname{se}}{\bp{#1}}}}
 
+% Diag
+\NewDocumentCommand{\diag}{g}{%
+\IfNoValueTF{#1}{\operatorname{diag}}%
+{\,{\operatorname{diag}}{\bp{#1}}}}
+
 % Distributed iid
 \newcommand{\iid}{\mathbin{\overset{iid}{\sim}}}
 

@@ -1,6 +1,6 @@
 \documentclass[12pt]{article}
-\usepackage{paper}
-\usepackage{math}
+\usepackage{paper,math}
+\addbibresource{references.bib}
 
 \title{Example Paper}
 \author{
@@ -42,17 +42,12 @@
 
 
 % ------------------------------------------------------------------------------
-% \newpage~\bibliography{references.bib}
+% \printbibliography
 % ------------------------------------------------------------------------------
 
 
 % ------------------------------------------------------------------------------
 \newpage~\appendix
-\numberwithin{equation}{section}
-\numberwithin{figure}{section}
-\numberwithin{table}{section}
-\renewcommand{\thefigure}{\Alph{section}\arabic{figure}}
-\renewcommand{\thetable}{\Alph{section}\arabic{table}}
 % ------------------------------------------------------------------------------
 
 

@@ -9,6 +9,11 @@ This is a repository of all my latex templates. I've done my best to document ev
 
 ## Latex Slides 
 
+<!-- latex-slides -->
+[<img src="thumbnails/latex-slides-1.png" style="width: 100.0%" />](thumbnails/latex-slides-1.png)
+[<img src="thumbnails/latex-slides-2.png" style="width: 100.0%" />](thumbnails/latex-slides-2.png)
+<!-- latex-slides -->
+
 This latex slide aims for nice typography, minimal aesthetics so the focus is on the content, and a set of helpful commands including easily colored words, full-size image frames, table highlighting, multi-column layouts, and more. The theme is highly customizable with (1) a well commented `slides.sty` file so you can tweak it and make it your own and (2) by defining the colors in the top of your document:
 
 ```latex
@@ -18,29 +23,15 @@ This latex slide aims for nice typography, minimal aesthetics so the focus is on
 \usepackage{slides}
 ```
 
-Here are some highlights
-
-<a href="https://raw.githack.com/kylebutts/latex-templates/main/latex-slides/slides.pdf">
-  <img style="width: 48%;" src="https://raw.githubusercontent.com/kylebutts/latex-templates/main/img/latex-slides/title.png" alt="Title slides" />
-</a>
-<a href="https://raw.githack.com/kylebutts/latex-templates/main/latex-slides/slides.pdf">
-  <img style="width: 48%;" src="https://raw.githubusercontent.com/kylebutts/latex-templates/main/img/latex-slides/text.png" alt="Example slide of text with button" />
-</a>
-<a href="https://raw.githack.com/kylebutts/latex-templates/main/latex-slides/slides.pdf">
-  <img style="width: 48%;" src="https://raw.githubusercontent.com/kylebutts/latex-templates/main/img/latex-slides/figure-1.png" alt="Example of including full size figure" />
-</a>
-<a href="https://raw.githack.com/kylebutts/latex-templates/main/latex-slides/slides.pdf">
-  <img style="width: 48%;" src="https://raw.githubusercontent.com/kylebutts/latex-templates/main/img/latex-slides/figure-2.png" alt="Full size image example" />
-</a>
-<a href="https://raw.githack.com/kylebutts/latex-templates/main/latex-slides/slides.pdf">
-  <img style="width: 48%;" src="https://raw.githubusercontent.com/kylebutts/latex-templates/main/img/latex-slides/table.png" alt="Table with colored rows" />
-</a>
-<a href="https://raw.githack.com/kylebutts/latex-templates/main/latex-slides/slides.pdf">
-  <img style="width: 48%;" src="https://raw.githubusercontent.com/kylebutts/latex-templates/main/img/latex-slides/references.png" alt="Bibliography slides" />
-</a>
-
 
 ## Latex Article
+
+<!-- latex-article -->
+[<img src="thumbnails/latex-article-1.png" style="width: 100.0%" />](thumbnails/latex-article-1.png)
+[<img src="thumbnails/latex-article-2.png" style="width: 100.0%" />](thumbnails/latex-article-2.png)
+<!-- latex-article -->
+
+
 
 This is how I write my papers. There's not many special bells and whistles, but I think it looks nice and clean. 
 
@@ -80,11 +71,15 @@ with
 
 In the main document, do the following: 
 1. Add `\addbibresource{references.bib}` before `\begin{document}`
-2. Replace `\bibliography{references.bib}` with ``
+2. Replace `\bibliography{references.bib}` with ` `
 
 
 
 ## Response to Referees
+
+<!-- referee-response -->
+[<img src="thumbnails/referee-response-1.png" style="width: 100.0%" />](thumbnails/referee-response-1.png)
+<!-- referee-response -->
 
 The goal of this is to make referee reports look nice and make it easy to structure the document. For each referee, use this to create a section with the referee:
 

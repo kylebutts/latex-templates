@@ -1,21 +1,23 @@
 \documentclass[12pt]{article}
-\usepackage{paper}
-\usepackage{math}
+\usepackage{paper,math}
 \addbibresource{references.bib}
 
-\title{Example Paper\thanks{\acknlowledgements}}
+\title{Example Paper Title\thanks{\acknlowledgements}}
 \author{
-  Author One%
-  \thanks{School. Email: \href{mailto:email@gmail.com}{email@gmail.com}.} 
-  \ and 
-  Author Two%
-  \thanks{School. Email: \href{mailto:email@gmail.com}{email@gmail.com}.}
+  Author One\\ {\itshape\large Affiliation}
+  \and 
+  Author Two\\ {\itshape\large Affiliation}
 }
-\date{\textsc{\today}}
+\date{\today}
 \def\acknlowledgements{%
-  Acknlowedgements
+  One: \href{mailto:email@gmail.com}{email@gmail.com}. 
+  Two: \href{mailto:email@gmail.com}{email@gmail.com}. 
+  Acknlowedgements start here
 }
-
+\hypersetup{
+  pdftitle = {Example Paper Title},
+  pdfauthor = {Author One, Author Two},
+}
 
 % Conditionally display thoughts (hide by switching to `\boolfalse`)
 \booltrue{INCLUDECOMMENTS}
@@ -29,23 +31,23 @@
   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
   \par~\par\noindent
-  {\color{asher}JEL-Classification:} ...
+  {\color{zinc700}Keywords:} ...
   \par\noindent
-  {\color{asher}Keywords:} ...
+  {\color{zinc700}JEL-Classification:} ...
   \par\vspace{-2.5mm}
 \end{abstract}
-
 \newpage
-
 
 % Paper ------------------------------------------------------------------------
 % ------------------------------------------------------------------------------
 \section{Introduction}
 % ------------------------------------------------------------------------------
 
-Hi and welcome to my default paper template. I tried to make the theme minimal and beautiful while able to do all the things that I want it to do. These include making it easy to make figures/tables with notes; have powerful math commands; have nice readable typography; make co-authoring in a document easy; have a nice looking bibliography; and make appendices easy. \kyle{I'm including this comment for coauthors. If I switch above to \texttt{togglefalse}, this will dissapear.} I'll show off these things, but make sure to check the source code alongside to see how simple it is to typset with this. 
+Hi and welcome to my default paper template. I tried to make the theme minimal and beautiful while able to do all the things that I want it to do. These include making it easy to make figures/tables with notes; have powerful math commands; have nice readable typography; make co-authoring in a document easy; have a nice looking bibliography; and make appendices easy. 
+I'll show off these things, but make sure to check the source code alongside to see how simple it is to typset with this. 
+\kyle{I'm including this comment for coauthors. If I switch above to \texttt{togglefalse}, this will dissapear.}
 
-See below for \autoref{thm:residue_thm}, the regression specification (\autoref{eq:fe_reg}), \autoref{tab:summ_stat}, \autoref{fig:event_timing}, appendix \autoref{tab:reg1}. Of course, make sure to touch up on your micro theory with \citet{mas1995microeconomic}. I also provide a set of colors: \navy{Navy}, \teal{Teal}, \purple{Purple}, \cranberry{Cranberry}, \orange{Orange}.
+See below for \autoref{thm:residue_thm}, the regression specification (\ref{eq:fe_reg}), \autoref{tab:summ_stat}, \autoref{fig:event_timing}, appendix \autoref{tab:reg1}. Of course, make sure to touch up on your micro theory with \citet{mas1995microeconomic}. I also provide a set of colors: \navy{Navy}, \teal{Teal}, \purple{Purple}, \cranberry{Cranberry}, \orange{Orange}.
 
 % ------------------------------------------------------------------------------
 \section{Highlights}
@@ -76,7 +78,7 @@ $$\E \quad \E[i] \quad \E{X_i} \quad \E[i]{X_i} \quad \E{X_i}{n} \quad \E[i]{X_i
 
 \texttt{\textbackslash P}, \texttt{\textbackslash prob}, \texttt{\textbackslash cov}, and \texttt{\textbackslash var} work the same way too:
 $$\P \quad \P[i] \quad \P{X_i} \quad \P[i]{D_i} \quad \P{\bar{X}_n > \bar{X}}{\mu = \mu_0} \quad \P[\mu]{X}{D = 1}$$
-$$\cov{X_n, Y_n} \quad \var[i](\bar{X}_n)$$
+$$\cov{X_n, Y_n} \quad \var[i](\bar{X}_n) \quad \diag{x_i}$$
 
 \texttt{\textbackslash one} does an indicator. Same as above, but no conditional:
 $$\one{X_i > 0} \quad (Y_i, D_i) \indep X_i$$
@@ -160,13 +162,12 @@ Figures also use the \texttt{\textbackslash note} and the \texttt{adjustbox} pac
 
 % ------------------------------------------------------------------------------
 \newpage
-% \bibliography{references.bib}
 \printbibliography
+% \bibliography{references.bib} % Uncomment this if using `natbib`
 % ------------------------------------------------------------------------------
 
 % ------------------------------------------------------------------------------
-\newpage
-\appendix
+\newpage~\appendix
 % ------------------------------------------------------------------------------
 
 % ------------------------------------------------------------------------------
@@ -175,11 +176,18 @@ Figures also use the \texttt{\textbackslash note} and the \texttt{adjustbox} pac
 
 The appendix will automatically start numbering tables, figures, and theorem-like environments using the appendix section \textbackslash Alph (e.g. \autoref{tab:reg1}).
 
+\citet{mas1995microeconomic} 
+
 % ------------------------------------------------------------------------------
 \subsection{Regression Results}
 % ------------------------------------------------------------------------------
 
-In this table example, the table is narrower than textwidth, so I adjust the \texttt{\textbackslash note} width. 
+The main regression equation is 
+\begin{equation}
+  y_i = \bm{X}_i \beta + u_i.
+\end{equation}
+
+Results are presented in \autoref{tab:reg1}. In this table example, the table is narrower than textwidth, so I adjust the \texttt{\textbackslash note} width. 
 
 \begin{table}[h!]
   \caption{Regression Results}

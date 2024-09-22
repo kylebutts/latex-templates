@@ -120,4 +120,6 @@ This is a recommended set of files to include in `.gitignore` to not commit ugly
 *.synctex.gz
 *.nav
 *.snm
+*.listing
+*.vrb
 ```

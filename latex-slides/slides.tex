@@ -78,6 +78,7 @@
 \end{frame}
 
 \begin{frame}{Components}{Blocks}
+  If you want something more colorful, use \texttt{colorBlock}
   \begin{purpleBlock}{}
     This is a purple block
   \end{purpleBlock}
@@ -106,14 +107,14 @@
 
   \coral{Test sentence with \textbackslash coral\{...\}}
 
-  \cranberry{Test sentence with \textbackslash color\{cranbery\}}
+  \cranberry{Test sentence with \textbackslash cranberry\{...\}}
 \end{frame}
 
 \begin{frame}{Components}{Two Columns}
   \begin{columns}[T]
     \begin{column}{.50\textwidth}
       \vspace{0pt}
-      {\color{accent}\rule{\linewidth}{2pt}}
+      % {\color{zinc400}\rule{\linewidth}{2pt}}
       Column 1
 
       \begin{enumerate}
@@ -126,7 +127,7 @@
     \hfill
     
     \begin{column}{.50\textwidth}
-      {\color{accent}\rule{\linewidth}{2pt}}
+      % {\color{zinc400}\rule{\linewidth}{2pt}}
       Column 2
 
       \begin{itemize}
@@ -151,6 +152,21 @@
       \end{itemize}
     \end{column}
   \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]{Components}{Code listings}
+  \emph{It is important you use \texttt{[fragile]} as a frame option in beamer}
+
+\begin{codeblock}
+library(fixest)
+feols(mpg ~ 1, data = mtcars)
+#> OLS estimation, Dep. Var.: mpg
+#> Observations: 32
+#>             Estimate Std. Error t value  Pr(>|t|)    
+#> (Intercept)  20.0906    1.06542 18.8569 < 2.2e-16 ***
+#> ---
+#> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+\end{codeblock}
 \end{frame}
 
 % ------------------------------------------------------------------------------
@@ -244,6 +260,7 @@
   \end{adjustbox}
   \note{The \texttt{adjustbox} environment helps resize figures/tables}
 \end{frame}
+
 
 % ------------------------------------------------------------------------------
 \begin{frame}[allowframebreaks,noframenumbering]{References}

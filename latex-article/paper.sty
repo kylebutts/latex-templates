@@ -3,7 +3,7 @@
 \usepackage{setspace}
 \renewcommand{\baselinestretch}{1.5}
 
-% Remove annoying over-full box warnings
+% Remove annoying over-full box warnings when it is small
 \vfuzz=2pt 
 \hfuzz=2pt
 
@@ -15,14 +15,14 @@
 \usepackage[T1]{fontenc}
 \usepackage{inputenc}
 
-% Serif option:
+% Serif option (this is better for people with reading challenges)
 % Libertine for serif text font
 \usepackage{libertine}
 % Source Code Pro for monospace font
 \usepackage[scale=0.88]{plex-mono}
 \renewcommand{\ttdefault}{\plexmonofamily}
 
-% Sans-serif option:
+% % Sans-serif option:
 % % Lato for sans-serif text font
 % \usepackage[default]{lato}
 % % Source Code Pro for monospace font
@@ -33,20 +33,20 @@
 \usepackage{microtype}
 
 % Math stuff -------------------------------------------------------------------
-\usepackage{amsmath,amsfonts,amsthm,amssymb}
+\usepackage{amsmath,amsthm,amssymb}
 \usepackage{bm}
+\usepackage{dsfont}
 
 % Define Theorems --------------------------------------------------------------
 % Put proper spacing after Theorem #. 
 \newtheoremstyle{spacing}
-{}%           Space above, empty = `usual value'
-{}%           Space below
-{}%           Body font
-{}%           Indent amount (empty = no indent, \parindent = para indent)
-{\bfseries}%  Thm head font
-{.}%          Punctuation after thm head
-{2.5mm}%      Space after thm head: \newline = linebreak
-{}%           Thm head spec
+{\topsep}{\topsep}%   Space above nad below
+{}%                   Body font
+{}%                   Indent amount (empty = no indent, \parindent = para indent)
+{\bfseries}%          Thm head font
+{.}%                  Punctuation after thm head
+{1em}%                Space after thm head: \newline = linebreak
+{}%                   Thm head spec (can be left empty, meaning `normal')
 
 % Create different theorem environments and setup \autoref for them
 % \label{X:label_name} should match \Xautorefname 
@@ -68,7 +68,9 @@
 \newtheorem{remark}{Remark}
 \newcommand{\remarkautorefname}{Remark}
 
+
 % Appendix ---------------------------------------------------------------------
+% when calling \appendix in the main document, appends this after
 \apptocmd{\appendix}{
   % Section numbering (A.1)
   \renewcommand{\thesection}{\Alph{section}}
@@ -152,6 +154,7 @@
 \definecolor{zinc900}{HTML}{18181b}
 \definecolor{zinc950}{HTML}{09090b}
 
+
 % Hyperlinks -------------------------------------------------------------------
 \usepackage{hyperref}
 \hypersetup{
@@ -207,29 +210,6 @@
   {\noindent\rule{\linewidth}{.5pt}}
 
 
-
-% % Update \maketitle command
-% \def\@maketitle{%
-%   % \vspace*{\bigskipamount}
-% 
-%   \begin{flushleft}%
-%   \let \footnote \thanks
-%     {\huge \@title \par}%
-%     
-%     \medskip
-%     {\large \@author \par}%
-% 
-%     \smallskip
-%     {\color{asher} \@date}%
-%   \end{flushleft}%
-% }
-% 
-% % Abstract
-% \renewenvironment{abstract}
-%  {\noindent\rule{\linewidth}{.5pt}\noindent}
-%  {\noindent\rule{\linewidth}{.5pt}}
-
-
 % Footnote ---------------------------------------------------------------------
 % Spacing between footnotes on same page
 \addtolength{\footnotesep}{1mm}
@@ -244,10 +224,11 @@
 % No supsercript in footer
 \makeatletter
 \renewcommand\@makefntext[1]{%
-    \parindent 1em \noindent
-    \hb@xt@1.8em{\hss\normalfont\@thefnmark.\hfill}#1
-  }
+  \parindent 1em \noindent%
+  \hb@xt@1.8em{\hss\normalfont\@thefnmark.\hfill}#1%
+}
 \makeatother
+
 
 % Table and Figure labelling ---------------------------------------------------
 \usepackage{caption}
@@ -312,9 +293,11 @@
 \newcolumntype{C}{>{\centering\arraybackslash}X}
 
 % Landscape table 
-% \begin{landscape} \pagestyle{lscaped} table... \end{landscsape}
-% \usepackage{pdflscape} - rotates page left-side up in pdf
-% \usepackage{lscape} - does not rotate page, only figure/table
+% \begin{landscape}\pagestyle{lscaped}
+%   ... 
+% \end{landscsape}
+% \usepackage{lscape} - does not rotate page in pdf (tilt of head required)
+% \usepackage{pdflscape} - rotates page (no tilt of head required)
 \usepackage{pdflscape}
 
 % For landscape, fix page number location
@@ -393,35 +376,6 @@
   }}
 }
 
-% % Include author names in hyperlink (default is date only)
-% \DeclareFieldFormat{citehyperref}{%
-%   \DeclareFieldAlias{bibhyperref}{noformat}% Avoid nested links
-%   \bibhyperref{#1}%
-% }
-% 
-% \DeclareFieldFormat{textcitehyperref}{%
-%   \DeclareFieldAlias{bibhyperref}{noformat}% Avoid nested links
-%   \bibhyperref{%
-%     #1%
-%     \ifbool{cbx:parens}{\bibcloseparen\global\boolfalse{cbx:parens}}{}%
-%   }%
-% }
-% 
-% \savebibmacro{cite}
-% \savebibmacro{textcite}
-% \renewbibmacro*{cite}{%
-%   \printtext[citehyperref]{\restorebibmacro{cite}\usebibmacro{cite}}
-% }
-% 
-% \renewbibmacro*{textcite}{%
-%   \ifboolexpr{
-%     ( not test {\iffieldundef{prenote}} and test {\ifnumequal{\value{citecount}}{1}} )
-%     or ( not test {\iffieldundef{postnote}} and test {\ifnumequal{\value{citecount}}{\value{citetotal}}} )
-%   }{
-%     \DeclareFieldAlias{textcitehyperref}{noformat}%
-%   }{}%
-%   \printtext[textcitehyperref]{\restorebibmacro{textcite}\usebibmacro{textcite}}
-% }
 
 % Enumerate/Itemize ------------------------------------------------------------
 \usepackage[shortlabels]{enumitem}

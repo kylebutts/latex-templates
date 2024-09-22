@@ -50,7 +50,7 @@ article_images <- thumbify(
 )
 slides_images <- thumbify(
   "latex-slides/slides.pdf",
-  which_pages = c(1, 3, 9, 14, 18, 21),
+  which_pages = c(1, 3,11, 14, 18, 21),
   tile = 3
 )
 response_images <- thumbify(

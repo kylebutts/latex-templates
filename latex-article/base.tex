@@ -2,13 +2,22 @@
 \usepackage{paper,math}
 \addbibresource{references.bib}
 
-\title{Example Paper}
+\title{Example Paper Title\thanks{\acknlowledgements}}
 \author{
-    Author One%
-    \thanks{School. Email: \href{mailto:email@gmail.com}{email@gmail.com}.} \ and Author Two%
-    \thanks{School. Email: \href{mailto:email@gmail.com}{email@gmail.com}.}
+  Author One\\ {\itshape\large Affiliation}
+  \and 
+  Author Two\\ {\itshape\large Affiliation}
 }
-\date{\textsc{\today}}
+\date{\today}
+\def\acknlowledgements{%
+  One: \href{mailto:email@gmail.com}{email@gmail.com}. 
+  Two: \href{mailto:email@gmail.com}{email@gmail.com}. 
+  Acknlowedgements start here
+}
+\hypersetup{
+  pdftitle = {Example Paper Title},
+  pdfauthor = {Author One, Author Two},
+}
 
 % Conditionally display thoughts (hide by switching to `\boolfalse`)
 \booltrue{INCLUDECOMMENTS}
@@ -19,6 +28,7 @@
 % Title Page -------------------------------------------------------------------
 \maketitle
 \begin{abstract}
+  Abstract goes here ...
 
 
   \par~\par\noindent
@@ -50,8 +60,11 @@
 \newpage~\appendix
 % ------------------------------------------------------------------------------
 
+\section{Appendix Section}
 
+hm 
 
+Text goes here
 
 
 

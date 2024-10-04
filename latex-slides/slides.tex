@@ -21,6 +21,10 @@
 \end{frame}
 % ------------------------------------------------------------------------------
 
+\begin{frame}{Customizing template}
+  At the top of the template is two accent color definitions. Change these and they should populate throughout the slides.
+\end{frame}
+
 % ------------------------------------------------------------------------------
 \section{Common Items}
 % ------------------------------------------------------------------------------
@@ -29,7 +33,7 @@
   This section highlights commonly used components and their theming
 
   \begin{itemize}
-    \item Can emphasize with \alert{the alert command}
+    \item Can emphasize with \alert{the alert command} which uses the \texttt{accent2} color
     
     \begin{itemize}
       \item This allows you to draw attention to specific words/phrases
@@ -44,8 +48,7 @@
   }
 \end{frame}
 
-
-\begin{frame}{Components}{Numbered Lists}
+\begin{frame}{Numbered Lists}
   You can also use numbered items that look a bit more professional
 
   \begin{enumerate}
@@ -55,7 +58,7 @@
   \end{enumerate}
 \end{frame}
 
-\begin{frame}{Components}{Citations}
+\begin{frame}{Citations}
   Topic 1: Spatial Frictions
   \citecolor{
     [\citet{Fajgelbaum_Morales_Serrato_Zidar_2018}, \citet{Hsieh_Moretti_2019}, and \citet{Moretti_2011}]
@@ -68,7 +71,64 @@
   }
 \end{frame}
 
-\begin{frame}{Components}{Blocks}
+\begin{frame}{Colors}
+  I have a set of colors that I use:
+
+  \navy{navy},
+  \raspberry{raspberry},
+  \cranberry{cranberry},
+  \orange{orange},
+  \purple{purple},
+  \blue{blue},
+  \green{green},
+  \rose{rose}, and 
+  \yellow{yellow}
+
+  \bigskip
+  If you want to color text with them, use \texttt{\textbackslash colorname\{...\}}
+\end{frame}
+
+\begin{frame}{Color boxes}
+  You can also use color boxes. Some of the colors look ugly when made lighter, so I won't show them:
+
+  \bgNavy{bgNavy},
+  \bgRaspberry{bgRaspberry},
+  \bgCranberry{bgCranberry},
+  \bgOrange{bgOrange},
+  \bgPurple{bgPurple},
+  \bgGreen{bgGreen},
+  \bgYellow{bgYellow}
+
+  \bigskip
+  If you want to color text with them, use \texttt{\textbackslash bgColorname\{...\}}
+\end{frame}
+
+\begin{frame}{Highlight Math}
+  Can also highlight in an equation with \texttt{\textbackslash tcbhighmath[colback = bgColor]\{...\}}. If you don't include the brackets, it will default to \texttt{bgRaspberry}.
+  
+  $$
+    \int_{ \tcbhighmath[colback = bgNavy]{\Omega} } f(x) \, dx \approx 
+    \frac{\tcbhighmath[colback = bgRaspberry]{ |\Omega| }}{N} 
+    \sum_{i=1}^{N} f( \tcbhighmath[colback = bgPurple]{ X_i } )
+  $$
+\end{frame}
+
+\begin{frame}[fragile]{Code listings}
+  The \texttt{codeblock} environment lets you copy text verbatim. It is important you use \texttt{[fragile]} as a frame option in beamer
+
+\begin{codeblock}
+library(fixest)
+feols(mpg ~ 1, data = mtcars)
+#> OLS estimation, Dep. Var.: mpg
+#> Observations: 32
+#>             Estimate Std. Error t value  Pr(>|t|)    
+#> (Intercept)  20.0906    1.06542 18.8569 < 2.2e-16 ***
+#> ---
+#> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+\end{codeblock}
+\end{frame}
+
+\begin{frame}{Blocks}
   \begin{block}{Theorem 1}
   The main specificaiton is as follows: 
   $$
@@ -77,8 +137,8 @@
   \end{block}
 \end{frame}
 
-\begin{frame}{Components}{Blocks}
-  If you want something more colorful, use \texttt{colorBlock}
+\begin{frame}{Blocks}
+  If you want something more colorful, use \texttt{colornameBlock}
   \begin{purpleBlock}{}
     This is a purple block
   \end{purpleBlock}
@@ -88,29 +148,7 @@
   \end{cranberryBlock}
 \end{frame}
 
-\begin{frame}{Components}{Colors}
-  \navy{Test sentence with \textbackslash navy\{...\}}
-
-  \purple{Test sentence with \textbackslash purple\{...\}}
-
-  \orange{Test sentence with \textbackslash orange\{...\}}
-  
-  \teal{Test sentence with \textbackslash teal\{...\}}
-
-  \kelly{Test sentence with \textbackslash kelly\{...\}}
-
-  \ruby{Test sentence with \textbackslash ruby\{...\}}
-
-  \alice{Test sentence with \textbackslash alice\{...\}}
-
-  \daisy{Test sentence with \textbackslash daisy\{...\}}
-
-  \coral{Test sentence with \textbackslash coral\{...\}}
-
-  \cranberry{Test sentence with \textbackslash cranberry\{...\}}
-\end{frame}
-
-\begin{frame}{Components}{Two Columns}
+\begin{frame}{Two Columns}
   \begin{columns}[T]
     \begin{column}{.50\textwidth}
       \vspace{0pt}
@@ -139,34 +177,19 @@
   \end{columns}
 \end{frame}
 
-\begin{frame}{Components}{Two Columns with Figure}
+\begin{frame}{Two Columns with Figure}
   \begin{columns}[T]
     \begin{column}{.6\textwidth}
       \includegraphics[width=\textwidth]{figures/plot_did2s_retail_slides.pdf}
     \end{column}
     \hfill
     \begin{column}{.4\textwidth}
-      \begin{itemize}
-      \item A point about the figure that is potentially important.
-      \item Another point about the figure that is also potentially important.
-      \end{itemize}
+      A point about the figure that is potentially important.
+      
+      \bigskip
+      Another point about the figure that is also potentially important.
     \end{column}
   \end{columns}
-\end{frame}
-
-\begin{frame}[fragile]{Components}{Code listings}
-  \emph{It is important you use \texttt{[fragile]} as a frame option in beamer}
-
-\begin{codeblock}
-library(fixest)
-feols(mpg ~ 1, data = mtcars)
-#> OLS estimation, Dep. Var.: mpg
-#> Observations: 32
-#>             Estimate Std. Error t value  Pr(>|t|)    
-#> (Intercept)  20.0906    1.06542 18.8569 < 2.2e-16 ***
-#> ---
-#> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-\end{codeblock}
 \end{frame}
 
 % ------------------------------------------------------------------------------
@@ -179,12 +202,13 @@ feols(mpg ~ 1, data = mtcars)
   \bigskip
   \begin{center}
     {\footnotesize\textsc{Outcome:} Log of Real Per Capita Income \\}
-
+    
+    \bigskip
     \begin{tabular}{l cc}
       \toprule
       & (1) & (2) \\
       \midrule
-      Treatment dummy & \cellcolor<1>{accent!15!white} 0.0694* & \cellcolor<2>{accent!15!white} 0.0713** \\
+      Policy Enacted $= 1$ & \cellcolor<1>{accent!15!white} 0.0694* & \cellcolor<2>{accent!15!white} 0.0713** \\
       & (0.0401) & (0.0381) \\
       \hline
       \rowcolor<3>{accent!15!white} State Fixed Effects & & $\checkmark$ \\
@@ -197,8 +221,6 @@ feols(mpg ~ 1, data = mtcars)
 \begin{frame}{Table}
   \begin{columns}[T]
   \begin{column}{.4\textwidth}
-    \tabletitle{Job Satisfaction Score}
-    
     \begin{adjustbox}{max width = \textwidth, center}
       \begin{tabular}{@{} l *{2}{r} @{}} 
         \toprule
@@ -242,10 +264,6 @@ feols(mpg ~ 1, data = mtcars)
 \section{Figures}
 % ------------------------------------------------------------------------------
 
-% 4:3 ratio for figures
-% or else it will have white space
-\imageframe{figures/plot_did2s_retail_slides.pdf}
-
 \begin{frame}{Figure}{Full-size Figures}
   You can use the command \texttt{\textbackslash imageframe\{img-path\}} and it will create a full-frame of a picture. 
   
@@ -254,12 +272,143 @@ feols(mpg ~ 1, data = mtcars)
   \end{itemize}
 \end{frame}
 
+% Try to make figures the correct aspect ratio otherwise white will be filled in around the image
+\imageframe{figures/plot_did2s_retail_slides.pdf}
+
 \begin{frame}{Figure}
-  \begin{adjustbox}{width = 0.75\textwidth, center}
-    \includegraphics{figures/plot_did2s_retail_slides.pdf}
-  \end{adjustbox}
-  \note{The \texttt{adjustbox} environment helps resize figures/tables}
+  \begin{figure}
+    \begin{adjustbox}{width = 0.75\textwidth, center}
+      \includegraphics{figures/plot_did2s_retail_slides.pdf}
+    \end{adjustbox}
+  
+    \vspace*{-\medskipamount}
+    \note{0.75\textwidth}{The \texttt{adjustbox} environment helps resize figures/tables}
+  \end{figure}
 \end{frame}
+
+\section{Advanced Tools}
+
+\begin{frame}[fragile]{Overlaying objects}
+  This template provides some tools to make overlaying text / objects over the slides easier (an e.g. of this is the \texttt{\textbackslash bottomleft} overlay buttons). This feature is heavily inspired from Keenan Crane's excellent slides.
+
+  \bigskip
+  To use this, you can 
+  \begin{codeblock}[tex]
+\begin{tikzpicture}[remember picture, overlay]
+  \node [text width = 0.3\textwidth] at (page cs: x, y)
+\end{tikzpicture}
+  \end{codeblock}
+  where \texttt{x, y} are the x and y coordinates of the slide and are between 0.0 and 1.0.
+
+
+\end{frame}
+
+\begin{frame}{}
+  \medskip\medskip
+  \parbox[]{0.8\textwidth}{
+  
+    \textit{Proof.} First note that, since the $X_i$ are independent,
+    \[
+      \text{Var} \left( \overline{X}_N \right) = \text{Var} \left( \frac{1}{N} \sum_{i=1}^{N} X_i \right) = \frac{1}{N^2} \sum_{i=1}^{N} \text{Var}(X_i) = \frac{\sigma^2}{N}.
+    \]
+    
+    From Chebyshev's inequality, we then have
+    \[
+      P\left( |\overline{X}_N - \mu| \geq \varepsilon \right) \leq \frac{\text{Var}[\overline{X}_N]}{\varepsilon^2} = \frac{\sigma^2}{N^2 \varepsilon^2},
+    \]
+    and
+    \[
+      \lim_{N \to \infty} \frac{\sigma^2}{N^2 \varepsilon^2} = 0.
+    \]
+
+  }
+
+  % \devgrid{}
+
+  \begin{tikzpicture}[remember picture, overlay]
+    \coordinate (arrow1_a) at (page cs:0.8, 0.37);
+    \coordinate (arrow1_b) at (page cs:0.7, 0.21);
+    \draw (arrow1_a) edge[zinc500, out = 100, in = 0, line width = 0.6mm, -Stealth] (arrow1_b);
+
+    \coordinate (arrow2_a) at (page cs:0.72, 0.54);
+    \coordinate (arrow2_b) at (page cs:0.57, 0.54);
+    \draw (arrow2_a) edge[zinc500, out = -150, in = -40, line width = 0.6mm, -Stealth] (arrow2_b);
+
+    \node [text width = 0.34\textwidth, rotate = 1] at (page cs:0.8,0.44) {
+      \begin{tcolorbox}[
+        enhanced,
+        width = \textwidth,
+        colback = white,
+        colframe = zinc300, 
+        boxrule = 0.4mm,
+        arc = 0.5mm,
+        % sharp corners, 
+        left = 0.5mm, right = 0.5mm,
+        top = 1mm, bottom = 1mm,
+        fuzzy shadow = {0mm}{-0.5mm}{-1pt}{0.2mm}{zinc300},
+        fontupper = \rmfamily,
+        % drop fuzzy shadow
+      ]
+        \setstretch{1}
+        {\small
+          \textbf{In summary:} averaging reduces variance; 
+          Chebyshev says that random variables with small variance will be close to their mean.
+        }
+      \end{tcolorbox}
+    };
+
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}{Example of labelling equations}
+  % \devgrid
+
+  We can use monte carlo simulation to draw $N$ observations from the domain $\Omega$:
+
+  \medskip
+  $$
+    \int_{ \Omega } f(x) \, dx \approx 
+    \frac{\tcbhighmath{ |\Omega| }}{N} 
+    \sum_{i=1}^{N} f( \tcbhighmath{ X_i } )
+  $$
+
+  \begin{tikzpicture}[remember picture, overlay]
+    \node [anchor = south, text width = 0.12\textwidth] at (page cs:0.45,0.375) {
+      \begin{center}
+        \setstretch{0.7}
+        {\footnotesize\color{raspberry} \emph{volume of domain}}
+      \end{center}
+    };
+    
+    \node [anchor = north, text width = 0.1\textwidth] at (page cs:0.65,0.41) {
+      \begin{center}
+        \setstretch{0.7}
+        {\footnotesize\color{raspberry} \emph{Draw from $\Omega$}}
+      \end{center}
+    };
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}{}
+  \devgrid 
+
+  It can be a bit tedious to try and place these elements. For that reason, I added \texttt{\textbackslash devgrid} command that will lay every 0.1 unit of the slide. Counting will get you in the ball park and manual tweaking will finish the job.
+  
+  % Absolute positioned tikzpicture
+  \begin{tikzpicture}[remember picture, overlay]
+    \node[anchor = north west] (topleft)
+      at (page cs:0.0, 0.0) { $\blacksquare$ };
+    \node[anchor = north east] (topright)
+      at (page cs:1.0, 0.0) { $\blacksquare$ };
+    \node[anchor = south west] (bottomleft) 
+      at (page cs:0.0, 1.0) { $\blacksquare$ };
+    \node[anchor = south east] (bottomright) 
+      at (page cs:1.0, 1.0) { $\blacksquare$ };
+  \end{tikzpicture}
+\end{frame}
+
+
+
 
 
 % ------------------------------------------------------------------------------

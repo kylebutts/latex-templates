@@ -1,71 +1,3 @@
-% Define colors ----------------------------------------------------------------
-\usepackage{xcolor}
-
-\definecolor{purple}{HTML}{695693}
-\definecolor{cranberry}{HTML}{E64173}
-\definecolor{raspberry}{HTML}{940034}
-\definecolor{orange}{HTML}{D65616}
-\definecolor{navy}{HTML}{006896}
-\definecolor{teal}{HTML}{1A505A}
-\definecolor{ruby}{HTML}{9a2515}
-\definecolor{alice}{HTML}{107895}
-\definecolor{daisy}{HTML}{EBC944}
-\definecolor{coral}{HTML}{F26D21}
-\definecolor{kelly}{HTML}{829356}
-\definecolor{slate900}{HTML}{131516}
-\definecolor{asher}{HTML}{555F61}
-\definecolor{slate}{HTML}{314F4F}
-
-% Zinc from Tailwind Colors
-\definecolor{zinc50}{HTML}{fafafa}
-\definecolor{zinc100}{HTML}{f4f4f5}
-\definecolor{zinc200}{HTML}{e4e4e7}
-\definecolor{zinc300}{HTML}{d4d4d8}
-\definecolor{zinc400}{HTML}{a1a1aa}
-\definecolor{zinc500}{HTML}{71717a}
-\definecolor{zinc600}{HTML}{52525b}
-\definecolor{zinc700}{HTML}{3f3f46}
-\definecolor{zinc800}{HTML}{27272a}
-\definecolor{zinc900}{HTML}{18181b}
-\definecolor{zinc950}{HTML}{09090b}
-
-% Easily color text
-\newcommand\purple[1]{{\color{purple}#1}}
-\newcommand\cranberry[1]{{\color{cranberry}#1}}
-\newcommand\raspberry[1]{{\color{raspberry}#1}}
-\newcommand\orange[1]{{\color{orange}#1}}
-\newcommand\navy[1]{{\color{navy}#1}}
-\newcommand\teal[1]{{\color{teal}#1}}
-\newcommand\kelly[1]{{\color{kelly}#1}}
-\newcommand\ruby[1]{{\color{ruby}#1}}
-\newcommand\alice[1]{{\color{alice}#1}}
-\newcommand\daisy[1]{{\color{daisy}#1}}
-\newcommand\coral[1]{{\color{coral}#1}}
-
-% Color background of text
-\newcommand\bgNavy[1]{{\colorbox{navy!80!white}{#1}}}
-\newcommand\bgOrange[1]{{\colorbox{orange!80!white}{#1}}}
-\newcommand\bgTeal[1]{{\colorbox{teal!80!white}{#1}}}
-\newcommand\bgPurple[1]{{\colorbox{purple!80!white}{#1}}}
-\newcommand\bgKelly[1]{{\colorbox{kelly!80!white}{#1}}}
-\newcommand\bgRuby[1]{{\colorbox{ruby!80!white}{#1}}}
-\newcommand\bgAlice[1]{{\colorbox{alice!80!white}{#1}}}
-\newcommand\bgDaisy[1]{{\colorbox{daisy!80!white}{#1}}}
-\newcommand\bgCoral[1]{{\colorbox{coral!80!white}{#1}}}
-\newcommand\bgCranberry[1]{{\colorbox{cranberry!80!white}{#1}}}
-
-% Define `accent`/`accent2` colors for theme customization
-% If accent/accent2 are not defined, then use defaults
-\providecolor{accent}{HTML}{006896}
-\providecolor{accent2}{HTML}{E64173}
-
-% Math stuff -------------------------------------------------------------------
-\usepackage{amsmath}
-\usepackage{amsfonts}
-\usepackage{amsthm}
-\usepackage{graphicx}
-\usepackage{bm}
-
 % Latex Programming tools ------------------------------------------------------
 % \AtBeginEnvironment
 % https://tex.stackexchange.com/questions/33576/conditional-typesetting-build
@@ -75,6 +7,14 @@
 % Remove annoying over-full box warnings
 \vfuzz=2pt 
 \hfuzz=2pt
+
+% Define colors ----------------------------------------------------------------
+\usepackage{xcolor}
+
+% Define `accent`/`accent2` colors for theme customization
+% If accent/accent2 are not defined, then use defaults
+\providecolor{accent}{HTML}{006896}
+\providecolor{accent2}{HTML}{E64173}
 
 % Fonts ------------------------------------------------------------------------
 % Beamer Option to use custom fonts
@@ -99,7 +39,6 @@
 \usepackage{microtype}
 
 % Beamer Options ---------------------------------------------------------------
-
 % Background
 \setbeamercolor{background canvas}{bg = white}
 
@@ -170,21 +109,13 @@
 \AtBeginDocument{\setlength\abovedisplayshortskip{\medskipamount}}
 \AtBeginDocument{\setlength\belowdisplayshortskip{\bigskipamount}}
 
-% Links
-\usepackage{hyperref}
-\hypersetup{
-  colorlinks = true,
-  linkcolor = accent2,
-  filecolor = accent2,
-  urlcolor = accent2,
-  citecolor = accent2,
-}
-
-
 
 % Title page -------------------------------------------------------------------
 \setbeamercolor{title}{fg = zinc900}
 \setbeamercolor{subtitle}{fg = accent}
+
+% \today => Month Year
+\renewcommand{\today}{\ifcase \month \or January\or February\or March\or April\or May \or June\or July\or August\or September\or October\or November\or December\fi\ \number \year}
 
 %% Custom \maketitle and \titlepage
 \setbeamertemplate{title page}
@@ -197,121 +128,23 @@
     {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
   \fi% 
   {\vspace{10mm}\insertauthor}\\
-  {\color{asher}\small{\insertdate}}\\
+  {\color{zinc500}\small{\today}}\\
   %\end{centering}
 }
 
 % Table of Contents with Sections ----------------------------------------------
-\setbeamerfont{section in toc}{size = \Large, series = \bfseries}
+\setbeamerfont{section in toc}{size = \large, series = \bfseries}
 \setbeamerfont{section in toc shaded}{size = \large}
-\setbeamertemplate{section in toc shaded}[default][80]
+\setbeamercolor{section in toc}{fg = zinc800}
+\setbeamertemplate{section in toc shaded}[default][60] % opacity
 \AtBeginSection[]{
   {
-    % \hypersetup{linkcolor = white}
-    % \setbeamercolor{background canvas}{bg = accent2} 
-    \begin{frame}[noframenumbering,plain]{Outline}
+    \hypersetup{hidelinks}
+    \begin{frame}[noframenumbering,plain]{\ }
       \tableofcontents[currentsection]
     \end{frame}
   }
 }
-
-% Block ------------------------------------------------------------------------
-% TODO: Update default blocks
-\usepackage{tcolorbox}
-\usepackage{ifthen}
-
-\defbeamertemplate{block begin}{framed}[1][] {
-  \begin{tcolorbox}[colback=zinc50, colframe=zinc200, arc=0mm]
-  {
-    \vskip\smallskipamount%
-    \ifthenelse{\equal{\insertblocktitle}{}}{}{%
-      \raggedright\usebeamerfont*{block title}\usebeamercolor[fg]{title}%
-      \textbf{\insertblocktitle}%
-      \vskip\medskipamount%
-    }
-  }%
-  \raggedright%
-  \usebeamerfont{block body}%
-}
-\defbeamertemplate{block end}{framed}[1][] {
-  \vskip\smallskipamount\end{tcolorbox}
-}
-\setbeamertemplate{blocks}[framed]
-
-\newenvironment*{zincBlock}[1]{%
-  \begin{tcolorbox}[colback=zinc50, colframe=zinc200, arc=0mm]{
-    \vskip\smallskipamount%
-    \ifthenelse{\equal{#1}{}}{}{%
-      \raggedright\usebeamerfont*{block title}\usebeamercolor[fg]{title}%
-      \textbf{#1}%
-      \vskip\medskipamount%
-    }%
-  }%
-  \raggedright%
-  \usebeamerfont{block body}%
-}{%
-  \vskip\smallskipamount\end{tcolorbox}
-}
-
-% Colors from plugging base color into https://uicolors.app/create
-\definecolor{purple50}{HTML}{f9f8fc}
-\definecolor{purple100}{HTML}{f1eff8}
-\definecolor{purple200}{HTML}{e6e2f2}
-\newenvironment*{purpleBlock}[1]{%
-  \begin{tcolorbox}[colback=purple50, colframe=purple200, arc=0mm]{
-    \vskip\smallskipamount%
-    \ifthenelse{\equal{#1}{}}{}{%
-      \raggedright\usebeamerfont*{block title}\usebeamercolor[fg]{title}%
-      \textbf{#1}%
-      \vskip\medskipamount%
-    }%
-  }%
-  \raggedright%
-  \usebeamerfont{block body}%
-}{%
-  \vskip\smallskipamount\end{tcolorbox}
-}
-
-\definecolor{cranberry50}{HTML}{fdf2f6}
-\definecolor{cranberry100}{HTML}{fbe8ef}
-\definecolor{cranberry200}{HTML}{fad0e0}
-\newenvironment*{cranberryBlock}[1]{%
-  \begin{tcolorbox}[colback=cranberry50, colframe=cranberry200, arc=0mm]{
-    \vskip\smallskipamount%
-    \raggedright\usebeamerfont*{block title}\usebeamercolor[fg]{title}%
-    \textbf{#1}%
-  }%
-  \vskip\medskipamount%
-  \raggedright%
-  \usebeamerfont{block body}%
-}{%
-  \vskip\smallskipamount\end{tcolorbox}
-}
-
-% Code listings ----------------------------------------------------------------
-\usepackage{listings}
-\tcbuselibrary{listings,listingsutf8,skins,breakable}
-\newtcblisting{codeblock}{
-  listing only,
-  interior hidden,
-  top = -6pt, 
-  bottom = -6pt,
-  left = 4pt, 
-  right = 0pt,
-  boxrule = 0pt, 
-  frame hidden, 
-  sharp corners, 
-  borderline west = {2pt}{0pt}{zinc400}, 
-  enhanced,
-  breakable,
-  listing options={
-    basicstyle = \small\ttfamily,
-    columns = fixed,
-    keepspaces = true,
-    language = R
-  }
-}
-
 
 % Bullet points ----------------------------------------------------------------
 
@@ -382,6 +215,223 @@
 \setbeamerfont{bibliography entry note}{size = \footnotesize, series = \mdseries}
 \setbeamercolor{bibliography entry note}{fg = zinc900}
 
+% Pause in align fix -----------------------------------------------------------
+% https://tex.stackexchange.com/a/75550/334034
+\makeatletter
+\let\save@measuring@true\measuring@true
+\def\measuring@true{%
+  \save@measuring@true
+  % might not be necessary and might have unwarranted side effects
+  \def\beamer@sortzero##1{\beamer@ifnextcharospec{\beamer@sortzeroread{##1}}{}}%
+  \def\beamer@sortzeroread##1<##2>{}%
+  \def\beamer@finalnospec{}%
+}
+\makeatother
+
+% Hyperref ---------------------------------------------------------------------
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks = true,
+  linkcolor = accent2,
+  filecolor = accent2,
+  urlcolor = accent2,
+  citecolor = accent2,
+}
+
+% Kyle's colors ----------------------------------------------------------------
+% Zinc from Tailwind Colors
+\definecolor{zinc50}{HTML}{fafafa}
+\definecolor{zinc100}{HTML}{f4f4f5}
+\definecolor{zinc200}{HTML}{e4e4e7}
+\definecolor{zinc300}{HTML}{d4d4d8}
+\definecolor{zinc400}{HTML}{a1a1aa}
+\definecolor{zinc500}{HTML}{71717a}
+\definecolor{zinc600}{HTML}{52525b}
+\definecolor{zinc700}{HTML}{3f3f46}
+\definecolor{zinc800}{HTML}{27272a}
+\definecolor{zinc900}{HTML}{18181b}
+\definecolor{zinc950}{HTML}{09090b}
+
+\definecolor{navy}{HTML}{002C55}
+\definecolor{raspberry}{HTML}{940034}
+\definecolor{cranberry}{HTML}{B3114B}
+\definecolor{orange}{HTML}{D65616}
+\definecolor{purple}{HTML}{5C4CBF}
+\definecolor{blue}{HTML}{0188AC}
+\definecolor{green}{HTML}{2DB25F}
+\definecolor{rose}{HTML}{FB7185}
+\definecolor{yellow}{HTML}{ffc517}
+
+% Easily color text
+\newcommand\navy[1]{{\color{navy}#1}}
+\newcommand\raspberry[1]{{\color{raspberry}#1}}
+\newcommand\cranberry[1]{{\color{cranberry}#1}}
+\newcommand\orange[1]{{\color{orange}#1}}
+\newcommand\purple[1]{{\color{purple}#1}}
+\newcommand\blue[1]{{\color{blue}#1}}
+\newcommand\green[1]{{\color{green}#1}}
+\newcommand\rose[1]{{\color{rose}#1}}
+\newcommand\yellow[1]{{\color{yellow}#1}}
+
+% lightened via: https://uicolors.app/create
+\definecolor{bgNavy}{HTML}{b2e3ff}
+\definecolor{bgRaspberry}{HTML}{ff96a9}
+\definecolor{bgCranberry}{HTML}{fda4d0}
+\definecolor{bgOrange}{HTML}{f6b97b}
+\definecolor{bgPurple}{HTML}{adb4f4}
+\definecolor{bgBlue}{HTML}{cdfbff}
+\definecolor{bgGreen}{HTML}{8ee7af}
+\definecolor{bgRose}{HTML}{fecdd4}
+\definecolor{bgYellow}{HTML}{ffea88}
+
+% Color background of text
+\newcommand\bgNavy[1]{\colorbox{bgNavy}{#1}}
+\newcommand\bgRaspberry[1]{\colorbox{bgRaspberry}{#1}}
+\newcommand\bgCranberry[1]{\colorbox{bgCranberry}{#1}}
+\newcommand\bgOrange[1]{\colorbox{bgOrange}{#1}}
+\newcommand\bgPurple[1]{\colorbox{bgPurple}{#1}}
+\newcommand\bgBlue[1]{\colorbox{bgBlue}{#1}}
+\newcommand\bgGreen[1]{\colorbox{bgGreen}{#1}}
+\newcommand\bgRose[1]{\colorbox{bgRose}{#1}}
+\newcommand\bgYellow[1]{\colorbox{bgYellow}{#1}}
+
+% old colors: have fallen out of grace
+% \definecolor{ruby}{HTML}{9a2515}
+% \definecolor{alice}{HTML}{107895}
+% \definecolor{daisy}{HTML}{EBC944}
+% \definecolor{coral}{HTML}{F26D21}
+% \definecolor{kelly}{HTML}{829356}
+% \newcommand\kelly[1]{{\color{kelly}#1}}
+% \newcommand\ruby[1]{{\color{ruby}#1}}
+% \newcommand\alice[1]{{\color{alice}#1}}
+% \newcommand\daisy[1]{{\color{daisy}#1}}
+% \newcommand\coral[1]{{\color{coral}#1}}
+% \newcommand\bgKelly[1]{{\colorbox{kelly!80!white}{#1}}}
+% \newcommand\bgRuby[1]{{\colorbox{ruby!80!white}{#1}}}
+% \newcommand\bgAlice[1]{{\colorbox{alice!80!white}{#1}}}
+% \newcommand\bgDaisy[1]{{\colorbox{daisy!80!white}{#1}}}
+% \newcommand\bgCoral[1]{{\colorbox{coral!80!white}{#1}}}
+
+
+% Math stuff -------------------------------------------------------------------
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{bm}
+
+% Load tcolorbox and tikz ------------------------------------------------------
+\usepackage[beamer,customcolors]{hf-tikz}
+\usetikzlibrary{calc, fit, shapes.misc, shadows, arrows.meta}
+\usepackage[most,skins]{tcolorbox}
+\tcbuselibrary{breakable}
+\tcbset{
+  highlight math/.style={
+    notitle, enhanced, 
+    on line, boxsep=2pt, left=0pt, right=0pt, top=0pt, bottom=0pt,
+    colback = bgRaspberry, colframe = white,
+  }
+}
+
+% Block ------------------------------------------------------------------------
+% TODO: Update default blocks
+\defbeamertemplate{block begin}{framed}[1][] {
+  \begin{tcolorbox}[colback=zinc50, colframe=zinc200, arc=0mm]
+  {
+    \vskip\smallskipamount%
+    \ifthenelse{\equal{\insertblocktitle}{}}{}{%
+      \raggedright\usebeamerfont*{block title}\usebeamercolor[fg]{title}%
+      \textbf{\insertblocktitle}%
+      \vskip\medskipamount%
+    }
+  }%
+  \raggedright%
+  \usebeamerfont{block body}%
+}
+\defbeamertemplate{block end}{framed}[1][] {
+  \vskip\smallskipamount\end{tcolorbox}
+}
+\setbeamertemplate{blocks}[framed]
+
+\newenvironment*{zincBlock}[1]{%
+  \begin{tcolorbox}[colback=zinc50, colframe=zinc200, arc=0mm]{
+    \vskip\smallskipamount%
+    \ifthenelse{\equal{#1}{}}{}{%
+      \raggedright\usebeamerfont*{block title}\usebeamercolor[fg]{title}%
+      \textbf{#1}%
+      \vskip\medskipamount%
+    }%
+  }%
+  \raggedright%
+  \usebeamerfont{block body}%
+}{%
+  \vskip\smallskipamount\end{tcolorbox}
+}
+
+% Colors from plugging base color into https://uicolors.app/create
+\definecolor{purple50}{HTML}{f9f8fc}
+\definecolor{purple100}{HTML}{f1eff8}
+\definecolor{purple200}{HTML}{e6e2f2}
+\newenvironment*{purpleBlock}[1]{%
+  \begin{tcolorbox}[colback=purple50, colframe=purple200, arc=0mm]{
+    \vskip\smallskipamount%
+    \ifthenelse{\equal{#1}{}}{}{%
+      \raggedright\usebeamerfont*{block title}\usebeamercolor[fg]{title}%
+      \textbf{#1}%
+      \vskip\medskipamount%
+    }%
+  }%
+  \raggedright%
+  \usebeamerfont{block body}%
+}{%
+  \vskip\smallskipamount\end{tcolorbox}
+}
+
+\definecolor{cranberry50}{HTML}{fdf2f6}
+\definecolor{cranberry100}{HTML}{fbe8ef}
+\definecolor{cranberry200}{HTML}{fad0e0}
+\newenvironment*{cranberryBlock}[1]{%
+  \begin{tcolorbox}[colback=cranberry50, colframe=cranberry200, arc=0mm]{
+    \vskip\smallskipamount%
+    \raggedright\usebeamerfont*{block title}\usebeamercolor[fg]{title}%
+    \textbf{#1}%
+  }%
+  \vskip\medskipamount%
+  \raggedright%
+  \usebeamerfont{block body}%
+}{%
+  \vskip\smallskipamount\end{tcolorbox}
+}
+
+
+% Code listings ----------------------------------------------------------------
+\usepackage{listings}
+\tcbuselibrary{listings,listingsutf8,skins}
+\tcbset{
+  codelanguage/.style={language = #1},
+  codelanguage/.default = R,
+}
+\DeclareTCBListing{codeblock}{ !O{R} }{
+  listing only,
+  interior hidden,
+  top = -6pt, 
+  bottom = -6pt,
+  left = 4pt, 
+  right = 0pt,
+  boxrule = 0pt, 
+  frame hidden, 
+  sharp corners, 
+  borderline west = {2pt}{0pt}{zinc400}, 
+  enhanced,
+  breakable,
+  listing options={
+    basicstyle = \small\ttfamily,
+    columns = fixed,
+    keepspaces = true,
+    language = #1
+  }
+}
+
 
 % \begin{columns} --------------------------------------------------------------
 \usepackage{multicol}
@@ -420,7 +470,7 @@
   \IfNoValueTF{#3}{%
     \footnotesize\vspace*{\medskipamount}%
     \noindent\emph{#1} #2
-  }{%
+  }{%  
     \parbox{#2}{\footnotesize\vspace*{\medskipamount}%
       \noindent\emph{#1} #3
     }%
@@ -502,3 +552,79 @@
 }{
     \end{frame}
 }
+
+% Define custom slide coordinate system ----------------------------------------
+% https://tex.stackexchange.com/questions/89588/positioning-relative-to-page-in-tikz
+% Defining a new coordinate system for the page:
+%
+% ┌──────────────────────────────────────────────┐
+% │ (0, 0)                                (1, 0) │
+% │                                              │
+% │                                              │
+% │                                              │
+% │                                              │
+% │                                              │
+% │ (0, 1)                                (1, 1) │
+% └──────────────────────────────────────────────┘
+% 
+% source: https://tex.stackexchange.com/questions/89588/positioning-relative-to-page-in-tikz
+% 
+\makeatletter
+\def\parsecomma#1,#2\endparsecomma{\def\page@x{#1}\def\page@y{#2}}
+\tikzdeclarecoordinatesystem{page}{
+    \parsecomma#1\endparsecomma
+    \pgfpointanchor{current page}{north west}
+    % Save the upper left corner
+    \pgf@xa=\pgf@x%
+    \pgf@ya=\pgf@y%
+    % save the lower right corner
+    \pgfpointanchor{current page}{south east}
+    \pgf@xb=\pgf@x%
+    \pgf@yb=\pgf@y%
+    % Transform to the correct placement
+    \pgfmathparse{(\pgf@xb-\pgf@xa)*\page@x+\pgf@xa}
+    \expandafter\pgf@x\expandafter=\pgfmathresult pt
+    \pgfmathparse{(\pgf@yb-\pgf@ya)*\page@y+\pgf@ya}
+    \expandafter\pgf@y\expandafter=\pgfmathresult pt
+}
+\makeatother
+
+% To overlay on beamer slides, use the following:
+% 
+% \begin{tikzpicture}[remember picture, overlay]
+%   \node[anchor = north west] (anchor_name) at (page cs:0.0, 0.0) {   
+%     CONTENT HERE  
+%   };
+% \end{tikzpicture}
+% 
+% Note page cs is the coordinate system from above
+
+% To help with placement, I will use `\devgrid` on a slide to figure out the coordinates of `page cs` to the 0.1
+\newcommand{\devgrid}{
+  \begin{tikzpicture}[remember picture, overlay]
+    % vertical lines
+    \draw (page cs: 0.1, 0.0) edge[black!20!white, line width = 0.3mm, dotted] (page cs: 0.1, 1.0);
+    \draw (page cs: 0.2, 0.0) edge[black!20!white, line width = 0.3mm, dotted] (page cs: 0.2, 1.0);
+    \draw (page cs: 0.3, 0.0) edge[black!20!white, line width = 0.3mm, dotted] (page cs: 0.3, 1.0);
+    \draw (page cs: 0.4, 0.0) edge[black!20!white, line width = 0.3mm, dotted] (page cs: 0.4, 1.0);
+    \draw (page cs: 0.5, 0.0) edge[black!20!white, line width = 0.3mm, dotted] (page cs: 0.5, 1.0);
+    \draw (page cs: 0.6, 0.0) edge[black!20!white, line width = 0.3mm, dotted] (page cs: 0.6, 1.0);
+    \draw (page cs: 0.7, 0.0) edge[black!20!white, line width = 0.3mm, dotted] (page cs: 0.7, 1.0);
+    \draw (page cs: 0.8, 0.0) edge[black!20!white, line width = 0.3mm, dotted] (page cs: 0.8, 1.0);
+    \draw (page cs: 0.9, 0.0) edge[black!20!white, line width = 0.3mm, dotted] (page cs: 0.9, 1.0);
+
+    % horizontal lines
+    \draw (page cs: 0.0, 0.1) edge[black!20!white, line width = 0.3mm, dotted] (page cs: 1.0, 0.1);
+    \draw (page cs: 0.0, 0.2) edge[black!20!white, line width = 0.3mm, dotted] (page cs: 1.0, 0.2);
+    \draw (page cs: 0.0, 0.3) edge[black!20!white, line width = 0.3mm, dotted] (page cs: 1.0, 0.3);
+    \draw (page cs: 0.0, 0.4) edge[black!20!white, line width = 0.3mm, dotted] (page cs: 1.0, 0.4);
+    \draw (page cs: 0.0, 0.5) edge[black!20!white, line width = 0.3mm, dotted] (page cs: 1.0, 0.5);
+    \draw (page cs: 0.0, 0.6) edge[black!20!white, line width = 0.3mm, dotted] (page cs: 1.0, 0.6);
+    \draw (page cs: 0.0, 0.7) edge[black!20!white, line width = 0.3mm, dotted] (page cs: 1.0, 0.7);
+    \draw (page cs: 0.0, 0.8) edge[black!20!white, line width = 0.3mm, dotted] (page cs: 1.0, 0.8);
+    \draw (page cs: 0.0, 0.9) edge[black!20!white, line width = 0.3mm, dotted] (page cs: 1.0, 0.9);
+  \end{tikzpicture}  
+}
+
+
+

@@ -12,6 +12,7 @@ This is a repository of all my latex templates. I've done my best to document ev
 <!-- latex-slides -->
 [<img src="thumbnails/latex-slides-1.png" style="width: 100.0%" />](thumbnails/latex-slides-1.png)
 [<img src="thumbnails/latex-slides-2.png" style="width: 100.0%" />](thumbnails/latex-slides-2.png)
+[<img src="thumbnails/latex-slides-3.png" style="width: 100.0%" />](thumbnails/latex-slides-3.png)
 <!-- latex-slides -->
 
 This latex slide aims for nice typography, minimal aesthetics so the focus is on the content, and a set of helpful commands including easily colored words, full-size image frames, table highlighting, multi-column layouts, and more. The theme is highly customizable with (1) a well commented `slides.sty` file so you can tweak it and make it your own and (2) by defining the colors in the top of your document:
